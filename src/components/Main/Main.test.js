@@ -1,7 +1,7 @@
 import React from 'react'
 import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
-import { BrowserRouter } from 'react-router-dom'
+import { MemoryRouter } from 'react-router-dom'
 import Main from './Main'
 
 describe('<Main />', () => {
@@ -9,18 +9,18 @@ describe('<Main />', () => {
   it('renders without crashing', () => {
     const div = document.createElement('div')
     ReactDOM.render(
-      <BrowserRouter>
+      <MemoryRouter>
         <Main />
-      </BrowserRouter>, div)
+      </MemoryRouter>, div)
     ReactDOM.unmountComponentAtNode(div)
   })
   // Snapshot test
   it('renders the UI as expected', () => {
     const tree = renderer
       .create(
-        <BrowserRouter>
+        <MemoryRouter>
           <Main />
-        </BrowserRouter>
+        </MemoryRouter>
       )
       .toJSON()
     expect(tree).toMatchSnapshot()
