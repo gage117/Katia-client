@@ -37,14 +37,17 @@ class App extends Component {
             component={SignupPage}
           />
           <Route
+            exact
             path='/swipe'
             component={MainPage}
           />
           <Route
+            exact
             path='/profile'
             component={Profile}
           />
-          <Route 
+          <Route
+            exact 
             path='/matches'
             component={Matches}
           /> 

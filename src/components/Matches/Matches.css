@@ -1,0 +1,15 @@
+.matchH3 {
+    text-align: center;
+    margin-top: 50px;
+}
+
+.matchImg {
+    height: 200px;
+    border: 1px solid black;
+}
+
+.matchUl {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
