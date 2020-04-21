@@ -1,0 +1,7 @@
+.Login__container {
+  width: 70%;
+  font-size: 1.6rem;
+  border: .1rem solid black;
+  text-align: center;
+  padding: 1rem 1rem 2rem;
+}

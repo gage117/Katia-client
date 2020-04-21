@@ -1,0 +1,46 @@
+#lp_main-flex {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.lp_login {
+  position: absolute;
+  top: .5rem;
+  right: .5rem;
+}
+
+#Landing_Page__container {
+  font-size: 1.6rem;
+  border: .1rem solid black;
+  text-align: center;
+  padding: 1rem 1rem 2rem;
+}
+
+.lp_button {
+  font-size: 1.8rem;
+  border: .1rem solid black;
+  padding: .5rem;
+  text-decoration: none;
+}
+
+.lp_lp-link {
+  position: absolute;
+  top: .5rem;
+  left: .5rem;
+  font-size: 1.8rem;
+  text-decoration: none;
+}
+
+.lp_input-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+  margin: .5rem;
+}
+
+.lp_input {
+  width: 125px;
+}
