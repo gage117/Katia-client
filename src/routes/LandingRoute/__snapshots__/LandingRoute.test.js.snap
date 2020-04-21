@@ -1,0 +1,32 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LandingRoute /> renders the UI as expected 1`] = `
+<div
+  id="landing-page"
+>
+  <a
+    href="/login"
+    onClick={[Function]}
+  >
+    Login
+  </a>
+  <h1>
+    Project Manhattan
+  </h1>
+  <h2>
+    Find new teammates
+  </h2>
+  <h3>
+    who own the platforms you own
+  </h3>
+  <h3>
+    and play the games you play
+  </h3>
+  <a
+    href="/signup"
+    onClick={[Function]}
+  >
+    Signup
+  </a>
+</div>
+`;
