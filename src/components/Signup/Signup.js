@@ -49,9 +49,9 @@ export default class Signup extends Component {
   render() {
     const { error } = this.state
     return (
-      <main id='Signup__main-flex'>
+      <main id='lp_main-flex'>
+        <Link to='/' className='lp_lp-link'>Project Manhattan</Link>
         <section className='Signup__container'>
-          <Link to='/'>Project Manhattan</Link>
           <h2>Signup</h2>
           <form
             className='Signup__form'
@@ -60,7 +60,7 @@ export default class Signup extends Component {
             <div role='alert'>
               {error && <p className='Signup__error'>{error}</p>}
             </div>
-            <div className='Signup__user_name-div'>
+            <div className='Signup__user_name-div lp_input-div'>
               <label htmlFor='Signup__user_name'>
                 User name 
               </label>
@@ -68,10 +68,11 @@ export default class Signup extends Component {
                 name='user_name'
                 type='text'
                 required
-                id='Signup__user_name'>
+                id='Signup__user_name'
+                className='lp_input'>
               </input>
             </div>
-            <div className='Signup__display_name-div'>
+            <div className='Signup__display_name-div lp_input-div'>
               <label htmlFor='Signup__display_name'>
                 Display Name
               </label>
@@ -79,10 +80,11 @@ export default class Signup extends Component {
                 name='display_name'
                 type='text'
                 required
-                id='Signup__display_name'>
+                id='Signup__display_name'
+                className='lp_input'>
               </input>
             </div>
-            <div className='Signup__password-div'>
+            <div className='Signup__password-div lp_input-div'>
               <label htmlFor='Signup__password'>
                 Password 
               </label>
@@ -90,10 +92,11 @@ export default class Signup extends Component {
                 name='password'
                 type='password'
                 required
-                id='Signup__password'>
+                id='Signup__password'
+                className='lp_input'>
               </input>
             </div>
-            <div className='Signup__confirm_password-div'>
+            <div className='Signup__confirm_password-div lp_input-div'>
               <label htmlFor='Signup__confirm_password'>
                 Confirm Password 
               </label>
@@ -101,15 +104,16 @@ export default class Signup extends Component {
                 name='confirm_password'
                 type='confirm_password'
                 required
-                id='Signup__confirm_password'>
+                id='Signup__confirm_password'
+                className='lp_input'>
               </input>
             </div>
             <div className='Signup__submit-button-div'>
-              <button className='Signup__submit-button' type='submit'>
+              <button className='Signup__submit-button lp_button' type='submit'>
                 Signup
               </button>
               <p className='Signup__or'>or</p>
-              <Link className='Signup__login-link' to='/login'>login</Link>
+              <Link className='Signup__login-link lp_button' to='/login'>login</Link>
             </div>
           </form>
         </section>

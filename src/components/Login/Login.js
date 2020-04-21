@@ -33,9 +33,9 @@ export default class Login extends Component {
 
   render() {
     return (
-      <main id='Login__main-flex'>
+      <main id='lp_main-flex'>
+        <Link to='/' className='lp_lp-link'>Project Manhattan</Link>
         <section className='Login__container'>
-          <Link to='/'>Project Manhattan</Link>
           <h2>Login</h2>
           <form
             className='Login__form'
@@ -51,7 +51,8 @@ export default class Login extends Component {
               <input
                 required
                 name='user_name'
-                id='Login__user_name'>
+                id='Login__user_name'
+                className='lp_input'>
               </input>
             </div>
             <div className='Login__password-div'>
@@ -62,7 +63,8 @@ export default class Login extends Component {
                 required
                 name='password'
                 type='password'
-                id='Login__password'>
+                id='Login__password'
+                className='lp_input'>
               </input>
             </div>
             <div className='Login__submit-button-div'>
