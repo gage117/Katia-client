@@ -5,6 +5,8 @@ import LandingRoute from './routes/LandingRoute/LandingRoute'
 import SignupPage from './routes/SignupPage/SignupPage'
 import NotFoundPage from './routes/NotFoundPage/NotFoundPage'
 import LoginPage from './routes/LoginPage/LoginPage'
+import Profile from './components/Profile/Profile';
+import Matches from './components/Matches/Matches';
 
 class App extends Component {
   constructor(props) {
@@ -38,6 +40,14 @@ class App extends Component {
             path='/swipe'
             component={MainPage}
           />
+          <Route
+            path='/profile'
+            component={Profile}
+          />
+          <Route 
+            path='/matches'
+            component={Matches}
+          /> 
           <Route
             component={NotFoundPage}
           />

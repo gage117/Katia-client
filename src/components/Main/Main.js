@@ -2,10 +2,12 @@ import React from 'react'
 import './MainPage.css'
 import users from '../../store'
 import MainPageContext from '../../Contexts/MainPageContext'
+import { Link } from 'react-router-dom'
 
 
 export default class MainPage extends React.Component {
     static contextType = MainPageContext
+
     componentDidMount() {
         this.context.setUsers(users)
         this.context.setCurrentProfile(users[0])
@@ -18,8 +20,10 @@ export default class MainPage extends React.Component {
             <section className='mainSwipe'>
             <h2 className='mainSwipeH2'>Main Page</h2>
             <div className='mainNav'>
-                <button className='profileButton'>profile</button>
-                <button className='messagesButton'>messages</button>
+                <Link to='/profile'>Profile</Link>
+                <Link to='/matches'>Matches</Link>
+                {/* <button className='profileButton'>profile</button> */}
+                {/* <button className='matchesButton'>matches</button> */}
             </div>
             {<li className='mainSwipeUser'>
                 <img src={userOne.avatar} alt='avatar' className='mainImage'></img>
