@@ -1,32 +1,47 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<LandingRoute /> renders the UI as expected 1`] = `
-<div
-  id="landing-page"
+<main
+  id="lp_main-flex"
 >
   <a
+    className="lp_login lp_button"
     href="/login"
     onClick={[Function]}
   >
     Login
   </a>
-  <h1>
-    Project Manhattan
-  </h1>
-  <h2>
-    Find new teammates
-  </h2>
-  <h3>
-    who own the platforms you own
-  </h3>
-  <h3>
-    and play the games you play
-  </h3>
-  <a
-    href="/signup"
-    onClick={[Function]}
+  <div
+    id="Landing_Page__container"
   >
-    Signup
-  </a>
-</div>
+    <h1
+      className="lp_header"
+    >
+      Project Manhattan
+    </h1>
+    <hr />
+    <h2
+      className="lp_header"
+    >
+      Find new teammates
+    </h2>
+    <h4
+      className="lp_header"
+    >
+      who own the platforms you own
+    </h4>
+    <h4
+      className="lp_header lp_last-header"
+    >
+      and play the games you play
+    </h4>
+    <a
+      className="lp_signup lp_button"
+      href="/signup"
+      onClick={[Function]}
+    >
+      Signup
+    </a>
+  </div>
+</main>
 `;

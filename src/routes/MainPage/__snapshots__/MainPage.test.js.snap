@@ -46,16 +46,18 @@ exports[`<MainPage /> renders the UI as expected 1`] = `
     <div
       className="mainNav"
     >
-      <button
-        className="profileButton"
+      <a
+        href="/profile"
+        onClick={[Function]}
       >
-        profile
-      </button>
-      <button
-        className="messagesButton"
+        Profile
+      </a>
+      <a
+        href="/matches"
+        onClick={[Function]}
       >
-        messages
-      </button>
+        Matches
+      </a>
     </div>
     <li
       className="mainSwipeUser"
