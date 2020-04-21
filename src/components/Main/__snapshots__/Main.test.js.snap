@@ -1,7 +1,54 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Main /> renders the UI as expected 1`] = `
-<div>
-  Main
-</div>
+<section
+  className="mainSwipe"
+>
+  <h2
+    className="mainSwipeH2"
+  >
+    Main Page
+  </h2>
+  <div
+    className="mainNav"
+  >
+    <button
+      className="profileButton"
+    >
+      profile
+    </button>
+    <button
+      className="messagesButton"
+    >
+      messages
+    </button>
+  </div>
+  <li
+    className="mainSwipeUser"
+  >
+    <img
+      alt="avatar"
+      className="mainImage"
+    />
+    <h3 />
+    <p />
+    <span />
+     
+    <span />
+  </li>
+  <div
+    className="secondNav"
+  >
+    <button
+      className="noButton"
+    >
+      No
+    </button>
+    <button
+      className="yesButton"
+    >
+      Yes
+    </button>
+  </div>
+</section>
 `;

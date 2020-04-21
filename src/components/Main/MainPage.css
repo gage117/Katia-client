@@ -1,5 +1,5 @@
-img {
-    height: 380px;
+.mainImage {
+    height: 200px;
 }
 
 .mainSwipeH2 {
@@ -10,4 +10,36 @@ img {
     display: flex;
     flex-direction: column;
     align-items: center;
+}
+
+.mainNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    margin: 70px auto 30px auto;
+}
+
+.mainSwipeUser {
+    border: 1px solid black;
+    padding: 10px;
+    max-width: 90%;
+    margin: 0 auto;
+    border-radius: 8px;
+}
+
+.secondNav {
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    margin: 20px auto 30px auto;
+}
+
+@media screen and (min-width: 768px) {
+    .mainImage {
+        height: 320px;
+    }
+
+    .mainSwipeUser {
+        max-width: 50%;
+    }
 }
