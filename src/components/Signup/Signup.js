@@ -52,7 +52,7 @@ export default class Signup extends Component {
       <main id='lp_main-flex'>
         <Link to='/' className='lp_lp-link'>Project Manhattan</Link>
         <section className='Signup__container'>
-          <h2>Signup</h2>
+          <h2 className='Signup__header'>Signup</h2>
           <form
             className='Signup__form'
             onSubmit={this.handleSubmit}
@@ -110,10 +110,10 @@ export default class Signup extends Component {
             </div>
             <div className='Signup__submit-button-div'>
               <button className='Signup__submit-button lp_button' type='submit'>
-                Signup
+                Sign Up
               </button>
               <p className='Signup__or'>or</p>
-              <Link className='Signup__login-link lp_button' to='/login'>login</Link>
+              <Link className='Signup__login-link lp_button' to='/login'>Login</Link>
             </div>
           </form>
         </section>

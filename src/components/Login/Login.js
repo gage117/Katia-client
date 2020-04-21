@@ -36,7 +36,7 @@ export default class Login extends Component {
       <main id='lp_main-flex'>
         <Link to='/' className='lp_lp-link'>Project Manhattan</Link>
         <section className='Login__container'>
-          <h2>Login</h2>
+          <h2 className='Login__header'>Login</h2>
           <form
             className='Login__form'
             onSubmit={this.handleSubmitJwtAuth}
@@ -44,7 +44,7 @@ export default class Login extends Component {
             <div role='alert'>
               {this.state.error && <p className='Login__error'>Something went wrong, please try again</p>}
             </div>
-            <div className='Login__user_name-div'>
+            <div className='Login__user_name-div lp_input-div'>
               <label htmlFor='Login__user_name'>
                 User name
               </label>
@@ -55,7 +55,7 @@ export default class Login extends Component {
                 className='lp_input'>
               </input>
             </div>
-            <div className='Login__password-div'>
+            <div className='Login__password-div lp_input-div'>
               <label htmlFor='Login__password'>
                 Password
               </label>
@@ -68,11 +68,11 @@ export default class Login extends Component {
               </input>
             </div>
             <div className='Login__submit-button-div'>
-              <button className='Login__submit-button' type='submit'>
+              <button className='Login__submit-button lp_button' type='submit'>
                 Login
               </button>
               <p className='Login__or'>or</p>
-              <Link className='Login__signup-link' to='/signup'>sign up</Link>
+              <Link className='Login__signup-link lp_button' to='/signup'>Sign Up</Link>
             </div>
           </form>
         </section>

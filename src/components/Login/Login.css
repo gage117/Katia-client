@@ -5,3 +5,27 @@
   text-align: center;
   padding: 1rem 1rem 2rem;
 }
+
+.Login__header {
+  margin: 1.5rem 0;
+}
+
+.Login__submit-button-div {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+.Login__submit-button {
+  margin: 1rem auto 0;
+  width: 7.5rem;
+}
+
+.Login__signup-link {
+  margin: auto;
+  width: 8.5rem;
+}
+
+.Login__or {
+  margin: .75rem 0;
+}
