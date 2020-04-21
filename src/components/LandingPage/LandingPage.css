@@ -11,6 +11,14 @@
   right: .5rem;
 }
 
+.lp_header {
+  margin: 1rem 0;
+}
+
+.lp_last-header {
+  margin-bottom: 2rem;
+}
+
 #Landing_Page__container {
   font-size: 1.6rem;
   border: .1rem solid black;
@@ -19,10 +27,24 @@
 }
 
 .lp_button {
+  display: block;
   font-size: 1.8rem;
   border: .1rem solid black;
+  background-color: lightgray;
+  color: black;
   padding: .5rem;
   text-decoration: none;
+}
+
+.lp_button:hover {
+  cursor: pointer;
+  background-color: gray;
+  transform: translateY(-.25rem);
+}
+
+.lp_signup {
+  width: 7.5rem;
+  margin: auto;
 }
 
 .lp_lp-link {
@@ -31,6 +53,7 @@
   left: .5rem;
   font-size: 1.8rem;
   text-decoration: none;
+  color: black;
 }
 
 .lp_input-div {

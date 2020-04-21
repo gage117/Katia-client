@@ -1,0 +1,21 @@
+.NotFoundPage {
+  width: 80%;
+  margin: 3rem auto;
+}
+
+.NotFoundPage > * {
+  margin: 1rem 0;
+}
+
+.NotFoundPage > h2 {
+  font-size: 2.75rem;
+  margin-bottom: 2rem;
+}
+
+.NotFoundPage > h4 {
+  font-size: 1.6rem;
+}
+
+.NotFoundPage > p {
+  font-size: 1.6rem;
+}
