@@ -1,5 +1,5 @@
 import React from 'react'
-import './MainPage.css'
+import './Main.css'
 import users from '../../store'
 import MainPageContext from '../../Contexts/MainPageContext'
 import { Link } from 'react-router-dom'
