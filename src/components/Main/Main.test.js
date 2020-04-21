@@ -2,15 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 import { BrowserRouter } from 'react-router-dom'
-import Header from './Header'
+import Main from './Main'
 
-describe('<Header />', () => {
+describe('<Main />', () => {
   // Smoke test
   it('renders without crashing', () => {
     const div = document.createElement('div')
     ReactDOM.render(
       <BrowserRouter>
-        <Header />
+        <Main />
       </BrowserRouter>, div)
     ReactDOM.unmountComponentAtNode(div)
   })
@@ -19,7 +19,7 @@ describe('<Header />', () => {
     const tree = renderer
       .create(
         <BrowserRouter>
-          <Header />
+          <Main />
         </BrowserRouter>
       )
       .toJSON()
