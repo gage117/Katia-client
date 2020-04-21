@@ -1,0 +1,13 @@
+img {
+    height: 380px;
+}
+
+.mainSwipeH2 {
+    text-align: center;
+}
+
+.mainSwipeUser {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
