@@ -1,0 +1,80 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<LoginPage /> renders the UI as expected 1`] = `
+<main
+  id="Login__main-flex"
+>
+  <section
+    className="Login__container"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      Project Manhattan
+    </a>
+    <h2>
+      Login
+    </h2>
+    <form
+      className="Login__form"
+      onSubmit={[Function]}
+    >
+      <div
+        role="alert"
+      />
+      <div
+        className="Login__user_name-div"
+      >
+        <label
+          htmlFor="Login__user_name"
+        >
+          User name
+        </label>
+        <input
+          id="Login__user_name"
+          name="user_name"
+          required={true}
+        />
+      </div>
+      <div
+        className="Login__password-div"
+      >
+        <label
+          htmlFor="Login__password"
+        >
+          Password
+        </label>
+        <input
+          id="Login__password"
+          name="password"
+          required={true}
+          type="password"
+        />
+      </div>
+      <div
+        className="Login__submit-button-div"
+      >
+        <button
+          className="Login__submit-button"
+          type="submit"
+        >
+          Login
+        </button>
+        <p
+          className="Login__or"
+        >
+          or
+        </p>
+        <a
+          className="Login__signup-link"
+          href="/signup"
+          onClick={[Function]}
+        >
+          sign up
+        </a>
+      </div>
+    </form>
+  </section>
+</main>
+`;

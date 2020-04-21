@@ -1,0 +1,111 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<SignupPage /> renders the UI as expected 1`] = `
+<main
+  id="Signup__main-flex"
+>
+  <section
+    className="Signup__container"
+  >
+    <a
+      href="/"
+      onClick={[Function]}
+    >
+      Project Manhattan
+    </a>
+    <h2>
+      Signup
+    </h2>
+    <form
+      className="Signup__form"
+      onSubmit={[Function]}
+    >
+      <div
+        role="alert"
+      />
+      <div
+        className="Signup__user_name-div"
+      >
+        <label
+          htmlFor="Signup__user_name"
+        >
+          User name
+        </label>
+        <input
+          id="Signup__user_name"
+          name="user_name"
+          required={true}
+          type="text"
+        />
+      </div>
+      <div
+        className="Signup__display_name-div"
+      >
+        <label
+          htmlFor="Signup__display_name"
+        >
+          Display Name
+        </label>
+        <input
+          id="Signup__display_name"
+          name="display_name"
+          required={true}
+          type="text"
+        />
+      </div>
+      <div
+        className="Signup__password-div"
+      >
+        <label
+          htmlFor="Signup__password"
+        >
+          Password
+        </label>
+        <input
+          id="Signup__password"
+          name="password"
+          required={true}
+          type="password"
+        />
+      </div>
+      <div
+        className="Signup__confirm_password-div"
+      >
+        <label
+          htmlFor="Signup__confirm_password"
+        >
+          Confirm Password
+        </label>
+        <input
+          id="Signup__confirm_password"
+          name="confirm_password"
+          required={true}
+          type="confirm_password"
+        />
+      </div>
+      <div
+        className="Signup__submit-button-div"
+      >
+        <button
+          className="Signup__submit-button"
+          type="submit"
+        >
+          Signup
+        </button>
+        <p
+          className="Signup__or"
+        >
+          or
+        </p>
+        <a
+          className="Signup__login-link"
+          href="/login"
+          onClick={[Function]}
+        >
+          login
+        </a>
+      </div>
+    </form>
+  </section>
+</main>
+`;

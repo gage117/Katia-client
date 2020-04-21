@@ -2,15 +2,15 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 import { MemoryRouter } from 'react-router-dom'
-import LandingPage from './LandingPage'
+import NotFoundPage from './NotFoundPage'
 
-describe('<LandingPage />', () => {
+describe('<NotFoundPage />', () => {
   // Smoke test
   it('renders without crashing', () => {
     const div = document.createElement('div')
     ReactDOM.render(
       <MemoryRouter>
-        <LandingPage />
+        <NotFoundPage />
       </MemoryRouter>, div)
     ReactDOM.unmountComponentAtNode(div)
   })
@@ -19,7 +19,7 @@ describe('<LandingPage />', () => {
     const tree = renderer
       .create(
         <MemoryRouter>
-          <LandingPage />
+          <NotFoundPage />
         </MemoryRouter>
       )
       .toJSON()
