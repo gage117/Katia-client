@@ -5,7 +5,7 @@ import AuthService from '../../services/auth-api-service'
 import TokenService from '../../services/token-service'
 
 class LandingPage extends Component {
-  handleDemoClick = () => {
+  handleDemoClick = () => { // Only needed if we have a demo account setup
     const demoAccount = {
       "user_name": 'demouser',
       "password": 'password'
