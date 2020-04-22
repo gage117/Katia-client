@@ -5,6 +5,10 @@ import MainPageContext from '../../Contexts/MainPageContext'
 import { Link } from 'react-router-dom'
 import userSVG from '../../images/user.svg'
 import contactsSVG from '../../images/contacts.svg'
+import nintendoNetworkLogo from '../../images/nintendo_logo.png'
+import playstationLogo from '../../images/Playstation_logo_colour.svg'
+import PC_Logo from '../../images/PC_Keyboard_Mouse_Icon.png'
+import xboxLogo from '../../images/Xbox_one_logo.svg'
 import checkmarkSVG from '../../images/checkmark-circle-2.svg'
 import x_markSVG from '../../images/x-circle.svg'
 import down_caretSVG from '../../images/solid_caret-down.svg'
@@ -32,10 +36,16 @@ export default class MainPage extends React.Component {
                     </Link>
                 </div>
                 {<li className='main__Swipe-User'>
-                    <img src={userOne.avatar} alt='avatar' className='main__Image'></img>
+                    <img src={userOne.avatar} alt='avatar' className='main__Image' />
                     <h3>{userOne.display_name}</h3>
                     <h4>Platforms</h4>
-                    <span>{userOne.platforms}</span>
+                    <span>
+                        {/*userOne.platforms*/}
+                        <img className='main__xbox' src={xboxLogo} alt='Xbox logo' />
+                        <img className='main__playstation' src={playstationLogo} alt='Playstation logo' />
+                        <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' />
+                        <img className='main__PC' src={PC_Logo} alt='PC logo' />
+                    </span>
                     <h4>LFM In</h4>
                     <span>{userOne.lfm_in}</span>
                     <img className='main__down-caret' src={down_caretSVG} alt='down-caret' />
