@@ -59,21 +59,21 @@ export default class Profile extends React.Component {
             return (
                 <>
                 <img src={currentUser.avatar} 
-                alt='avatar' className='profileImgEdit' />
+                alt='avatar' className='profile__ImgEdit' />
                 <form className='editForm'>
                     <label htmlFor='username'>Username </label>
                     <input type='text' name='username' 
-                    id='username' defaultValue={currentUser.display_name}></input>
-                    <label htmlFor='bio'>Bio </label>
-                    <input type='text' name='bio' 
-                    id='bio' defaultValue={currentUser.bio}></input>
+                    id='username' defaultValue={currentUser.display_name} />
                     <label htmlFor='lfm'>lfm in </label>
                     <input type='text' name='lfm' 
-                    id='lfm' defaultValue={currentUser.lfm_in}></input>
+                    id='lfm' defaultValue={currentUser.lfm_in} />
                     <label htmlFor='platforms'> Platforms: </label>
                     <input type='text' name='platforms' 
-                    id='platforms' defaultValue={currentUser.platforms}></input>
-                    <input type='submit' onSubmit={this.saveEdit}></input>
+                    id='platforms' defaultValue={currentUser.platforms} />
+                    <label htmlFor='bio'>Bio </label>
+                    <textarea rows='10' cols='25' type='text' name='bio' 
+                    id='bio' defaultValue={currentUser.bio} />
+                    <input type='submit' onSubmit={this.saveEdit} />
                 </form>
                 </>
             )

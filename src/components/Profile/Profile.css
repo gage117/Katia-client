@@ -57,8 +57,10 @@
     margin: 4rem auto 0 auto;
 }
 
-.profileImgEdit {
-    height: 28rem;
+.profile__ImgEdit {
+    height: auto;
+    width: 80%;
     display: block;
     margin: 4rem auto 0;
+    border-radius: .5rem;
 }
