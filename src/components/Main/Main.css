@@ -54,6 +54,22 @@
     font-size: 1.5rem;
 }
 
+.main__xbox {
+    max-height: 4rem;
+}
+
+.main__playstation {
+    max-height: 4rem;
+}
+
+.main__nintendo {
+    max-height: 4rem;
+}
+
+.main__PC {
+    max-height: 4rem;
+}
+
 .main__down-caret {
     position: absolute;
     bottom: 0;
