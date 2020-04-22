@@ -1,7 +1,7 @@
 import React from 'react'
 import './Main.css'
-import users from '../../store'
-import MainPageContext from '../../Contexts/MainPageContext'
+import UserContext from '../../Contexts/UserContext'
+import SwipeService from '../../services/swipe-service'
 import { Link } from 'react-router-dom'
 import userSVG from '../../images/user.svg'
 import contactsSVG from '../../images/contacts.svg'
@@ -15,16 +15,22 @@ import down_caretSVG from '../../images/solid_caret-down.svg'
 
 
 export default class MainPage extends React.Component {
-    static contextType = MainPageContext
+    state = {
+        potentialMatches: [],
+        error: null
+    }
+
+    static contextType = UserContext;
 
     componentDidMount() {
-        this.context.setUsers(users)
-        this.context.setCurrentProfile(users[0])
+        SwipeService.getPotentialMatches(this.context.user.id)
+            .then(potentialMatches => {
+                this.setState({ potentialMatches })
+            })
     }
 
     render() {
-        console.log(this.context.state)
-        const userOne = this.context.users[0] || {}
+        const userOne = this.state.potentialMatches[0] || {}
         return (
             <section className='main__Swipe'>
                 <div className='main__Nav'>

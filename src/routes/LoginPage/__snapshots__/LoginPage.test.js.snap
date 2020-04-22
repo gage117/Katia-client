@@ -27,17 +27,17 @@ exports[`<LoginPage /> renders the UI as expected 1`] = `
         role="alert"
       />
       <div
-        className="Login__user_name-div lp_input-div"
+        className="Login__email-div lp_input-div"
       >
         <label
-          htmlFor="Login__user_name"
+          htmlFor="Login__email"
         >
-          User name
+          Email
         </label>
         <input
           className="lp_input"
-          id="Login__user_name"
-          name="user_name"
+          id="Login__email"
+          name="email"
           required={true}
         />
       </div>

@@ -2,7 +2,6 @@ import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
 import TokenService from '../../services/token-service'
 import AuthService from '../../services/auth-api-service'
-import bcrypt from 'bcryptjs'
 import './Signup.css'
 
 export default class Signup extends Component {
@@ -14,36 +13,27 @@ export default class Signup extends Component {
 
   handleSubmit = ev => {
     ev.preventDefault()
-    const { user_name, display_name, password } = ev.target
-    if (user_name.value.includes(' ')) {
-      this.setState({
-        error: 'User name cannot contain spaces'
-      })
-    } else {
-      bcrypt.hash(password.value, 10)
-      .then(hashedPassword => {
-        const user = {
-          user_name: user_name.value,
-          display_name: display_name.value,
-          password: hashedPassword
-        }
-    
-        AuthService.addUser(user)
-          .then(() => {
-            AuthService.postLogin({
-              user_name: user_name.value,
-              password: password.value
-            })
-              .then(res => {
-                password.value = ''
-                TokenService.saveAuthToken(res.authToken)
-                this.props.onRegistrationSuccess(user.user_name)
-                user_name.value = ''
-                display_name.value = ''
-              })
+    const { email, display_name, password, confirm_password } = ev.target
+    const user = {
+      email: email.value,
+      display_name: display_name.value,
+      password: password.value
+    }
+
+    AuthService.registerUser(user)
+      .then(() => {
+        AuthService.postLogin({
+          email: email.value,
+          password: password.value
+        })
+          .then(res => {
+            password.value = ''
+            TokenService.saveAuthToken(res.authToken)
+            this.props.onRegistrationSuccess(user.user_name)
+            email.value = ''
+            display_name.value = ''
           })
       })
-    }
   }
 
   render() {
@@ -60,15 +50,15 @@ export default class Signup extends Component {
             <div role='alert'>
               {error && <p className='Signup__error'>{error}</p>}
             </div>
-            <div className='Signup__user_name-div lp_input-div'>
-              <label htmlFor='Signup__user_name'>
-                User name 
+            <div className='Signup__email-div lp_input-div'>
+              <label htmlFor='Signup__email'>
+                Email
               </label>
               <input
-                name='user_name'
-                type='text'
+                name='email'
+                type='email'
                 required
-                id='Signup__user_name'
+                id='Signup__email'
                 className='lp_input'>
               </input>
             </div>
