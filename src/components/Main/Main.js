@@ -3,6 +3,11 @@ import './Main.css'
 import users from '../../store'
 import MainPageContext from '../../Contexts/MainPageContext'
 import { Link } from 'react-router-dom'
+import userSVG from '../../images/user.svg'
+import contactsSVG from '../../images/contacts.svg'
+import checkmarkSVG from '../../images/checkmark-circle-2.svg'
+import x_markSVG from '../../images/x-circle.svg'
+import down_caretSVG from '../../images/solid_caret-down.svg'
 
 
 export default class MainPage extends React.Component {
@@ -18,25 +23,27 @@ export default class MainPage extends React.Component {
         const userOne = this.context.users[0] || {}
         return (
             <section className='main__Swipe'>
-            <div className='main__Nav'>
-                <Link to='/profile' className='main__profile-button'>Profile</Link>
-                <Link to='/matches' className='main__matches-button'>Matches</Link>
-            </div>
-            {<li className='main__Swipe-User'>
-                <img src={userOne.avatar} alt='avatar' className='main__Image'></img>
-                <h3>{userOne.display_name}</h3>
-                <h4>Platforms</h4>
-                <span>{userOne.platforms}</span>
-                {' '}
-                <h4>LFM In</h4>
-                <span>{userOne.lfm_in}</span>
-                <h4>Bio</h4>
-                <p>{userOne.bio}</p>
-            </li>}
-            <div className='main__Second-Nav'>
-                <button className='main__no-button'>No</button>
-                <button className='main__yes-button'>Yes</button>
-            </div>
+                <div className='main__Nav'>
+                    <Link to='/profile'>
+                        <img className='main__profile-button' src={userSVG} alt='profile' />
+                    </Link>
+                    <Link to='/matches'>
+                        <img className='main__contacts-button' src={contactsSVG} alt='contacts' />
+                    </Link>
+                </div>
+                {<li className='main__Swipe-User'>
+                    <img src={userOne.avatar} alt='avatar' className='main__Image'></img>
+                    <h3>{userOne.display_name}</h3>
+                    <h4>Platforms</h4>
+                    <span>{userOne.platforms}</span>
+                    <h4>LFM In</h4>
+                    <span>{userOne.lfm_in}</span>
+                    <img className='main__down-caret' src={down_caretSVG} alt='down-caret' />
+                </li>}
+                <div className='main__Second-Nav'>
+                    <img className='main__x' src={x_markSVG} alt='x' />
+                    <img className='main__check' src={checkmarkSVG} alt='checkmark'/>
+                </div>
             </section>
         )
     }
