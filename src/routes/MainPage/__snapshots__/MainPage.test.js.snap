@@ -2,39 +2,6 @@
 
 exports[`<MainPage /> renders the UI as expected 1`] = `
 <main>
-  <nav
-    className="Header"
-  >
-    <h1
-      className="Header__h1"
-    >
-      <a
-        className="Header__main-button"
-        href="/"
-        onClick={[Function]}
-      >
-        Project Manhattan
-      </a>
-    </h1>
-    <div
-      className="Header__not-logged-in"
-    >
-      <a
-        className="Header__login-button Header__button"
-        href="/login"
-        onClick={[Function]}
-      >
-        Login
-      </a>
-      <a
-        className="Header__signup-button Header__button"
-        href="/signup"
-        onClick={[Function]}
-      >
-        Signup
-      </a>
-    </div>
-  </nav>
   <section
     className="main__Swipe"
   >
@@ -42,18 +9,24 @@ exports[`<MainPage /> renders the UI as expected 1`] = `
       className="main__Nav"
     >
       <a
-        className="main__profile-button"
         href="/profile"
         onClick={[Function]}
       >
-        Profile
+        <img
+          alt="profile"
+          className="main__profile-button"
+          src="user.svg"
+        />
       </a>
       <a
-        className="main__matches-button"
         href="/matches"
         onClick={[Function]}
       >
-        Matches
+        <img
+          alt="contacts"
+          className="main__contacts-button"
+          src="contacts.svg"
+        />
       </a>
     </div>
     <li
@@ -68,29 +41,29 @@ exports[`<MainPage /> renders the UI as expected 1`] = `
         Platforms
       </h4>
       <span />
-       
       <h4>
         LFM In
       </h4>
       <span />
-      <h4>
-        Bio
-      </h4>
-      <p />
+      <img
+        alt="down-caret"
+        className="main__down-caret"
+        src="solid_caret-down.svg"
+      />
     </li>
     <div
       className="main__Second-Nav"
     >
-      <button
-        className="main__no-button"
-      >
-        No
-      </button>
-      <button
-        className="main__yes-button"
-      >
-        Yes
-      </button>
+      <img
+        alt="x"
+        className="main__x"
+        src="x-circle.svg"
+      />
+      <img
+        alt="checkmark"
+        className="main__check"
+        src="checkmark-circle-2.svg"
+      />
     </div>
   </section>
 </main>
