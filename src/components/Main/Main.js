@@ -40,7 +40,7 @@ export default class MainPage extends React.Component {
                     <h3>{userOne.display_name}</h3>
                     <h4>Platforms</h4>
                     <span>
-                        {/*userOne.platforms*/}
+                        {/*userOne.platforms ['Playstation', 'PC', 'Xbox', 'Nintendo']*/}
                         <img className='main__xbox' src={xboxLogo} alt='Xbox logo' />
                         <img className='main__playstation' src={playstationLogo} alt='Playstation logo' />
                         <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' />
