@@ -14,17 +14,17 @@ export default class Login extends Component {
   handleSubmitJwtAuth = ev => {
     ev.preventDefault()
     this.setState({error: null})
-    const { user_name, password } = ev.target
+    const { email, password } = ev.target
 
     AuthApiService.postLogin({
-      user_name: user_name.value,
+      email: email.value,
       password: password.value
     })
       .then(res => {
         password.value = ''
         TokenService.saveAuthToken(res.authToken)
-        this.props.onLoginSuccess(user_name.value)
-        user_name.value = ''
+        this.props.onLoginSuccess()
+        email.value = ''
       })
       .catch(res => {
         this.setState({error: res.error})
@@ -44,14 +44,14 @@ export default class Login extends Component {
             <div role='alert'>
               {this.state.error && <p className='Login__error'>Something went wrong, please try again</p>}
             </div>
-            <div className='Login__user_name-div lp_input-div'>
-              <label htmlFor='Login__user_name'>
-                User name
+            <div className='Login__email-div lp_input-div'>
+              <label htmlFor='Login__email'>
+                Email
               </label>
               <input
                 required
-                name='user_name'
-                id='Login__user_name'
+                name='email'
+                id='Login__email'
                 className='lp_input'>
               </input>
             </div>
