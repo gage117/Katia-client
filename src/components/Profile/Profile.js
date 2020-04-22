@@ -2,6 +2,8 @@ import React from 'react'
 import './Profile.css'
 import { Link } from 'react-router-dom'
 import users from '../../store'
+import cardsIcon from '../../images/cards.png'
+import editIcon from '../../images/edit-icon.png'
 import MainPageContext from '../../Contexts/MainPageContext'
 
 export default class Profile extends React.Component {
@@ -31,27 +33,33 @@ export default class Profile extends React.Component {
         const currentUser = users[2] || {}
 
         if(!this.context.isEditing) {
-        return (
-            <>
-            <h3 className='profileH3'>My Profile</h3>
-            <Link to='/swipe' className='profileLink'>Main</Link>
-            {<div className='editDiv'> 
-            <img src={currentUser.avatar} 
-            alt='avatar' className='profileImg'></img>
-            <h4>Username: {currentUser.display_name}</h4>
-            <p>Bio: {currentUser.bio}</p>
-            <span> Platforms: {currentUser.platforms}</span>
-            <span> lfm in: {currentUser.lfm_in}</span>
-            </div>}
-            <button className='editButton' 
-            onClick={this.handleEditButton}>edit</button>
-            </>
-        )
+            return (
+                <>
+                <div className='profile__icons-container'>
+                    <Link to='/swipe' className='profile__Link'>
+                        <img className='profile__cards-icon' src={cardsIcon} alt='swipe-cards-icon' />
+                    </Link>
+                    <img className='profile__edit-icon' onClick={this.handleEditButton} src={editIcon} alt='edit-icon' />
+                </div>
+                {<div className='editDiv'> 
+                    <img src={currentUser.avatar} 
+                    alt='avatar' className='profile__Img' />
+                    <p>Display Name</p>
+                    <span>{currentUser.display_name}</span>
+                    <p>Platforms</p>
+                    <span>{currentUser.platforms}</span>
+                    <p>LFM In</p>
+                    <span>{currentUser.lfm_in}</span>
+                    <p>Bio</p>
+                    <span>{currentUser.bio}</span>
+                </div>}
+                </>
+            )
         } else if(this.context.isEditing) {
             return (
                 <>
                 <img src={currentUser.avatar} 
-                alt='avatar' className='profileImgEdit'></img>
+                alt='avatar' className='profileImgEdit' />
                 <form className='editForm'>
                     <label htmlFor='username'>Username </label>
                     <input type='text' name='username' 
