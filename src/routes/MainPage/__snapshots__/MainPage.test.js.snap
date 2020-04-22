@@ -40,7 +40,28 @@ exports[`<MainPage /> renders the UI as expected 1`] = `
       <h4>
         Platforms
       </h4>
-      <span />
+      <span>
+        <img
+          alt="Xbox logo"
+          className="main__xbox"
+          src="Xbox_one_logo.svg"
+        />
+        <img
+          alt="Playstation logo"
+          className="main__playstation"
+          src="Playstation_logo_colour.svg"
+        />
+        <img
+          alt="Nintendo logo"
+          className="main__nintendo"
+          src="nintendo_logo.png"
+        />
+        <img
+          alt="PC logo"
+          className="main__PC"
+          src="PC_Keyboard_Mouse_Icon.png"
+        />
+      </span>
       <h4>
         LFM In
       </h4>
