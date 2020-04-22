@@ -21,6 +21,10 @@
     font-size: 1.6rem;
 }
 
+.main__matches-button {
+    font-size: 1.6rem;
+}
+
 .main__Swipe-User {
     border: 1px solid black;
     padding: 1rem;
@@ -52,4 +56,12 @@
     flex-direction: row;
     justify-content: space-evenly;
     margin: 3rem auto 3rem auto;
+}
+
+.main__no-button {
+    font-size: 1.6rem;
+}
+
+.main__yes-button {
+    font-size: 1.6rem;
 }
