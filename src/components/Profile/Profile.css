@@ -18,3 +18,22 @@
     flex-direction: column;
     align-items: center;
 }
+
+.editButton {
+    display: block;
+    margin: 0 auto;
+    padding: 10px;
+}
+
+.editForm {
+    display: flex;
+    flex-direction: column;
+    width: 50%;
+    margin: 40px auto 0 auto;
+}
+
+.profileImgEdit {
+    height: 280px;
+    display: block;
+    margin: 40px auto 0px auto;
+}
