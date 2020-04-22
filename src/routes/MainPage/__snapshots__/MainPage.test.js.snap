@@ -66,10 +66,11 @@ exports[`<MainPage /> renders the UI as expected 1`] = `
         LFM In
       </h4>
       <span />
-      <img
+      <input
         alt="down-caret"
-        className="main__down-caret"
+        onClick={[Function]}
         src="solid_caret-down.svg"
+        type="image"
       />
     </li>
     <div

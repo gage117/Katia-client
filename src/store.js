@@ -1,7 +1,7 @@
 const users = [
     {
         display_name: 'n00b01',
-        bio: 'i love pron',
+        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In ornare quam viverra orci sagittis eu volutpat. Feugiat pretium nibh ipsum consequat nisl vel pretium. Adipiscing elit ut a ',
         platforms: 'google stadia',
         lfm_in: 'dora adventures',
         avatar: 'https://media.vanityfair.com/photos/57e00bc61e9e7cc118c458c7/master/w_2560%2Cc_limit/kanye-west-sad.jpg',
@@ -38,6 +38,14 @@ const users = [
         lfm_in: 'naruto ultimate ninja storm 4',
         avatar: 'https://www.biography.com/.image/t_share/MTIwNjA4NjMzNzAzNzI4NjUy/john-cena-562300-1-402.jpg',
         user_id: 5,
+    },
+    {
+        display_name: 'john413436',
+        bio: 'johns clone',
+        platforms: ['PlayStation 4', 'Xbox', 'PC', 'Nintendo'],
+        lfm_in: 'pokemon go',
+        avatar: 'https://www.biography.com/.image/t_share/MTIwNjA4NjMzNzAzNzI4NjUy/john-cena-562300-1-402.jpg',
+        user_id: 6,
     },
 ]
 
