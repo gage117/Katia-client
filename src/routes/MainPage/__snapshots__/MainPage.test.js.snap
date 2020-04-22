@@ -36,50 +36,58 @@ exports[`<MainPage /> renders the UI as expected 1`] = `
     </div>
   </nav>
   <section
-    className="mainSwipe"
+    className="main__Swipe"
   >
-    <h2
-      className="mainSwipeH2"
-    >
-      Main Page
-    </h2>
     <div
-      className="mainNav"
+      className="main__Nav"
     >
-      <button
-        className="profileButton"
+      <a
+        className="main__profile-button"
+        href="/profile"
+        onClick={[Function]}
       >
-        profile
-      </button>
-      <button
-        className="messagesButton"
+        Profile
+      </a>
+      <a
+        className="main__matches-button"
+        href="/matches"
+        onClick={[Function]}
       >
-        messages
-      </button>
+        Matches
+      </a>
     </div>
     <li
-      className="mainSwipeUser"
+      className="main__Swipe-User"
     >
       <img
         alt="avatar"
-        className="mainImage"
+        className="main__Image"
       />
       <h3 />
-      <p />
+      <h4>
+        Platforms
+      </h4>
       <span />
        
+      <h4>
+        LFM In
+      </h4>
       <span />
+      <h4>
+        Bio
+      </h4>
+      <p />
     </li>
     <div
-      className="secondNav"
+      className="main__Second-Nav"
     >
       <button
-        className="noButton"
+        className="main__no-button"
       >
         No
       </button>
       <button
-        className="yesButton"
+        className="main__yes-button"
       >
         Yes
       </button>

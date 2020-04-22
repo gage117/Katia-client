@@ -2,18 +2,21 @@
 
 exports[`<LoginPage /> renders the UI as expected 1`] = `
 <main
-  id="Login__main-flex"
+  id="lp_main-flex"
 >
+  <a
+    className="lp_lp-link"
+    href="/"
+    onClick={[Function]}
+  >
+    Project Manhattan
+  </a>
   <section
     className="Login__container"
   >
-    <a
-      href="/"
-      onClick={[Function]}
+    <h2
+      className="Login__header"
     >
-      Project Manhattan
-    </a>
-    <h2>
       Login
     </h2>
     <form
@@ -24,7 +27,7 @@ exports[`<LoginPage /> renders the UI as expected 1`] = `
         role="alert"
       />
       <div
-        className="Login__user_name-div"
+        className="Login__user_name-div lp_input-div"
       >
         <label
           htmlFor="Login__user_name"
@@ -32,13 +35,14 @@ exports[`<LoginPage /> renders the UI as expected 1`] = `
           User name
         </label>
         <input
+          className="lp_input"
           id="Login__user_name"
           name="user_name"
           required={true}
         />
       </div>
       <div
-        className="Login__password-div"
+        className="Login__password-div lp_input-div"
       >
         <label
           htmlFor="Login__password"
@@ -46,6 +50,7 @@ exports[`<LoginPage /> renders the UI as expected 1`] = `
           Password
         </label>
         <input
+          className="lp_input"
           id="Login__password"
           name="password"
           required={true}
@@ -56,7 +61,7 @@ exports[`<LoginPage /> renders the UI as expected 1`] = `
         className="Login__submit-button-div"
       >
         <button
-          className="Login__submit-button"
+          className="Login__submit-button lp_button"
           type="submit"
         >
           Login
@@ -67,11 +72,11 @@ exports[`<LoginPage /> renders the UI as expected 1`] = `
           or
         </p>
         <a
-          className="Login__signup-link"
+          className="Login__signup-link lp_button"
           href="/signup"
           onClick={[Function]}
         >
-          sign up
+          Sign Up
         </a>
       </div>
     </form>

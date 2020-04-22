@@ -7,8 +7,11 @@ exports[`<NotFoundPage /> renders the UI as expected 1`] = `
   <h2>
     404 - Page not found
   </h2>
+  <h4>
+    Fortunately, unlike a corrupted save file, you can just go back to where you last were!
+  </h4>
   <p>
-    Try going back to your previous page.
+    Try going back to the previous page.
   </p>
 </section>
 `;
