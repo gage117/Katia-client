@@ -34,8 +34,10 @@
       "last 1 safari version"
     ]
   },
-  "devDependencies": {
-    "react-test-renderer": "^16.13.1",
+  "optionalDependencies": {
     "fsevents": "^1.2.11"
+  },
+  "devDependencies": {
+    "react-test-renderer": "^16.13.1"
   }
 }
