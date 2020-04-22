@@ -53,14 +53,71 @@
 .editForm {
     display: flex;
     flex-direction: column;
+    width: 100%;
+    height: 70vh;
+    margin: 0 auto;
+    padding-top: 1rem;
+}
+
+.editForm > label {
+    background-color: lightgray;
+    padding: .4rem .5rem;
+    font-size: 2rem;
+}
+
+.editForm > input {
     width: 50%;
-    margin: 4rem auto 0 auto;
+    height: 3rem;
+    font-size: 1.6rem;
+    padding-left: .5rem;
+}
+
+#lfm {
+    font-size: 1.6rem;
+    padding: .25rem 0 0 .5rem;
+    height: 8rem;
+    width: 80%;
+    border: .08rem solid gray;
+}
+
+#platforms {
+    display: flex;
+    justify-content: space-around;
+    margin: 1rem 0;
+}
+
+#bio {
+    font-size: 1.6rem;
+    padding: .25rem 0 0 .5rem;
+    height: 12rem;
+    border: .08rem solid gray;
+}
+
+.profile__ImgEdit-container {
+    padding-top: 1rem;
 }
 
 .profile__ImgEdit {
-    height: auto;
-    width: 80%;
+    height: 30vh;
+    width: auto;
     display: block;
-    margin: 4rem auto 0;
+    margin: 0 auto;
     border-radius: .5rem;
+}
+
+.editCancelSubmit-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    margin-top: 1rem;
+}
+
+.editCancel {
+    height: 6.5rem;
+    width: 6.5rem;
+}
+
+.editSubmit {
+    height: 7rem;
+    width: 7rem;
 }

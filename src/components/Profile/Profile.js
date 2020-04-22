@@ -4,6 +4,12 @@ import { Link } from 'react-router-dom'
 import users from '../../store'
 import cardsIcon from '../../images/cards.png'
 import editIcon from '../../images/edit-icon.png'
+import nintendoNetworkLogo from '../../images/nintendo_logo.png'
+import playstationLogo from '../../images/Playstation_logo_colour.svg'
+import PC_Logo from '../../images/PC_Keyboard_Mouse_Icon.png'
+import xboxLogo from '../../images/Xbox_one_logo.svg'
+import checkmarkSVG from '../../images/checkmark-circle-2.svg'
+import x_markSVG from '../../images/x-circle.svg'
 import MainPageContext from '../../Contexts/MainPageContext'
 
 export default class Profile extends React.Component {
@@ -14,9 +20,13 @@ export default class Profile extends React.Component {
     }
 
     handleEditButton = event => {
-    event.preventDefault()
+        event.preventDefault()
 
-    this.context.setEditingToTrue()
+        this.context.setEditingToTrue()
+    }
+
+    handleEditSubmit = event => {
+        document.getElementsByClassName('editForm')[0].submit()
     }
 
     saveEdit = event => {
@@ -32,7 +42,7 @@ export default class Profile extends React.Component {
     render() {
         const currentUser = users[2] || {}
 
-        if(!this.context.isEditing) {
+        if(this.context.isEditing) {
             return (
                 <>
                 <div className='profile__icons-container'>
@@ -55,25 +65,35 @@ export default class Profile extends React.Component {
                 </div>}
                 </>
             )
-        } else if(this.context.isEditing) {
+        } else if(!this.context.isEditing) {
             return (
                 <>
-                <img src={currentUser.avatar} 
-                alt='avatar' className='profile__ImgEdit' />
-                <form className='editForm'>
-                    <label htmlFor='username'>Username </label>
+                <div className='profile__ImgEdit-container'>
+                    <img src={currentUser.avatar} 
+                    alt='avatar' className='profile__ImgEdit' />
+                </div>
+                <form className='editForm' name='editForm' onSubmit={this.saveEdit}>
+                    <label htmlFor='username'>Display Name</label>
                     <input type='text' name='username' 
                     id='username' defaultValue={currentUser.display_name} />
-                    <label htmlFor='lfm'>lfm in </label>
-                    <input type='text' name='lfm' 
+                    <label htmlFor='lfm'>LFM In</label>
+                    <textarea rows='7' cols='40' name='lfm' 
                     id='lfm' defaultValue={currentUser.lfm_in} />
-                    <label htmlFor='platforms'> Platforms: </label>
-                    <input type='text' name='platforms' 
-                    id='platforms' defaultValue={currentUser.platforms} />
-                    <label htmlFor='bio'>Bio </label>
-                    <textarea rows='10' cols='25' type='text' name='bio' 
+                    <label htmlFor='platforms'> Platforms</label>
+                    <div type='text' name='platforms' 
+                    id='platforms'>
+                        <img className='main__xbox' src={xboxLogo} alt='Xbox logo' />
+                        <img className='main__playstation' src={playstationLogo} alt='Playstation logo' />
+                        <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' />
+                        <img className='main__PC' src={PC_Logo} alt='PC logo' />
+                    </div>
+                    <label htmlFor='bio'>Bio</label>
+                    <textarea rows='7' cols='40' name='bio'
                     id='bio' defaultValue={currentUser.bio} />
-                    <input type='submit' onSubmit={this.saveEdit} />
+                    <div className='editCancelSubmit-div'>
+                        <img className='editCancel' src={x_markSVG} alt='cancel-button' onClick={this.context.resetEditing} />
+                        <img className='editSubmit' src={checkmarkSVG} alt='submit-button' onClick={this.handleEditSubmit} />
+                    </div>
                 </form>
                 </>
             )
