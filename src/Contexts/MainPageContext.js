@@ -5,10 +5,13 @@ const MainPageContext = React.createContext({
     firstUser: {},
     state: {},
     isEditing: false,
+    expanded: false,
     setUsers: () => {},
     setCurrentProfile: () => {},
     setEditingToTrue: () => {},
     resetEditing: () => {},
+    setExpandedToTrue: () => {},
+    resetExpanded: () => {},
 })
 
 export default MainPageContext
@@ -18,6 +21,7 @@ export class MainPageProvider extends React.Component {
         users: [],
         firstUser: {},
         isEditing: false,
+        expanded: false,
     }
 
     setUsers = users => {
@@ -36,6 +40,14 @@ export class MainPageProvider extends React.Component {
         this.setState({ isEditing: false })
     }
 
+    setExpandedToTrue = () => {
+        this.setState({ expanded: true })
+    }
+
+    resetExpanded = () => {
+        this.setState({ expanded: false })
+    }
+
     render() {
         const value = {
             users: this.state.users,
@@ -46,6 +58,9 @@ export class MainPageProvider extends React.Component {
             isEditing: this.state.isEditing,
             setEditingToTrue: this.setEditingToTrue,
             resetEditing: this.resetEditing,
+            expanded: this.state.expanded,
+            setExpandedToTrue: this.setExpandedToTrue,
+            resetExpanded: this.resetExpanded,
         }
 
         return (
