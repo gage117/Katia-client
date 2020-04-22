@@ -1,8 +1,9 @@
-const config = require('../config');
-const TokenService = require('./token-service');
+import config from '../config';
+import TokenService from './token-service';
 
 const SwipeService = {
   getPotentialMatches(userId) {
+    console.table(`${TokenService.saveAuthToken}`);
     return fetch(`${config.API_ENDPOINT}/swipe/${userId}`, {
       headers: {
         'Authorization': `Bearer ${TokenService.getAuthToken()}`

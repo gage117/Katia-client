@@ -27,19 +27,19 @@ exports[`<Signup /> renders the UI as expected 1`] = `
         role="alert"
       />
       <div
-        className="Signup__user_name-div lp_input-div"
+        className="Signup__email-div lp_input-div"
       >
         <label
-          htmlFor="Signup__user_name"
+          htmlFor="Signup__email"
         >
-          User name
+          Email
         </label>
         <input
           className="lp_input"
-          id="Signup__user_name"
-          name="user_name"
+          id="Signup__email"
+          name="email"
           required={true}
-          type="text"
+          type="email"
         />
       </div>
       <div

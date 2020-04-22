@@ -30,7 +30,7 @@ export default class MainPage extends React.Component {
     }
 
     render() {
-        const userOne = this.context.potentialMatches[0] || {}
+        const userOne = this.state.potentialMatches[0] || {}
         return (
             <section className='main__Swipe'>
                 <div className='main__Nav'>
