@@ -31,28 +31,32 @@ export default class MainPage extends React.Component {
         this.context.resetExpanded()
     }
 
-    // generateGenreString = (genres) => {
-    //     let genreString = '';
-    //     if (genres.length === 0) {
-    //         genreString = 'No Genres Chosen'
-    //     } else if (genres.length === 1) {
-    //         genreString = genres[0]
-    //     } else
-    //     for (let i = 0; i < genres.length; i++) {
-    //         while (i < genres.length - 1) {
-    //             genreString += `${genres[i]}, `
-    //         }
-    //         if (i === genres.length - 1) {
-    //             genreString += `${genres[i]}`
-    //         }
-    //     }
-    //     return genreString
-    // }
+    generateGenreString = (genres) => {
+        try {
+            let genreString = '';
+            if (genres.length === 0) {
+                genreString = 'No Genres Chosen'
+            } else if (genres.length === 1) {
+                genreString = genres[0]
+            } else {
+                for (let i = 0; i < genres.length; i++) {
+                    if (i < genres.length - 1) {
+                        genreString += `${genres[i]}, `
+                    } else if (i === genres.length - 1) {
+                        genreString += `${genres[i]}`
+                    }
+                }
+            }
+            return genreString
+            }
+        catch {
+            return ''
+        }
+    }
 
     render() {
-        console.log(this.context.state)
         const userOne = this.context.users[0] || {}
-
+        
         if(!this.context.expanded) {
         return (
             <section className='main__Swipe'>
@@ -80,7 +84,7 @@ export default class MainPage extends React.Component {
                     <span className='main__lfm-in'>{userOne.lfm_in}</span>
                     <span className='main__lfm-in'>{userOne.lfm_in}</span>
                     <h4 className='main__card-header'>Genres</h4>
-                    <span>{userOne.genres}</span>
+                    <span>{this.generateGenreString(userOne.genres)}</span>
                     {/* <img className='main__down-caret' src={down_caretSVG} alt='down-caret' /> */}
                     <input className='main__down-caret' type="image" src={down_caretSVG} 
                     alt='down-caret' onClick={this.toggleExpanded} />
