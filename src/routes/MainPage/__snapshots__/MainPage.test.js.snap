@@ -99,13 +99,17 @@ exports[`<MainPage /> renders the UI as expected 1`] = `
       <span>
         FPS, Adventure, RPG
       </span>
-      <input
-        alt="down-caret"
-        className="main__down-caret"
-        onClick={[Function]}
-        src="solid_caret-down.svg"
-        type="image"
-      />
+      <div
+        className="main__caret-container"
+      >
+        <input
+          alt="down-caret"
+          className="main__down-caret"
+          onClick={[Function]}
+          src="solid_caret-down.svg"
+          type="image"
+        />
+      </div>
     </li>
     <div
       className="main__Second-Nav"
