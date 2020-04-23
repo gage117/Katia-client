@@ -51,18 +51,24 @@ export default class Profile extends React.Component {
                     </Link>
                     <img className='profile__edit-icon' onClick={this.handleEditButton} src={editIcon} alt='edit-icon' />
                 </div>
-                {<div className='editDiv'> 
+                <div className='profile__Div'> 
                     <img src={currentUser.avatar} 
                     alt='avatar' className='profile__Img' />
                     <p>Display Name</p>
                     <span>{currentUser.display_name}</span>
                     <p>Platforms</p>
-                    <span>{currentUser.platforms}</span>
+                    <div id='platforms'>
+                        {/* currentUser.platforms */}
+                        <img className='main__xbox' src={xboxLogo} alt='Xbox logo' />
+                        <img className='main__playstation' src={playstationLogo} alt='Playstation logo' />
+                        <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' />
+                        <img className='main__PC' src={PC_Logo} alt='PC logo' />
+                    </div>
                     <p>LFM In</p>
                     <span>{currentUser.lfm_in}</span>
                     <p>Bio</p>
                     <span>{currentUser.bio}</span>
-                </div>}
+                </div>
                 </>
             )
         } else if(this.context.isEditing) {
@@ -90,11 +96,11 @@ export default class Profile extends React.Component {
                     <label htmlFor='bio'>Bio</label>
                     <textarea rows='7' cols='40' name='bio'
                     id='bio' defaultValue={currentUser.bio} />
-                    <div className='editCancelSubmit-div'>
-                        <img className='editCancel' src={x_markSVG} alt='cancel-button' onClick={this.context.resetEditing} />
-                        <img className='editSubmit' src={checkmarkSVG} alt='submit-button' onClick={this.handleEditSubmit} />
-                    </div>
                 </form>
+                <div className='editCancelSubmit-div'>
+                    <img className='editCancel' src={x_markSVG} alt='cancel-button' onClick={this.context.resetEditing} />
+                    <img className='editSubmit' src={checkmarkSVG} alt='submit-button' onClick={this.handleEditSubmit} />
+                </div>
                 </>
             )
         }
