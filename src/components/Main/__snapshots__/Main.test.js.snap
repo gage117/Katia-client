@@ -36,13 +36,19 @@ exports[`<Main /> renders the UI as expected 1`] = `
       className="main__Image"
       src="https://media.vanityfair.com/photos/57e00bc61e9e7cc118c458c7/master/w_2560%2Cc_limit/kanye-west-sad.jpg"
     />
-    <h3>
+    <h3
+      className="main__display-name"
+    >
       n00b01
     </h3>
-    <h4>
+    <h4
+      className="main__card-header"
+    >
       Platforms
     </h4>
-    <span>
+    <div
+      className="main__platforms"
+    >
       <img
         alt="Xbox logo"
         className="main__xbox"
@@ -63,15 +69,38 @@ exports[`<Main /> renders the UI as expected 1`] = `
         className="main__PC"
         src="PC_Keyboard_Mouse_Icon.png"
       />
-    </span>
-    <h4>
+    </div>
+    <h4
+      className="main__card-header"
+    >
       LFM In
     </h4>
-    <span>
+    <span
+      className="main__lfm-in"
+    >
       dora adventures
+    </span>
+    <span
+      className="main__lfm-in"
+    >
+      dora adventures
+    </span>
+    <span
+      className="main__lfm-in"
+    >
+      dora adventures
+    </span>
+    <h4
+      className="main__card-header"
+    >
+      Genres
+    </h4>
+    <span>
+      FPS, Adventure, RPG
     </span>
     <input
       alt="down-caret"
+      className="main__down-caret"
       onClick={[Function]}
       src="solid_caret-down.svg"
       type="image"
