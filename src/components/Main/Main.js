@@ -47,7 +47,7 @@ export default class MainPage extends React.Component {
 
     render() {
         // const userOne = this.state.potentialMatches[0] || {}
-        const userOne = users[5] || {}
+        const userOne = users[0] || {}
 
         if(!this.state.expanded) {
             return (
