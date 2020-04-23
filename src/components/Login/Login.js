@@ -15,16 +15,18 @@ export default class Login extends Component {
     ev.preventDefault()
     this.setState({error: null})
     const { email, password } = ev.target
+    console.log(email.value)
+    console.log(password.value)
 
     AuthApiService.postLogin({
       email: email.value,
       password: password.value
     })
       .then(res => {
+        email.value = ''
         password.value = ''
         TokenService.saveAuthToken(res.authToken)
         this.props.onLoginSuccess()
-        email.value = ''
       })
       .catch(res => {
         this.setState({error: res.error})
