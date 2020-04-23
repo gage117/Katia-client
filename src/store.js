@@ -19,7 +19,7 @@ const users = [
     },
     {
         display_name: 'joe',
-        bio: 'i like the sims and stuff',
+        bio: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. In ornare quam viverra orci sagittis eu volutpat. Feugiat pretium nibh ipsum consequat nisl vel pretium. Adipiscing elit ut a ',
         platforms: 'xbox one',
         lfm_in: ['midnight club dub edition remix', 'naruto ultimate ninja storm 4', 'pokemon go'],
         genres: ['FPS', 'Adventure', 'RPG'],
