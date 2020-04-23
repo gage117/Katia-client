@@ -12,7 +12,6 @@ import xboxLogo from '../../images/Xbox_one_logo.svg'
 import checkmarkSVG from '../../images/checkmark-circle-2.svg'
 import x_markSVG from '../../images/x-circle.svg'
 import down_caretSVG from '../../images/solid_caret-down.svg'
-import users from '../../store'
 
 
 export default class MainPage extends React.Component {
@@ -25,12 +24,11 @@ export default class MainPage extends React.Component {
     static contextType = UserContext;
 
     componentDidMount() {
-        this.setState({ expanded: false })
-
         SwipeService.getPotentialMatches(this.context.user.id)
             .then(potentialMatches => {
-                this.setState({ potentialMatches })
-            })
+                console.log(potentialMatches);
+                this.setState({ potentialMatches: potentialMatches.queue })
+            });
     }
 
     toggleExpanded = () => {
@@ -75,9 +73,25 @@ export default class MainPage extends React.Component {
     }
 
     render() {
-        // const userOne = this.context.users[0] || {}
-        // const userOne = this.state.potentialMatches[0] || {}
-        const userOne = users[0] || {}
+        const userOne = this.state.potentialMatches[0] || {}
+
+        if(!userOne.id) {
+            return (
+                <section className='main__Swipe'>
+                    <div className='main__Nav'>
+                    <Link to='/profile'>
+                        <img className='main__profile-button' src={userSVG} alt='profile' />
+                    </Link>
+                    <Link to='/matches'>
+                        <img className='main__contacts-button' src={contactsSVG} alt='contacts' />
+                    </Link>
+                    </div>
+                    <li className='main__Swipe-User'>
+                        <div className='loading'>Loading</div>
+                    </li>
+                </section>
+            )
+        }
         
         return (
             <section className='main__Swipe'>
@@ -94,14 +108,14 @@ export default class MainPage extends React.Component {
                     {this.state.expanded ? (<></>) : (<h3 className='main__display-name'>{userOne.display_name}</h3>)}
                     <h4 className={this.state.expanded ? 'main__card-header rounded' : 'main__card-header'}>Platforms</h4>
                     <div className='main__platforms'>
-                        {/*userOne.platforms*/}
-                        <img className='main__xbox' src={xboxLogo} alt='Xbox logo' />
-                        <img className='main__playstation' src={playstationLogo} alt='Playstation logo' />
-                        <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' />
-                        <img className='main__PC' src={PC_Logo} alt='PC logo' />
+                        {userOne.platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
+                        {userOne.platforms.includes("PlayStation") ? <img className='main__playstation' src={playstationLogo} alt='Playstation logo' /> : null}
+                        {userOne.platforms.includes("Nintendo") ? <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' /> : null}
+                        {userOne.platforms.includes("PC") ? <img className='main__PC' src={PC_Logo} alt='PC logo' /> : null}
                     </div>
                     <h4 className='main__card-header'>LFM In</h4>
-                    {this.generateLfmElements(userOne.lfm_in)}
+                    {/*{this.generateLfmElements(userOne.lfm_in)}*/}
+                    <p>{userOne.lfm_in}</p>
                     <h4 className='main__card-header'>Genres</h4>
                     <span>{this.generateGenreString(userOne.genres)}</span>
                     {this.state.expanded ? (<><h4 className='main__card-header'>Bio</h4>

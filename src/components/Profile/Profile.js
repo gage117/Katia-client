@@ -21,11 +21,6 @@ export default class Profile extends React.Component {
         isEditing: false,
     }
 
-    // componentDidMount() {
-    //     this.setState({ isEditing: false })
-    //     console.log(this.context.user)
-    // }
-
     handleEditButton = event => {
         event.preventDefault()
 
@@ -38,15 +33,10 @@ export default class Profile extends React.Component {
 
     saveEdit = event => {
         event.preventDefault()
-
-        this.resetEditing()
+        
     }
 
     cancelEdit = () => {
-        this.setState({ isEditing: false })
-    }
-
-    componentWillUnmount() {
         this.setState({ isEditing: false })
     }
 
