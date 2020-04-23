@@ -83,12 +83,12 @@ exports[`<Main /> renders the UI as expected 1`] = `
     <span
       className="main__lfm-in"
     >
-      dora adventures
+      apex legends
     </span>
     <span
       className="main__lfm-in"
     >
-      dora adventures
+      midnight club dub edition remix
     </span>
     <h4
       className="main__card-header"
