@@ -42,7 +42,7 @@ export default class Profile extends React.Component {
     render() {
         const currentUser = users[2] || {}
 
-        if(this.context.isEditing) {
+        if(!this.context.isEditing) {
             return (
                 <>
                 <div className='profile__icons-container'>
@@ -65,7 +65,7 @@ export default class Profile extends React.Component {
                 </div>}
                 </>
             )
-        } else if(!this.context.isEditing) {
+        } else if(this.context.isEditing) {
             return (
                 <>
                 <div className='profile__ImgEdit-container'>

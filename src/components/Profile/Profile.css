@@ -53,8 +53,9 @@
 .editForm {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     width: 100%;
-    height: 70vh;
+    height: 74vh;
     margin: 0 auto;
     padding-top: 1rem;
 }
@@ -62,7 +63,7 @@
 .editForm > label {
     background-color: lightgray;
     padding: .4rem .5rem;
-    font-size: 2rem;
+    font-size: 1.8rem;
 }
 
 .editForm > input {
@@ -83,7 +84,8 @@
 #platforms {
     display: flex;
     justify-content: space-around;
-    margin: 1rem 0;
+    margin: 0;
+    padding: 1rem 0;
 }
 
 #bio {
@@ -98,7 +100,7 @@
 }
 
 .profile__ImgEdit {
-    height: 30vh;
+    height: 25vh;
     width: auto;
     display: block;
     margin: 0 auto;
@@ -109,7 +111,7 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    margin-top: 1rem;
+    padding: .25rem 0 .5rem;
 }
 
 .editCancel {
