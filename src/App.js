@@ -7,6 +7,7 @@ import NotFoundPage from './routes/NotFoundPage/NotFoundPage'
 import LoginPage from './routes/LoginPage/LoginPage'
 import Profile from './components/Profile/Profile';
 import Matches from './components/Matches/Matches';
+import './App.css'
 
 class App extends Component {
   constructor(props) {
