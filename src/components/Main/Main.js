@@ -136,7 +136,7 @@ export default class MainPage extends React.Component {
                     <span className='main__lfm-in'>{userOne.lfm_in}</span>
                     <span className='main__lfm-in'>{userOne.lfm_in}</span>
                     <h4 className='main__card-header'>Genres</h4>
-                    <span>{userOne.genres}</span>
+                    <span>{this.generateGenreString(userOne.genres)}</span>
                     <h4 className='main__card-header'>Bio</h4>
                     <p>{userOne.bio}</p>
                     {/* <img className='main__down-caret' src={down_caretSVG} alt='down-caret' onClick={this.removeExpanded} /> */}
