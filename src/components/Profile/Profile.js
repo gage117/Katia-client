@@ -53,6 +53,35 @@ export default class Profile extends React.Component {
         this.context.processLogout()
     }
 
+    generateLfmElements = (games) => {
+        return games.map(game => {
+            return (<span className='main__lfm-in'>{game}</span>)
+        })
+    }
+
+    generateGenreString = (genres) => {
+        try {
+            let genreString = '';
+            if (genres.length === 0) {
+                genreString = 'No Genres Chosen'
+            } else if (genres.length === 1) {
+                genreString = genres[0]
+            } else {
+                for (let i = 0; i < genres.length; i++) {
+                    if (i < genres.length - 1) {
+                        genreString += `${genres[i]}, `
+                    } else if (i === genres.length - 1) {
+                        genreString += `${genres[i]}`
+                    }
+                }
+            }
+            return genreString
+            }
+        catch {
+            return ''
+        }
+    }
+
     render() {
         const currentUser = users[2] || {}
 
@@ -79,14 +108,18 @@ export default class Profile extends React.Component {
                         <img className='main__PC' src={PC_Logo} alt='PC logo' />
                     </div>
                     <p>LFM In</p>
-                    <span>{currentUser.lfm_in}</span>
+                    {this.generateLfmElements(currentUser.lfm_in)}
+                    <p>Genres</p>                    
+                    <span>{this.generateGenreString(currentUser.genres)}</span>
                     <p>Bio</p>
-                    <span>{currentUser.bio}</span>
-                </div>}
-                <Link onClick={this.handleLogoutClick} 
-                to='/login' className='logoutLink'>
-                Logout
-                </Link>
+                    <span className='profile__bio'>{currentUser.bio}</span>
+                </div>
+                <div className='logoutLink-container'>
+                    <Link onClick={this.handleLogoutClick} 
+                    to='/login' className='logoutLink'>
+                    Logout
+                    </Link>
+                </div>
                 </>
             )
         } else if(this.state.isEditing) {
