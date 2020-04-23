@@ -25,9 +25,14 @@ const TokenService = {
 
     const payload = JSON.parse(jsonPayload);
 
+    // return {
+    //   id: payload.user_id,
+    //   username: payload.user_name
+    // }
+
     return {
       id: payload.user_id,
-      username: payload.user_name
+      email: payload.email
     }
   }
 }
