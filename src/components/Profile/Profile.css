@@ -1,18 +1,19 @@
 .profile__icons-container {
     display: flex;
     justify-content: space-around;
-    padding: 1rem 0;
-    height: 6rem;
+    align-items: center;
+    padding: 1vh 0;
+    height: 9vh;
     overflow-y: scroll;
 }
 
 .profile__cards-icon {
-    height: 4rem;
+    height: 7vh;
 }
 
 .profile__edit-icon {
-    height: 3.4rem;
-    margin: .3rem 0;
+    height: 6vh;
+    margin: .5vh 0;
 }
 
 .profile__Img {
@@ -30,15 +31,16 @@
 }
 
 .profile__Div > * {
-    font-size: 1.6rem;
+    font-size: 2.3vh;
 }
 
 .profile__Div > p {
     background-color: lightgray;
     width: 100%;
+    height: 3.75vh;
     text-align: left;
     padding: .4rem .5rem;
-    font-size: 1.8rem;
+    font-size: 2.3vh;
     margin: .5rem 0;
 }
 
@@ -75,7 +77,7 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    height: 60vh;
+    height: 61.5vh;
     margin: 0 auto;
     padding-top: 1rem;
 }
@@ -83,36 +85,38 @@
 .editForm > label {
     background-color: lightgray;
     padding: .4rem .5rem;
-    font-size: 1.8rem;
+    font-size: 2.3vh;
+    height: 3.75vh;
 }
 
 .editForm > input {
     width: 50%;
-    height: 3rem;
-    font-size: 1.6rem;
+    height: 3.5vh;
+    font-size: 2.3vh;
     padding-left: .5rem;
 }
 
 #lfm {
-    font-size: 1.6rem;
+    font-size: 2.3vh;
     padding: .25rem 0 0 .5rem;
-    height: 8rem;
+    height: 10vh;
     width: 80%;
     border: .08rem solid gray;
 }
 
 #platforms {
     width: 100vw;
+    height: 7.8vh;
     display: flex;
     justify-content: space-around;
     margin: 0;
-    padding: 1rem 0;
+    padding: 1.4vh 0;
 }
 
 #bio {
-    font-size: 1.6rem;
+    font-size: 2.3vh;
     padding: .25rem 0 0 .5rem;
-    height: 12rem;
+    height: 21vh;
     border: .08rem solid gray;
 }
 
@@ -132,17 +136,14 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: .25rem 0 .5rem;
+    padding: .5vh 0 .5vh;
+    height: 12vh;
 }
 
 .editCancel {
-    flex-grow: 1;
-    height: 6.5rem;
-    width: 6.5rem;
+    height: 10vh;
 }
 
 .editSubmit {
-    flex-grow: 1;
-    height: 7rem;
-    width: 7rem;
+    height: 10.5vh;
 }

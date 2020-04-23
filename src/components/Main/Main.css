@@ -71,19 +71,19 @@
 }
 
 .main__xbox {
-    max-height: 3rem;
+    height: 5vh;
 }
 
 .main__playstation {
-    max-height: 3rem;
+    height: 5vh;
 }
 
 .main__nintendo {
-    max-height: 3rem;
+    height: 5vh;
 }
 
 .main__PC {
-    max-height: 3rem;
+    height: 5vh;
 }
 
 .main__bio {

@@ -38,7 +38,7 @@ export default class Profile extends React.Component {
     saveEdit = event => {
         event.preventDefault()
 
-        this.resetEditing()
+        this.cancelEdit()
     }
 
     cancelEdit = () => {
@@ -55,7 +55,7 @@ export default class Profile extends React.Component {
 
     generateLfmElements = (games) => {
         return games.map(game => {
-            return (<span className='main__lfm-in'>{game}</span>)
+            return (<span className='main__lfm-in' key={game}>{game}</span>)
         })
     }
 
@@ -84,6 +84,7 @@ export default class Profile extends React.Component {
 
     render() {
         const currentUser = users[2] || {}
+        console.log(this.context)
 
         if(!this.state.isEditing) {
             return (
@@ -133,7 +134,7 @@ export default class Profile extends React.Component {
                     <label htmlFor='username'>Display Name</label>
                     <input type='text' name='username' 
                     id='username' defaultValue={currentUser.display_name} />
-                    <label htmlFor='lfm'>LFM In</label>
+                    <label htmlFor='lfm'>LFM In (Max 3, Separated by ',')</label>
                     <textarea rows='7' cols='40' name='lfm' 
                     id='lfm' defaultValue={currentUser.lfm_in} />
                     <label htmlFor='platforms'> Platforms</label>
@@ -144,16 +145,12 @@ export default class Profile extends React.Component {
                         <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' />
                         <img className='main__PC' src={PC_Logo} alt='PC logo' />
                     </div>
-                    <label htmlFor='bio'>Bio</label>
+                    <label htmlFor='bio'>Bio (Max 250 chars.)</label>
                     <textarea rows='7' cols='40' name='bio'
                     id='bio' defaultValue={currentUser.bio} />
-                    <div className='editCancelSubmit-div'>
-                        <img className='editCancel' src={x_markSVG} alt='cancel-button' onClick={this.cancelEdit} />
-                        <img className='editSubmit' src={checkmarkSVG} alt='submit-button' onClick={this.handleEditSubmit} />
-                    </div>
                 </form>
                 <div className='editCancelSubmit-div'>
-                    <img className='editCancel' src={x_markSVG} alt='cancel-button' onClick={this.context.resetEditing} />
+                    <img className='editCancel' src={x_markSVG} alt='cancel-button' onClick={this.cancelEdit} />
                     <img className='editSubmit' src={checkmarkSVG} alt='submit-button' onClick={this.handleEditSubmit} />
                 </div>
                 </>
