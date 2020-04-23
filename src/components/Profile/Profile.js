@@ -10,9 +10,13 @@ import PC_Logo from '../../images/PC_Keyboard_Mouse_Icon.png'
 import xboxLogo from '../../images/Xbox_one_logo.svg'
 import checkmarkSVG from '../../images/checkmark-circle-2.svg'
 import x_markSVG from '../../images/x-circle.svg'
+import UserContext from '../../Contexts/UserContext'
+
 
 
 export default class Profile extends React.Component {
+    static contextType = UserContext
+
     state = {
         isEditing: false,
     }
@@ -45,6 +49,10 @@ export default class Profile extends React.Component {
         this.setState({ isEditing: false })
     }
 
+    handleLogoutClick = () => {
+        this.context.processLogout()
+    }
+
     render() {
         const currentUser = users[2] || {}
 
@@ -69,6 +77,10 @@ export default class Profile extends React.Component {
                     <p>Bio</p>
                     <span>{currentUser.bio}</span>
                 </div>}
+                <Link onClick={this.handleLogoutClick} 
+                to='/login' className='logoutLink'>
+                Logout
+                </Link>
                 </>
             )
         } else if(this.state.isEditing) {

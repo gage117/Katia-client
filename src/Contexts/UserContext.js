@@ -22,7 +22,8 @@ const UserContext = React.createContext({
   setMatches: () => {},
   clearMatches: () => {},
   setError: () => {},
-  clearError: () => {}
+  clearError: () => {},
+  processLogout: () => {},
 });
 
 export default UserContext;
@@ -34,28 +35,28 @@ export class UserProvider extends Component {
     error: null
   };
 
-  async componentDidMount() {
-    if(this.state.user === nullUser && TokenService.hasAuthToken()) {
-      try {
-        const account = TokenService.getUserFromToken(TokenService.getAuthToken());
-        const info = await ProfileService.getProfile(account.id);
-        const matches = await ProfileService.getMatches(account.id);
+  // async componentDidMount() {
+  //   if(this.state.user === nullUser && TokenService.hasAuthToken()) {
+  //     try {
+  //       const account = TokenService.getUserFromToken(TokenService.getAuthToken());
+  //       const info = await ProfileService.getProfile(account.id);
+  //       const matches = await ProfileService.getMatches(account.id);
 
-        const user = {
-          ...account,
-          ...info,
-        };
+  //       const user = {
+  //         ...account,
+  //         ...info,
+  //       };
 
-        this.setState({
-          user,
-          matches
-        })
+  //       this.setState({
+  //         user,
+  //         matches
+  //       })
 
-      } catch(error) {
-        this.setState({ error });
-      }
-    }
-  }
+  //     } catch(error) {
+  //       this.setState({ error });
+  //     }
+  //   }
+  // }
 
   setUser = user => {
     this.setState({ user });
@@ -81,6 +82,11 @@ export class UserProvider extends Component {
     this.setState({ error: null });
   }
 
+  processLogout = () => {
+    TokenService.clearAuthToken()
+    this.setUser({})
+  }
+
   render() {
     const value = {
       user: this.state.user,
@@ -91,7 +97,8 @@ export class UserProvider extends Component {
       setMatches: this.setMatches,
       clearMatches: this.clearMatches,
       setError: this.setError,
-      clearError: this.clearError
+      clearError: this.clearError,
+      processLogout: this.processLogout,
     };
 
     return (

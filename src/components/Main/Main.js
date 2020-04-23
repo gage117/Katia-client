@@ -12,6 +12,7 @@ import xboxLogo from '../../images/Xbox_one_logo.svg'
 import checkmarkSVG from '../../images/checkmark-circle-2.svg'
 import x_markSVG from '../../images/x-circle.svg'
 import down_caretSVG from '../../images/solid_caret-down.svg'
+import users from '../../store'
 
 
 export default class MainPage extends React.Component {
@@ -24,14 +25,30 @@ export default class MainPage extends React.Component {
     static contextType = UserContext;
 
     componentDidMount() {
+        this.setState({ expanded: false })
+
         SwipeService.getPotentialMatches(this.context.user.id)
             .then(potentialMatches => {
                 this.setState({ potentialMatches })
             })
     }
 
+    toggleExpanded = () => {
+        this.setState({ expanded: true })
+    }
+    
+    removeExpanded = () => {
+        this.setState({ expanded: false })
+    }
+
+    componentWillUnmount() {
+        this.setState({ expanded: false })
+    }
+
     render() {
-        const userOne = this.state.potentialMatches[0] || {}
+        // const userOne = this.state.potentialMatches[0] || {}
+        const userOne = users[0] || {}
+
         if(!this.state.expanded) {
             return (
                 <section className='main__Swipe'>
@@ -66,7 +83,7 @@ export default class MainPage extends React.Component {
                     </div>
                 </section>
             )
-        } else if(this.context.expanded) {
+        } else if(this.state.expanded) {
             return (
                 <section className='main__Swipe'>
                 <div className='main__Nav'>
