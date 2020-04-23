@@ -1,13 +1,8 @@
-.profile__h3 {
-    text-align: center;
-    margin-top: 2rem;
-    font-size: 2rem;
-}
-
 .profile__icons-container {
     display: flex;
     justify-content: space-around;
-    margin: 2rem 0;
+    padding: 2rem 0;
+    height: 8rem;
 }
 
 .profile__cards-icon {
@@ -26,21 +21,23 @@
     border-radius: .5rem;
 }
 
-.editDiv {
+.profile__Div {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
 }
 
-.editDiv > * {
+.profile__Div > * {
     font-size: 1.6rem;
 }
 
-.editDiv > p {
+.profile__Div > p {
     background-color: lightgray;
     width: 100%;
     text-align: left;
-    padding-left: 1rem;
+    padding: .4rem .5rem;
+    font-size: 1.8rem;
     margin: .5rem 0;
 }
 
@@ -55,7 +52,7 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    height: 74vh;
+    height: 60vh;
     margin: 0 auto;
     padding-top: 1rem;
 }
@@ -82,6 +79,7 @@
 }
 
 #platforms {
+    width: 100vw;
     display: flex;
     justify-content: space-around;
     margin: 0;
@@ -115,11 +113,13 @@
 }
 
 .editCancel {
+    flex-grow: 1;
     height: 6.5rem;
     width: 6.5rem;
 }
 
 .editSubmit {
+    flex-grow: 1;
     height: 7rem;
     width: 7rem;
 }

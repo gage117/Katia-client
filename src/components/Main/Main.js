@@ -45,6 +45,24 @@ export default class MainPage extends React.Component {
         this.setState({ expanded: false })
     }
 
+    // generateGenreString = (genres) => {
+    //     let genreString = '';
+    //     if (genres.length === 0) {
+    //         genreString = 'No Genres Chosen'
+    //     } else if (genres.length === 1) {
+    //         genreString = genres[0]
+    //     } else
+    //     for (let i = 0; i < genres.length; i++) {
+    //         while (i < genres.length - 1) {
+    //             genreString += `${genres[i]}, `
+    //         }
+    //         if (i === genres.length - 1) {
+    //             genreString += `${genres[i]}`
+    //         }
+    //     }
+    //     return genreString
+    // }
+
     render() {
         // const userOne = this.state.potentialMatches[0] || {}
         const userOne = users[0] || {}
@@ -95,22 +113,24 @@ export default class MainPage extends React.Component {
                     </Link>
                 </div>
                 {<li className='main__Swipe-User'>
-                    <img src={userOne.avatar} alt='avatar' className='main__Image' />
-                    <h3>{userOne.display_name}</h3>
-                    <h4>Platforms</h4>
-                    <span>
+                    <h4 className='main__card-header'>Platforms</h4>
+                    <div className='main__platforms'>
                         {/*userOne.platforms*/}
                         <img className='main__xbox' src={xboxLogo} alt='Xbox logo' />
                         <img className='main__playstation' src={playstationLogo} alt='Playstation logo' />
                         <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' />
                         <img className='main__PC' src={PC_Logo} alt='PC logo' />
-                    </span>
-                    <h4>LFM In</h4>
-                    <span>{userOne.lfm_in}</span>
-                    <h4>Bio</h4>
+                    </div>
+                    <h4 className='main__card-header'>LFM In</h4>
+                    <span className='main__lfm-in'>{userOne.lfm_in}</span>
+                    <span className='main__lfm-in'>{userOne.lfm_in}</span>
+                    <span className='main__lfm-in'>{userOne.lfm_in}</span>
+                    <h4 className='main__card-header'>Genres</h4>
+                    <span>{userOne.genres}</span>
+                    <h4 className='main__card-header'>Bio</h4>
                     <p>{userOne.bio}</p>
-                    {/* <img className='main__down-caret' src={down_caretSVG} alt='down-caret' /> */}
-                    <input type="image" src={down_caretSVG} 
+                    {/* <img className='main__down-caret' src={down_caretSVG} alt='down-caret' onClick={this.removeExpanded} /> */}
+                    <input className='main__down-caret-reverse' type="image" src={down_caretSVG}
                     alt='down-caret' onClick={this.removeExpanded} />
                 </li>}
                 <div className='main__Second-Nav'>
