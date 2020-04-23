@@ -20,6 +20,7 @@ export default class Signup extends Component {
       password: password.value
     }
 
+    if(password.value === confirm_password.value) {
     AuthService.registerUser(user)
       .then(() => {
         AuthService.postLogin({
@@ -27,13 +28,16 @@ export default class Signup extends Component {
           password: password.value
         })
           .then(res => {
+            email.value = ''
+            display_name.value = ''
             password.value = ''
             TokenService.saveAuthToken(res.authToken)
             this.props.onRegistrationSuccess(user.user_name)
-            email.value = ''
-            display_name.value = ''
           })
       })
+    } else if(password.value !== confirm_password.value) {
+      this.setState({ error: 'passwords did not match' })
+    }
   }
 
   render() {
@@ -92,7 +96,7 @@ export default class Signup extends Component {
               </label>
               <input
                 name='confirm_password'
-                type='confirm_password'
+                type='password'
                 required
                 id='Signup__confirm_password'
                 className='lp_input'>
@@ -111,3 +115,4 @@ export default class Signup extends Component {
     )
   }
 }
+

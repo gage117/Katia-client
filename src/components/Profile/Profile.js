@@ -21,9 +21,10 @@ export default class Profile extends React.Component {
         isEditing: false,
     }
 
-    componentDidMount() {
-        this.setState({ isEditing: false })
-    }
+    // componentDidMount() {
+    //     this.setState({ isEditing: false })
+    //     console.log(this.context.user)
+    // }
 
     handleEditButton = event => {
         event.preventDefault()
@@ -83,6 +84,7 @@ export default class Profile extends React.Component {
     }
 
     render() {
+        console.log(this.context.user)
         const currentUser = users[2] || {}
 
         if(!this.state.isEditing) {

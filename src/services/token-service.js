@@ -27,7 +27,7 @@ const TokenService = {
 
     return {
       id: payload.user_id,
-      username: payload.user_name
+      email: payload.email
     }
   }
 }
