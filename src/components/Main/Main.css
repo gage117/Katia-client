@@ -1,37 +1,38 @@
 .main__Image {
+    height: 21vh;
     width: auto;
     max-width: 70%;
-    max-height: 24vh;
-    margin: .5rem 0 1rem;
+    margin: 1rem 0;
     border-radius: .5rem;
 }
 
 .main__Swipe-User {
     position: relative;
-    height: 74vh;
+    height: 80vh;
     display: flex;
     flex-direction: column;
     align-items: center;
 }
 
 .main__Nav {
+    height: 9vh;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    margin: 1.5rem auto 1.5rem auto;
+    padding: 1vh 0;
+    margin: auto;
 }
 
 .main__profile-button {
-    width: 4rem;
+    height: 7vh;
 }
 
 .main__contacts-button {
-    width: 5rem;
+    height: 7vh;
 }
 
 .main__Swipe-User {
     border: 1px solid black;
-    padding: 1rem 0;
     max-width: 80%;
     margin: 0 auto;
     border-radius: .8rem;
@@ -51,7 +52,7 @@
 
 .main__Swipe-User > span {
     font-size: 1.5rem;
-    margin: .5rem 0;
+    padding: .3rem 0;
 }
 
 .main__Swipe-User > p {
@@ -63,6 +64,10 @@
     display: flex;
     justify-content: space-around;
     padding: .75rem 0;
+}
+
+.rounded {
+    border-radius: .7rem .7rem 0 0;
 }
 
 .main__xbox {
@@ -81,6 +86,16 @@
     max-height: 3rem;
 }
 
+.main__bio {
+    padding: 0 .3rem;
+}
+
+.main__caret-container {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+}
+
 .main__down-caret {
     position: absolute;
     bottom: 0;
@@ -97,16 +112,18 @@
 }
 
 .main__Second-Nav {
+    height: 11vh;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
-    margin: 1.5rem auto 0;
+    margin: 0 auto;
+    padding: .5vh;
 }
 
 .main__x {
-    width: 6.5rem;
+    height: 10vh;
 }
 
 .main__check {
-    width: 7rem;
+    height: 10.5vh;
 }
