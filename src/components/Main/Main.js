@@ -45,6 +45,12 @@ export default class MainPage extends React.Component {
         this.setState({ expanded: false })
     }
 
+    generateLfmElements = (games) => {
+        return games.map(game => {
+            return (<span className='main__lfm-in'>{game}</span>)
+        })
+    }
+
     generateGenreString = (genres) => {
         try {
             let genreString = '';
@@ -96,9 +102,7 @@ export default class MainPage extends React.Component {
                         <img className='main__PC' src={PC_Logo} alt='PC logo' />
                     </div>
                     <h4 className='main__card-header'>LFM In</h4>
-                    <span className='main__lfm-in'>{userOne.lfm_in}</span>
-                    <span className='main__lfm-in'>{userOne.lfm_in}</span>
-                    <span className='main__lfm-in'>{userOne.lfm_in}</span>
+                    {this.generateLfmElements(userOne.lfm_in)}
                     <h4 className='main__card-header'>Genres</h4>
                     <span>{this.generateGenreString(userOne.genres)}</span>
                     {/* <img className='main__down-caret' src={down_caretSVG} alt='down-caret' /> */}
@@ -132,8 +136,6 @@ export default class MainPage extends React.Component {
                         <img className='main__PC' src={PC_Logo} alt='PC logo' />
                     </div>
                     <h4 className='main__card-header'>LFM In</h4>
-                    <span className='main__lfm-in'>{userOne.lfm_in}</span>
-                    <span className='main__lfm-in'>{userOne.lfm_in}</span>
                     <span className='main__lfm-in'>{userOne.lfm_in}</span>
                     <h4 className='main__card-header'>Genres</h4>
                     <span>{this.generateGenreString(userOne.genres)}</span>
