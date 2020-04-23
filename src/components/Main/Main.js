@@ -79,7 +79,6 @@ export default class MainPage extends React.Component {
         // const userOne = this.state.potentialMatches[0] || {}
         const userOne = users[0] || {}
         
-        if(!this.state.expanded) {
         return (
             <section className='main__Swipe'>
                 <div className='main__Nav'>
@@ -90,8 +89,8 @@ export default class MainPage extends React.Component {
                         <img className='main__contacts-button' src={contactsSVG} alt='contacts' />
                     </Link>
                 </div>
-                {<li className='main__Swipe-User'>
-                    <img src={userOne.avatar} alt='avatar' className='main__Image' />
+                <li className='main__Swipe-User'>
+                    {this.state.expanded ? (<></>) : (<img src={userOne.avatar} alt='avatar' className='main__Image' />)}
                     <h3 className='main__display-name'>{userOne.display_name}</h3>
                     <h4 className='main__card-header'>Platforms</h4>
                     <div className='main__platforms'>
@@ -105,52 +104,22 @@ export default class MainPage extends React.Component {
                     {this.generateLfmElements(userOne.lfm_in)}
                     <h4 className='main__card-header'>Genres</h4>
                     <span>{this.generateGenreString(userOne.genres)}</span>
+                    {this.state.expanded ? (<><h4 className='main__card-header'>Bio</h4>
+                    <p>{userOne.bio}</p></>)
+                    :
+                    (<></>)}
                     {/* <img className='main__down-caret' src={down_caretSVG} alt='down-caret' /> */}
-                    <input className='main__down-caret' type="image" src={down_caretSVG} 
-                    alt='down-caret' onClick={this.toggleExpanded} />
-                </li>}
+                    {this.state.expanded ? (<input className='main__down-caret-reverse' type="image" src={down_caretSVG} 
+                    alt='down-caret' onClick={this.removeExpanded} />)
+                    :
+                    (<input className='main__down-caret' type="image" src={down_caretSVG} 
+                    alt='down-caret' onClick={this.toggleExpanded} />)}
+                </li>
                 <div className='main__Second-Nav'>
                     <img className='main__x' src={x_markSVG} alt='x' />
                     <img className='main__check' src={checkmarkSVG} alt='checkmark'/>
                 </div>
             </section>
         )
-        } else if(this.state.expanded) {
-            return (
-                <section className='main__Swipe'>
-                <div className='main__Nav'>
-                    <Link to='/profile'>
-                        <img className='main__profile-button' src={userSVG} alt='profile' />
-                    </Link>
-                    <Link to='/matches'>
-                        <img className='main__contacts-button' src={contactsSVG} alt='contacts' />
-                    </Link>
-                </div>
-                {<li className='main__Swipe-User'>
-                    <h4 className='main__card-header'>Platforms</h4>
-                    <div className='main__platforms'>
-                        {/*userOne.platforms*/}
-                        <img className='main__xbox' src={xboxLogo} alt='Xbox logo' />
-                        <img className='main__playstation' src={playstationLogo} alt='Playstation logo' />
-                        <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' />
-                        <img className='main__PC' src={PC_Logo} alt='PC logo' />
-                    </div>
-                    <h4 className='main__card-header'>LFM In</h4>
-                    <span className='main__lfm-in'>{userOne.lfm_in}</span>
-                    <h4 className='main__card-header'>Genres</h4>
-                    <span>{this.generateGenreString(userOne.genres)}</span>
-                    <h4 className='main__card-header'>Bio</h4>
-                    <p>{userOne.bio}</p>
-                    {/* <img className='main__down-caret' src={down_caretSVG} alt='down-caret' onClick={this.removeExpanded} /> */}
-                    <input className='main__down-caret-reverse' type="image" src={down_caretSVG}
-                    alt='down-caret' onClick={this.removeExpanded} />
-                </li>}
-                <div className='main__Second-Nav'>
-                    <img className='main__x' src={x_markSVG} alt='x' />
-                    <img className='main__check' src={checkmarkSVG} alt='checkmark'/>
-                </div>
-            </section>
-            )
-        }
     }
 }
