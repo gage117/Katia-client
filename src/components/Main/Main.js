@@ -1,7 +1,7 @@
 import React from 'react'
 import './Main.css'
-import users from '../../store'
-import MainPageContext from '../../Contexts/MainPageContext'
+import UserContext from '../../Contexts/UserContext'
+import SwipeService from '../../services/swipe-service'
 import { Link } from 'react-router-dom'
 import userSVG from '../../images/user.svg'
 import contactsSVG from '../../images/contacts.svg'
@@ -12,23 +12,37 @@ import xboxLogo from '../../images/Xbox_one_logo.svg'
 import checkmarkSVG from '../../images/checkmark-circle-2.svg'
 import x_markSVG from '../../images/x-circle.svg'
 import down_caretSVG from '../../images/solid_caret-down.svg'
+import users from '../../store'
 
 
 export default class MainPage extends React.Component {
-    static contextType = MainPageContext
+    state = {
+        potentialMatches: [],
+        expanded: false,
+        error: null
+    }
+
+    static contextType = UserContext;
 
     componentDidMount() {
-        this.context.setUsers(users)
-        this.context.setCurrentProfile(users[0])
-        this.context.resetExpanded()
+        this.setState({ expanded: false })
+
+        SwipeService.getPotentialMatches(this.context.user.id)
+            .then(potentialMatches => {
+                this.setState({ potentialMatches })
+            })
     }
 
     toggleExpanded = () => {
-        this.context.setExpandedToTrue()
+        this.setState({ expanded: true })
+    }
+    
+    removeExpanded = () => {
+        this.setState({ expanded: false })
     }
 
-    removeExpanded = () => {
-        this.context.resetExpanded()
+    componentWillUnmount() {
+        this.setState({ expanded: false })
     }
 
     generateGenreString = (genres) => {
@@ -55,9 +69,11 @@ export default class MainPage extends React.Component {
     }
 
     render() {
-        const userOne = this.context.users[0] || {}
+        // const userOne = this.context.users[0] || {}
+        // const userOne = this.state.potentialMatches[0] || {}
+        const userOne = users[0] || {}
         
-        if(!this.context.expanded) {
+        if(!this.state.expanded) {
         return (
             <section className='main__Swipe'>
                 <div className='main__Nav'>
@@ -95,7 +111,7 @@ export default class MainPage extends React.Component {
                 </div>
             </section>
         )
-        } else if(this.context.expanded) {
+        } else if(this.state.expanded) {
             return (
                 <section className='main__Swipe'>
                 <div className='main__Nav'>

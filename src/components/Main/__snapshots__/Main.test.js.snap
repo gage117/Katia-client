@@ -34,8 +34,11 @@ exports[`<Main /> renders the UI as expected 1`] = `
     <img
       alt="avatar"
       className="main__Image"
+      src="https://media.vanityfair.com/photos/57e00bc61e9e7cc118c458c7/master/w_2560%2Cc_limit/kanye-west-sad.jpg"
     />
-    <h3 />
+    <h3>
+      n00b01
+    </h3>
     <h4>
       Platforms
     </h4>
@@ -64,7 +67,9 @@ exports[`<Main /> renders the UI as expected 1`] = `
     <h4>
       LFM In
     </h4>
-    <span />
+    <span>
+      dora adventures
+    </span>
     <input
       alt="down-caret"
       onClick={[Function]}

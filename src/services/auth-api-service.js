@@ -8,13 +8,13 @@ const AuthApiService = {
       .toString()
       .split(':')
   },
-  postLogin(credentials) {
-    return fetch(`${config.API_ENDPOINT}/auth/login`, {
+  postLogin({ email, password }) {
+    return fetch(`${config.API_ENDPOINT}/auth/token`, {
       method: 'POST',
       headers: {
         'content-type': 'application/json',
       },
-      body: JSON.stringify(credentials)
+      body: JSON.stringify({ email, password })
     })
       .then(res => 
         (!res.ok)
@@ -22,8 +22,8 @@ const AuthApiService = {
           : res.json()
       )
   },
-  getUser(user_name) {
-    return fetch(`${config.API_ENDPOINT}/user/${user_name}`, {
+  getUser(userId) {
+    return fetch(`${config.API_ENDPOINT}/user/${userId}`, {
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`
       },
@@ -35,7 +35,7 @@ const AuthApiService = {
       )
   },
   updateUser(user) {
-    return fetch(`${config.API_ENDPOINT}/user/${user.user_name}`, {
+    return fetch(`${config.API_ENDPOINT}/user/${user.id}`, {
       method: 'PATCH',
       headers: {
         'authorization': `bearer ${TokenService.getAuthToken()}`,
@@ -51,11 +51,10 @@ const AuthApiService = {
           : res.json()
       )
   },
-  addUser(user) {
-    return fetch(`${config.API_ENDPOINT}/user/${user.user_name}`, {
+  registerUser(user) {
+    return fetch(`${config.API_ENDPOINT}/user`, {
       method: 'POST',
       headers: {
-        'authorization': `bearer ${TokenService.getAuthToken()}`,
         'content-type': 'application/json',
       },
       body: JSON.stringify({
