@@ -35,28 +35,26 @@ export class UserProvider extends Component {
     error: null
   };
 
-  // async componentDidMount() {
-  //   if(this.state.user === nullUser && TokenService.hasAuthToken()) {
-  //     try {
-  //       const account = TokenService.getUserFromToken(TokenService.getAuthToken());
-  //       const info = await ProfileService.getProfile(account.id);
-  //       const matches = await ProfileService.getMatches(account.id);
-
-  //       const user = {
-  //         ...account,
-  //         ...info,
-  //       };
-
-  //       this.setState({
-  //         user,
-  //         matches
-  //       })
-
-  //     } catch(error) {
-  //       this.setState({ error });
-  //     }
-  //   }
-  // }
+  componentDidMount() {
+    if(this.state.user === nullUser && TokenService.hasAuthToken()) {
+        const account = TokenService.getUserFromToken(TokenService.getAuthToken());
+        console.log(account)
+        ProfileService.getProfile(account.id)
+          .then(info => {
+            const user = {
+              ...account,
+              ...info
+            };
+            ProfileService.getMatches(account.id)
+              .then(matches => {
+                this.setState({
+                  user,
+                  matches
+                });
+              })
+          });
+    }
+  }
 
   setUser = user => {
     this.setState({ user });
