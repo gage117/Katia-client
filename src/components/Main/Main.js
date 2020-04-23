@@ -91,8 +91,8 @@ export default class MainPage extends React.Component {
                 </div>
                 <li className='main__Swipe-User'>
                     {this.state.expanded ? (<></>) : (<img src={userOne.avatar} alt='avatar' className='main__Image' />)}
-                    <h3 className='main__display-name'>{userOne.display_name}</h3>
-                    <h4 className='main__card-header'>Platforms</h4>
+                    {this.state.expanded ? (<></>) : (<h3 className='main__display-name'>{userOne.display_name}</h3>)}
+                    <h4 className={this.state.expanded ? 'main__card-header rounded' : 'main__card-header'}>Platforms</h4>
                     <div className='main__platforms'>
                         {/*userOne.platforms*/}
                         <img className='main__xbox' src={xboxLogo} alt='Xbox logo' />
@@ -105,15 +105,17 @@ export default class MainPage extends React.Component {
                     <h4 className='main__card-header'>Genres</h4>
                     <span>{this.generateGenreString(userOne.genres)}</span>
                     {this.state.expanded ? (<><h4 className='main__card-header'>Bio</h4>
-                    <p>{userOne.bio}</p></>)
+                    <p className='main__bio'>{userOne.bio}</p></>)
                     :
                     (<></>)}
                     {/* <img className='main__down-caret' src={down_caretSVG} alt='down-caret' /> */}
-                    {this.state.expanded ? (<input className='main__down-caret-reverse' type="image" src={down_caretSVG} 
-                    alt='down-caret' onClick={this.removeExpanded} />)
-                    :
-                    (<input className='main__down-caret' type="image" src={down_caretSVG} 
-                    alt='down-caret' onClick={this.toggleExpanded} />)}
+                    <div className='main__caret-container'>
+                        {this.state.expanded ? (<input className='main__down-caret-reverse' type="image" src={down_caretSVG} 
+                        alt='down-caret' onClick={this.removeExpanded} />)
+                        :
+                        (<input className='main__down-caret' type="image" src={down_caretSVG} 
+                        alt='down-caret' onClick={this.toggleExpanded} />)}
+                    </div>
                 </li>
                 <div className='main__Second-Nav'>
                     <img className='main__x' src={x_markSVG} alt='x' />
