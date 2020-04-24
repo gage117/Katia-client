@@ -84,7 +84,6 @@ export default class Profile extends React.Component {
 
     render() {
         const currentUser = users[2] || {}
-        console.log(this.context)
 
         if(!this.state.isEditing) {
             return (
