@@ -126,6 +126,14 @@
     height: 10vh;
 }
 
+.main__x:hover {
+    cursor: pointer;
+}
+
 .main__check {
     height: 10.5vh;
+}
+
+.main__check:hover {
+    cursor: pointer;
 }
