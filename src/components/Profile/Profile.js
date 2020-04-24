@@ -132,7 +132,7 @@ export default class Profile extends React.Component {
                     id='bio' defaultValue={user.bio} />
                     <div className='editCancelSubmit-div'>
                         <img className='editCancel' src={x_markSVG} alt='cancel-button' onClick={this.cancelEdit} />
-                        <button type='submit'><img className='editSubmit' src={checkmarkSVG} alt='submit-button' /></button>
+                        <img className='editSubmit' src={checkmarkSVG} alt='submit-button' onClick={this.saveEdit}/>
                     </div>
                 </form>
                 </>

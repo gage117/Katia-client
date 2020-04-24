@@ -103,12 +103,8 @@
     height: 4rem;
 }
 
-.main__down-caret-reverse {
-    position: absolute;
+.reverse {
     transform: rotate(180deg);
-    bottom: 0;
-    width: 5rem;
-    height: 4rem;
 }
 
 .main__Second-Nav {
