@@ -14,7 +14,7 @@ export default class Matches extends React.Component {
     static contextType = UserContext;
 
     toggleExpanded = (event) => {
-        console.log(event.target.parent)
+        return event.currentTarget.getElementsByClassName('match__info')[0].classList.toggle('hidden')
     }
 
     render() {
@@ -45,7 +45,7 @@ export default class Matches extends React.Component {
                     {this.context.generateLfmElements(user.lfm_in)}
 
                     <h4 className='match__card-header'>Genres</h4>
-                    <span>{this.context.generateGenreString(user.genres)}</span>
+                    <p className='match__genres'>{this.context.generateGenreString(user.genres)}</p>
                     <><h4 className='match__card-header'>Bio</h4>
                     <p className='match__bio'>{user.bio}</p></>
                 </section>
