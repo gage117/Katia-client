@@ -10,11 +10,26 @@ import xboxLogo from '../../images/Xbox_one_logo.svg'
 import checkmarkSVG from '../../images/checkmark-circle-2.svg'
 import x_markSVG from '../../images/x-circle.svg'
 import UserContext from '../../Contexts/UserContext'
+import ProfileService from '../../services/profile-service'
+import AuthApiService from '../../services/auth-api-service'
+
 export default class Profile extends React.Component {
     static contextType = UserContext
 
     state = {
         isEditing: false,
+        display_name: '',
+        lfm_in: '',
+        bio: '',
+    }
+
+    componentDidMount() {
+        const { user } = this.context
+        this.setState({ 
+            display_name: user.display_name,
+            lfm_in: user.lfm_in,
+            bio: user.bio,
+        })
     }
 
     handleEditButton = event => {
@@ -24,7 +39,19 @@ export default class Profile extends React.Component {
 
     saveEdit = event => {
         event.preventDefault()
-        console.log('Save Edit')
+        const { user } = this.context
+        const userInfo = {
+            display_name: this.state.display_name,
+            lfm_in: this.state.lfm_in,
+            bio: this.state.bio,
+        }
+        
+        ProfileService.updateProfile(user.id, userInfo)
+        .then(user => {
+            this.context.updateUser(user)
+            // AuthApiService.refreshToken()
+            // .then(res => console.log(res))
+        })
     }
 
     cancelEdit = () => {
@@ -35,6 +62,18 @@ export default class Profile extends React.Component {
         this.context.processLogout()
     }
 
+    handleDisplayNameChange = event => {
+        this.setState({ display_name: event.target.value })
+    }
+
+    handleLookingForChange = event => {
+        this.setState({ lfm_in: event.target.value })
+    }
+
+    handleBioChange = event => {
+        this.setState({ bio: event.target.value })
+    }
+
     generateLfmElements = (games) => {
         return games.map(game => {
             return (<span className='main__lfm-in' key={game}>{game}</span>)
@@ -43,6 +82,7 @@ export default class Profile extends React.Component {
 
     render() {
         const { user } = this.context;
+        console.log(this.state)
 
         if(!this.state.isEditing) {
             return (
@@ -91,10 +131,10 @@ export default class Profile extends React.Component {
                 </div>
                 <form className='editForm' name='editForm' onSubmit={this.saveEdit}>
                     <label htmlFor='username'>Display Name</label>
-                    <input type='text' name='username' 
+                    <input type='text' name='username' onChange={this.handleDisplayNameChange}
                     id='username' defaultValue={user.display_name} />
                     <label htmlFor='lfm'>LFM In</label>
-                    <textarea rows='7' cols='40' name='lfm' 
+                    <textarea rows='7' cols='40' name='lfm' onChange={this.handleLookingForChange}
                     id='lfm' defaultValue={user.lfm_in} />
                     <label htmlFor='platforms'> Platforms</label>
                     <div type='text' name='platforms' 
@@ -105,7 +145,7 @@ export default class Profile extends React.Component {
                         <img className='main__PC' src={PC_Logo} alt='PC logo' />
                     </div>
                     <label htmlFor='bio'>Bio (Max 250 chars.)</label>
-                    <textarea rows='7' cols='40' name='bio'
+                    <textarea rows='7' cols='40' name='bio' onChange={this.handleBioChange}
                     id='bio' defaultValue={user.bio} />
                     <div className='editCancelSubmit-div'>
                         <img className='editCancel' src={x_markSVG} alt='cancel-button' onClick={this.cancelEdit} />

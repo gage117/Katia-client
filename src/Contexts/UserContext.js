@@ -22,6 +22,7 @@ const UserContext = React.createContext({
   setError: () => {},
   clearError: () => {},
   processLogout: () => {},
+  updateUser: () => {},
 });
 
 export default UserContext;
@@ -40,6 +41,10 @@ export class UserProvider extends Component {
 
   setUser = user => {
     this.setState({ user });
+  }
+
+  updateUser = user => {
+    this.setState({ ...this.state.user, ...user })
   }
 
   clearUser = () => {
@@ -104,6 +109,7 @@ export class UserProvider extends Component {
       clearError: this.clearError,
       processLogout: this.processLogout,
       processLogin: this.processLogin,
+      updateUser: this.updateUser,
       generateLfmElements: this.generateLfmElements,
       generateGenreString: this.generateGenreString
     };
