@@ -19,8 +19,8 @@
 .matches__header {
     text-align: center;
     font-size: 4vmax;
-    background-color: lightgray;
-    border-radius: 1vh;
+    border: .25vmax solid black;
+    border-radius: 1vmax;
     width: 20vmax;
     padding: .5vmax;
 }
@@ -33,13 +33,14 @@
 }
 
 .match__li {
+    cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
     padding: 2vmax 0;
     margin: 1vmax 0;
-    background-color: lightgray;
+    border: .25vmax solid black;
     border-radius: 1vmax;
     width: 90%;
 }
@@ -52,4 +53,39 @@
 .match__display-name {
     font-size: 3vmax;
     margin-bottom: 2vmax;
+}
+
+.match__info {
+    padding: 2vmax 0 0;
+}
+
+.match__card-header {
+    width: 100%;
+    font-size: 2.5vh;
+    font-weight: bold;
+    background-color: lightgray;
+    padding: .5vh 2vw;
+}
+
+.match__platforms {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 1vmax 0;
+}
+
+.match__xbox {
+    height: 6vmax;
+}
+
+.match__playstation {
+    height: 6vmax;
+}
+
+.match__nintendo {
+    height: 6vmax;
+}
+
+.match__PC {
+    height: 6vmax;
 }

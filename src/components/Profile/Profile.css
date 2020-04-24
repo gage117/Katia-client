@@ -34,7 +34,7 @@
     font-size: 3vh;
 }
 
-.profile__Div > p {
+.profile__card-header {
     background-color: lightgray;
     width: 100%;
     height: 4.5vh;

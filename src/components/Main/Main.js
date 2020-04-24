@@ -38,11 +38,7 @@ export default class MainPage extends React.Component {
     }
 
     toggleExpanded = () => {
-        this.setState({ expanded: true })
-    }
-    
-    removeExpanded = () => {
-        this.setState({ expanded: false })
+        this.setState({ expanded: this.state.expanded ? false : true })
     }
 
     swipeLeft = () => {
@@ -61,35 +57,6 @@ export default class MainPage extends React.Component {
             .then(() => {
                 this.setState({ queue });
             });
-    }
-
-    generateLfmElements = (games) => {
-        return games.map(game => {
-            return (<span className='main__lfm-in' key={game}>{game}</span>)
-        })
-    }
-
-    generateGenreString = (genres) => {
-        try {
-            let genreString = '';
-            if (genres.length === 0) {
-                genreString = 'No Genres Chosen'
-            } else if (genres.length === 1) {
-                genreString = genres[0]
-            } else {
-                for (let i = 0; i < genres.length; i++) {
-                    if (i < genres.length - 1) {
-                        genreString += `${genres[i]}, `
-                    } else if (i === genres.length - 1) {
-                        genreString += `${genres[i]}`
-                    }
-                }
-            }
-            return genreString
-            }
-        catch {
-            return ''
-        }
     }
 
     render() {
@@ -112,10 +79,10 @@ export default class MainPage extends React.Component {
                         <img className='main__contacts-button' src={contactsSVG} alt='contacts' />
                     </Link>
                 </div>
-                <li className='main__Swipe-User'>
+                <li className='main__Swipe-User' onClick={this.toggleExpanded} >
                     {this.state.expanded ? (<></>) : (<img src={userOne.avatar} alt='avatar' className='main__Image' />)}
                     <h3 className='main__display-name'>{userOne.display_name}</h3>
-                    <h4 className={this.state.expanded ? 'main__card-header rounded' : 'main__card-header'}>Platforms</h4>
+                    <h4 className='main__card-header'>Platforms</h4>
                     <div className='main__platforms'>
                         {userOne.platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
                         {userOne.platforms.includes("PlayStation") ? <img className='main__playstation' src={playstationLogo} alt='Playstation logo' /> : null}
@@ -124,17 +91,19 @@ export default class MainPage extends React.Component {
                     </div>
                     <h4 className='main__card-header'>LFM In</h4>
 
-                    {/*{this.generateLfmElements(userOne.lfm_in)}*/}
+                    {/*{this.context.generateLfmElements(userOne.lfm_in)}*/}
+                    <p>{userOne.lfm_in}</p>
+                    <p>{userOne.lfm_in}</p>
                     <p>{userOne.lfm_in}</p>
 
                     <h4 className='main__card-header'>Genres</h4>
-                    <span>{this.generateGenreString(userOne.genres)}</span>
+                    <span>{this.context.generateGenreString(userOne.genres)}</span>
                     {this.state.expanded ? (<><h4 className='main__card-header'>Bio</h4>
                     <p className='main__bio'>{userOne.bio}</p></>)
                     :
                     (<></>)}
                     <div className='main__caret-container'>
-                        <input className={`main__down-caret${this.state.expanded ? ' reverse' : ''}`} type="image" src={down_caretSVG} alt='down-caret' onClick={this.toggleExpanded} />
+                        <input className={`main__down-caret${this.state.expanded ? ' reverse' : ''}`} type="image" src={down_caretSVG} alt='down-caret' />
                     </div>
                 </li>
                 <div className='main__Second-Nav'>
