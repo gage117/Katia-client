@@ -60,9 +60,11 @@
 }
 
 .match__card-header {
-    font-size: 2.7vmax;
-    padding-left: 1vmax;
+    width: 100%;
+    font-size: 2.5vh;
+    font-weight: bold;
     background-color: lightgray;
+    padding: .5vh 2vw;
 }
 
 .match__platforms {

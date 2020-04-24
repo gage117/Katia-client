@@ -22,7 +22,6 @@ const UserContext = React.createContext({
   setError: () => {},
   clearError: () => {},
   processLogout: () => {},
-  generateGenreString: () => {},
 });
 
 export default UserContext;
@@ -66,6 +65,12 @@ export class UserProvider extends Component {
     this.setUser(user);
   }
 
+  generateLfmElements = (games) => {
+      return games.map(game => {
+          return (<p className='lfm-in' key={game}>{game}</p>)
+      })
+  }
+
   generateGenreString = (genres) => {
     try {
         let genreString = '';
@@ -99,6 +104,7 @@ export class UserProvider extends Component {
       clearError: this.clearError,
       processLogout: this.processLogout,
       processLogin: this.processLogin,
+      generateLfmElements: this.generateLfmElements,
       generateGenreString: this.generateGenreString
     };
 

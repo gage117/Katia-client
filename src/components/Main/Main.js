@@ -59,12 +59,6 @@ export default class MainPage extends React.Component {
             });
     }
 
-    generateLfmElements = (games) => {
-        return games.map(game => {
-            return (<span className='main__lfm-in' key={game}>{game}</span>)
-        })
-    }
-
     render() {
         const { queue } = this.state;
         if(queue === null) {
@@ -85,7 +79,7 @@ export default class MainPage extends React.Component {
                         <img className='main__contacts-button' src={contactsSVG} alt='contacts' />
                     </Link>
                 </div>
-                <li className='main__Swipe-User'>
+                <li className='main__Swipe-User' onClick={this.toggleExpanded} >
                     {this.state.expanded ? (<></>) : (<img src={userOne.avatar} alt='avatar' className='main__Image' />)}
                     <h3 className='main__display-name'>{userOne.display_name}</h3>
                     <h4 className='main__card-header'>Platforms</h4>
@@ -97,7 +91,7 @@ export default class MainPage extends React.Component {
                     </div>
                     <h4 className='main__card-header'>LFM In</h4>
 
-                    {/*{this.generateLfmElements(userOne.lfm_in)}*/}
+                    {/*{this.context.generateLfmElements(userOne.lfm_in)}*/}
                     <p>{userOne.lfm_in}</p>
                     <p>{userOne.lfm_in}</p>
                     <p>{userOne.lfm_in}</p>
@@ -109,7 +103,7 @@ export default class MainPage extends React.Component {
                     :
                     (<></>)}
                     <div className='main__caret-container'>
-                        <input className={`main__down-caret${this.state.expanded ? ' reverse' : ''}`} type="image" src={down_caretSVG} alt='down-caret' onClick={this.toggleExpanded} />
+                        <input className={`main__down-caret${this.state.expanded ? ' reverse' : ''}`} type="image" src={down_caretSVG} alt='down-caret' />
                     </div>
                 </li>
                 <div className='main__Second-Nav'>

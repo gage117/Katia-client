@@ -13,6 +13,10 @@ import xboxLogo from '../../images/Xbox_one_logo.svg'
 export default class Matches extends React.Component {
     static contextType = UserContext;
 
+    toggleExpanded = (event) => {
+        console.log(event.target.parent)
+    }
+
     render() {
         return (
             <>
@@ -25,7 +29,7 @@ export default class Matches extends React.Component {
                 <h3 className='matches__header'>Matches</h3>
             </header>
             <ul className='matches__ul'>
-                {users.map(user => <li key={user.user_id} className='match__li'>
+                {users.map(user => <li key={user.user_id} className='match__li' onClick={this.toggleExpanded}>
                 <h4 className='match__display-name'>{user.display_name}</h4>
                 <img src={user.avatar} alt='avatar' className='match__avatar'></img>
                 <section className='match__info hidden'>
@@ -38,8 +42,7 @@ export default class Matches extends React.Component {
                     </div>
                     <h4 className='match__card-header'>LFM In</h4>
 
-                    {/*{this.generateLfmElements(user.lfm_in)}*/}
-                    <p>{user.lfm_in}</p>
+                    {this.context.generateLfmElements(user.lfm_in)}
 
                     <h4 className='match__card-header'>Genres</h4>
                     <span>{this.context.generateGenreString(user.genres)}</span>
