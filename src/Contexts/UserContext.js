@@ -65,6 +65,35 @@ export class UserProvider extends Component {
     this.setUser(user);
   }
 
+  generateLfmElements = (games) => {
+      return games.map(game => {
+          return (<p className='lfm-in' key={game}>{game}</p>)
+      })
+  }
+
+  generateGenreString = (genres) => {
+    try {
+        let genreString = '';
+        if (genres.length === 0) {
+            genreString = 'No Genres Chosen'
+        } else if (genres.length === 1) {
+            genreString = genres[0]
+        } else {
+            for (let i = 0; i < genres.length; i++) {
+                if (i < genres.length - 1) {
+                    genreString += `${genres[i]}, `
+                } else if (i === genres.length - 1) {
+                    genreString += `${genres[i]}`
+                }
+            }
+        }
+        return genreString
+        }
+    catch {
+        return ''
+    }
+  }
+
   render() {
     const value = {
       user: this.state.user,
@@ -74,7 +103,9 @@ export class UserProvider extends Component {
       setError: this.setError,
       clearError: this.clearError,
       processLogout: this.processLogout,
-      processLogin: this.processLogin
+      processLogin: this.processLogin,
+      generateLfmElements: this.generateLfmElements,
+      generateGenreString: this.generateGenreString
     };
 
     return (
