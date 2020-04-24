@@ -26,8 +26,13 @@ const TokenService = {
     const payload = JSON.parse(jsonPayload);
 
     return {
-      id: payload.user_id,
-      email: payload.email
+      id: payload.id,
+      display_name: payload.display_name,
+      bio: payload.bio,
+      lfm_in: payload.lfm_in,
+      avatar: payload.avatar,
+      genres: payload.genres,
+      platforms: payload.platforms
     }
   }
 }

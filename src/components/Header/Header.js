@@ -1,19 +1,18 @@
 import React, { Component } from 'react'
 import { Link } from 'react-router-dom'
 import TokenService from '../../services/token-service'
+import UserContext from '../../Contexts/UserContext';
 import './Header.css'
 
 export default class Header extends Component {
-  handleLogoutClick = () => {
-    TokenService.clearAuthToken();
-  }
+  static contextType = UserContext;
 
   renderLogoutLink() {
     return (
       <div className='Header__logged-in'>
         <Link
           className='Header__logout-button Header__button'
-          onClick={this.handleLogoutClick}
+          onClick={this.context.processLogout}
           to='/'
         >
           Logout

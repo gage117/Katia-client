@@ -1,6 +1,5 @@
 import React, { Component } from 'react'
 import {Link} from 'react-router-dom'
-import TokenService from '../../services/token-service'
 import AuthApiService from '../../services/auth-api-service'
 import './Login.css'
 
@@ -15,8 +14,6 @@ export default class Login extends Component {
     ev.preventDefault()
     this.setState({error: null})
     const { email, password } = ev.target
-    console.log(email.value)
-    console.log(password.value)
 
     AuthApiService.postLogin({
       email: email.value,
@@ -25,8 +22,7 @@ export default class Login extends Component {
       .then(res => {
         email.value = ''
         password.value = ''
-        TokenService.saveAuthToken(res.authToken)
-        this.props.onLoginSuccess()
+        this.props.onLoginSuccess(res.authToken)
       })
       .catch(res => {
         this.setState({error: res.error})
@@ -44,7 +40,7 @@ export default class Login extends Component {
             onSubmit={this.handleSubmitJwtAuth}
           >
             <div role='alert'>
-              {this.state.error && <p className='Login__error'>Something went wrong, please try again</p>}
+              {this.state.error && <p className='Login__error'>{this.state.error}</p>}
             </div>
             <div className='Login__email-div lp_input-div'>
               <label htmlFor='Login__email'>
