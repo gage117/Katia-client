@@ -41,29 +41,6 @@ export default class Profile extends React.Component {
         })
     }
 
-    generateGenreString = (genres) => {
-        try {
-            let genreString = '';
-            if (genres.length === 0) {
-                genreString = 'No Genres Chosen'
-            } else if (genres.length === 1) {
-                genreString = genres[0]
-            } else {
-                for (let i = 0; i < genres.length; i++) {
-                    if (i < genres.length - 1) {
-                        genreString += `${genres[i]}, `
-                    } else if (i === genres.length - 1) {
-                        genreString += `${genres[i]}`
-                    }
-                }
-            }
-            return genreString
-            }
-        catch {
-            return ''
-        }
-    }
-
     render() {
         const { user } = this.context;
 
@@ -93,7 +70,7 @@ export default class Profile extends React.Component {
                     {/* {this.generateLfmElements(user.lfm_in)} */}
                     <p>{user.lfm_in}</p>
                     <p>Genres</p>                    
-                    <span>{this.generateGenreString(user.genres)}</span>
+                    <span>{this.context.generateGenreString(user.genres)}</span>
                     <p>Bio</p>
                     <span className='profile__bio'>{user.bio}</span>
                 </div>

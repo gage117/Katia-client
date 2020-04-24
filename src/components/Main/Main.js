@@ -65,29 +65,6 @@ export default class MainPage extends React.Component {
         })
     }
 
-    generateGenreString = (genres) => {
-        try {
-            let genreString = '';
-            if (genres.length === 0) {
-                genreString = 'No Genres Chosen'
-            } else if (genres.length === 1) {
-                genreString = genres[0]
-            } else {
-                for (let i = 0; i < genres.length; i++) {
-                    if (i < genres.length - 1) {
-                        genreString += `${genres[i]}, `
-                    } else if (i === genres.length - 1) {
-                        genreString += `${genres[i]}`
-                    }
-                }
-            }
-            return genreString
-            }
-        catch {
-            return ''
-        }
-    }
-
     render() {
         const { queue } = this.state;
         if(queue === null) {
@@ -124,7 +101,7 @@ export default class MainPage extends React.Component {
                     <p>{userOne.lfm_in}</p>
 
                     <h4 className='main__card-header'>Genres</h4>
-                    <span>{this.generateGenreString(userOne.genres)}</span>
+                    <span>{this.context.generateGenreString(userOne.genres)}</span>
                     {this.state.expanded ? (<><h4 className='main__card-header'>Bio</h4>
                     <p className='main__bio'>{userOne.bio}</p></>)
                     :
