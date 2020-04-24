@@ -1,15 +1,91 @@
-.matchH3 {
+.matches__icons-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1vmax 0;
+    height: 9vmax;
+}
+
+.matches__cards-icon {
+    height: 6vmax;
+    margin: .5vmax 0;
+}
+
+.matches__header-container {
+    display: flex;
+    justify-content: center;
+}
+
+.matches__header {
     text-align: center;
-    margin-top: 50px;
+    font-size: 4vmax;
+    border: .25vmax solid black;
+    border-radius: 1vmax;
+    width: 20vmax;
+    padding: .5vmax;
 }
 
-.matchImg {
-    height: 200px;
-    border: 1px solid black;
-}
-
-.matchUl {
+.matches__ul {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+}
+
+.match__li {
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2vmax 0;
+    margin: 1vmax 0;
+    border: .25vmax solid black;
+    border-radius: 1vmax;
+    width: 90%;
+}
+
+.match__avatar {
+    max-width: 90%;
+    border-radius: 1vmax;
+}
+
+.match__display-name {
+    font-size: 3vmax;
+    margin-bottom: 2vmax;
+}
+
+.match__info {
+    padding: 2vmax 0 0;
+}
+
+.match__card-header {
+    width: 100%;
+    font-size: 2.5vh;
+    font-weight: bold;
+    background-color: lightgray;
+    padding: .5vh 2vw;
+}
+
+.match__platforms {
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 1vmax 0;
+}
+
+.match__xbox {
+    height: 6vmax;
+}
+
+.match__playstation {
+    height: 6vmax;
+}
+
+.match__nintendo {
+    height: 6vmax;
+}
+
+.match__PC {
+    height: 6vmax;
 }

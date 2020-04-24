@@ -80,29 +80,6 @@ export default class Profile extends React.Component {
         })
     }
 
-    generateGenreString = (genres) => {
-        try {
-            let genreString = '';
-            if (genres.length === 0) {
-                genreString = 'No Genres Chosen'
-            } else if (genres.length === 1) {
-                genreString = genres[0]
-            } else {
-                for (let i = 0; i < genres.length; i++) {
-                    if (i < genres.length - 1) {
-                        genreString += `${genres[i]}, `
-                    } else if (i === genres.length - 1) {
-                        genreString += `${genres[i]}`
-                    }
-                }
-            }
-            return genreString
-            }
-        catch {
-            return ''
-        }
-    }
-
     render() {
         const { user } = this.context;
         console.log(this.state)
@@ -119,9 +96,9 @@ export default class Profile extends React.Component {
                 <div className='profile__Div'> 
                     <img src={user.avatar} 
                     alt='avatar' className='profile__Img' />
-                    <p>Display Name</p>
+                    <h4 className='profile__card-header'>Display Name</h4>
                     <span>{user.display_name}</span>
-                    <p>Platforms</p>
+                    <h4 className='profile__card-header'>Platforms</h4>
                     <div id='platforms'>
                         {/* user.platforms */}
                         {user.platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
@@ -129,12 +106,12 @@ export default class Profile extends React.Component {
                         {user.platforms.includes("Nintendo") ? <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' /> : null}
                         {user.platforms.includes("PC") ? <img className='main__PC' src={PC_Logo} alt='PC logo' /> : null}
                     </div>
-                    <p>LFM In</p>
+                    <h4 className='profile__card-header'>LFM In</h4>
                     {/* {this.generateLfmElements(user.lfm_in)} */}
                     <p>{user.lfm_in}</p>
-                    <p>Genres</p>                    
-                    <span>{this.generateGenreString(user.genres)}</span>
-                    <p>Bio</p>
+                    <h4 className='profile__card-header'>Genres</h4>                    
+                    <span>{this.context.generateGenreString(user.genres)}</span>
+                    <h4 className='profile__card-header'>Bio</h4>
                     <span className='profile__bio'>{user.bio}</span>
                 </div>
                 <div className='logoutLink-container'>
