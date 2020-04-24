@@ -67,24 +67,20 @@
     padding: 1vh 0;
 }
 
-.rounded {
-    border-radius: .7rem .7rem 0 0;
-}
-
 .main__xbox {
-    height: 5vh;
+    height: 6vh;
 }
 
 .main__playstation {
-    height: 5vh;
+    height: 6vh;
 }
 
 .main__nintendo {
-    height: 5vh;
+    height: 6vh;
 }
 
 .main__PC {
-    height: 5vh;
+    height: 6vh;
 }
 
 .main__lfm-in {

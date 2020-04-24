@@ -88,7 +88,7 @@ export default class MainPage extends React.Component {
                 <li className='main__Swipe-User'>
                     {this.state.expanded ? (<></>) : (<img src={userOne.avatar} alt='avatar' className='main__Image' />)}
                     <h3 className='main__display-name'>{userOne.display_name}</h3>
-                    <h4 className={this.state.expanded ? 'main__card-header rounded' : 'main__card-header'}>Platforms</h4>
+                    <h4 className='main__card-header'>Platforms</h4>
                     <div className='main__platforms'>
                         {userOne.platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
                         {userOne.platforms.includes("PlayStation") ? <img className='main__playstation' src={playstationLogo} alt='Playstation logo' /> : null}
@@ -98,6 +98,8 @@ export default class MainPage extends React.Component {
                     <h4 className='main__card-header'>LFM In</h4>
 
                     {/*{this.generateLfmElements(userOne.lfm_in)}*/}
+                    <p>{userOne.lfm_in}</p>
+                    <p>{userOne.lfm_in}</p>
                     <p>{userOne.lfm_in}</p>
 
                     <h4 className='main__card-header'>Genres</h4>
