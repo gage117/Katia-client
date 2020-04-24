@@ -3,11 +3,7 @@ import TokenService from './token-service';
 
 const ProfileService = {
   getProfile(userId) {
-    return fetch(`${config.API_ENDPOINT}/user/${userId}`, {
-      headers: {
-        'Authorization': `Bearer ${TokenService.getAuthToken}`
-      }
-    })
+    return fetch(`${config.API_ENDPOINT}/user/${userId}`)
       .then(res => {
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
@@ -18,7 +14,7 @@ const ProfileService = {
   getMatches(userId) {
     return fetch(`${config.API_ENDPOINT}/user/${userId}/matches`, {
       headers: {
-        'Authorization': `Bearer ${TokenService.getAuthToken}`
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
       }
     })
       .then(res => {

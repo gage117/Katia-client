@@ -87,7 +87,7 @@ exports[`<Signup /> renders the UI as expected 1`] = `
           id="Signup__confirm_password"
           name="confirm_password"
           required={true}
-          type="confirm_password"
+          type="password"
         />
       </div>
       <div

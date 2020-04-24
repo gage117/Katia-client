@@ -1,10 +1,8 @@
 import React, { Component } from 'react';
 import TokenService from '../services/token-service';
-import ProfileService from '../services/profile-service';
 
 const nullUser = {
   id: -1,
-  username: '',
   avatar: '',
   display_name: '',
   bio: '',
@@ -31,32 +29,14 @@ export default UserContext;
 export class UserProvider extends Component {
   state = {
     user: nullUser,
-    matches: [],
     error: null
   };
 
-  // async componentDidMount() {
-  //   if(this.state.user === nullUser && TokenService.hasAuthToken()) {
-  //     try {
-  //       const account = TokenService.getUserFromToken(TokenService.getAuthToken());
-  //       const info = await ProfileService.getProfile(account.id);
-  //       const matches = await ProfileService.getMatches(account.id);
-
-  //       const user = {
-  //         ...account,
-  //         ...info,
-  //       };
-
-  //       this.setState({
-  //         user,
-  //         matches
-  //       })
-
-  //     } catch(error) {
-  //       this.setState({ error });
-  //     }
-  //   }
-  // }
+  componentDidMount() {
+    if(this.state.user === nullUser && TokenService.hasAuthToken()) {
+        this.processLogin(TokenService.getAuthToken());
+    }
+  }
 
   setUser = user => {
     this.setState({ user });
@@ -64,14 +44,6 @@ export class UserProvider extends Component {
 
   clearUser = () => {
     this.setState({ user: nullUser });
-  }
-
-  setMatches = matches => {
-    this.setState({ matches });
-  }
-
-  clearMatches = () => {
-    this.setState({ matches: [] })
   }
 
   setError = error => {
@@ -84,21 +56,25 @@ export class UserProvider extends Component {
 
   processLogout = () => {
     TokenService.clearAuthToken()
-    this.setUser({})
+    this.setUser(nullUser)
+  }
+
+  processLogin = (token) => {
+    TokenService.saveAuthToken(token)
+    const user = TokenService.getUserFromToken(TokenService.getAuthToken())
+    this.setUser(user);
   }
 
   render() {
     const value = {
       user: this.state.user,
-      matches: this.state.matches,
       error: this.state.error,
       setUser: this.setUser,
       clearUser: this.clearUser,
-      setMatches: this.setMatches,
-      clearMatches: this.clearMatches,
       setError: this.setError,
       clearError: this.clearError,
       processLogout: this.processLogout,
+      processLogin: this.processLogin
     };
 
     return (

@@ -1,15 +1,55 @@
-.matchH3 {
+.matches__icons-container {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1vmax 0;
+    height: 9vmax;
+}
+
+.matches__cards-icon {
+    height: 6vmax;
+    margin: .5vmax 0;
+}
+
+.matches__header-container {
+    display: flex;
+    justify-content: center;
+}
+
+.matches__header {
     text-align: center;
-    margin-top: 50px;
+    font-size: 4vmax;
+    background-color: lightgray;
+    border-radius: 1vh;
+    width: 20vmax;
+    padding: .5vmax;
 }
 
-.matchImg {
-    height: 200px;
-    border: 1px solid black;
-}
-
-.matchUl {
+.matches__ul {
     display: flex;
     flex-direction: column;
+    justify-content: center;
     align-items: center;
+}
+
+.match__li {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 2vmax 0;
+    margin: 1vmax 0;
+    background-color: lightgray;
+    border-radius: 1vmax;
+    width: 90%;
+}
+
+.match__avatar {
+    max-width: 90%;
+    border-radius: 1vmax;
+}
+
+.match__display-name {
+    font-size: 3vmax;
+    margin-bottom: 2vmax;
 }

@@ -8,17 +8,11 @@ class LandingRoute extends Component {
       push: () => {},
     },
   }
-
-  handleLoginSuccess = (user_name) => {
-    const { location, history } = this.props
-    const destination = (location.state || {}).from || `/user/${user_name}`
-    history.push(destination)
-  }
   
   render() {
     return (
       <React.Fragment>
-        <LandingPage onLoginSuccess={this.handleLoginSuccess}/>
+        <LandingPage />
       </React.Fragment>
     )
   }
