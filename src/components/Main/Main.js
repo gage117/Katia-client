@@ -32,7 +32,7 @@ export default class MainPage extends React.Component {
                 potentialMatches.queue.forEach(match => {
                     queue.enqueue(match);
                 });
-                this.setState({ queue })
+                this.setState({ queue });
             })
             .catch(error => this.setState({error}));
     }
@@ -60,7 +60,8 @@ export default class MainPage extends React.Component {
         SwipeService.addMatch(this.context.user.id, match.id)
             .then(() => {
                 this.setState({ queue });
-            });
+            })
+            .catch(error => this.setState({error}));
     }
 
     generateLfmElements = (games) => {
