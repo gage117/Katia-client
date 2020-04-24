@@ -49,6 +49,7 @@
     font-weight: bold;
     background-color: lightgray;
     padding: .7vh 2vw;
+    margin: .7vmax 0;
 }
 
 .main__Swipe-User > span {
@@ -64,7 +65,6 @@
     width: 100%;
     display: flex;
     justify-content: space-around;
-    padding: 1vh 0;
 }
 
 .main__xbox {

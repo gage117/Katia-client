@@ -55,16 +55,22 @@
     margin-bottom: 2vmax;
 }
 
+.hidden {
+    display: none;
+}
+
 .match__info {
     padding: 2vmax 0 0;
+    width: 100%;
 }
 
 .match__card-header {
     width: 100%;
-    font-size: 2.5vh;
+    font-size: 2.5vmax;
     font-weight: bold;
     background-color: lightgray;
     padding: .5vh 2vw;
+    margin: .7vmax 0;
 }
 
 .match__platforms {
@@ -88,4 +94,15 @@
 
 .match__PC {
     height: 6vmax;
+}
+
+.match__genres {
+    font-size: 2.3vmax;
+    text-align: center;
+}
+
+.match__bio {
+    font-size: 2.3vmax;
+    text-align: justify;
+    padding: 0 1.5vmin;
 }
