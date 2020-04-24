@@ -1,14 +1,14 @@
 .main__Image {
     height: 21vh;
     width: auto;
-    max-width: 70%;
-    margin: 1rem 0;
+    max-width: 80%;
+    margin: 1.5vh 0;
     border-radius: .5rem;
 }
 
 .main__Swipe-User {
     position: relative;
-    height: 80vh;
+    height: 79vh;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -39,31 +39,32 @@
 }
 
 .main__display-name {
-    font-size: 2.4rem;
-    margin: .75rem 0;
+    font-size: 4.3vh;
+    margin: 1vh 0;
 }
 
 .main__card-header {
     width: 100%;
-    font-size: 1.8rem;
+    font-size: 3vh;
+    font-weight: bold;
     background-color: lightgray;
-    padding: .4rem .5rem;
+    padding: .7vh 2vw;
 }
 
 .main__Swipe-User > span {
-    font-size: 1.5rem;
-    padding: .3rem 0;
+    font-size: 3vh;
+    padding: .5vh 0;
 }
 
 .main__Swipe-User > p {
-    font-size: 1.5rem;
+    font-size: 3vh;
 }
 
 .main__platforms {
     width: 100%;
     display: flex;
     justify-content: space-around;
-    padding: .75rem 0;
+    padding: 1vh 0;
 }
 
 .rounded {
@@ -71,23 +72,25 @@
 }
 
 .main__xbox {
-    max-height: 3rem;
+    height: 5vh;
 }
 
 .main__playstation {
-    max-height: 3rem;
+    height: 5vh;
 }
 
 .main__nintendo {
-    max-height: 3rem;
+    height: 5vh;
 }
 
 .main__PC {
-    max-height: 3rem;
+    height: 5vh;
 }
 
 .main__bio {
     padding: 0 .3rem;
+    height: 25vh;
+    overflow-y: scroll;
 }
 
 .main__caret-container {
@@ -99,8 +102,7 @@
 .main__down-caret {
     position: absolute;
     bottom: 0;
-    width: 5rem;
-    height: 4rem;
+    height: 6vh;
 }
 
 .main__down-caret-reverse {
