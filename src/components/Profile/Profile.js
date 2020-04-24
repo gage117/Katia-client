@@ -1,7 +1,6 @@
 import React from 'react'
 import './Profile.css'
 import { Link } from 'react-router-dom'
-import users from '../../store'
 import cardsIcon from '../../images/cards.png'
 import editIcon from '../../images/edit-icon.png'
 import nintendoNetworkLogo from '../../images/nintendo_logo.png'
@@ -11,9 +10,6 @@ import xboxLogo from '../../images/Xbox_one_logo.svg'
 import checkmarkSVG from '../../images/checkmark-circle-2.svg'
 import x_markSVG from '../../images/x-circle.svg'
 import UserContext from '../../Contexts/UserContext'
-
-
-
 export default class Profile extends React.Component {
     static contextType = UserContext
 
@@ -23,17 +19,12 @@ export default class Profile extends React.Component {
 
     handleEditButton = event => {
         event.preventDefault()
-
         this.setState({ isEditing: true })
-    }
-
-    handleEditSubmit = event => {
-        document.getElementsByClassName('editForm')[0].submit()
     }
 
     saveEdit = event => {
         event.preventDefault()
-        
+        console.log('Save Edit')
     }
 
     cancelEdit = () => {
@@ -74,8 +65,7 @@ export default class Profile extends React.Component {
     }
 
     render() {
-        console.log(this.context.user)
-        const currentUser = users[2] || {}
+        const { user } = this.context;
 
         if(!this.state.isEditing) {
             return (
@@ -87,24 +77,25 @@ export default class Profile extends React.Component {
                     <img className='profile__edit-icon' onClick={this.handleEditButton} src={editIcon} alt='edit-icon' />
                 </div>
                 <div className='profile__Div'> 
-                    <img src={currentUser.avatar} 
+                    <img src={user.avatar} 
                     alt='avatar' className='profile__Img' />
                     <p>Display Name</p>
-                    <span>{currentUser.display_name}</span>
+                    <span>{user.display_name}</span>
                     <p>Platforms</p>
                     <div id='platforms'>
-                        {/* currentUser.platforms */}
-                        <img className='main__xbox' src={xboxLogo} alt='Xbox logo' />
-                        <img className='main__playstation' src={playstationLogo} alt='Playstation logo' />
-                        <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' />
-                        <img className='main__PC' src={PC_Logo} alt='PC logo' />
+                        {/* user.platforms */}
+                        {user.platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
+                        {user.platforms.includes("PlayStation") ? <img className='main__playstation' src={playstationLogo} alt='Playstation logo' /> : null}
+                        {user.platforms.includes("Nintendo") ? <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' /> : null}
+                        {user.platforms.includes("PC") ? <img className='main__PC' src={PC_Logo} alt='PC logo' /> : null}
                     </div>
                     <p>LFM In</p>
-                    {this.generateLfmElements(currentUser.lfm_in)}
+                    {/* {this.generateLfmElements(user.lfm_in)} */}
+                    <p>{user.lfm_in}</p>
                     <p>Genres</p>                    
-                    <span>{this.generateGenreString(currentUser.genres)}</span>
+                    <span>{this.generateGenreString(user.genres)}</span>
                     <p>Bio</p>
-                    <span className='profile__bio'>{currentUser.bio}</span>
+                    <span className='profile__bio'>{user.bio}</span>
                 </div>
                 <div className='logoutLink-container'>
                     <Link onClick={this.handleLogoutClick} 
@@ -118,16 +109,16 @@ export default class Profile extends React.Component {
             return (
                 <>
                 <div className='profile__ImgEdit-container'>
-                    <img src={currentUser.avatar} 
+                    <img src={user.avatar} 
                     alt='avatar' className='profile__ImgEdit' />
                 </div>
                 <form className='editForm' name='editForm' onSubmit={this.saveEdit}>
                     <label htmlFor='username'>Display Name</label>
                     <input type='text' name='username' 
-                    id='username' defaultValue={currentUser.display_name} />
+                    id='username' defaultValue={user.display_name} />
                     <label htmlFor='lfm'>LFM In</label>
                     <textarea rows='7' cols='40' name='lfm' 
-                    id='lfm' defaultValue={currentUser.lfm_in} />
+                    id='lfm' defaultValue={user.lfm_in} />
                     <label htmlFor='platforms'> Platforms</label>
                     <div type='text' name='platforms' 
                     id='platforms'>
@@ -138,16 +129,12 @@ export default class Profile extends React.Component {
                     </div>
                     <label htmlFor='bio'>Bio</label>
                     <textarea rows='7' cols='40' name='bio'
-                    id='bio' defaultValue={currentUser.bio} />
+                    id='bio' defaultValue={user.bio} />
                     <div className='editCancelSubmit-div'>
                         <img className='editCancel' src={x_markSVG} alt='cancel-button' onClick={this.cancelEdit} />
-                        <img className='editSubmit' src={checkmarkSVG} alt='submit-button' onClick={this.handleEditSubmit} />
+                        <button type='submit'><img className='editSubmit' src={checkmarkSVG} alt='submit-button' /></button>
                     </div>
                 </form>
-                <div className='editCancelSubmit-div'>
-                    <img className='editCancel' src={x_markSVG} alt='cancel-button' onClick={this.context.resetEditing} />
-                    <img className='editSubmit' src={checkmarkSVG} alt='submit-button' onClick={this.handleEditSubmit} />
-                </div>
                 </>
             )
         }

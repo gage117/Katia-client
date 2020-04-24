@@ -40,7 +40,7 @@ export default class Login extends Component {
             onSubmit={this.handleSubmitJwtAuth}
           >
             <div role='alert'>
-              {this.state.error && <p className='Login__error'>Something went wrong, please try again</p>}
+              {this.state.error && <p className='Login__error'>{this.state.error}</p>}
             </div>
             <div className='Login__email-div lp_input-div'>
               <label htmlFor='Login__email'>

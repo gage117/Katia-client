@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
 import TokenService from '../services/token-service';
-import ProfileService from '../services/profile-service';
 
 const nullUser = {
   id: -1,
@@ -57,18 +56,13 @@ export class UserProvider extends Component {
 
   processLogout = () => {
     TokenService.clearAuthToken()
-    this.setUser({})
+    this.setUser(nullUser)
   }
 
   processLogin = (token) => {
-    TokenService.saveAuthToken(token);
-    const account = TokenService.getUserFromToken(TokenService.getAuthToken());
-    ProfileService.getProfile(account.id)
-      .then(info => {
-        this.setState({
-          user: info
-        });
-      });
+    TokenService.saveAuthToken(token)
+    const user = TokenService.getUserFromToken(TokenService.getAuthToken())
+    this.setUser(user);
   }
 
   render() {

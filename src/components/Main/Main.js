@@ -28,7 +28,8 @@ export default class MainPage extends React.Component {
             .then(potentialMatches => {
                 console.log(potentialMatches);
                 this.setState({ potentialMatches: potentialMatches.queue })
-            });
+            })
+            .catch(error => this.setState({error}));
     }
 
     toggleExpanded = () => {
