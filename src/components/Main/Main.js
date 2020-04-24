@@ -65,7 +65,7 @@ export default class MainPage extends React.Component {
 
     generateLfmElements = (games) => {
         return games.map(game => {
-            return (<span className='main__lfm-in'>{game}</span>)
+            return (<span className='main__lfm-in' key={game}>{game}</span>)
         })
     }
 

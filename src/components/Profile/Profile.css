@@ -1,18 +1,20 @@
 .profile__icons-container {
     display: flex;
     justify-content: space-around;
-    padding: 1rem 0;
-    height: 6rem;
+    align-items: center;
+    padding: 1vh 0;
+    height: 9vh;
     overflow-y: scroll;
 }
 
 .profile__cards-icon {
-    height: 4rem;
+    height: 6vh;
+    margin: .5vh 0;
 }
 
 .profile__edit-icon {
-    height: 3.4rem;
-    margin: .3rem 0;
+    height: 6vh;
+    margin: .5vh 0;
 }
 
 .profile__Img {
@@ -30,15 +32,17 @@
 }
 
 .profile__Div > * {
-    font-size: 1.6rem;
+    font-size: 3vh;
 }
 
 .profile__Div > p {
     background-color: lightgray;
     width: 100%;
+    height: 4.5vh;
     text-align: left;
-    padding: .4rem .5rem;
-    font-size: 1.8rem;
+    padding: .7vh 2vw;
+    font-size: 3vh;
+    font-weight: bold;
     margin: .5rem 0;
 }
 
@@ -54,12 +58,12 @@
 
 .logoutLink {
     display: block;
-    width: 8rem;
-    font-size: 2rem;
+    width: 25vw;
+    font-size: 3.5vh;
     border: .25rem solid black;
     color: black;
     border-radius: .25rem;
-    padding: .25rem 0;
+    padding: .5vh 0;
     margin: auto;
     text-align: center;
 }
@@ -75,44 +79,47 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    height: 60vh;
+    height: 61.5vh;
     margin: 0 auto;
-    padding-top: 1rem;
+    padding-top: 1.7vh;
 }
 
 .editForm > label {
     background-color: lightgray;
-    padding: .4rem .5rem;
-    font-size: 1.8rem;
+    padding: .7vh 1.5vw;
+    font-size: 3vh;
+    font-weight: bold;
+    height: 4.5vh;
 }
 
 .editForm > input {
     width: 50%;
-    height: 3rem;
-    font-size: 1.6rem;
-    padding-left: .5rem;
+    height: 4.5vh;
+    font-size: 3vh;
+    padding-left: 1.5vw;
 }
 
 #lfm {
-    font-size: 1.6rem;
-    padding: .25rem 0 0 .5rem;
-    height: 8rem;
+    font-size: 3vh;
+    padding: .5vh 0 0 1.5vw;
+    height: 10vh;
     width: 80%;
     border: .08rem solid gray;
 }
 
 #platforms {
     width: 100vw;
+    height: 7.8vh;
     display: flex;
     justify-content: space-around;
     margin: 0;
-    padding: 1rem 0;
+    padding: 1.4vh 0;
 }
 
 #bio {
-    font-size: 1.6rem;
-    padding: .25rem 0 0 .5rem;
-    height: 12rem;
+    font-size: 3vh;
+    padding: .5vh 0 0 1.5vw;
+    height: 18vh;
     border: .08rem solid gray;
 }
 
@@ -132,17 +139,14 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: .25rem 0 .5rem;
+    padding: .5vh 0 .5vh;
+    height: 12vh;
 }
 
 .editCancel {
-    flex-grow: 1;
-    height: 6.5rem;
-    width: 6.5rem;
+    height: 10vh;
 }
 
 .editSubmit {
-    flex-grow: 1;
-    height: 7rem;
-    width: 7rem;
+    height: 10.5vh;
 }

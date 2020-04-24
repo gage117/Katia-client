@@ -37,7 +37,7 @@ export default class Profile extends React.Component {
 
     generateLfmElements = (games) => {
         return games.map(game => {
-            return (<span className='main__lfm-in'>{game}</span>)
+            return (<span className='main__lfm-in' key={game}>{game}</span>)
         })
     }
 
@@ -127,7 +127,7 @@ export default class Profile extends React.Component {
                         <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' />
                         <img className='main__PC' src={PC_Logo} alt='PC logo' />
                     </div>
-                    <label htmlFor='bio'>Bio</label>
+                    <label htmlFor='bio'>Bio (Max 250 chars.)</label>
                     <textarea rows='7' cols='40' name='bio'
                     id='bio' defaultValue={user.bio} />
                     <div className='editCancelSubmit-div'>
