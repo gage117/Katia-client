@@ -38,11 +38,7 @@ export default class MainPage extends React.Component {
     }
 
     toggleExpanded = () => {
-        this.setState({ expanded: true })
-    }
-    
-    removeExpanded = () => {
-        this.setState({ expanded: false })
+        this.setState({ expanded: this.state.expanded ? false : true })
     }
 
     swipeLeft = () => {
