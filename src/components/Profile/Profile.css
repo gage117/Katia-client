@@ -4,7 +4,6 @@
     align-items: center;
     padding: 1vh 0;
     height: 9vh;
-    overflow-y: scroll;
 }
 
 .profile__cards-icon {
