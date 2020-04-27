@@ -12,8 +12,7 @@ const nullUser = {
 };
 
 const UserContext = React.createContext({
-  user: nullUser,
-  matches: [],
+  user_id: -1,
   error: null,
   setUser: () => {},
   clearUser: () => {},
@@ -22,6 +21,7 @@ const UserContext = React.createContext({
   setError: () => {},
   clearError: () => {},
   processLogout: () => {},
+  processLogin: () => {},
   updateUser: () => {},
 });
 
@@ -29,12 +29,12 @@ export default UserContext;
 
 export class UserProvider extends Component {
   state = {
-    user: nullUser,
+    user_id: -1,
     error: null
   };
 
   componentDidMount() {
-    if(this.state.user === nullUser && TokenService.hasAuthToken()) {
+    if(this.state.user_id === -1 && TokenService.hasAuthToken()) {
         this.processLogin(TokenService.getAuthToken());
     }
   }
@@ -66,8 +66,8 @@ export class UserProvider extends Component {
 
   processLogin = (token) => {
     TokenService.saveAuthToken(token)
-    const user = TokenService.getUserFromToken(TokenService.getAuthToken())
-    this.setUser(user);
+    const account = TokenService.getUserFromToken(TokenService.getAuthToken())
+    this.setState({ user_id: account.id })
   }
 
   generateLfmElements = (games) => {
@@ -101,7 +101,7 @@ export class UserProvider extends Component {
 
   render() {
     const value = {
-      user: this.state.user,
+      user_id: this.state.user_id,
       error: this.state.error,
       setUser: this.setUser,
       clearUser: this.clearUser,
