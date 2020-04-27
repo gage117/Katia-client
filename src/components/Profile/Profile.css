@@ -16,6 +16,10 @@
     margin: .5vh 0;
 }
 
+.profile__edit-icon:hover {
+    cursor: pointer;
+}
+
 .profile__Img {
     height: auto;
     width: 60%;
@@ -146,6 +150,14 @@
     height: 10vh;
 }
 
+.editCancel:hover {
+    cursor: pointer;
+}
+
 .editSubmit {
     height: 10.5vh;
+}
+
+.editSubmit:hover {
+    cursor: pointer;
 }
