@@ -16,6 +16,10 @@
     margin: .5vh 0;
 }
 
+.profile__edit-icon:hover {
+    cursor: pointer;
+}
+
 .profile__Img {
     height: auto;
     width: 60%;
