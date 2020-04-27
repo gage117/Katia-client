@@ -150,6 +150,14 @@
     height: 10vh;
 }
 
+.editCancel:hover {
+    cursor: pointer;
+}
+
 .editSubmit {
     height: 10.5vh;
+}
+
+.editSubmit:hover {
+    cursor: pointer;
 }
