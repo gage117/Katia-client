@@ -87,10 +87,8 @@ export default class Profile extends React.Component {
         this.setState({ bio: event.target.value })
     }
 
-    generateLfmElements = (games) => {
-        return games.map(game => {
-            return (<span className='main__lfm-in' key={game}>{game}</span>)
-        })
+    handleGenresChange = event => {
+        this.setState({ genres: event.target.value })
     }
 
     render() {
@@ -154,6 +152,9 @@ export default class Profile extends React.Component {
                         <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' />
                         <img className='main__PC' src={PC_Logo} alt='PC logo' />
                     </div>
+                    <label htmlFor='genres'>Genres</label>
+                    <input type='text' name='genres' onChange={this.handleGenresChange}
+                    id='genres' defaultValue={genres} />
                     <label htmlFor='bio'>Bio (Max 250 chars.)</label>
                     <textarea rows='7' cols='40' name='bio' onChange={this.handleBioChange}
                     id='bio' defaultValue={bio} />
