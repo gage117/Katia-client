@@ -35,6 +35,9 @@ export default class Signup extends Component {
             this.props.onRegistrationSuccess(user.user_name)
           })
       })
+      .catch(res => {
+        this.setState({ error: res.error })
+      })
     } else if(password.value !== confirm_password.value) {
       this.setState({ error: 'passwords did not match' })
     }
