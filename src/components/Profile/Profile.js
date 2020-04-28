@@ -111,15 +111,13 @@ export default class Profile extends React.Component {
                     <span>{display_name}</span>
                     <h4 className='profile__card-header'>Platforms</h4>
                     <div id='platforms'>
-                        {/* user.platforms */}
                         {platforms && platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
                         {platforms && platforms.includes("PlayStation") ? <img className='main__playstation' src={playstationLogo} alt='Playstation logo' /> : null}
                         {platforms && platforms.includes("Nintendo") ? <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' /> : null}
                         {platforms && platforms.includes("PC") ? <img className='main__PC' src={PC_Logo} alt='PC logo' /> : null}
                     </div>
                     <h4 className='profile__card-header'>LFM In</h4>
-                    {/* {this.generateLfmElements(user.lfm_in)} */}
-                    <p>{lfm_in}</p>
+                    {this.context.generateLfmElements(lfm_in)}
                     <h4 className='profile__card-header'>Genres</h4>                    
                     <span>{this.context.generateGenreString(genres)}</span>
                     <h4 className='profile__card-header'>Bio</h4>
