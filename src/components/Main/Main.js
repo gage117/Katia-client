@@ -44,7 +44,6 @@ export default class MainPage extends React.Component {
     swipeLeft = () => {
         const { queue } = this.state;
         queue.enqueue(queue.dequeue());
-
         this.setState({ queue });
     }
 

@@ -100,7 +100,6 @@ export default class Profile extends React.Component {
                     <span>{user.display_name}</span>
                     <h4 className='profile__card-header'>Platforms</h4>
                     <div id='platforms'>
-                        {/* user.platforms */}
                         {user.platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
                         {user.platforms.includes("PlayStation") ? <img className='main__playstation' src={playstationLogo} alt='Playstation logo' /> : null}
                         {user.platforms.includes("Nintendo") ? <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' /> : null}
