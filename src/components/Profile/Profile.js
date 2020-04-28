@@ -19,11 +19,10 @@ export default class Profile extends React.Component {
         isEditing: false,
         avatar: '',
         display_name: '',
-        lfm_in: [],
+        lfm_in: '',
         bio: '',
-        platforms: [],
-        genres: [],
-        error: null,
+        platforms: '',
+        genres: '',
     }
 
     componentDidMount() {
