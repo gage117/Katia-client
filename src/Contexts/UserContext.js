@@ -28,16 +28,35 @@ const UserContext = React.createContext({
 export default UserContext;
 
 export class UserProvider extends Component {
-  state = {
-    user_id: -1,
-    error: null
-  };
+  constructor(props) {
+    super(props)
+    const state = { user_id: -1, error: null }
 
-  componentDidMount() {
-    if(this.state.user_id === -1 && TokenService.hasAuthToken()) {
-        this.processLogin(TokenService.getAuthToken());
+    if(state.user_id === -1 && TokenService.hasAuthToken()) {
+      TokenService.saveAuthToken(TokenService.getAuthToken())
+      const account = TokenService.getUserFromToken(TokenService.getAuthToken())
+      state.user_id = account.id
     }
+
+    this.state = state
   }
+
+  // state = {
+  //   user_id: -1,
+  //   error: null
+  // };
+
+  // componentWillMount() {
+  //   if(this.state.user_id === -1 && TokenService.hasAuthToken()) {
+  //     this.processLogin(TokenService.getAuthToken());
+  // }
+  // }
+
+  // componentDidMount() {
+  //   if(this.state.user_id === -1 && TokenService.hasAuthToken()) {
+  //       this.processLogin(TokenService.getAuthToken());
+  //   }
+  // }
 
   setUser = user => {
     this.setState({ user });
@@ -119,7 +138,7 @@ export class UserProvider extends Component {
       processLogin: this.processLogin,
       updateUser: this.updateUser,
       generateLfmElements: this.generateLfmElements,
-      generateGenreString: this.generateGenreString
+      generateGenreString: this.generateGenreString,
     };
 
     return (

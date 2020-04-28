@@ -26,6 +26,7 @@ export default class Profile extends React.Component {
     }
 
     componentDidMount() {
+
         ProfileService.getProfile(this.context.user_id)
         .then(user => this.setState({ 
             avatar: user.avatar,
