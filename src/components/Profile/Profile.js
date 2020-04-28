@@ -23,6 +23,7 @@ export default class Profile extends React.Component {
         bio: '',
         platforms: [],
         genres: [],
+        error: null,
     }
 
     componentDidMount() {
@@ -36,6 +37,7 @@ export default class Profile extends React.Component {
             platforms: user.platforms,
             genres: user.genres
          }))
+         .catch(error => this.setState({error: error.message}))
     }
 
     handleEditButton = event => {
@@ -65,6 +67,7 @@ export default class Profile extends React.Component {
                 genres: user.genres
             })
         })
+        .catch(error => this.setState({error: error.message}))
     }
 
     cancelEdit = () => {

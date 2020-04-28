@@ -34,7 +34,7 @@ export default class MainPage extends React.Component {
                 });
                 this.setState({ queue });
             })
-            .catch(error => this.setState({error}));
+            .catch(error => this.setState({error: error.message}));
     }
 
     toggleExpanded = () => {
