@@ -61,9 +61,28 @@ export default class MainPage extends React.Component {
 
     render() {
         const { queue } = this.state;
-        if(queue === null) {
+
+        if(queue == null) {
             return (
                 <div className='loading'>loading</div>
+            )
+        }
+
+        if(!queue.first) {
+            return (
+                <section className='main__Swipe'>
+                    <div className='main__Nav'>
+                        <Link to='/profile'>
+                            <img className='main__profile-button' src={userSVG} alt='profile' />
+                        </Link>
+                        <Link to='/matches'>
+                            <img className='main__contacts-button' src={contactsSVG} alt='contacts' />
+                        </Link>
+                    </div>
+                    <li className='main__Swipe-User'>
+                        <p className='main__display-name'>Looks like there is nobody left to match with!</p>
+                    </li>
+                 </section>
             )
         }
 
