@@ -34,6 +34,10 @@ export default class Signup extends Component {
             TokenService.saveAuthToken(res.authToken)
             this.props.onRegistrationSuccess(user.user_name)
           })
+          .catch(error => this.setState({error: error.message}))
+      })
+      .catch(res => {
+        this.setState({ error: res.error })
       })
     } else if(password.value !== confirm_password.value) {
       this.setState({ error: 'passwords did not match' })
