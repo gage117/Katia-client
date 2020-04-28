@@ -71,15 +71,27 @@ export class UserProvider extends Component {
   }
 
   generateLfmElements = (games) => {
-      return games.map(game => {
-          return (<p className='lfm-in' key={game}>{game}</p>)
+    try { // try to split the games string at the commas and create JSX for each
+      const splitString = games.split(',')
+      return splitString.map(game => {
+        let gameName = game
+        while (gameName[0] === ' ') { // Removes any spaces at the beginning of the name
+          gameName = gameName.slice(1)
+        }
+        while (gameName[gameName.length - 1] === ' ') { // Removes any spaces at the end of the name
+          gameName = gameName.slice(gameName.length - 1)
+        }
+        return (<p className='lfm-in' key={gameName}>{gameName}</p>)
       })
+    }
+    catch { // return nothing to populate element if user's lfm_in undefined
+      return null
+    }
   }
 
   generateGenreString = (genres) => {
-    try {
-        let genreString = '';
-        if (genres.length === 0) {
+    let genreString = '';
+        if (genres === undefined || genres.length === 0) {
             genreString = 'No Genres Chosen'
         } else if (genres.length === 1) {
             genreString = genres[0]
@@ -93,10 +105,6 @@ export class UserProvider extends Component {
             }
         }
         return genreString
-        }
-    catch {
-        return ''
-    }
   }
 
   render() {

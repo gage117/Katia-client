@@ -91,8 +91,7 @@ export default class MainPage extends React.Component {
                     </div>
                     <h4 className='main__card-header'>LFM In</h4>
 
-                    {/*{this.context.generateLfmElements(userOne.lfm_in)}*/}
-                    <p>{userOne.lfm_in}</p>
+                    {this.context.generateLfmElements(userOne.lfm_in)}
 
                     <h4 className='main__card-header'>Genres</h4>
                     <span>{this.context.generateGenreString(userOne.genres)}</span>
