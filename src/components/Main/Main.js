@@ -59,6 +59,49 @@ export default class MainPage extends React.Component {
             .catch(error => this.setState({error}));
     }
 
+    generateUserCard = (user) => {
+        return (
+            <>
+            <li className='main__Swipe-User' onClick={this.toggleExpanded} >
+                {this.state.expanded ? (<></>) : (<img src={user.avatar} alt='avatar' className='main__Image' />)}
+                <h3 className='main__display-name'>{user.display_name}</h3>
+                <h4 className='main__card-header'>Platforms</h4>
+                <div className='main__platforms'>
+                    {user.platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
+                    {user.platforms.includes("PlayStation") ? <img className='main__playstation' src={playstationLogo} alt='Playstation logo' /> : null}
+                    {user.platforms.includes("Nintendo") ? <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' /> : null}
+                    {user.platforms.includes("PC") ? <img className='main__PC' src={PC_Logo} alt='PC logo' /> : null}
+                </div>
+                <h4 className='main__card-header'>LFM In</h4>
+
+                {this.context.generateLfmElements(user.lfm_in)}
+
+                <h4 className='main__card-header'>Genres</h4>
+                <span>{this.context.generateGenreString(user.genres)}</span>
+                {this.state.expanded ? (<><h4 className='main__card-header'>Bio</h4>
+                <p className='main__bio'>{user.bio}</p></>)
+                :
+                (<></>)}
+                <div className='main__caret-container'>
+                    <input className={`main__down-caret${this.state.expanded ? ' reverse' : ''}`} type="image" src={down_caretSVG} alt='down-caret' />
+                </div>
+            </li>
+            <div className='main__Second-Nav'>
+                <img className='main__x' src={x_markSVG} alt='x' onClick={this.swipeLeft} />
+                <img className='main__check' src={checkmarkSVG} alt='checkmark' onClick={this.swipeRight} />
+            </div>
+            </>
+        )
+    }
+
+    generateNullCard = () => {
+        return (
+            <li className='main__Swipe-User-null'>
+                <h4 className='main__card-null'>You've reached the end of the user queue! While you're waiting for potential matches, you may find use in this <a href='https://store.steampowered.com/tags/en/Singleplayer/'>list of games.</a></h4>
+            </li>
+        )
+    }
+
     render() {
         const { queue } = this.state;
         if(queue === null) {
@@ -66,8 +109,7 @@ export default class MainPage extends React.Component {
                 <div className='loading'>loading</div>
             )
         }
-
-        const userOne = queue.peek();
+        const userOne = queue.isEmpty() ? null : queue.peek();
         
         return (
             <section className='main__Swipe'>
@@ -79,34 +121,7 @@ export default class MainPage extends React.Component {
                         <img className='main__contacts-button' src={contactsSVG} alt='contacts' />
                     </Link>
                 </div>
-                <li className='main__Swipe-User' onClick={this.toggleExpanded} >
-                    {this.state.expanded ? (<></>) : (<img src={userOne.avatar} alt='avatar' className='main__Image' />)}
-                    <h3 className='main__display-name'>{userOne.display_name}</h3>
-                    <h4 className='main__card-header'>Platforms</h4>
-                    <div className='main__platforms'>
-                        {userOne.platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
-                        {userOne.platforms.includes("PlayStation") ? <img className='main__playstation' src={playstationLogo} alt='Playstation logo' /> : null}
-                        {userOne.platforms.includes("Nintendo") ? <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' /> : null}
-                        {userOne.platforms.includes("PC") ? <img className='main__PC' src={PC_Logo} alt='PC logo' /> : null}
-                    </div>
-                    <h4 className='main__card-header'>LFM In</h4>
-
-                    {this.context.generateLfmElements(userOne.lfm_in)}
-
-                    <h4 className='main__card-header'>Genres</h4>
-                    <span>{this.context.generateGenreString(userOne.genres)}</span>
-                    {this.state.expanded ? (<><h4 className='main__card-header'>Bio</h4>
-                    <p className='main__bio'>{userOne.bio}</p></>)
-                    :
-                    (<></>)}
-                    <div className='main__caret-container'>
-                        <input className={`main__down-caret${this.state.expanded ? ' reverse' : ''}`} type="image" src={down_caretSVG} alt='down-caret' />
-                    </div>
-                </li>
-                <div className='main__Second-Nav'>
-                    <img className='main__x' src={x_markSVG} alt='x' onClick={this.swipeLeft} />
-                    <img className='main__check' src={checkmarkSVG} alt='checkmark' onClick={this.swipeRight} />
-                </div>
+                {userOne ? this.generateUserCard(userOne) : this.generateNullCard()}
             </section>
         )
     }
