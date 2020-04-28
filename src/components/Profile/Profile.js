@@ -118,7 +118,6 @@ export default class Profile extends React.Component {
                     </div>
                     <h4 className='profile__card-header'>LFM In</h4>
                     {this.context.generateLfmElements(lfm_in)}
-                    <p>{lfm_in}</p>
                     <h4 className='profile__card-header'>Genres</h4>                    
                     <span>{this.context.generateGenreString(genres)}</span>
                     <h4 className='profile__card-header'>Bio</h4>
