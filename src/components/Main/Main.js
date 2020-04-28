@@ -52,7 +52,7 @@ export default class MainPage extends React.Component {
 
         const match = queue.dequeue();
 
-        SwipeService.addMatch(this.context.user.id, match.id)
+        SwipeService.addMatch(this.context.user_id, match.id)
             .then(() => {
                 this.setState({ queue });
             })
