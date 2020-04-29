@@ -82,7 +82,7 @@
     flex-direction: column;
     justify-content: center;
     width: 100%;
-    height: 61.5vh;
+    height: 74vh;
     margin: 0 auto;
     padding-top: 1.7vh;
 }
@@ -95,28 +95,37 @@
     height: 4.5vh;
 }
 
-.editForm > input {
+#display-name {
     width: 50%;
     height: 4.5vh;
     font-size: 3vh;
     padding-left: 1.5vw;
 }
 
+.editForm > textarea {
+    resize: none;
+}
+
 #lfm {
     font-size: 3vh;
     padding: .5vh 0 0 1.5vw;
     height: 10vh;
-    width: 80%;
     border: .08rem solid gray;
 }
 
 #platforms {
     width: 100vw;
-    height: 7.8vh;
+    height: 8.8vh;
     display: flex;
     justify-content: space-around;
     margin: 0;
     padding: 1.4vh 0;
+}
+
+#genres {
+    height: 4.5vh;
+    font-size: 3vh;
+    padding-left: 1.5vw;
 }
 
 #bio {
@@ -127,7 +136,7 @@
 }
 
 .profile__ImgEdit-container {
-    padding-top: 1rem;
+    padding-top: 1vh;
 }
 
 .profile__ImgEdit {

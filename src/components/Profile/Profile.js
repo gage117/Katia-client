@@ -3,10 +3,14 @@ import './Profile.css'
 import { Link } from 'react-router-dom'
 import cardsIcon from '../../images/cards.png'
 import editIcon from '../../images/edit-icon.png'
-import nintendoNetworkLogo from '../../images/nintendo_logo.png'
-import playstationLogo from '../../images/Playstation_logo_colour.svg'
+import nintendoLogo from '../../images/nintendo_logo.png'
+import nintendoLogoGray from '../../images/nintendo_logo_b&w.png'
+import playstationLogo from '../../images/playstation_color_png.png'
+import playstationLogoGray from '../../images/playstation_b&w_png.png'
 import PC_Logo from '../../images/PC_Keyboard_Mouse_Icon.png'
-import xboxLogo from '../../images/Xbox_one_logo.svg'
+import PC_LogoGray from '../../images/PC_Keyboard_Mouse_Icon_b&w.png'
+import xboxLogo from '../../images/xbox_logo_png.png'
+import xboxLogoGray from '../../images/xbox_logo_b&w_png.png'
 import checkmarkSVG from '../../images/checkmark-circle-2.svg'
 import x_markSVG from '../../images/x-circle.svg'
 import UserContext from '../../Contexts/UserContext'
@@ -94,6 +98,29 @@ export default class Profile extends React.Component {
         this.setState({ genres: event.target.value })
     }
 
+    handlePlatformsChange = event => {
+        const platform = event.target.name
+        this.state.platforms.includes(platform) ?
+            this.setState({
+                platforms: this.state.platforms.filter(item => item !== platform)
+            })
+            :
+            this.setState({
+                platforms: [platform, ...this.state.platforms]
+            })
+    }
+
+    generateEditPlatforms = () => {
+        return (
+            <>
+            {this.state.platforms.includes('Xbox') ? <img name='Xbox' className='main__xbox' src={xboxLogo} alt='Xbox logo' onClick={this.handlePlatformsChange}/> : <img  name='Xbox' className='main__xbox' src={xboxLogoGray} alt='Xbox logo gray' onClick={this.handlePlatformsChange} />}
+            {this.state.platforms.includes('PlayStation') ? <img name='PlayStation' className='main__playstation' src={playstationLogo} alt='Playstation logo' onClick={this.handlePlatformsChange} /> : <img name='PlayStation'  className='main__playstation' src={playstationLogoGray} alt='Playstation logo gray' onClick={this.handlePlatformsChange} />}
+            {this.state.platforms.includes('Nintendo') ? <img name='Nintendo' className='main__nintendo' src={nintendoLogo} alt='Nintendo logo' onClick={this.handlePlatformsChange} /> : <img name='Nintendo' className='main__nintendo' src={nintendoLogoGray} alt='Nintendo logo gray' onClick={this.handlePlatformsChange} />}
+            {this.state.platforms.includes('PC') ? <img name='PC' className='main__PC' src={PC_Logo} alt='PC logo' onClick={this.handlePlatformsChange} /> : <img name='PC' className='main__PC' src={PC_LogoGray} alt='PC logo gray' onClick={this.handlePlatformsChange} />}
+            </>
+        )
+    }
+
     render() {
         const { avatar, display_name, bio, lfm_in, genres, platforms } = this.state;
 
@@ -115,7 +142,7 @@ export default class Profile extends React.Component {
                     <div id='platforms'>
                         {platforms && platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
                         {platforms && platforms.includes("PlayStation") ? <img className='main__playstation' src={playstationLogo} alt='Playstation logo' /> : null}
-                        {platforms && platforms.includes("Nintendo") ? <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' /> : null}
+                        {platforms && platforms.includes("Nintendo") ? <img className='main__nintendo' src={nintendoLogo} alt='Nintendo logo' /> : null}
                         {platforms && platforms.includes("PC") ? <img className='main__PC' src={PC_Logo} alt='PC logo' /> : null}
                     </div>
                     <h4 className='profile__card-header'>LFM In</h4>
@@ -141,19 +168,16 @@ export default class Profile extends React.Component {
                     alt='avatar' className='profile__ImgEdit' />
                 </div>
                 <form className='editForm' name='editForm' onSubmit={this.saveEdit}>
-                    <label htmlFor='username'>Display Name</label>
-                    <input type='text' name='username' onChange={this.handleDisplayNameChange}
-                    id='username' defaultValue={display_name} />
-                    <label htmlFor='lfm'>LFM In</label>
+                    <label htmlFor='display-name'>Display Name</label>
+                    <input type='text' name='display-name' onChange={this.handleDisplayNameChange}
+                    id='display-name' defaultValue={display_name} />
+                    <label htmlFor='lfm'>LFM In (Max 3, Separated by ",")</label>
                     <textarea rows='7' cols='40' name='lfm' onChange={this.handleLookingForChange}
                     id='lfm' defaultValue={lfm_in} />
                     <label htmlFor='platforms'> Platforms</label>
                     <div type='text' name='platforms' 
                     id='platforms'>
-                        <img className='main__xbox' src={xboxLogo} alt='Xbox logo' />
-                        <img className='main__playstation' src={playstationLogo} alt='Playstation logo' />
-                        <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' />
-                        <img className='main__PC' src={PC_Logo} alt='PC logo' />
+                        {this.generateEditPlatforms()}
                     </div>
                     <label htmlFor='genres'>Genres</label>
                     <input type='text' name='genres' onChange={this.handleGenresChange}
