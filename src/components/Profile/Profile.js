@@ -17,6 +17,7 @@ export default class Profile extends React.Component {
 
     state = {
         isEditing: false,
+        selectedFile: null,
         avatar: '',
         display_name: '',
         lfm_in: [],
@@ -94,6 +95,23 @@ export default class Profile extends React.Component {
         this.setState({ genres: event.target.value })
     }
 
+    avatarChangedHandler = event => {
+        this.setState({
+            selectedFile: event.target.files[0]
+        });
+    }
+
+    avatarUploadHandler = event => {
+        event.preventDefault();
+        const formData = new FormData();
+        formData.append('profileImg', this.state.selectedFile);
+        ProfileService.uploadAvatar(this.context.user_id, formData)
+            .then(res => {
+                this.setState({ avatar: res.location });
+            })
+            .catch(error => this.setState({ error }));
+    }
+
     render() {
         const { avatar, display_name, bio, lfm_in, genres, platforms } = this.state;
 
@@ -136,36 +154,38 @@ export default class Profile extends React.Component {
         } else if(this.state.isEditing) {
             return (
                 <>
-                <div className='profile__ImgEdit-container'>
-                    <img src={avatar} 
-                    alt='avatar' className='profile__ImgEdit' />
-                </div>
-                <form className='editForm' name='editForm' onSubmit={this.saveEdit}>
-                    <label htmlFor='username'>Display Name</label>
-                    <input type='text' name='username' onChange={this.handleDisplayNameChange}
-                    id='username' defaultValue={display_name} />
-                    <label htmlFor='lfm'>LFM In</label>
-                    <textarea rows='7' cols='40' name='lfm' onChange={this.handleLookingForChange}
-                    id='lfm' defaultValue={lfm_in} />
-                    <label htmlFor='platforms'> Platforms</label>
-                    <div type='text' name='platforms' 
-                    id='platforms'>
-                        <img className='main__xbox' src={xboxLogo} alt='Xbox logo' />
-                        <img className='main__playstation' src={playstationLogo} alt='Playstation logo' />
-                        <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' />
-                        <img className='main__PC' src={PC_Logo} alt='PC logo' />
+                    <div className='profile__ImgEdit-container'>
+                        <img src={avatar} 
+                        alt='avatar' className='profile__ImgEdit' />
+                        <input type='file' onChange={this.avatarChangedHandler} />
+                        <button className='profile__ImgEdit-submit' onClick={this.avatarUploadHandler}>Upload</button>
                     </div>
-                    <label htmlFor='genres'>Genres</label>
-                    <input type='text' name='genres' onChange={this.handleGenresChange}
-                    id='genres' defaultValue={genres} />
-                    <label htmlFor='bio'>Bio (Max 250 chars.)</label>
-                    <textarea rows='7' cols='40' name='bio' onChange={this.handleBioChange}
-                    id='bio' defaultValue={bio} />
-                    <div className='editCancelSubmit-div'>
-                        <img className='editCancel' src={x_markSVG} alt='cancel-button' onClick={this.cancelEdit} />
-                        <img className='editSubmit' src={checkmarkSVG} alt='submit-button' onClick={this.saveEdit}/>
-                    </div>
-                </form>
+                    <form className='editForm' name='editForm' onSubmit={this.saveEdit}>
+                        <label htmlFor='username'>Display Name</label>
+                        <input type='text' name='username' onChange={this.handleDisplayNameChange}
+                        id='username' defaultValue={display_name} />
+                        <label htmlFor='lfm'>LFM In</label>
+                        <textarea rows='7' cols='40' name='lfm' onChange={this.handleLookingForChange}
+                        id='lfm' defaultValue={lfm_in} />
+                        <label htmlFor='platforms'> Platforms</label>
+                        <div type='text' name='platforms' 
+                        id='platforms'>
+                            <img className='main__xbox' src={xboxLogo} alt='Xbox logo' />
+                            <img className='main__playstation' src={playstationLogo} alt='Playstation logo' />
+                            <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' />
+                            <img className='main__PC' src={PC_Logo} alt='PC logo' />
+                        </div>
+                        <label htmlFor='genres'>Genres</label>
+                        <input type='text' name='genres' onChange={this.handleGenresChange}
+                        id='genres' defaultValue={genres} />
+                        <label htmlFor='bio'>Bio (Max 250 chars.)</label>
+                        <textarea rows='7' cols='40' name='bio' onChange={this.handleBioChange}
+                        id='bio' defaultValue={bio} />
+                        <div className='editCancelSubmit-div'>
+                            <img className='editCancel' src={x_markSVG} alt='cancel-button' onClick={this.cancelEdit} />
+                            <img className='editSubmit' src={checkmarkSVG} alt='submit-button' onClick={this.saveEdit}/>
+                        </div>
+                    </form>
                 </>
             )
         }
