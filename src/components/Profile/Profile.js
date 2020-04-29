@@ -95,7 +95,6 @@ export default class Profile extends React.Component {
     }
 
     avatarChangedHandler = event => {
-        console.log(event.target.files[0]);
         this.setState({
             selectedFile: event.target.files[0]
         });
@@ -104,10 +103,10 @@ export default class Profile extends React.Component {
     avatarUploadHandler = event => {
         event.preventDefault();
         const formData = new FormData();
-        formData.append('file', this.state.selectedFile);
+        formData.append('profileImg', this.state.selectedFile);
         ProfileService.uploadAvatar(this.context.user_id, formData)
             .then(res => {
-                console.log(res);
+                this.setState({ avatar: res.location });
             })
             .catch(error => this.setState({ error }));
     }
