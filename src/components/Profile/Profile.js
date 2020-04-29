@@ -22,10 +22,14 @@ export default class Profile extends React.Component {
         lfm_in: '',
         bio: '',
         platforms: '',
-        genres: '',
+        genres: [],
+        allGenres: [],
     }
 
     componentDidMount() {
+        ProfileService.getAllUserGenres()
+        .then(res => this.setState({ allGenres: res }))
+
 
         ProfileService.getProfile(this.context.user_id)
         .then(user => this.setState({ 
@@ -94,6 +98,7 @@ export default class Profile extends React.Component {
     }
 
     render() {
+        console.log(this.state)
         const { avatar, display_name, bio, lfm_in, genres, platforms } = this.state;
 
         if(!this.state.isEditing) {

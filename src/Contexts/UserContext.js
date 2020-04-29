@@ -7,7 +7,7 @@ const nullUser = {
   display_name: '',
   bio: '',
   lfm_in: '',
-  genres: '',
+  genres: [],
   platforms: ''
 };
 
