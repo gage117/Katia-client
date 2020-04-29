@@ -24,6 +24,7 @@ export default class Profile extends React.Component {
         bio: '',
         platforms: [],
         genres: [],
+        error: null,
     }
 
     componentDidMount() {
@@ -37,6 +38,7 @@ export default class Profile extends React.Component {
             platforms: user.platforms,
             genres: user.genres
          }))
+         .catch(error => this.setState({error: error.message}))
     }
 
     handleEditButton = event => {
@@ -66,6 +68,7 @@ export default class Profile extends React.Component {
                 genres: user.genres
             })
         })
+        .catch(error => this.setState({error: error.message}))
     }
 
     cancelEdit = () => {
@@ -88,10 +91,8 @@ export default class Profile extends React.Component {
         this.setState({ bio: event.target.value })
     }
 
-    generateLfmElements = (games) => {
-        return games.map(game => {
-            return (<span className='main__lfm-in' key={game}>{game}</span>)
-        })
+    handleGenresChange = event => {
+        this.setState({ genres: event.target.value })
     }
 
     avatarChangedHandler = event => {
@@ -153,11 +154,36 @@ export default class Profile extends React.Component {
         } else if(this.state.isEditing) {
             return (
                 <>
-                    <div className='profile__ImgEdit-container'>
-                        <img src={avatar} 
-                        alt='avatar' className='profile__ImgEdit' />
-                        <input type='file' onChange={this.avatarChangedHandler} />
-                        <button className='profile__ImgEdit-submit' onClick={this.avatarUploadHandler}>Upload</button>
+                <div className='profile__ImgEdit-container'>
+                    <img src={avatar} 
+                    alt='avatar' className='profile__ImgEdit' />
+                    <input type='file' onChange={this.avatarChangedHandler} />
+                    <button className='profile__ImgEdit-submit' onClick={this.avatarUploadHandler}>Upload</button>
+                </div>
+                <form className='editForm' name='editForm' onSubmit={this.saveEdit}>
+                    <label htmlFor='username'>Display Name</label>
+                    <input type='text' name='username' onChange={this.handleDisplayNameChange}
+                    id='username' defaultValue={display_name} />
+                    <label htmlFor='lfm'>LFM In</label>
+                    <textarea rows='7' cols='40' name='lfm' onChange={this.handleLookingForChange}
+                    id='lfm' defaultValue={lfm_in} />
+                    <label htmlFor='platforms'> Platforms</label>
+                    <div type='text' name='platforms' 
+                    id='platforms'>
+                        <img className='main__xbox' src={xboxLogo} alt='Xbox logo' />
+                        <img className='main__playstation' src={playstationLogo} alt='Playstation logo' />
+                        <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' />
+                        <img className='main__PC' src={PC_Logo} alt='PC logo' />
+                    </div>
+                    <label htmlFor='genres'>Genres</label>
+                    <input type='text' name='genres' onChange={this.handleGenresChange}
+                    id='genres' defaultValue={genres} />
+                    <label htmlFor='bio'>Bio (Max 250 chars.)</label>
+                    <textarea rows='7' cols='40' name='bio' onChange={this.handleBioChange}
+                    id='bio' defaultValue={bio} />
+                    <div className='editCancelSubmit-div'>
+                        <img className='editCancel' src={x_markSVG} alt='cancel-button' onClick={this.cancelEdit} />
+                        <img className='editSubmit' src={checkmarkSVG} alt='submit-button' onClick={this.saveEdit}/>
                     </div>
                     <form className='editForm' name='editForm' onSubmit={this.saveEdit}>
                         <label htmlFor='username'>Display Name</label>
