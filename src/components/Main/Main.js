@@ -5,10 +5,10 @@ import SwipeService from '../../services/swipe-service'
 import { Link } from 'react-router-dom'
 import userSVG from '../../images/user.svg'
 import contactsSVG from '../../images/contacts.svg'
-import nintendoNetworkLogo from '../../images/nintendo_logo.png'
-import playstationLogo from '../../images/Playstation_logo_colour.svg'
+import nintendoLogo from '../../images/nintendo_logo.png'
+import playstationLogo from '../../images/playstation_color_png.png'
 import PC_Logo from '../../images/PC_Keyboard_Mouse_Icon.png'
-import xboxLogo from '../../images/Xbox_one_logo.svg'
+import xboxLogo from '../../images/xbox_logo_png.png'
 import checkmarkSVG from '../../images/checkmark-circle-2.svg'
 import x_markSVG from '../../images/x-circle.svg'
 import down_caretSVG from '../../images/solid_caret-down.svg'
@@ -69,7 +69,7 @@ export default class MainPage extends React.Component {
                 <div className='main__platforms'>
                     {user.platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
                     {user.platforms.includes("PlayStation") ? <img className='main__playstation' src={playstationLogo} alt='Playstation logo' /> : null}
-                    {user.platforms.includes("Nintendo") ? <img className='main__nintendo' src={nintendoNetworkLogo} alt='Nintendo logo' /> : null}
+                    {user.platforms.includes("Nintendo") ? <img className='main__nintendo' src={nintendoLogo} alt='Nintendo logo' /> : null}
                     {user.platforms.includes("PC") ? <img className='main__PC' src={PC_Logo} alt='PC logo' /> : null}
                 </div>
                 <h4 className='main__card-header'>LFM In</h4>
