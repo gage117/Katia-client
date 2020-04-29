@@ -170,8 +170,6 @@ export default class Profile extends React.Component {
     }
 
     render() {
-        console.log(this.state.currGenre)
-        console.log(this.state.genres)
         let allGenres = this.state.allGenres || []
         let userGenres = this.state.genres || []
         const { avatar, display_name, bio, lfm_in, genres, platforms } = this.state;
