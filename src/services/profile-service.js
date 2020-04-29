@@ -52,6 +52,18 @@ const ProfileService = {
       : res.json()
       )
   },
+  
+  uploadAvatar(userId, formData) {
+    return fetch(`${config.API_ENDPOINT}/user/${userId}/avatar`, {
+      method: 'POST',
+      body: formData
+    })
+    .then(res => 
+      (!res.ok)
+        ? res.json().then(e => Promise.reject(e))
+        : res.json()
+    );
+  }
 };
 
 export default ProfileService;

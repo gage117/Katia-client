@@ -123,7 +123,7 @@ export class UserProvider extends Component {
                 }
             }
         }
-        return genreString
+        return genreString;
   }
 
   render() {

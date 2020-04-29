@@ -104,13 +104,15 @@ export default class MainPage extends React.Component {
 
     render() {
         const { queue } = this.state;
-        if(queue === null) {
+
+        if(queue == null) {
             return (
                 <div className='loading'>loading</div>
             )
         }
+
         const userOne = queue.isEmpty() ? null : queue.peek();
-        
+
         return (
             <section className='main__Swipe'>
                 <div className='main__Nav'>
