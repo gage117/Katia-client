@@ -22,10 +22,11 @@ export default class Profile extends React.Component {
         display_name: '',
         lfm_in: '',
         bio: '',
-        platforms: '',
+        platforms: [],
         genres: [],
         allGenres: [],
         currGenre: '',
+        error: null
     }
 
     componentDidMount() {

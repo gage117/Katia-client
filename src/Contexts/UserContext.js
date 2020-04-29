@@ -8,7 +8,7 @@ const nullUser = {
   bio: '',
   lfm_in: '',
   genres: [],
-  platforms: ''
+  platforms: []
 };
 
 const UserContext = React.createContext({
