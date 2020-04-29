@@ -9,6 +9,8 @@ import Profile from './components/Profile/Profile';
 import Matches from './components/Matches/Matches';
 import './App.css'
 
+import config from './config'
+
 class App extends Component {
   constructor(props) {
     super(props)
@@ -19,6 +21,8 @@ class App extends Component {
   }
   
   render() {
+    console.log(config.API_ENDPOINT);
+    console.log(config.TOKEN_KEY)
     return (
       <div className="App">
         <Switch>
