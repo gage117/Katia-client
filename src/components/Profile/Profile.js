@@ -148,13 +148,24 @@ export default class Profile extends React.Component {
             .catch(error => this.setState({ error }));
     }
 
+    // genreToSelect = event => {
+    //     event.preventDefault()
+    //     console.log('click')
+
+    //     if(this.state.currGenre !== '') {
+    //     this.state.genres.push(this.state.currGenre)
+    //     }
+    //     console.log(this.state.genres)
+    // }
+
     genreToSelect = event => {
         event.preventDefault()
         console.log('click')
 
         if(this.state.currGenre !== '') {
-        this.state.genres.push(this.state.currGenre)
+        this.setState({ genres: [...this.state.genres, this.state.currGenre] })
         }
+        this.setState({ currGenre: '' })
         console.log(this.state.genres)
     }
 
@@ -225,10 +236,7 @@ export default class Profile extends React.Component {
                     <label htmlFor='genres'>Genres</label>
                         {this.state.genres.map(item => <span>{item}</span>)}
                         <select onChange={this.handleSelectGenre}>
-                            {/* {this.state.allGenres.map((item, index) => 
-                            this.state.genres.includes(item.genre) ? 
-                            console.log(item.genre) 
-                            : <option key={index} value={item.genre}>{item.genre}</option>)} */}
+                            <option value=''>Select a genre</option>
                             {allGenres.map((item, index) => 
                             userGenres.includes(item.genre) ? 
                             console.log(item.genre) 
