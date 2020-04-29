@@ -20,14 +20,19 @@ export default class Profile extends React.Component {
         selectedFile: null,
         avatar: '',
         display_name: '',
-        lfm_in: [],
+        lfm_in: '',
         bio: '',
         platforms: [],
         genres: [],
-        error: null,
+        allGenres: [],
+        currGenre: '',
+        error: null
     }
 
     componentDidMount() {
+        ProfileService.getAllUserGenres()
+        .then(res => this.setState({ allGenres: res }))
+
 
         ProfileService.getProfile(this.context.user_id)
         .then(user => this.setState({ 
@@ -95,6 +100,10 @@ export default class Profile extends React.Component {
         this.setState({ genres: event.target.value })
     }
 
+    handleSelectGenre = event => {
+        this.setState({ currGenre: event.target.value })
+    }
+
     avatarChangedHandler = event => {
         this.setState({
             selectedFile: event.target.files[0]
@@ -112,7 +121,21 @@ export default class Profile extends React.Component {
             .catch(error => this.setState({ error }));
     }
 
+    genreToSelect = event => {
+        event.preventDefault()
+        console.log('click')
+
+        if(this.state.currGenre !== '') {
+        this.state.genres.push(this.state.currGenre)
+        }
+        console.log(this.state.genres)
+    }
+
     render() {
+        console.log(this.state.currGenre)
+        console.log(this.state.genres)
+        let allGenres = this.state.allGenres || []
+        let userGenres = this.state.genres || []
         const { avatar, display_name, bio, lfm_in, genres, platforms } = this.state;
 
         if(!this.state.isEditing) {
@@ -176,8 +199,20 @@ export default class Profile extends React.Component {
                             <img className='main__PC' src={PC_Logo} alt='PC logo' />
                         </div>
                         <label htmlFor='genres'>Genres</label>
-                        <input type='text' name='genres' onChange={this.handleGenresChange}
-                        id='genres' defaultValue={genres} />
+                        {this.state.genres.map(item => <span>{item}</span>)}
+                        <select onChange={this.handleSelectGenre}>
+                            {/* {this.state.allGenres.map((item, index) => 
+                            this.state.genres.includes(item.genre) ? 
+                            console.log(item.genre) 
+                            : <option key={index} value={item.genre}>{item.genre}</option>)} */}
+                            {allGenres.map((item, index) => 
+                            userGenres.includes(item.genre) ? 
+                            console.log(item.genre) 
+                            : <option key={index} value={item.genre}>{item.genre}</option>)}
+                        </select>
+                        <button onClick={this.genreToSelect}>Save Genre</button>
+                        {/* <input type='text' name='genres' onChange={this.handleGenresChange}
+                        id='genres' defaultValue={genres} /> */}
                         <label htmlFor='bio'>Bio (Max 250 chars.)</label>
                         <textarea rows='7' cols='40' name='bio' onChange={this.handleBioChange}
                         id='bio' defaultValue={bio} />

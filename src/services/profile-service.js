@@ -39,6 +39,20 @@ const ProfileService = {
     )
   },
 
+  getAllUserGenres() {
+    return fetch(`${config.API_ENDPOINT}/user/genres/all`, {
+      method: 'GET',
+      headers: {
+        'content-type': 'application/json'
+      },
+    })
+    .then(res => 
+      (!res.ok)
+      ? res.json().then(e => Promise.reject(e))
+      : res.json()
+      )
+  },
+  
   uploadAvatar(userId, formData) {
     return fetch(`${config.API_ENDPOINT}/user/${userId}/avatar`, {
       method: 'POST',
