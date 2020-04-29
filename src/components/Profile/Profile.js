@@ -125,6 +125,7 @@ export default class Profile extends React.Component {
             {this.state.platforms.includes('PC') ? <img name='PC' className='main__PC' src={PC_Logo} alt='PC logo' onClick={this.handlePlatformsChange} /> : <img name='PC' className='main__PC' src={PC_LogoGray} alt='PC logo gray' onClick={this.handlePlatformsChange} />}
             </>
         )
+    }
         
     handleSelectGenre = event => {
         this.setState({ currGenre: event.target.value })
