@@ -156,23 +156,18 @@ export default class Profile extends React.Component {
         this.setState({ genres: [...this.state.genres, this.state.currGenre] })
         }
         this.setState({ currGenre: '' })
-        console.log(this.state.genres)
     }
 
     genreToDelete = event => {
         event.preventDefault()
         console.log(event.target.name)
 
-        // let genreToRemove = this.state.genres.indexOf(genre)
-
         let newGenres = this.state.genres.filter(item => item !== event.target.name)
-
         this.setState({ genres: newGenres })
     }
 
     render() {
-        console.log(this.state.currGenre)
-        console.log(this.state.genres)
+        console.log(this.state)
         let allGenres = this.state.allGenres || []
         let userGenres = this.state.genres || []
         const { avatar, display_name, bio, lfm_in, genres, platforms } = this.state;
