@@ -9,8 +9,6 @@ import Profile from './components/Profile/Profile';
 import Matches from './components/Matches/Matches';
 import './App.css'
 
-import config from './config'
-
 class App extends Component {
   constructor(props) {
     super(props)
