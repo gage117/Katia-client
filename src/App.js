@@ -21,8 +21,6 @@ class App extends Component {
   }
   
   render() {
-    console.log(config.API_ENDPOINT);
-    console.log(config.TOKEN_KEY)
     return (
       <div className="App">
         <Switch>
