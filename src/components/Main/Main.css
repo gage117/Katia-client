@@ -106,12 +106,12 @@
 }
 
 .main__Second-Nav {
-    height: 11vh;
+    height: 12vh;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin: 0 auto;
-    padding: .5vh;
+    padding: 1vh;
 }
 
 .main__x {
@@ -123,7 +123,7 @@
 }
 
 .main__check {
-    height: 10.5vh;
+    height: 10vh;
 }
 
 .main__check:hover {
