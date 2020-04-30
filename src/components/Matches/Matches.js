@@ -8,7 +8,7 @@ import nintendoLogo from '../../images/nintendo_logo.png'
 import playstationLogo from '../../images/playstation_color_png.png'
 import PC_Logo from '../../images/PC_Keyboard_Mouse_Icon.png'
 import xboxLogo from '../../images/xbox_logo_png.png'
-
+import MatchesService from '../../services/matches-service'
 
 export default class Matches extends React.Component {
     static contextType = UserContext;
