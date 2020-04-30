@@ -150,7 +150,6 @@ export default class Profile extends React.Component {
 
     genreToSelect = event => {
         event.preventDefault()
-        console.log('click')
 
         if(this.state.currGenre !== '') {
         this.setState({ genres: [...this.state.genres, this.state.currGenre] })
