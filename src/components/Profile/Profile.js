@@ -237,12 +237,10 @@ export default class Profile extends React.Component {
                             <option value=''>Select a genre</option>
                             {allGenres.map((item, index) => 
                             userGenres.includes(item.genre) ? 
-                            console.log(item.genre) 
+                            null 
                             : <option key={index} value={item.genre}>{item.genre}</option>)}
                         </select>
                         <button onClick={this.genreToSelect}>Save Genre</button>
-                        {/* <input type='text' name='genres' onChange={this.handleGenresChange}
-                        id='genres' defaultValue={genres} /> */}
                     <label htmlFor='bio'>Bio (Max 250 chars.)</label>
                     <textarea rows='7' cols='40' name='bio' onChange={this.handleBioChange}
                     id='bio' defaultValue={bio} />
