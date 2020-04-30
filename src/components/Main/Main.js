@@ -43,8 +43,14 @@ export default class MainPage extends React.Component {
 
     swipeLeft = () => {
         const { queue } = this.state;
-        queue.enqueue(queue.dequeue());
-        this.setState({ queue });
+        
+        const rejection = queue.dequeue()
+
+        SwipeService.addRejection(this.context.user_id, rejection.id)
+        .then(() => {
+            this.setState({ queue })
+        })
+        .catch(error => this.setState({ error }))
     }
 
     swipeRight = () => {
