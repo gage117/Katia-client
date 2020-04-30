@@ -36,7 +36,7 @@ export default class Profile extends React.Component {
     componentDidMount() {
         ProfileService.getAllUserGenres()
         .then(res => this.setState({ allGenres: res }))
-
+        .catch(error => this.setState({error: error.message}))
 
         ProfileService.getProfile(this.context.user_id)
         .then(user => this.setState({ 
