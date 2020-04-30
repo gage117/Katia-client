@@ -1,7 +1,7 @@
 import React from 'react'
 import './Matches.css'
-import users from '../../store'
 import UserContext from '../../Contexts/UserContext'
+import ProfileService from '../../services/profile-service'
 import {Link } from 'react-router-dom'
 import cardsIcon from '../../images/cards.png'
 import nintendoLogo from '../../images/nintendo_logo.png'
@@ -11,13 +11,25 @@ import xboxLogo from '../../images/xbox_logo_png.png'
 
 
 export default class Matches extends React.Component {
+    state = {
+        users: [],
+        error: null
+    }
+
     static contextType = UserContext;
+
+    componentDidMount() {
+        ProfileService.getMatches(this.context.user_id)
+            .then(users => this.setState({ users }))
+            .catch(error => this.setState({ error }))
+    }
 
     toggleExpanded = (event) => {
         return event.currentTarget.getElementsByClassName('match__info')[0].classList.toggle('hidden')
     }
 
     render() {
+        const { users } = this.state;
         return (
             <>
             <div className='matches__icons-container'>
@@ -49,6 +61,7 @@ export default class Matches extends React.Component {
                     <><h4 className='match__card-header'>Bio</h4>
                     <p className='match__bio'>{user.bio}</p></>
                 </section>
+                <Link to={`/chat/${user.user_id}`} className='matches__Link'>Chat!</Link>
                 </li>)}
             </ul>
             </>

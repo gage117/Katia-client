@@ -32,8 +32,7 @@ export class UserProvider extends Component {
     super(props)
     const state = { user_id: -1, error: null }
 
-    if(state.user_id === -1 && TokenService.hasAuthToken()) {
-      TokenService.saveAuthToken(TokenService.getAuthToken())
+    if(TokenService.hasAuthToken()) {
       const account = TokenService.getUserFromToken(TokenService.getAuthToken())
       state.user_id = account.id
     }

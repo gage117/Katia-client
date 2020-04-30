@@ -1,4 +1,5 @@
 export default {
   API_ENDPOINT: process.env.REACT_APP_API_ENDPOINT,
-  TOKEN_KEY: process.env.REACT_APP_TOKEN_KEY
+  TOKEN_KEY: process.env.REACT_APP_TOKEN_KEY,
+  SOCKET_CONNECTION: process.env.REACT_APP_SOCKET_CONNECTION
 }

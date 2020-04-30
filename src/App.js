@@ -7,9 +7,8 @@ import NotFoundPage from './routes/NotFoundPage/NotFoundPage'
 import LoginPage from './routes/LoginPage/LoginPage'
 import Profile from './components/Profile/Profile';
 import Matches from './components/Matches/Matches';
+import MessagePage from './routes/MessagePage/MessagePage';
 import './App.css'
-
-import config from './config'
 
 class App extends Component {
   constructor(props) {
@@ -21,8 +20,6 @@ class App extends Component {
   }
   
   render() {
-    console.log(config.API_ENDPOINT);
-    console.log(config.TOKEN_KEY)
     return (
       <div className="App">
         <Switch>
@@ -55,7 +52,12 @@ class App extends Component {
             exact 
             path='/matches'
             component={Matches}
-          /> 
+          />
+          <Route
+            exact
+            path='/chat/:chatPartner'
+            component={MessagePage}
+          />
           <Route
             component={NotFoundPage}
           />
