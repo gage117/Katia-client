@@ -1,23 +1,34 @@
 import React from 'react'
 import './Matches.css'
-import users from '../../store'
 import UserContext from '../../Contexts/UserContext'
-import {Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import cardsIcon from '../../images/cards.png'
 import nintendoLogo from '../../images/nintendo_logo.png'
 import playstationLogo from '../../images/playstation_color_png.png'
 import PC_Logo from '../../images/PC_Keyboard_Mouse_Icon.png'
 import xboxLogo from '../../images/xbox_logo_png.png'
-
+import MatchesService from '../../services/matches-service'
 
 export default class Matches extends React.Component {
     static contextType = UserContext;
+
+    state = {
+      users: []
+    }
+
+    componentDidMount(){
+
+        MatchesService.getMatchedUsers(this.context.user_id)
+        .then(res => this.setState({ users: res}))
+        .catch(error => this.setState({error: error.message}))
+    }
 
     toggleExpanded = (event) => {
         return event.currentTarget.getElementsByClassName('match__info')[0].classList.toggle('hidden')
     }
 
     render() {
+        let users = this.state.users || []
         return (
             <>
             <div className='matches__icons-container'>

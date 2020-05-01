@@ -36,7 +36,7 @@ export default class Profile extends React.Component {
     componentDidMount() {
         ProfileService.getAllUserGenres()
         .then(res => this.setState({ allGenres: res }))
-
+        .catch(error => this.setState({error: error.message}))
 
         ProfileService.getProfile(this.context.user_id)
         .then(user => this.setState({ 
@@ -150,7 +150,6 @@ export default class Profile extends React.Component {
 
     genreToSelect = event => {
         event.preventDefault()
-        console.log('click')
 
         if(this.state.currGenre !== '') {
         this.setState({ genres: [...this.state.genres, this.state.currGenre] })
@@ -167,7 +166,6 @@ export default class Profile extends React.Component {
     }
 
     render() {
-        console.log(this.state)
         let allGenres = this.state.allGenres || []
         let userGenres = this.state.genres || []
         const { avatar, display_name, bio, lfm_in, genres, platforms } = this.state;
@@ -239,12 +237,10 @@ export default class Profile extends React.Component {
                             <option value=''>Select a genre</option>
                             {allGenres.map((item, index) => 
                             userGenres.includes(item.genre) ? 
-                            console.log(item.genre) 
+                            null 
                             : <option key={index} value={item.genre}>{item.genre}</option>)}
                         </select>
                         <button onClick={this.genreToSelect}>Save Genre</button>
-                        {/* <input type='text' name='genres' onChange={this.handleGenresChange}
-                        id='genres' defaultValue={genres} /> */}
                     <label htmlFor='bio'>Bio (Max 250 chars.)</label>
                     <textarea rows='7' cols='40' name='bio' onChange={this.handleBioChange}
                     id='bio' defaultValue={bio} />
