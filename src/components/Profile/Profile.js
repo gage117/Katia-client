@@ -173,15 +173,17 @@ export default class Profile extends React.Component {
         if(!this.state.isEditing) {
             return (
                 <>
-                <div className='profile__icons-container'>
+                <section className='profile__icons-container'>
                     <Link to='/swipe' className='profile__Link'>
                         <img className='profile__cards-icon' src={cardsIcon} alt='swipe-cards-icon' />
                     </Link>
                     <img className='profile__edit-icon' onClick={this.handleEditButton} src={editIcon} alt='edit-icon' />
-                </div>
-                <div className='profile__Div'> 
-                    <img src={avatar} 
-                    alt='avatar' className='profile__Img' />
+                </section>
+                <section className='profile__section'>
+                    <div className='profile__Img-container'>
+                        <img src={avatar} 
+                        alt='avatar' className='profile__Img' />
+                    </div>
                     <h4 className='profile__card-header'>Display Name</h4>
                     <span>{display_name}</span>
                     <h4 className='profile__card-header'>Platforms</h4>
@@ -197,24 +199,24 @@ export default class Profile extends React.Component {
                     <span>{this.context.generateGenreString(genres)}</span>
                     <h4 className='profile__card-header'>Bio</h4>
                     <span className='profile__bio'>{bio}</span>
-                </div>
-                <div className='logoutLink-container'>
+                </section>
+                <section className='logoutLink-container'>
                     <Link onClick={this.handleLogoutClick} 
                     to='/login' className='logoutLink'>
                     Logout
                     </Link>
-                </div>
+                </section>
                 </>
             )
         } else if(this.state.isEditing) {
             return (
                 <>
-                <div className='profile__ImgEdit-container'>
-                        <img src={avatar} 
-                        alt='avatar' className='profile__ImgEdit' />
-                        <input type='file' onChange={this.avatarChangedHandler} />
-                        <button className='profile__ImgEdit-submit' onClick={this.avatarUploadHandler}>Upload</button>
-                </div>
+                <section className='profile__ImgEdit-container'>
+                    <img src={avatar} 
+                    alt='avatar' className='profile__ImgEdit' />
+                    <input type='file' onChange={this.avatarChangedHandler} />
+                    <button className='profile__ImgEdit-submit' onClick={this.avatarUploadHandler}>Upload</button>
+                </section>
                 <form className='editForm' name='editForm' onSubmit={this.saveEdit}>
                     <label htmlFor='display-name'>Display Name</label>
                     <input type='text' name='display-name' onChange={this.handleDisplayNameChange}
