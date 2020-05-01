@@ -5,6 +5,13 @@ const ThemeContext = React.createContext();
 export default ThemeContext;
 
 export class ThemeProvider extends Component {
+  constructor(props) {
+    super(props)
+  
+    this.state = {
+       
+    }
+  }
   
   
   render() {
