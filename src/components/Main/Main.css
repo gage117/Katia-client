@@ -84,6 +84,10 @@
     height: 6vmax;
 }
 
+.main__genres {
+    text-align: center;
+}
+
 .main__bio {
     padding: 0 .3vh;
     height: 25vmax;
@@ -97,12 +101,14 @@
 
 .main__down-caret {
     position: absolute;
-    bottom: 0;
-    height: 6vmax;
+    bottom: 0.75vmax;
+    height: 2.5vmax;
+    transition: transform .5s;
+    transition-timing-function: ease-in-out;
 }
 
 .reverse {
-    transform: rotate(180deg);
+    transform: rotateX(180deg);
 }
 
 .main__Second-Nav {
