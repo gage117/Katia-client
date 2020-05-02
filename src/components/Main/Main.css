@@ -1,38 +1,38 @@
 .main__Image {
-    height: 21vh;
+    height: 21vmax;
     width: auto;
     max-width: 80%;
-    margin: 1.5vh 0;
-    border-radius: .5rem;
+    margin: 1.5vmax 0;
+    border-radius: .5vh;
 }
 
 .main__Swipe-User {
     position: relative;
-    height: 79vh;
+    height: 79vmax;
     display: flex;
     flex-direction: column;
     align-items: center;
     border: 1px solid black;
     max-width: 80%;
     margin: 0 auto;
-    border-radius: .8rem;
+    border-radius: .8vh;
 }
 
 .main__Nav {
-    height: 9vh;
+    height: 9vmax;
     display: flex;
     flex-direction: row;
     justify-content: space-around;
-    padding: 1vh 0;
+    padding: 1vmax 0;
     margin: auto;
 }
 
 .main__profile-button {
-    height: 7vh;
+    height: 7vmax;
 }
 
 .main__contacts-button {
-    height: 7vh;
+    height: 7vmax;
 }
 
 .main__Swipe-User:hover {
@@ -40,26 +40,26 @@
 }
 
 .main__display-name {
-    font-size: 4.3vh;
-    margin: 1vh 0;
+    font-size: 4.3vmax;
+    margin: 1vmax 0;
 }
 
 .main__card-header {
     width: 100%;
-    font-size: 3vh;
+    font-size: 3vmax;
     font-weight: bold;
     background-color: lightgray;
-    padding: .7vh 2vw;
-    margin: .7vh 0;
+    padding: .7vmax 2vmin;
+    margin: .7vmax 0;
 }
 
 .main__Swipe-User > span {
-    font-size: 3vh;
-    padding: .5vh 0;
+    font-size: 3vmax;
+    padding: .5vmax 0;
 }
 
 .main__Swipe-User > p {
-    font-size: 3vh;
+    font-size: 3vmax;
 }
 
 .main__platforms {
@@ -69,24 +69,24 @@
 }
 
 .main__xbox {
-    height: 6vh;
+    height: 6vmax;
 }
 
 .main__playstation {
-    height: 6vh;
+    height: 6vmax;
 }
 
 .main__nintendo {
-    height: 6vh;
+    height: 6vmax;
 }
 
 .main__PC {
-    height: 6vh;
+    height: 6vmax;
 }
 
 .main__bio {
-    padding: 0 .3rem;
-    height: 25vh;
+    padding: 0 .3vh;
+    height: 25vmax;
 }
 
 .main__caret-container {
@@ -98,7 +98,7 @@
 .main__down-caret {
     position: absolute;
     bottom: 0;
-    height: 6vh;
+    height: 6vmax;
 }
 
 .reverse {
@@ -106,16 +106,16 @@
 }
 
 .main__Second-Nav {
-    height: 12vh;
+    height: 12vmax;
     display: flex;
     flex-direction: row;
     justify-content: space-evenly;
     margin: 0 auto;
-    padding: 1vh;
+    padding: 1vmax;
 }
 
 .main__x {
-    height: 10vh;
+    height: 10vmax;
 }
 
 .main__x:hover {
@@ -123,7 +123,7 @@
 }
 
 .main__check {
-    height: 10vh;
+    height: 10vmax;
 }
 
 .main__check:hover {
@@ -132,7 +132,7 @@
 
 .main__Swipe-User-null {
     position: relative;
-    height: 79vh;
+    height: 79vmax;
     display: flex;
     flex-direction: column;
     justify-content: center;
@@ -140,11 +140,11 @@
     border: 1px solid black;
     max-width: 80%;
     margin: 0 auto;
-    border-radius: .8rem;
+    border-radius: .8vmax;
 }
 
 .main__card-null {
     max-width: 80%;
-    font-size: 5vh;
+    font-size: 5vmax;
     text-align: center;
 }
