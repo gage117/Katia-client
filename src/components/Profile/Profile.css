@@ -155,6 +155,34 @@
     border-radius: .5rem;
 }
 
+.editGenre {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    background-color: #e0e0e0;
+    border-radius: .5vh;
+    padding: .5vh;
+    margin: .5vh;
+}
+
+.editGenreLabel {
+    height: 2vh;
+    font-size: 1.8vh;
+    font-weight: 600;
+}
+
+.editGenreButton {
+    display: inline-block;
+    padding-left: .5vh;
+    height: 1.1vh;
+    width: auto;
+}
+
+.editGenre:hover > .editGenreButton {
+    stroke: red;
+    height: 1.4vh;
+}
+
 .editCancelSubmit-div {
     display: flex;
     justify-content: space-around;

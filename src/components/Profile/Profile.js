@@ -12,7 +12,7 @@ import PC_LogoGray from '../../images/PC_Keyboard_Mouse_Icon_b&w.png'
 import xboxLogo from '../../images/xbox_logo_png.png'
 import xboxLogoGray from '../../images/xbox_logo_b&w_png.png'
 import checkmarkSVG from '../../images/checkmark-circle-2.svg'
-import x_markSVG from '../../images/x-circle.svg'
+import x_checkSVG from '../../images/x-circle.svg'
 import UserContext from '../../Contexts/UserContext'
 import ProfileService from '../../services/profile-service'
 
@@ -230,11 +230,17 @@ export default class Profile extends React.Component {
                         {this.generateEditPlatforms()}
                     </div>
                     <label htmlFor='genres'>Genres</label>
-                        {userGenres.map((item, index) => 
-                            <div key={index}>
-                            <span>{item}</span>
-                            <button name={item} onClick={(item) => this.genreToDelete(item)}>delete</button>
-                            </div>)}
+                        <div className='editGenreList'>
+                            {userGenres.map((item, index) => 
+                                <span key={index} className='editGenre' onClick={(item) => this.genreToDelete(item)}>
+                                    <label className='editGenreLabel'>{item}</label>
+                                    <svg className='editGenreButton' xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <line x1="20" y1="2" x2="2" y2="20"/>
+                                        <line x1="2" y1="2" x2="20" y2="20"/>
+                                    </svg>
+                                </span>
+                            )}
+                        </div>
                         <select onChange={this.handleSelectGenre}>
                             <option value=''>Select a genre</option>
                             {allGenres.map((item, index) => 
@@ -247,7 +253,7 @@ export default class Profile extends React.Component {
                     <textarea rows='7' cols='40' name='bio' onChange={this.handleBioChange}
                     id='bio' defaultValue={bio} />
                     <div className='editCancelSubmit-div'>
-                        <img className='editCancel' src={x_markSVG} alt='cancel-button' onClick={this.cancelEdit} />
+                        <img className='editCancel' src={x_checkSVG} alt='cancel-button' onClick={this.cancelEdit} />
                         <img className='editSubmit' src={checkmarkSVG} alt='submit-button' onClick={this.saveEdit}/>
                     </div>
                 </form>
