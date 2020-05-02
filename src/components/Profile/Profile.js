@@ -159,9 +159,8 @@ export default class Profile extends React.Component {
 
     genreToDelete = event => {
         event.preventDefault()
-        console.log(event.target.name)
 
-        let newGenres = this.state.genres.filter(item => item !== event.target.name)
+        let newGenres = this.state.genres.filter(item => item !== event.currentTarget.id)
         this.setState({ genres: newGenres })
     }
 
@@ -232,7 +231,7 @@ export default class Profile extends React.Component {
                     <label htmlFor='genres'>Genres</label>
                         <div className='editGenreList'>
                             {userGenres.map((item, index) => 
-                                <span key={index} className='editGenre' onClick={(item) => this.genreToDelete(item)}>
+                                <span key={index} className='editGenre' id={item} onClick={(item) => this.genreToDelete(item)}>
                                     <label className='editGenreLabel'>{item}</label>
                                     <svg className='editGenreButton' xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                         <line x1="20" y1="2" x2="2" y2="20"/>
@@ -240,14 +239,14 @@ export default class Profile extends React.Component {
                                     </svg>
                                 </span>
                             )}
+                            <select onChange={this.handleSelectGenre}>
+                                <option value=''>Select a genre</option>
+                                {allGenres.map((item, index) => 
+                                userGenres.includes(item.genre) ? 
+                                null 
+                                : <option key={index} value={item.genre}>{item.genre}</option>)}
+                            </select>
                         </div>
-                        <select onChange={this.handleSelectGenre}>
-                            <option value=''>Select a genre</option>
-                            {allGenres.map((item, index) => 
-                            userGenres.includes(item.genre) ? 
-                            null 
-                            : <option key={index} value={item.genre}>{item.genre}</option>)}
-                        </select>
                         <button onClick={this.genreToSelect}>Save Genre</button>
                     <label htmlFor='bio'>Bio (Max 250 chars.)</label>
                     <textarea rows='7' cols='40' name='bio' onChange={this.handleBioChange}
