@@ -165,12 +165,11 @@
     white-space: nowrap;
     background-color: #e0e0e0;
     border-radius: .5vh;
-    padding: .5vh 0 .5vh .5vh;
+    padding: .35vh 0 .35vh .5vh;
     margin: .5vh;
 }
 
 .editGenreLabel {
-    height: 2vh;
     font-size: 1.8vh;
     font-weight: 600;
 }
@@ -191,6 +190,22 @@
     width: 1.4vh;
     margin: 0 .35vh 0 .2vh;
     stroke-width: 2.5;
+}
+
+.genreSelect {
+    font-size: 1.8vh;
+    font-weight: 600;
+    background-color: #e0e0e0;
+    border-radius: .5vh;
+    border: 1px solid #e0e0e0;
+    padding: .5vh 0 .5vh .35vh;
+    margin: .5vh;
+}
+
+.genreSelectItem {
+    border: 1px solid #e0e0e0;
+    font-size: 1.8vh;
+    font-weight: 600;
 }
 
 .editCancelSubmit-div {

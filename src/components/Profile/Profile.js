@@ -128,7 +128,7 @@ export default class Profile extends React.Component {
     }
         
     handleSelectGenre = event => {
-        this.setState({ currGenre: event.target.value })
+        this.setState({ genres: [...this.state.genres, event.target.value] })
     }
 
     avatarChangedHandler = event => {
@@ -146,15 +146,6 @@ export default class Profile extends React.Component {
                 this.setState({ avatar: res.location });
             })
             .catch(error => this.setState({ error }));
-    }
-
-    genreToSelect = event => {
-        event.preventDefault()
-
-        if(this.state.currGenre !== '') {
-        this.setState({ genres: [...this.state.genres, this.state.currGenre] })
-        }
-        this.setState({ currGenre: '' })
     }
 
     genreToDelete = event => {
@@ -239,15 +230,14 @@ export default class Profile extends React.Component {
                                     </svg>
                                 </span>
                             )}
-                            <select onChange={this.handleSelectGenre}>
-                                <option value=''>Select a genre</option>
+                            <select className='genreSelect' onChange={this.handleSelectGenre}>
+                                <option value='' style={{display: "none"}}>Choose Genre</option>
                                 {allGenres.map((item, index) => 
                                 userGenres.includes(item.genre) ? 
                                 null 
-                                : <option key={index} value={item.genre}>{item.genre}</option>)}
+                                : <option className='genreSelectItem' key={index} value={item.genre}>{item.genre}</option>)}
                             </select>
                         </div>
-                        <button onClick={this.genreToSelect}>Save Genre</button>
                     <label htmlFor='bio'>Bio (Max 250 chars.)</label>
                     <textarea rows='7' cols='40' name='bio' onChange={this.handleBioChange}
                     id='bio' defaultValue={bio} />
