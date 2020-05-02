@@ -15,7 +15,7 @@ import down_caretSVG from '../../images/solid_caret-down.svg'
 
 import Queue from '../../Utils/Queue';
 
-import { useSwipeable, Swipeable } from 'react-swipeable'
+import { Swipeable } from 'react-swipeable'
 
 
 export default class MainPage extends React.Component {
