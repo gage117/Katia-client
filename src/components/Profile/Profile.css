@@ -156,7 +156,10 @@
 }
 
 .editGenreList {
-    padding: .5vh;
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+    padding: 1vh .75vh;
 }
 
 .editGenre {
@@ -165,20 +168,21 @@
     white-space: nowrap;
     background-color: #e0e0e0;
     border-radius: .5vh;
-    padding: .35vh 0 .35vh .5vh;
-    margin: .5vh;
+    padding: .5vh 0 .35vh .5vh;
+    margin: .75vh;
 }
 
 .editGenreLabel {
-    font-size: 1.8vh;
+    font-size: 2.6vh;
     font-weight: 600;
 }
 
 .editGenreButton {
     display: inline-block;
-    margin: 0 .5vh 0 .35vh;
+    margin: 0 .75vh 0 .6vh;
+    padding-bottom: .2vh;
     height: auto;
-    width: 1.1vh;
+    width: 1.8vh;
 }
 
 .editGenre:hover {
@@ -186,25 +190,25 @@
 }
 
 .editGenre:hover > .editGenreButton {
-    stroke: red;
-    width: 1.4vh;
-    margin: 0 .35vh 0 .2vh;
+    stroke: rgb(224, 0, 0);
+    width: 2.1vh;
+    margin: 0 .6vh 0 .45vh;
     stroke-width: 2.5;
 }
 
 .genreSelect {
-    font-size: 1.8vh;
+    font-size: 2.6vh;
     font-weight: 600;
     background-color: #e0e0e0;
     border-radius: .5vh;
     border: 1px solid #e0e0e0;
-    padding: .5vh 0 .5vh .35vh;
-    margin: .5vh;
+    padding: .5vh 0 .65vh .35vh;
+    margin: .75vh;
 }
 
 .genreSelectItem {
     border: 1px solid #e0e0e0;
-    font-size: 1.8vh;
+    font-size: 2.6vh;
     font-weight: 600;
 }
 
