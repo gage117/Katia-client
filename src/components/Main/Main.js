@@ -114,7 +114,7 @@ export default class MainPage extends React.Component {
             <>
             <Swipeable {...handlers}>
                 <li className='main__Swipe-User' onClick={this.toggleExpanded} >
-                    {this.state.expanded ? (<></>) : (<img src={user.avatar} alt='avatar' className='main__Image' />)}
+                    {this.state.expanded ? (<img src={user.avatar} alt='avatar' className='main__Image main__hidden-img' />) : (<img src={user.avatar} alt='avatar' className='main__Image' />)}
                     <h3 className='main__display-name'>{user.display_name}</h3>
                     <h4 className='main__card-header'>Platforms</h4>
                     <div className='main__platforms'>
@@ -132,7 +132,8 @@ export default class MainPage extends React.Component {
                     {this.state.expanded ? (<><h4 className='main__card-header'>Bio</h4>
                     <p className='main__bio'>{user.bio}</p></>)
                     :
-                    (<></>)}
+                    (<><h4 className='main__card-header main__hidden-text'>Bio</h4>
+                    <p className='main__bio main__hidden-text'>{user.bio}</p></>)}
                     <div className='main__caret-container'>
                         <input className={`main__down-caret${this.state.expanded ? ' reverse' : ''}`} type="image" src={down_caretSVG} alt='down-caret' />
                     </div>

@@ -4,6 +4,12 @@
     max-width: 80%;
     margin: 1.5vmax 0;
     border-radius: .5vh;
+    transition: height .6s;
+    transition-timing-function: ease-in-out;
+}
+
+.main__hidden-img {
+    height: 0;
 }
 
 .main__Swipe-User {
@@ -51,6 +57,10 @@
     background-color: lightgray;
     padding: .7vmax 2vmin;
     margin: .7vmax 0;
+    transition: font-size .5s, height .5s, background-color .5s;
+    transition-timing-function: ease-in-out;
+    transition-delay: .1s;
+
 }
 
 .main__Swipe-User > span {
@@ -58,7 +68,7 @@
     padding: .5vmax 0;
 }
 
-.main__Swipe-User > p {
+.main__Swipe-User > .lfm-in {
     font-size: 3vmax;
 }
 
@@ -89,8 +99,19 @@
 }
 
 .main__bio {
+    font-size: 3vmax;
     padding: 0 .3vh;
-    height: 25vmax;
+    height: 14vmax;
+    transition: font-size .5s, height .5s, background-color .5s;
+    transition-timing-function: ease-in-out;
+    transition-delay: .1s;
+}
+
+.main__hidden-text {
+    font-size: 0;
+    height: 0;
+    background-color: white;
+    transition-delay: 0s;
 }
 
 .main__caret-container {
