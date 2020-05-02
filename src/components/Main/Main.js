@@ -50,7 +50,7 @@ export default class MainPage extends React.Component {
 
         SwipeService.addRejection(this.context.user_id, rejection.id)
         .then(() => {
-            this.setState({ queue })
+            this.setState({ queue, expanded: false })
         })
         .catch(error => this.setState({ error }))
     }
@@ -62,7 +62,7 @@ export default class MainPage extends React.Component {
 
         SwipeService.addMatch(this.context.user_id, match.id)
             .then(() => {
-                this.setState({ queue });
+                this.setState({ queue, expanded: false });
             })
             .catch(error => this.setState({error}));
     }
@@ -113,30 +113,31 @@ export default class MainPage extends React.Component {
         return (
             <>
             <Swipeable {...handlers}>
-            <li className='main__Swipe-User' onClick={this.toggleExpanded} >
-                {this.state.expanded ? (<></>) : (<img src={user.avatar} alt='avatar' className='main__Image' />)}
-                <h3 className='main__display-name'>{user.display_name}</h3>
-                <h4 className='main__card-header'>Platforms</h4>
-                <div className='main__platforms'>
-                    {user.platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
-                    {user.platforms.includes("PlayStation") ? <img className='main__playstation' src={playstationLogo} alt='Playstation logo' /> : null}
-                    {user.platforms.includes("Nintendo") ? <img className='main__nintendo' src={nintendoLogo} alt='Nintendo logo' /> : null}
-                    {user.platforms.includes("PC") ? <img className='main__PC' src={PC_Logo} alt='PC logo' /> : null}
-                </div>
-                <h4 className='main__card-header'>LFM In</h4>
+                <li className='main__Swipe-User' onClick={this.toggleExpanded} >
+                    {this.state.expanded ? (<img src={user.avatar} alt='avatar' className='main__Image main__hidden-img' />) : (<img src={user.avatar} alt='avatar' className='main__Image' />)}
+                    <h3 className='main__display-name'>{user.display_name}</h3>
+                    <h4 className='main__card-header'>Platforms</h4>
+                    <div className='main__platforms'>
+                        {user.platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
+                        {user.platforms.includes("PlayStation") ? <img className='main__playstation' src={playstationLogo} alt='Playstation logo' /> : null}
+                        {user.platforms.includes("Nintendo") ? <img className='main__nintendo' src={nintendoLogo} alt='Nintendo logo' /> : null}
+                        {user.platforms.includes("PC") ? <img className='main__PC' src={PC_Logo} alt='PC logo' /> : null}
+                    </div>
+                    <h4 className='main__card-header'>LFM In</h4>
 
-                {this.context.generateLfmElements(user.lfm_in)}
+                    {this.context.generateLfmElements(user.lfm_in)}
 
-                <h4 className='main__card-header'>Genres</h4>
-                <span>{this.context.generateGenreString(user.genres)}</span>
-                {this.state.expanded ? (<><h4 className='main__card-header'>Bio</h4>
-                <p className='main__bio'>{user.bio}</p></>)
-                :
-                (<></>)}
-                <div className='main__caret-container'>
-                    <input className={`main__down-caret${this.state.expanded ? ' reverse' : ''}`} type="image" src={down_caretSVG} alt='down-caret' />
-                </div>
-            </li>
+                    <h4 className='main__card-header'>Genres</h4>
+                    <span className='main__genres'>{this.context.generateGenreString(user.genres)}</span>
+                    {this.state.expanded ? (<><h4 className='main__card-header'>Bio</h4>
+                    <p className='main__bio'>{user.bio}</p></>)
+                    :
+                    (<><h4 className='main__card-header main__hidden-text'>Bio</h4>
+                    <p className='main__bio main__hidden-text'>{user.bio}</p></>)}
+                    <div className='main__caret-container'>
+                        <input className={`main__down-caret${this.state.expanded ? ' reverse' : ''}`} type="image" src={down_caretSVG} alt='down-caret' />
+                    </div>
+                </li>
             </Swipeable>
             <div className='main__Second-Nav'>
                 <img className='main__x' src={x_markSVG} alt='x' onClick={this.swipeLeft} />
