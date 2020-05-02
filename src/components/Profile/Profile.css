@@ -2,56 +2,65 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 1vh 0;
-    height: 9vh;
+    padding: 2vh 0 1vh;
+    height: 10vh;
 }
 
 .profile__cards-icon {
-    height: 6vh;
-    margin: .5vh 0;
+    height: 7vh;
 }
 
 .profile__edit-icon {
-    height: 6vh;
-    margin: .5vh 0;
+    height: 7vh;
 }
 
 .profile__edit-icon:hover {
     cursor: pointer;
 }
 
+.profile__Img-container {
+    height: 30vh;
+    background-color: lightgray;
+    border-radius: 1vh;
+    margin: 1vh 0 2vh;
+    padding: 0 2vh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 .profile__Img {
-    height: auto;
-    width: 60%;
-    margin-bottom: 2rem;
+    display: block;
+    width: auto;
+    height: 26vh;
     border-radius: .5rem;
 }
 
-.profile__Div {
+.profile__section {
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
 }
 
-.profile__Div > * {
-    font-size: 3vh;
+.profile__section > * {
+    font-size: 3.5vh;
 }
 
 .profile__card-header {
     background-color: lightgray;
     width: 100%;
-    height: 4.5vh;
+    height: 5.5vh;
     text-align: left;
     padding: .7vh 2vw;
-    font-size: 3vh;
+    font-size: 3.5vh;
     font-weight: bold;
-    margin: .5rem 0;
+    margin: 1vh 0;
 }
 
 .profile__bio {
     width: 90%;
-    text-align: justify;
+    text-align: center;
 }
 
 .logoutLink-container {
@@ -113,7 +122,7 @@
 }
 
 #platforms {
-    width: 100vw;
+    width: 100%;
     height: 8.8vh;
     display: flex;
     justify-content: space-around;
@@ -146,12 +155,65 @@
     border-radius: .5rem;
 }
 
+.editGenreList {
+    padding: .5vh;
+}
+
+.editGenre {
+    display: inline-flex;
+    align-items: center;
+    white-space: nowrap;
+    background-color: #e0e0e0;
+    border-radius: .5vh;
+    padding: .35vh 0 .35vh .5vh;
+    margin: .5vh;
+}
+
+.editGenreLabel {
+    font-size: 1.8vh;
+    font-weight: 600;
+}
+
+.editGenreButton {
+    display: inline-block;
+    margin: 0 .5vh 0 .35vh;
+    height: auto;
+    width: 1.1vh;
+}
+
+.editGenre:hover {
+    background-color: #d0d0d0;
+}
+
+.editGenre:hover > .editGenreButton {
+    stroke: red;
+    width: 1.4vh;
+    margin: 0 .35vh 0 .2vh;
+    stroke-width: 2.5;
+}
+
+.genreSelect {
+    font-size: 1.8vh;
+    font-weight: 600;
+    background-color: #e0e0e0;
+    border-radius: .5vh;
+    border: 1px solid #e0e0e0;
+    padding: .5vh 0 .5vh .35vh;
+    margin: .5vh;
+}
+
+.genreSelectItem {
+    border: 1px solid #e0e0e0;
+    font-size: 1.8vh;
+    font-weight: 600;
+}
+
 .editCancelSubmit-div {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: .5vh 0 .5vh;
-    height: 12vh;
+    padding: .5vh 0;
+    height: 11vh;
 }
 
 .editCancel {
@@ -163,7 +225,7 @@
 }
 
 .editSubmit {
-    height: 10.5vh;
+    height: 10vh;
 }
 
 .editSubmit:hover {
