@@ -50,7 +50,7 @@ export default class MainPage extends React.Component {
 
         SwipeService.addRejection(this.context.user_id, rejection.id)
         .then(() => {
-            this.setState({ queue })
+            this.setState({ queue, expanded: false })
         })
         .catch(error => this.setState({ error }))
     }
@@ -62,7 +62,7 @@ export default class MainPage extends React.Component {
 
         SwipeService.addMatch(this.context.user_id, match.id)
             .then(() => {
-                this.setState({ queue });
+                this.setState({ queue, expanded: false });
             })
             .catch(error => this.setState({error}));
     }
