@@ -15,6 +15,8 @@ import down_caretSVG from '../../images/solid_caret-down.svg'
 
 import Queue from '../../Utils/Queue';
 
+import { Swipeable } from 'react-swipeable'
+
 
 export default class MainPage extends React.Component {
     state = {
@@ -65,9 +67,52 @@ export default class MainPage extends React.Component {
             .catch(error => this.setState({error}));
     }
 
+    // generateUserCard = (user) => {
+    //     return (
+    //         <>
+    //         <li className='main__Swipe-User' onClick={this.toggleExpanded} >
+    //             {this.state.expanded ? (<></>) : (<img src={user.avatar} alt='avatar' className='main__Image' />)}
+    //             <h3 className='main__display-name'>{user.display_name}</h3>
+    //             <h4 className='main__card-header'>Platforms</h4>
+    //             <div className='main__platforms'>
+    //                 {user.platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
+    //                 {user.platforms.includes("PlayStation") ? <img className='main__playstation' src={playstationLogo} alt='Playstation logo' /> : null}
+    //                 {user.platforms.includes("Nintendo") ? <img className='main__nintendo' src={nintendoLogo} alt='Nintendo logo' /> : null}
+    //                 {user.platforms.includes("PC") ? <img className='main__PC' src={PC_Logo} alt='PC logo' /> : null}
+    //             </div>
+    //             <h4 className='main__card-header'>LFM In</h4>
+
+    //             {this.context.generateLfmElements(user.lfm_in)}
+
+    //             <h4 className='main__card-header'>Genres</h4>
+    //             <span>{this.context.generateGenreString(user.genres)}</span>
+    //             {this.state.expanded ? (<><h4 className='main__card-header'>Bio</h4>
+    //             <p className='main__bio'>{user.bio}</p></>)
+    //             :
+    //             (<></>)}
+    //             <div className='main__caret-container'>
+    //                 <input className={`main__down-caret${this.state.expanded ? ' reverse' : ''}`} type="image" src={down_caretSVG} alt='down-caret' />
+    //             </div>
+    //         </li>
+    //         <div className='main__Second-Nav'>
+    //             <img className='main__x' src={x_markSVG} alt='x' onClick={this.swipeLeft} />
+    //             <img className='main__check' src={checkmarkSVG} alt='checkmark' onClick={this.swipeRight} />
+    //         </div>
+    //         </>
+    //     )
+    // }
+
     generateUserCard = (user) => {
+        const handlers = {
+            onSwipedLeft: () => this.swipeLeft(),
+            onSwipedRight: () => this.swipeRight(),
+            preventDefaultTouchmoveEvent: true,
+            trackMouse: true
+        }
+
         return (
             <>
+            <Swipeable {...handlers}>
             <li className='main__Swipe-User' onClick={this.toggleExpanded} >
                 {this.state.expanded ? (<></>) : (<img src={user.avatar} alt='avatar' className='main__Image' />)}
                 <h3 className='main__display-name'>{user.display_name}</h3>
@@ -92,6 +137,7 @@ export default class MainPage extends React.Component {
                     <input className={`main__down-caret${this.state.expanded ? ' reverse' : ''}`} type="image" src={down_caretSVG} alt='down-caret' />
                 </div>
             </li>
+            </Swipeable>
             <div className='main__Second-Nav'>
                 <img className='main__x' src={x_markSVG} alt='x' onClick={this.swipeLeft} />
                 <img className='main__check' src={checkmarkSVG} alt='checkmark' onClick={this.swipeRight} />

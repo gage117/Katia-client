@@ -12,7 +12,7 @@ import PC_LogoGray from '../../images/PC_Keyboard_Mouse_Icon_b&w.png'
 import xboxLogo from '../../images/xbox_logo_png.png'
 import xboxLogoGray from '../../images/xbox_logo_b&w_png.png'
 import checkmarkSVG from '../../images/checkmark-circle-2.svg'
-import x_markSVG from '../../images/x-circle.svg'
+import x_checkSVG from '../../images/x-circle.svg'
 import UserContext from '../../Contexts/UserContext'
 import ProfileService from '../../services/profile-service'
 
@@ -36,7 +36,7 @@ export default class Profile extends React.Component {
     componentDidMount() {
         ProfileService.getAllUserGenres()
         .then(res => this.setState({ allGenres: res }))
-
+        .catch(error => this.setState({error: error.message}))
 
         ProfileService.getProfile(this.context.user_id)
         .then(user => this.setState({ 
@@ -128,7 +128,7 @@ export default class Profile extends React.Component {
     }
         
     handleSelectGenre = event => {
-        this.setState({ currGenre: event.target.value })
+        this.setState({ genres: [...this.state.genres, event.target.value] })
     }
 
     avatarChangedHandler = event => {
@@ -148,20 +148,10 @@ export default class Profile extends React.Component {
             .catch(error => this.setState({ error }));
     }
 
-    genreToSelect = event => {
-        event.preventDefault()
-
-        if(this.state.currGenre !== '') {
-        this.setState({ genres: [...this.state.genres, this.state.currGenre] })
-        }
-        this.setState({ currGenre: '' })
-    }
-
     genreToDelete = event => {
         event.preventDefault()
-        console.log(event.target.name)
 
-        let newGenres = this.state.genres.filter(item => item !== event.target.name)
+        let newGenres = this.state.genres.filter(item => item !== event.currentTarget.id)
         this.setState({ genres: newGenres })
     }
 
@@ -173,15 +163,17 @@ export default class Profile extends React.Component {
         if(!this.state.isEditing) {
             return (
                 <>
-                <div className='profile__icons-container'>
+                <section className='profile__icons-container'>
                     <Link to='/swipe' className='profile__Link'>
                         <img className='profile__cards-icon' src={cardsIcon} alt='swipe-cards-icon' />
                     </Link>
                     <img className='profile__edit-icon' onClick={this.handleEditButton} src={editIcon} alt='edit-icon' />
-                </div>
-                <div className='profile__Div'> 
-                    <img src={avatar} 
-                    alt='avatar' className='profile__Img' />
+                </section>
+                <section className='profile__section'>
+                    <div className='profile__Img-container'>
+                        <img src={avatar} 
+                        alt='avatar' className='profile__Img' />
+                    </div>
                     <h4 className='profile__card-header'>Display Name</h4>
                     <span>{display_name}</span>
                     <h4 className='profile__card-header'>Platforms</h4>
@@ -197,24 +189,24 @@ export default class Profile extends React.Component {
                     <span>{this.context.generateGenreString(genres)}</span>
                     <h4 className='profile__card-header'>Bio</h4>
                     <span className='profile__bio'>{bio}</span>
-                </div>
-                <div className='logoutLink-container'>
+                </section>
+                <section className='logoutLink-container'>
                     <Link onClick={this.handleLogoutClick} 
                     to='/login' className='logoutLink'>
                     Logout
                     </Link>
-                </div>
+                </section>
                 </>
             )
         } else if(this.state.isEditing) {
             return (
                 <>
-                <div className='profile__ImgEdit-container'>
-                        <img src={avatar} 
-                        alt='avatar' className='profile__ImgEdit' />
-                        <input type='file' onChange={this.avatarChangedHandler} />
-                        <button className='profile__ImgEdit-submit' onClick={this.avatarUploadHandler}>Upload</button>
-                </div>
+                <section className='profile__ImgEdit-container'>
+                    <img src={avatar} 
+                    alt='avatar' className='profile__ImgEdit' />
+                    <input type='file' onChange={this.avatarChangedHandler} />
+                    <button className='profile__ImgEdit-submit' onClick={this.avatarUploadHandler}>Upload</button>
+                </section>
                 <form className='editForm' name='editForm' onSubmit={this.saveEdit}>
                     <label htmlFor='display-name'>Display Name</label>
                     <input type='text' name='display-name' onChange={this.handleDisplayNameChange}
@@ -228,26 +220,29 @@ export default class Profile extends React.Component {
                         {this.generateEditPlatforms()}
                     </div>
                     <label htmlFor='genres'>Genres</label>
-                        {userGenres.map((item, index) => 
-                            <div key={index}>
-                            <span>{item}</span>
-                            <button name={item} onClick={(item) => this.genreToDelete(item)}>delete</button>
-                            </div>)}
-                        <select onChange={this.handleSelectGenre}>
-                            <option value=''>Select a genre</option>
-                            {allGenres.map((item, index) => 
-                            userGenres.includes(item.genre) ? 
-                            console.log(item.genre) 
-                            : <option key={index} value={item.genre}>{item.genre}</option>)}
-                        </select>
-                        <button onClick={this.genreToSelect}>Save Genre</button>
-                        {/* <input type='text' name='genres' onChange={this.handleGenresChange}
-                        id='genres' defaultValue={genres} /> */}
+                        <div className='editGenreList'>
+                            {userGenres.map((item, index) => 
+                                <span key={index} className='editGenre' id={item} onClick={(item) => this.genreToDelete(item)}>
+                                    <label className='editGenreLabel'>{item}</label>
+                                    <svg className='editGenreButton' xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                        <line x1="20" y1="2" x2="2" y2="20"/>
+                                        <line x1="2" y1="2" x2="20" y2="20"/>
+                                    </svg>
+                                </span>
+                            )}
+                            <select className='genreSelect' onChange={this.handleSelectGenre}>
+                                <option value='' style={{display: "none"}}>Choose Genre</option>
+                                {allGenres.map((item, index) => 
+                                userGenres.includes(item.genre) ? 
+                                null 
+                                : <option className='genreSelectItem' key={index} value={item.genre}>{item.genre}</option>)}
+                            </select>
+                        </div>
                     <label htmlFor='bio'>Bio (Max 250 chars.)</label>
                     <textarea rows='7' cols='40' name='bio' onChange={this.handleBioChange}
                     id='bio' defaultValue={bio} />
                     <div className='editCancelSubmit-div'>
-                        <img className='editCancel' src={x_markSVG} alt='cancel-button' onClick={this.cancelEdit} />
+                        <img className='editCancel' src={x_checkSVG} alt='cancel-button' onClick={this.cancelEdit} />
                         <img className='editSubmit' src={checkmarkSVG} alt='submit-button' onClick={this.saveEdit}/>
                     </div>
                 </form>
