@@ -46,7 +46,9 @@
 }
 
 .match__avatar {
-    max-width: 90%;
+    height: 15.5vmax;
+    width: auto;
+    max-width: 80%;
     border-radius: 1vmax;
 }
 
@@ -55,13 +57,19 @@
     margin-bottom: 2vmax;
 }
 
-.hidden {
-    display: none;
-}
-
 .match__info {
+    height: 100%;
     padding: 2vmax 0 0;
     width: 100%;
+    transition: padding .1s, height .1s;
+    transition-timing-function: ease-in-out;
+}
+
+.match__info > p {
+    font-size: 2.3vmax;
+    transition: font-size .3s;
+    transition-delay: .2s;
+    transition-timing-function: ease-in-out;
 }
 
 .match__card-header {
@@ -71,6 +79,8 @@
     background-color: lightgray;
     padding: .5vh 2vw;
     margin: .7vmax 0;
+    transition: font-size .2s, background-color .2s, padding .2s, margin .2s;
+    transition-timing-function: ease-in-out;
 }
 
 .match__platforms {
@@ -80,20 +90,10 @@
     padding: 1vmax 0;
 }
 
-.match__xbox {
+.match__platforms > * {
     height: 6vmax;
-}
-
-.match__playstation {
-    height: 6vmax;
-}
-
-.match__nintendo {
-    height: 6vmax;
-}
-
-.match__PC {
-    height: 6vmax;
+    transition: height .5s;
+    transition-delay: .1s;
 }
 
 .match__genres {
@@ -103,6 +103,35 @@
 
 .match__bio {
     font-size: 2.3vmax;
-    text-align: justify;
+    text-align: center;
     padding: 0 1.5vmin;
+}
+
+.hidden {
+    padding: 0;
+}
+
+.match__li > .hidden > div {
+    padding: 0;
+    transition-delay: 0.2s;
+}
+
+.match__li > .hidden > h4 {
+    font-size: 0;
+    background-color: white;
+    padding: 0;
+    margin: 0;
+    transition-delay: 0.1s;
+}
+
+.match__li > .hidden > p {
+    font-size: 0;
+    padding: 0;
+    margin: 0;
+    transition-delay: 0s;
+}
+
+.hidden > .match__platforms > * {
+    height: 0;
+    transition-delay: 0s;
 }

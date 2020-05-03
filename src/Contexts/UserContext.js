@@ -22,7 +22,7 @@ const UserContext = React.createContext({
   clearError: () => {},
   processLogout: () => {},
   processLogin: () => {},
-  updateUser: () => {},
+  updateUser: () => {}, // Still works with none of this
 });
 
 export default UserContext;
@@ -37,7 +37,7 @@ export class UserProvider extends Component {
       state.user_id = account.id
     }
 
-    this.state = state
+    this.state = state // "const state" in line 33 can just be "this.state", this line not needed
   }
 
   // state = {

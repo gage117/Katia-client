@@ -1,14 +1,13 @@
 import React from 'react'
 import './Matches.css'
 import UserContext from '../../Contexts/UserContext'
-import ProfileService from '../../services/profile-service'
-import {Link } from 'react-router-dom'
+import { Link } from 'react-router-dom'
 import cardsIcon from '../../images/cards.png'
 import nintendoLogo from '../../images/nintendo_logo.png'
 import playstationLogo from '../../images/playstation_color_png.png'
 import PC_Logo from '../../images/PC_Keyboard_Mouse_Icon.png'
 import xboxLogo from '../../images/xbox_logo_png.png'
-
+import MatchesService from '../../services/matches-service'
 
 export default class Matches extends React.Component {
     state = {
@@ -18,10 +17,15 @@ export default class Matches extends React.Component {
 
     static contextType = UserContext;
 
-    componentDidMount() {
-        ProfileService.getMatches(this.context.user_id)
-            .then(users => this.setState({ users }))
-            .catch(error => this.setState({ error }))
+    state = {
+      users: []
+    }
+
+    componentDidMount(){
+
+        MatchesService.getMatchedUsers(this.context.user_id)
+        .then(res => this.setState({ users: res}))
+        .catch(error => this.setState({error: error.message}))
     }
 
     toggleExpanded = (event) => {
@@ -29,7 +33,7 @@ export default class Matches extends React.Component {
     }
 
     render() {
-        const { users } = this.state;
+        let users = this.state.users || []
         return (
             <>
             <div className='matches__icons-container'>
@@ -45,7 +49,7 @@ export default class Matches extends React.Component {
                 <h4 className='match__display-name'>{user.display_name}</h4>
                 <img src={user.avatar} alt='avatar' className='match__avatar'></img>
                 <section className='match__info hidden'>
-                    <h4 className='match__card-header'>Platforms</h4>
+                    <h4 className='match__card-header hidden1'>Platforms</h4>
                     <div className='match__platforms'>
                         {user.platforms.includes("Xbox") ? <img className='match__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
                         {user.platforms.includes("PlayStation") ? <img className='match__playstation' src={playstationLogo} alt='Playstation logo' /> : null}
@@ -58,8 +62,8 @@ export default class Matches extends React.Component {
 
                     <h4 className='match__card-header'>Genres</h4>
                     <p className='match__genres'>{this.context.generateGenreString(user.genres)}</p>
-                    <><h4 className='match__card-header'>Bio</h4>
-                    <p className='match__bio'>{user.bio}</p></>
+                    <h4 className='match__card-header'>Bio</h4>
+                    <p className='match__bio'>{user.bio}</p>
                 </section>
                 <Link to={`/chat/${user.user_id}`} className='matches__Link'>Chat!</Link>
                 </li>)}
