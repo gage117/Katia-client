@@ -1,5 +1,5 @@
 export default {
-  API_ENDPOINT: process.env.REACT_APP_API_ENDPOINT,
+  API_ENDPOINT: 'https://project-manhattan.herokuapp.com/api',
   TOKEN_KEY: process.env.REACT_APP_TOKEN_KEY,
-  SOCKET_CONNECTION: process.env.REACT_APP_SOCKET_CONNECTION
+  SOCKET_CONNECTION: 'https://project-manhattan.herokuapp.com'
 }
