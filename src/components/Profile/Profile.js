@@ -30,6 +30,14 @@ export default class Profile extends React.Component {
         genres: [],
         allGenres: [],
         currGenre: '',
+        gamer_tags: {
+            xbox: '',
+            psn: '',
+            nintendo: '',
+            steam: '',
+            discord: '',
+            other: ''
+        },
         error: null
     }
 
@@ -45,7 +53,15 @@ export default class Profile extends React.Component {
             lfm_in: user.lfm_in,
             bio: user.bio,
             platforms: user.platforms,
-            genres: user.genres
+            genres: user.genres,
+            gamer_tags: {
+              xbox: user.xbox,
+              psn: user.psn,
+              nintendo: user.nintendo,
+              steam: user.steam,
+              discord: user.discord,
+              other: user.other
+            }
          }))
          .catch(error => this.setState({error: error.message}))
     }
@@ -63,7 +79,13 @@ export default class Profile extends React.Component {
             lfm_in: this.state.lfm_in,
             bio: this.state.bio,
             platforms: this.state.platforms,
-            genres: this.state.genres
+            genres: this.state.genres,
+            xbox: this.state.gamer_tags.xbox,
+            psn: this.state.gamer_tags.psn,
+            nintendo: this.state.gamer_tags.nintendo,
+            steam: this.state.gamer_tags.steam,
+            discord: this.state.gamer_tags.discord,
+            other: this.state.gamer_tags.other
         }
         
         ProfileService.updateProfile(user_id, userInfo)
@@ -74,7 +96,15 @@ export default class Profile extends React.Component {
                 lfm_in: user.lfm_in,
                 bio: user.bio,
                 platforms: user.platforms,
-                genres: user.genres
+                genres: user.genres,
+                gamer_tags: {
+                    xbox: user.xbox,
+                    psn: user.psn,
+                    nintendo: user.nintendo,
+                    steam: user.steam,
+                    discord: user.discord,
+                    other: user.other
+                  }
             })
         })
         .catch(error => this.setState({error: error.message}))
@@ -158,7 +188,7 @@ export default class Profile extends React.Component {
     render() {
         let allGenres = this.state.allGenres || []
         let userGenres = this.state.genres || []
-        const { avatar, display_name, bio, lfm_in, genres, platforms } = this.state;
+        const { avatar, display_name, bio, lfm_in, genres, platforms, gamer_tags } = this.state;
 
         if(!this.state.isEditing) {
             return (
@@ -187,6 +217,9 @@ export default class Profile extends React.Component {
                     {this.context.generateLfmElements(lfm_in)}
                     <h4 className='profile__card-header'>Genres</h4>                    
                     <span className='profile__genres'>{this.context.generateGenreString(genres)}</span>
+                    <h4 className='profile__card-header'>Gamer Tags</h4>
+                        {console.log(gamer_tags.xbox)}
+                        {gamer_tags.xbox ? <p>Xbox: killa</p> : <p>empty xbox</p>}
                     <h4 className='profile__card-header'>Bio</h4>
                     <span className='profile__bio'>{bio}</span>
                 </section>
