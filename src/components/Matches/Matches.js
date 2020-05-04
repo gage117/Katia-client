@@ -10,6 +10,11 @@ import xboxLogo from '../../images/xbox_logo_png.png'
 import MatchesService from '../../services/matches-service'
 
 export default class Matches extends React.Component {
+    state = {
+        users: [],
+        error: null
+    }
+
     static contextType = UserContext;
 
     state = {
@@ -60,6 +65,7 @@ export default class Matches extends React.Component {
                     <h4 className='match__card-header'>Bio</h4>
                     <p className='match__bio'>{user.bio}</p>
                 </section>
+                <Link to={`/chat/${user.user_id}`} className='matches__Link'>Chat!</Link>
                 </li>)}
             </ul>
             </>
