@@ -218,8 +218,14 @@ export default class Profile extends React.Component {
                     <h4 className='profile__card-header'>Genres</h4>                    
                     <span className='profile__genres'>{this.context.generateGenreString(genres)}</span>
                     <h4 className='profile__card-header'>Gamer Tags</h4>
-                        {console.log(gamer_tags.xbox)}
-                        {gamer_tags.xbox ? <p>Xbox: killa</p> : <p>empty xbox</p>}
+                    <div className='profile__gamer_tags-container'>
+                        {gamer_tags.xbox !== '' ? <p>Xbox: {gamer_tags.xbox}</p> : <p>Xbox: </p>}
+                        {gamer_tags.psn !== '' ? <p>PSN: {gamer_tags.psn}</p> : <p>PSN: </p>}
+                        {gamer_tags.nintendo !== '' ? <p>Nintendo: {gamer_tags.nintendo}</p> : <p>Nintendo: </p>}
+                        {gamer_tags.steam !== '' ? <p>Steam: {gamer_tags.steam}</p> : <p>Steam: </p>}
+                        {gamer_tags.discord !== '' ? <p>Discord: {gamer_tags.discord}</p> : <p>Discord: </p>}
+                        {gamer_tags.other !== '' ? <p>Other: {gamer_tags.other}</p> : <p>Other: </p>}
+                    </div>
                     <h4 className='profile__card-header'>Bio</h4>
                     <span className='profile__bio'>{bio}</span>
                 </section>
