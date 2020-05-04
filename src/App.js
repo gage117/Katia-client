@@ -7,6 +7,7 @@ import NotFoundPage from './routes/NotFoundPage/NotFoundPage'
 import LoginPage from './routes/LoginPage/LoginPage'
 import Profile from './components/Profile/Profile';
 import Matches from './components/Matches/Matches';
+import MessagePage from './routes/MessagePage/MessagePage';
 import './App.css'
 
 class App extends Component {
@@ -51,7 +52,12 @@ class App extends Component {
             exact 
             path='/matches'
             component={Matches}
-          /> 
+          />
+          <Route
+            exact
+            path='/chat/:chatPartner'
+            component={MessagePage}
+          />
           <Route
             component={NotFoundPage}
           />
