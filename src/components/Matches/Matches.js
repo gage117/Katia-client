@@ -46,7 +46,7 @@ export default class Matches extends React.Component {
                 <h4 className='match__display-name'>{user.display_name}</h4>
                 <img src={user.avatar} alt='avatar' className='match__avatar'></img>
                 <section className='match__info hidden'>
-                    <h4 className='match__card-header'>Platforms</h4>
+                    <h4 className='match__card-header hidden1'>Platforms</h4>
                     <div className='match__platforms'>
                         {user.platforms.includes("Xbox") ? <img className='match__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
                         {user.platforms.includes("PlayStation") ? <img className='match__playstation' src={playstationLogo} alt='Playstation logo' /> : null}
@@ -59,8 +59,8 @@ export default class Matches extends React.Component {
 
                     <h4 className='match__card-header'>Genres</h4>
                     <p className='match__genres'>{this.context.generateGenreString(user.genres)}</p>
-                    <><h4 className='match__card-header'>Bio</h4>
-                    <p className='match__bio'>{user.bio}</p></>
+                    <h4 className='match__card-header'>Bio</h4>
+                    <p className='match__bio'>{user.bio}</p>
                 </section>
                 </li>)}
             </ul>
