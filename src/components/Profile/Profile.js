@@ -15,6 +15,7 @@ import checkmarkSVG from '../../images/checkmark-circle-2.svg'
 import x_checkSVG from '../../images/x-circle.svg'
 import UserContext from '../../Contexts/UserContext'
 import ProfileService from '../../services/profile-service'
+import GamerTag from '../GamerTag/GamerTag'
 
 export default class Profile extends React.Component {
     static contextType = UserContext
@@ -130,6 +131,10 @@ export default class Profile extends React.Component {
         this.setState({ bio: event.target.value })
     }
 
+    handleGamerTagsChange = event => {
+        
+    }
+
     handleGenresChange = event => {
         this.setState({ genres: event.target.value })
     }
@@ -188,8 +193,7 @@ export default class Profile extends React.Component {
     render() {
         let allGenres = this.state.allGenres || []
         let userGenres = this.state.genres || []
-        const { avatar, display_name, bio, lfm_in, genres, platforms, gamer_tags } = this.state;
-
+        const { avatar, display_name, bio, lfm_in, genres, platforms, gamer_tags } = this.state
         if(!this.state.isEditing) {
             return (
                 <>
@@ -277,6 +281,16 @@ export default class Profile extends React.Component {
                                 : <option className='genreSelectItem' key={index} value={item.genre}>{item.genre}</option>)}
                             </select>
                         </div>
+                        
+                    <h4 className='profile__card-header'>Gamer Tags</h4>
+
+                    {Object.entries(gamer_tags).forEach((item, idx) => {
+                        return <GamerTag 
+                            key={idx}
+                            name={item[0]}
+                            defaultVal={item[1]}
+                            />
+                    })}
                     <label htmlFor='bio'>Bio (Max 250 chars.)</label>
                     <textarea rows='7' cols='40' name='bio' onChange={this.handleBioChange}
                     id='bio' defaultValue={bio} />
