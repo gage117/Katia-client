@@ -8,7 +8,7 @@ class LandingPage extends Component {
       <main id='lp_main-flex'>
         <Link to='/login' className='lp_login lp_button'>Login</Link>
         <div id='Landing_Page__container'>
-          <h1 className='lp_header'>Project Manhattan</h1>
+          <h1 className='lp_header'>Katia</h1>
           <hr />
           <h2 className='lp_header'>Find new teammates</h2>
           <h4 className='lp_header'>who own the platforms you own</h4>

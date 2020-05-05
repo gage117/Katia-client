@@ -1,8 +1,9 @@
 #lp_main-flex {
-  height: 100vh;
+  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
+  margin-top: 30px;
 }
 
 .lp_login {
@@ -32,7 +33,7 @@
   border: .1rem solid black;
   background-color: lightgray;
   color: black;
-  padding: .5rem;
+  padding: .7rem;
   text-decoration: none;
 }
 
