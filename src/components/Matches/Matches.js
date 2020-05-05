@@ -2,11 +2,12 @@ import React from 'react'
 import './Matches.css'
 import UserContext from '../../Contexts/UserContext'
 import { Link } from 'react-router-dom'
-import cardsIcon from '../../images/cards.png'
+import cards_icon from '../../images/cards.png'
 import nintendoLogo from '../../images/nintendo_logo.png'
 import playstationLogo from '../../images/playstation_color_png.png'
 import PC_Logo from '../../images/PC_Keyboard_Mouse_Icon.png'
 import xboxLogo from '../../images/xbox_logo_png.png'
+import mail_icon from '../../images/mail.svg'
 import MatchesService from '../../services/matches-service'
 
 export default class Matches extends React.Component {
@@ -38,7 +39,7 @@ export default class Matches extends React.Component {
             <>
             <div className='matches__icons-container'>
                 <Link to='/swipe' className='matches__Link'>
-                    <img className='matches__cards-icon' src={cardsIcon} alt='swipe-cards-icon' />
+                    <img className='matches__cards-icon' src={cards_icon} alt='swipe-cards-icon' />
                 </Link>
             </div>
             <header className='matches__header-container'>
@@ -48,6 +49,9 @@ export default class Matches extends React.Component {
                 {users.map(user => <li key={user.user_id} className='match__li' onClick={this.toggleExpanded}>
                 <h4 className='match__display-name'>{user.display_name}</h4>
                 <img src={user.avatar} alt='avatar' className='match__avatar'></img>
+                <Link to={`/chat/${user.user_id}`} className='matches__Link'>
+                    <img className='matches__mail-icon' src={mail_icon} alt='chat-icon' />
+                </Link>
                 <section className='match__info hidden'>
                     <h4 className='match__card-header hidden1'>Platforms</h4>
                     <div className='match__platforms'>
@@ -65,7 +69,6 @@ export default class Matches extends React.Component {
                     <h4 className='match__card-header'>Bio</h4>
                     <p className='match__bio'>{user.bio}</p>
                 </section>
-                <Link to={`/chat/${user.user_id}`} className='matches__Link'>Chat!</Link>
                 </li>)}
             </ul>
             </>

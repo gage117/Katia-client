@@ -25,6 +25,10 @@
     padding: .5vmax;
 }
 
+.matches__mail-icon {
+    height: 5vh;
+}
+
 .matches__ul {
     display: flex;
     flex-direction: column;
@@ -38,7 +42,7 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2vmax 0;
+    padding: 2vmax 0 1vmax;
     margin: 1vmax 0;
     border: .25vmax solid black;
     border-radius: 1vmax;
@@ -50,6 +54,7 @@
     width: auto;
     max-width: 80%;
     border-radius: 1vmax;
+    margin-bottom: 2vmax;
 }
 
 .match__display-name {
