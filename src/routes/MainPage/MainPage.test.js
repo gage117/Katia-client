@@ -10,7 +10,7 @@ describe('<MainPage />', () => {
     const div = document.createElement('div')
     ReactDOM.render(
       <MemoryRouter>
-        {/* <MainPage /> */}
+        <MainPage />
       </MemoryRouter>, div)
     ReactDOM.unmountComponentAtNode(div)
   })
@@ -19,7 +19,7 @@ describe('<MainPage />', () => {
     const tree = renderer
       .create(
         <MemoryRouter>
-          {/* <MainPage /> */}
+          <MainPage />
         </MemoryRouter>
       )
       .toJSON()
