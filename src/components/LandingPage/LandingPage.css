@@ -1,5 +1,4 @@
 #lp_main-flex {
-  /* height: 100vh; */
   display: flex;
   justify-content: center;
   align-items: center;
@@ -22,7 +21,6 @@
 
 #Landing_Page__container {
   font-size: 1.6rem;
-  /* border: .1rem solid black; */
   text-align: center;
   padding: 1rem 1rem 2rem;
   margin-top: 70px;
@@ -32,8 +30,6 @@
   display: block;
   font-size: 1.8rem;
   border: .1rem solid black;
-  /* background-color: lightgray;
-  color: black; */
   padding: .7rem;
   text-decoration: none;
   text-align: center;

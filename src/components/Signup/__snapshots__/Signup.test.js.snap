@@ -1,118 +1,124 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Signup /> renders the UI as expected 1`] = `
-<main
-  id="lp_main-flex"
->
-  <a
-    className="lp_lp-link"
-    href="/"
-    onClick={[Function]}
+Array [
+  <div
+    className="logoContainer"
   >
-    Project Manhattan
-  </a>
-  <section
-    className="Signup__container"
+    <a
+      className="lp_lp-link signUpKatia"
+      href="/"
+      onClick={[Function]}
+    >
+      Katia
+    </a>
+  </div>,
+  <main
+    id="lp_main-flex"
   >
-    <h2
-      className="Signup__header"
+    <section
+      className="Signup__container"
     >
-      Signup
-    </h2>
-    <form
-      className="Signup__form"
-      onSubmit={[Function]}
-    >
-      <div
-        role="alert"
-      />
-      <div
-        className="Signup__email-div lp_input-div"
+      <h2
+        className="Signup__header"
       >
-        <label
-          htmlFor="Signup__email"
-        >
-          Email
-        </label>
-        <input
-          className="lp_input"
-          id="Signup__email"
-          name="email"
-          required={true}
-          type="email"
+        Signup
+      </h2>
+      <form
+        className="Signup__form"
+        onSubmit={[Function]}
+      >
+        <div
+          role="alert"
         />
-      </div>
-      <div
-        className="Signup__display_name-div lp_input-div"
-      >
-        <label
-          htmlFor="Signup__display_name"
+        <div
+          className="Signup__email-div lp_input-div"
         >
-          Display Name
-        </label>
-        <input
-          className="lp_input"
-          id="Signup__display_name"
-          name="display_name"
-          required={true}
-          type="text"
-        />
-      </div>
-      <div
-        className="Signup__password-div lp_input-div"
-      >
-        <label
-          htmlFor="Signup__password"
+          <label
+            htmlFor="Signup__email"
+          >
+            Email
+          </label>
+          <input
+            className="lp_input"
+            id="Signup__email"
+            name="email"
+            required={true}
+            type="email"
+          />
+        </div>
+        <div
+          className="Signup__display_name-div lp_input-div"
         >
-          Password
-        </label>
-        <input
-          className="lp_input"
-          id="Signup__password"
-          name="password"
-          required={true}
-          type="password"
-        />
-      </div>
-      <div
-        className="Signup__confirm_password-div lp_input-div"
-      >
-        <label
-          htmlFor="Signup__confirm_password"
+          <label
+            htmlFor="Signup__display_name"
+          >
+            Display Name
+          </label>
+          <input
+            className="lp_input"
+            id="Signup__display_name"
+            name="display_name"
+            required={true}
+            type="text"
+          />
+        </div>
+        <div
+          className="Signup__password-div lp_input-div"
         >
-          Confirm Password
-        </label>
-        <input
-          className="lp_input"
-          id="Signup__confirm_password"
-          name="confirm_password"
-          required={true}
-          type="password"
-        />
-      </div>
-      <div
-        className="Signup__submit-button-div"
-      >
+          <label
+            htmlFor="Signup__password"
+          >
+            Password
+          </label>
+          <input
+            className="lp_input"
+            id="Signup__password"
+            name="password"
+            required={true}
+            type="password"
+          />
+        </div>
+        <div
+          className="Signup__confirm_password-div lp_input-div"
+        >
+          <label
+            htmlFor="Signup__confirm_password"
+          >
+            Confirm Password
+          </label>
+          <input
+            className="lp_input"
+            id="Signup__confirm_password"
+            name="confirm_password"
+            required={true}
+            type="password"
+          />
+        </div>
         <button
           className="Signup__submit-button lp_button"
           type="submit"
         >
-          Sign Up
+          Submit
         </button>
-        <p
-          className="Signup__or"
+        <div
+          className="Signup__submit-button-div"
         >
-          or
-        </p>
-        <a
-          className="Signup__login-link lp_button"
-          href="/login"
-          onClick={[Function]}
-        >
-          Login
-        </a>
-      </div>
-    </form>
-  </section>
-</main>
+          <p
+            className="Signup__or"
+          >
+            Already have an account? 
+          </p>
+          <a
+            className="Signup__login-link"
+            href="/login"
+            onClick={[Function]}
+          >
+            Login
+          </a>
+        </div>
+      </form>
+    </section>
+  </main>,
+]
 `;

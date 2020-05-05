@@ -113,9 +113,6 @@ export default class Signup extends Component {
                 Submit
               </button>
             <div className='Signup__submit-button-div'>
-              {/* <button className='Signup__submit-button lp_button' type='submit'>
-                Submit
-              </button> */}
               <p className='Signup__or'>Already have an account? </p>
               <Link className='Signup__login-link' to='/login'>Login</Link>
             </div>

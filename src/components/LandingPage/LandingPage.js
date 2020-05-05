@@ -15,7 +15,7 @@ class LandingPage extends Component {
           <h2 className='lp_header'>Find new teammates. Squad up.</h2>
           <Link to='/signup' className='lp_signup lp_button'>Signup</Link>
           <h3 className='katiaAbout'> About </h3>
-    <p className='aboutPara'>Katia is a social media application made for gamers by gamers. <br /> </p>
+          <p className='aboutPara'>Katia is a social media application made for gamers by gamers. <br /> </p>
         </div>
       </main>
     )
