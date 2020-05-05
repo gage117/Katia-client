@@ -3,16 +3,7 @@ import TokenService from './token-service';
 
 const ProfileService = {
   getProfile(userId) {
-    return fetch(`${config.API_ENDPOINT}/user/${userId}`)
-      .then(res => 
-        (!res.ok)
-          ? res.json().then(e => Promise.reject(e))
-          : res.json()
-      );
-  },
-
-  getMatches(userId) {
-    return fetch(`${config.API_ENDPOINT}/user/${userId}/matches`, {
+    return fetch(`${config.API_ENDPOINT}/user/${userId}`, {
       headers: {
         'Authorization': `Bearer ${TokenService.getAuthToken()}`
       }
@@ -28,7 +19,8 @@ const ProfileService = {
     return fetch(`${config.API_ENDPOINT}/user/${userId}`, {
       method: 'PATCH',
       headers: {
-        'content-type': 'application/json',
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify(userInfo),
     })
@@ -43,7 +35,8 @@ const ProfileService = {
     return fetch(`${config.API_ENDPOINT}/user/genres/all`, {
       method: 'GET',
       headers: {
-        'content-type': 'application/json'
+        'Authorization': `${TokenService.getAuthToken()}`,
+        'Content-Type': 'application/json'
       },
     })
     .then(res => 
@@ -56,6 +49,9 @@ const ProfileService = {
   uploadAvatar(userId, formData) {
     return fetch(`${config.API_ENDPOINT}/user/${userId}/avatar`, {
       method: 'POST',
+      headers: {
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
+      },
       body: formData
     })
     .then(res => 

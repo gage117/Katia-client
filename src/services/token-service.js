@@ -28,12 +28,6 @@ const TokenService = {
     return {
       id: payload.id,
       email: payload.email,
-      // display_name: payload.display_name,
-      // bio: payload.bio,
-      // lfm_in: payload.lfm_in,
-      // avatar: payload.avatar,
-      // genres: payload.genres,
-      // platforms: payload.platforms
     }
   }
 }

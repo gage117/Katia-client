@@ -1,8 +1,13 @@
 import config from '../config';
+import TokenService from './token-service';
 
 const SwipeService = {
   getPotentialMatches(userId) {
-    return fetch(`${config.API_ENDPOINT}/swipe/${userId}`)
+    return fetch(`${config.API_ENDPOINT}/swipe/${userId}`, {
+      headers: {
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`
+      }
+    })
       .then(res => 
         (!res.ok)
           ? res.json().then(e => Promise.reject(e))
@@ -14,7 +19,8 @@ const SwipeService = {
     return fetch(`${config.API_ENDPOINT}/swipe/${userId}`, {
       method: 'POST',
       headers: {
-        'content-type': 'application/json',
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ id })
     })
@@ -29,7 +35,8 @@ const SwipeService = {
     return fetch(`${config.API_ENDPOINT}/swipe/reject/${userId}`, {
       method: 'POST',
       headers: {
-        'content-type': 'application/json',
+        'Authorization': `Bearer ${TokenService.getAuthToken()}`,
+        'Content-Type': 'application/json',
       },
       body: JSON.stringify({ id })
     })

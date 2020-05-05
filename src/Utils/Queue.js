@@ -4,8 +4,6 @@ class _Node {
     this.next = null;
   }
 }
-
-
 class Queue {
   constructor() {
     this.first = null;
