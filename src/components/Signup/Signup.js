@@ -51,6 +51,7 @@ export default class Signup extends Component {
       <div className='logoContainer'>
       <Link to='/' className='lp_lp-link signUpKatia'>Katia</Link>
       </div>
+
       <main id='lp_main-flex'>
         <section className='Signup__container'>
           <h2 className='Signup__header'>Signup</h2>
