@@ -8,6 +8,10 @@ import LoginPage from './routes/LoginPage/LoginPage'
 import Profile from './components/Profile/Profile';
 import Matches from './components/Matches/Matches';
 import MessagePage from './routes/MessagePage/MessagePage';
+
+import PrivateRoute from './Utils/PrivateRoute';
+import PublicOnlyRoute from './Utils/PublicOnlyRoute';
+
 import './App.css'
 
 class App extends Component {
@@ -28,32 +32,32 @@ class App extends Component {
             path='/'
             component={LandingRoute}
           />
-          <Route 
+          <PublicOnlyRoute 
             exact
             path='/login'
             component={LoginPage}
           />
-          <Route
+          <PublicOnlyRoute
             exact
             path='/signup'
             component={SignupPage}
           />
-          <Route
+          <PrivateRoute
             exact
             path='/swipe'
             component={MainPage}
           />
-          <Route
+          <PrivateRoute
             exact
             path='/profile'
             component={Profile}
           />
-          <Route
+          <PrivateRoute
             exact 
             path='/matches'
             component={Matches}
           />
-          <Route
+          <PrivateRoute
             exact
             path='/chat/:chatPartner'
             component={MessagePage}
