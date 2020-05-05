@@ -1,11 +1,3 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<MainPage /> renders the UI as expected 1`] = `
-<main>
-  <div
-    className="loading"
-  >
-    loading
-  </div>
-</main>
-`;
+exports[`<MainPage /> renders the UI as expected 1`] = `null`;
