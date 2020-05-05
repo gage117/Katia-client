@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import TokenService from '../services/token-service';
+import io from 'socket.io-client';
+import config from './config';
 
 const nullUser = {
   id: -1,
@@ -13,6 +15,7 @@ const nullUser = {
 
 const UserContext = React.createContext({
   user_id: -1,
+  socket: null,
   error: null,
   setUser: () => {},
   clearUser: () => {},
@@ -30,32 +33,17 @@ export default UserContext;
 export class UserProvider extends Component {
   constructor(props) {
     super(props)
-    const state = { user_id: -1, error: null }
+    const state = { user_id: -1, socket: null, error: null }
 
     if(TokenService.hasAuthToken()) {
       const account = TokenService.getUserFromToken(TokenService.getAuthToken())
+      const socket = io(config.SOCKET_CONNECTION)
       state.user_id = account.id
+      state.socket = socket.connect()
     }
 
     this.state = state // "const state" in line 33 can just be "this.state", this line not needed
   }
-
-  // state = {
-  //   user_id: -1,
-  //   error: null
-  // };
-
-  // componentWillMount() {
-  //   if(this.state.user_id === -1 && TokenService.hasAuthToken()) {
-  //     this.processLogin(TokenService.getAuthToken());
-  // }
-  // }
-
-  // componentDidMount() {
-  //   if(this.state.user_id === -1 && TokenService.hasAuthToken()) {
-  //       this.processLogin(TokenService.getAuthToken());
-  //   }
-  // }
 
   setUser = user => {
     this.setState({ user });
@@ -80,12 +68,15 @@ export class UserProvider extends Component {
   processLogout = () => {
     TokenService.clearAuthToken()
     this.setUser(nullUser)
+    this.state.socket.disconnect()
+    this.setState({ socket: null })
   }
 
   processLogin = (token) => {
-    TokenService.saveAuthToken(token)
+    TokenService.saveAuthToken(token);
     const account = TokenService.getUserFromToken(TokenService.getAuthToken())
-    this.setState({ user_id: account.id })
+    const socket = io(config.SOCKET_CONNECTION)
+    this.setState({ user_id: account.id, socket: socket.connect() })
   }
 
   generateLfmElements = (games) => {
@@ -128,6 +119,7 @@ export class UserProvider extends Component {
   render() {
     const value = {
       user_id: this.state.user_id,
+      socket: this.state.socket,
       error: this.state.error,
       setUser: this.setUser,
       clearUser: this.clearUser,
