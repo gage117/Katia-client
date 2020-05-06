@@ -60,6 +60,7 @@
   padding: 2vw 1vw;
   border-radius: 1vw;
   margin: 0 1vw;
+  max-width: 87vw;
 }
 
 .chat__user-message-text {
@@ -73,7 +74,6 @@
 .chat__avatar {
   width: auto;
   height: 10vw;
-  border-radius: 50%;
 }
 
 .chat__message-form {
