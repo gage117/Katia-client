@@ -299,8 +299,6 @@ export default class Profile extends React.Component {
                         </div>
                         
                     <h4 className='profile__card-header'>Gamer Tags</h4>
-                    <ul>
-                    </ul>
                     {gamerTagsArr.map((item, idx) => {
                         return <GamerTag 
                             key={idx}
