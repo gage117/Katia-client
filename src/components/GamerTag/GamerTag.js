@@ -8,7 +8,7 @@ export default function GamerTag(props) {
         <input 
             type='text'
             name={props.name}
-            onChange={this.handleDisplayNameChange}
+            onChange={() => props.handleChange()}
             id={props.name}
             defaultValue={props.defaultVal}
         />

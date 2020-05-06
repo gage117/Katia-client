@@ -289,6 +289,7 @@ export default class Profile extends React.Component {
                             key={idx}
                             name={item[0]}
                             defaultVal={item[1]}
+                            handleChange={this.handleDisplayNameChange} // TEMP EVENT HANDLER
                             />
                     })}
                     <label htmlFor='bio'>Bio (Max 250 chars.)</label>
