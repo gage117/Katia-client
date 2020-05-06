@@ -258,12 +258,12 @@ export default class Profile extends React.Component {
                     <span className='profile__genres'>{this.context.generateGenreString(genres)}</span>
                     <h4 className='profile__card-header'>Gamer Tags</h4>
                     <div className='profile__gamer_tags-container'>
-                        {gamer_tags.xbox !== '' ? <p>Xbox: {gamer_tags.xbox}</p> : <p>Xbox: </p>}
-                        {gamer_tags.psn !== '' ? <p>PSN: {gamer_tags.psn}</p> : <p>PSN: </p>}
-                        {gamer_tags.nintendo !== '' ? <p>Nintendo: {gamer_tags.nintendo}</p> : <p>Nintendo: </p>}
-                        {gamer_tags.steam !== '' ? <p>Steam: {gamer_tags.steam}</p> : <p>Steam: </p>}
-                        {gamer_tags.discord !== '' ? <p>Discord: {gamer_tags.discord}</p> : <p>Discord: </p>}
-                        {gamer_tags.other !== '' ? <p>Other: {gamer_tags.other}</p> : <p>Other: </p>}
+                        {gamer_tags.xbox !== '' ? <p>Xbox: {gamer_tags.xbox}</p> : null}
+                        {gamer_tags.psn !== '' ? <p>PSN: {gamer_tags.psn}</p> : null}
+                        {gamer_tags.nintendo !== '' ? <p>Nintendo: {gamer_tags.nintendo}</p> : null}
+                        {gamer_tags.steam !== '' ? <p>Steam: {gamer_tags.steam}</p> : null}
+                        {gamer_tags.discord !== '' ? <p>Discord: {gamer_tags.discord}</p> : null}
+                        {gamer_tags.other !== '' ? <p>Other: {gamer_tags.other}</p> : null}
                     </div>
                     <h4 className='profile__card-header'>Bio</h4>
                     <span className='profile__bio'>{bio}</span>
@@ -325,7 +325,7 @@ export default class Profile extends React.Component {
                             key={idx}
                             name={item[0]}
                             defaultVal={item[1]}
-                            handleChange={this.handleGamerTagsChange} // TEMP EVENT HANDLER
+                            handleChange={this.handleGamerTagsChange}
                             />
                     })}
                     <label htmlFor='bio'>Bio (Max 250 chars.)</label>
