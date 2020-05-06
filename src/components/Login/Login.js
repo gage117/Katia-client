@@ -32,10 +32,10 @@ export default class Login extends Component {
   render() {
     return (
       <>
-      <div className='logoContainer'>
-      <Link to='/' className='lp_lp-link signUpKatia'>Katia</Link>
-      </div>
-      <main id='lp_main-flex'>
+      <main id='lp__main-flex'>
+        <div className='logoContainer'>
+        <Link to='/' className='lp__lp-link signUpKatia'>Katia</Link>
+        </div>
         <section className='Login__container'>
           <h2 className='Login__header'>Login</h2>
           <form
@@ -45,7 +45,7 @@ export default class Login extends Component {
             <div role='alert'>
               {this.state.error && <p className='Login__error'>{this.state.error}</p>}
             </div>
-            <div className='Login__email-div lp_input-div'>
+            <div className='Login__email-div lp__input-div'>
               <label htmlFor='Login__email'>
                 Email
               </label>
@@ -53,10 +53,10 @@ export default class Login extends Component {
                 required
                 name='email'
                 id='Login__email'
-                className='lp_input'>
+                className='lp__input'>
               </input>
             </div>
-            <div className='Login__password-div lp_input-div'>
+            <div className='Login__password-div lp__input-div'>
               <label htmlFor='Login__password'>
                 Password
               </label>
@@ -65,10 +65,10 @@ export default class Login extends Component {
                 name='password'
                 type='password'
                 id='Login__password'
-                className='lp_input'>
+                className='lp__input'>
               </input>
             </div>
-            <button className='Login__submit-button lp_button' type='submit'>
+            <button className='Login__submit-button lp__button' type='submit'>
                 Login
               </button>
             <div className='Login__submit-button-div'>

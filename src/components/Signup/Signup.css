@@ -54,14 +54,6 @@
   -webkit-text-fill-color: transparent;
 } */
 
-.lp_input {
-  border: none;
-  border-bottom: 2px solid black;
-  font-size: 16px;
-  font-weight: bold;
-  text-align: center;
-}
-
 .signUpKatia {
 position: initial;
 margin: 0 auto;
@@ -74,13 +66,4 @@ background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
 background-clip: text;
 -webkit-background-clip: text;
 -webkit-text-fill-color: transparent;
-}
-
-.logoContainer {
-  text-align: center;
-  margin-top: 120px;
-}
-
-.lp_input-div {
-  margin-top: 20px;
 }
