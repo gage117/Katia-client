@@ -33,8 +33,8 @@ export default class Login extends Component {
     return (
       <>
       <main id='lp__main-flex'>
-        <div className='logoContainer'>
-        <Link to='/' className='lp__lp-link signUpKatia'>Katia</Link>
+        <div className='lp__logoContainer'>
+        <Link to='/' className='lp__lp-link'>Katia</Link>
         </div>
         <section className='Login__container'>
           <h2 className='Login__header'>Login</h2>
@@ -46,7 +46,7 @@ export default class Login extends Component {
               {this.state.error && <p className='Login__error'>{this.state.error}</p>}
             </div>
             <div className='Login__email-div lp__input-div'>
-              <label htmlFor='Login__email'>
+              <label className='lp__label' htmlFor='Login__email'>
                 Email
               </label>
               <input
@@ -57,7 +57,7 @@ export default class Login extends Component {
               </input>
             </div>
             <div className='Login__password-div lp__input-div'>
-              <label htmlFor='Login__password'>
+              <label className='lp__label' htmlFor='Login__password'>
                 Password
               </label>
               <input
@@ -68,7 +68,7 @@ export default class Login extends Component {
                 className='lp__input'>
               </input>
             </div>
-            <button className='Login__submit-button lp__button' type='submit'>
+            <button className='lp__button lp__button-margin' type='submit'>
                 Login
               </button>
             <div className='Login__submit-button-div'>
