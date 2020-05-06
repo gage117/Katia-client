@@ -116,8 +116,7 @@
     padding-top: 1.7vmax;
 }
 
-.editForm > label {
-    /* background-color: black; */
+.editForm > label, .profile__gamer-tags-header {
     background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
     padding: .7vmax 1.5vmin;
     font-size: 3vmax;
