@@ -2,16 +2,16 @@ import React from 'react'
 import './GamerTag.css'
 
 export default function GamerTag(props) {
-
-    return(<>
+    return(
+      <>
         <label htmlFor={props.name}>Platform {props.name}</label>
         <input 
             type='text'
             name={props.name}
-            onChange={() => props.handleChange()}
+            onChange={e => props.handleChange(e)}
             id={props.name}
             defaultValue={props.defaultVal}
         />
-        </>
-    );
+      </>
+    )
 }

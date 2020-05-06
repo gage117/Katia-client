@@ -132,7 +132,22 @@ export default class Profile extends React.Component {
     }
 
     handleGamerTagsChange = event => {
-        
+        const platform = event.target.name
+        const text = event.target.value
+        // initialize the value of our state
+        const newValue = {
+            xbox: this.state.gamer_tags.xbox,
+            psn: this.state.gamer_tags.psn,
+            nintendo: this.state.gamer_tags.nintendo,
+            steam: this.state.gamer_tags.steam,
+            discord: this.state.gamer_tags.discord,
+            other: this.state.gamer_tags.other
+        }
+        newValue[platform] = text
+        console.log(newValue)
+        this.setState({ gamer_tags: 
+            newValue
+        })
     }
 
     handleGenresChange = event => {
@@ -194,6 +209,7 @@ export default class Profile extends React.Component {
         let allGenres = this.state.allGenres || []
         let userGenres = this.state.genres || []
         const { avatar, display_name, bio, lfm_in, genres, platforms, gamer_tags } = this.state
+        const gamerTagsArr = Object.entries(gamer_tags);
         if(!this.state.isEditing) {
             return (
                 <>
@@ -283,13 +299,14 @@ export default class Profile extends React.Component {
                         </div>
                         
                     <h4 className='profile__card-header'>Gamer Tags</h4>
-
-                    {Object.entries(gamer_tags).forEach((item, idx) => {
+                    <ul>
+                    </ul>
+                    {gamerTagsArr.map((item, idx) => {
                         return <GamerTag 
                             key={idx}
                             name={item[0]}
                             defaultVal={item[1]}
-                            handleChange={this.handleDisplayNameChange} // TEMP EVENT HANDLER
+                            handleChange={this.handleGamerTagsChange} // TEMP EVENT HANDLER
                             />
                     })}
                     <label htmlFor='bio'>Bio (Max 250 chars.)</label>
