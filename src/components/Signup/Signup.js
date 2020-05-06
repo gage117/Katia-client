@@ -47,8 +47,11 @@ export default class Signup extends Component {
   render() {
     const { error } = this.state
     return (
+      <>
+      <div className='logoContainer'>
+      <Link to='/' className='lp_lp-link signUpKatia'>Katia</Link>
+      </div>
       <main id='lp_main-flex'>
-        <Link to='/' className='lp_lp-link'>Project Manhattan</Link>
         <section className='Signup__container'>
           <h2 className='Signup__header'>Signup</h2>
           <form
@@ -106,16 +109,17 @@ export default class Signup extends Component {
                 className='lp_input'>
               </input>
             </div>
-            <div className='Signup__submit-button-div'>
-              <button className='Signup__submit-button lp_button' type='submit'>
-                Sign Up
+            <button className='Signup__submit-button lp_button' type='submit'>
+                Submit
               </button>
-              <p className='Signup__or'>or</p>
-              <Link className='Signup__login-link lp_button' to='/login'>Login</Link>
+            <div className='Signup__submit-button-div'>
+              <p className='Signup__or'>Already have an account? </p>
+              <Link className='Signup__login-link' to='/login'>Login</Link>
             </div>
           </form>
         </section>
       </main>
+      </>
     )
   }
 }

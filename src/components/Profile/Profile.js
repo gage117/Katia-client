@@ -170,12 +170,16 @@ export default class Profile extends React.Component {
                     <img className='profile__edit-icon' onClick={this.handleEditButton} src={editIcon} alt='edit-icon' />
                 </section>
                 <section className='profile__section'>
+
+                    <div className='profileEditDiv'>
                     <div className='profile__Img-container'>
                         <img src={avatar} 
                         alt='avatar' className='profile__Img' />
                     </div>
-                    <h4 className='profile__card-header'>Display Name</h4>
-                    <span>{display_name}</span>
+                    {/* <h4 className='profile__card-header displayName'>Display Name</h4> */}
+                    <span className='profileDisplayName'>{display_name}</span>
+                    </div>
+
                     <h4 className='profile__card-header'>Platforms</h4>
                     <div id='platforms'>
                         {platforms && platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
