@@ -80,8 +80,12 @@ export default class MainPage extends React.Component {
             <Swipeable {...handlers}>
                 <MyComponent>
                 <li className='main__Swipe-User' onClick={this.toggleExpanded}>
-                    {this.state.expanded ? (<img src={user.avatar} alt='avatar' className='main__Image main__hidden-img' />) : (<img src={user.avatar} alt='avatar' className='main__Image' />)}
+                    <div className='minViewInfo'>
+                    {this.state.expanded ? (<img src={user.avatar} alt='avatar' 
+                    className='main__Image main__hidden-img' />) : 
+                    (<img src={user.avatar} alt='avatar' className='main__Image' />)}
                     <h3 className='main__display-name'>{user.display_name}</h3>
+                    </div>
                     <h4 className='main__card-header'>Platforms</h4>
                     <div className='main__platforms'>
                         {user.platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
@@ -89,13 +93,17 @@ export default class MainPage extends React.Component {
                         {user.platforms.includes("Nintendo") ? <img className='main__nintendo' src={nintendoLogo} alt='Nintendo logo' /> : null}
                         {user.platforms.includes("PC") ? <img className='main__PC' src={PC_Logo} alt='PC logo' /> : null}
                     </div>
-                    <h4 className='main__card-header'>LFM In</h4>
+                    <h4 className='main__card-header'>LFM</h4>
 
                     {this.context.generateLfmElements(user.lfm_in)}
 
+                    {/* <h4 className='main__card-header'>Genres</h4>
+                    <span className='main__genres'>{this.context.generateGenreString(user.genres)}</span> */}
+
+                    {this.state.expanded ? (<>
                     <h4 className='main__card-header'>Genres</h4>
                     <span className='main__genres'>{this.context.generateGenreString(user.genres)}</span>
-                    {this.state.expanded ? (<><h4 className='main__card-header'>Bio</h4>
+                    <h4 className='main__card-header'>Bio</h4>
                     <p className='main__bio'>{user.bio}</p></>)
                     :
                     (<><h4 className='main__card-header main__hidden-text'>Bio</h4>

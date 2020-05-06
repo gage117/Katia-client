@@ -12,7 +12,7 @@ import {
     const background = useTransform(
       x,
       [-100, 0, 100],
-      ["#C00", "#000", "#0A0"]
+      ["#C00", "#fff", "#0A0"]
     )
   
     return (
@@ -23,12 +23,8 @@ import {
           dragConstraints={{ left: 0, right: 0 }}
           style={{ x, border: `.5vmax solid`, 
           borderColor: background, 
-          borderRadius: '1vmax', }}
+          borderRadius: '7.2vmax', }}
           transition={{ duration: 0.5 }}
-        //   initial={{ opacity: 0 }}
-        //   animate={{ opacity: 1 }}
-        //   enter={{ opacity: 0 }}
-        //   exit={{ opacity: 0 }}
         >
         
         {props.children}
