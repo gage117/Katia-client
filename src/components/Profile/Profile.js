@@ -144,7 +144,6 @@ export default class Profile extends React.Component {
             other: this.state.gamer_tags.other
         }
         newValue[platform] = text
-        console.log(newValue)
         this.setState({ gamer_tags: 
             newValue
         })
