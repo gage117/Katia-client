@@ -224,7 +224,6 @@ export default class Profile extends React.Component {
         let allGenres = this.state.allGenres || []
         let userGenres = this.state.genres || []
         const { avatar, display_name, bio, lfm_in, genres, platforms, gamer_tags } = this.state
-        const gamerTagsArr = Object.entries(gamer_tags);
         if(!this.state.isEditing) {
             return (
                 <>
@@ -241,7 +240,6 @@ export default class Profile extends React.Component {
                         <img src={avatar} 
                         alt='avatar' className='profile__Img' />
                     </div>
-                    {/* <h4 className='profile__card-header displayName'>Display Name</h4> */}
                     <span className='profileDisplayName'>{display_name}</span>
                     </div>
 
@@ -319,8 +317,8 @@ export default class Profile extends React.Component {
                             </select>
                         </div>
                         
-                    <h4 className='profile__card-header'>Gamer Tags</h4>
-                    {gamerTagsArr.map((item, idx) => {
+                    <h4 className='profile__gamer-tags-header'>Gamer Tags</h4>
+                    {Object.entries(gamer_tags).map((item, idx) => {
                         return <GamerTag 
                             key={idx}
                             name={item[0]}
