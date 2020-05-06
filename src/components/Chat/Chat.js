@@ -6,12 +6,23 @@ import back_icon from '../../images/back-arrow.svg';
 import './Chat.css';
 
 class Chat extends Component {
-
   state = {
     message: ''
   }
   
   static contextType = UserContext;
+
+  componentDidMount() {
+    this.scrollToBottom()
+  }
+
+  componentDidUpdate() {
+    this.scrollToBottom()
+  }
+
+  scrollToBottom = () => {
+    this.messagesEnd.scrollIntoView({ behavior: "smooth" });
+  }
 
   handleSendMessage = (event) => {
     event.preventDefault();
@@ -51,6 +62,9 @@ class Chat extends Component {
           {messages.map(message => {
             return message.sender_id === user_id ? this.generateUserMessage(user, message) : this.generatePartnerMessage(partner, message)
           })}
+          <div style={{ float:"left", clear: "both" }}
+               ref={(el) => { this.messagesEnd = el; }}>
+          </div>
         </ul>
         <form onSubmit={this.handleSendMessage} className='chat__message-form' style={{backgroundColor: this.context.backgroundColor}}>
           <textarea className='chat__input' onChange={this.handleMessageChange} value={this.state.message}/>
