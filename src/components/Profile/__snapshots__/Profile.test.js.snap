@@ -27,22 +27,23 @@ Array [
     className="profile__section"
   >
     <div
-      className="profile__Img-container"
+      className="profileEditDiv"
     >
-      <img
-        alt="avatar"
-        className="profile__Img"
-        src=""
-      />
+      <div
+        className="profile__Img-container"
+      >
+        <img
+          alt="avatar"
+          className="profile__Img"
+          src=""
+        />
+      </div>
+      <span
+        className="profileDisplayName"
+      >
+        
+      </span>
     </div>
-    <h4
-      className="profile__card-header"
-    >
-      Display Name
-    </h4>
-    <span>
-      
-    </span>
     <h4
       className="profile__card-header"
     >
