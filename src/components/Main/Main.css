@@ -6,11 +6,6 @@
     border-radius: 3.5vh;
     transition: height .6s;
     transition-timing-function: ease-in-out;
-
-    /* width:100%;
-    height:100%;
-    object-fit: cover;
-    overflow: hidden; */
 }
 
 .main__hidden-img {

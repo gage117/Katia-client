@@ -1,85 +1,91 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<LoginPage /> renders the UI as expected 1`] = `
-<main
-  id="lp_main-flex"
->
-  <a
-    className="lp_lp-link"
-    href="/"
-    onClick={[Function]}
+Array [
+  <div
+    className="logoContainer"
   >
-    Project Manhattan
-  </a>
-  <section
-    className="Login__container"
+    <a
+      className="lp_lp-link signUpKatia"
+      href="/"
+      onClick={[Function]}
+    >
+      Katia
+    </a>
+  </div>,
+  <main
+    id="lp_main-flex"
   >
-    <h2
-      className="Login__header"
+    <section
+      className="Login__container"
     >
-      Login
-    </h2>
-    <form
-      className="Login__form"
-      onSubmit={[Function]}
-    >
-      <div
-        role="alert"
-      />
-      <div
-        className="Login__email-div lp_input-div"
+      <h2
+        className="Login__header"
       >
-        <label
-          htmlFor="Login__email"
-        >
-          Email
-        </label>
-        <input
-          className="lp_input"
-          id="Login__email"
-          name="email"
-          required={true}
+        Login
+      </h2>
+      <form
+        className="Login__form"
+        onSubmit={[Function]}
+      >
+        <div
+          role="alert"
         />
-      </div>
-      <div
-        className="Login__password-div lp_input-div"
-      >
-        <label
-          htmlFor="Login__password"
+        <div
+          className="Login__email-div lp_input-div"
         >
-          Password
-        </label>
-        <input
-          className="lp_input"
-          id="Login__password"
-          name="password"
-          required={true}
-          type="password"
-        />
-      </div>
-      <div
-        className="Login__submit-button-div"
-      >
+          <label
+            htmlFor="Login__email"
+          >
+            Email
+          </label>
+          <input
+            className="lp_input"
+            id="Login__email"
+            name="email"
+            required={true}
+          />
+        </div>
+        <div
+          className="Login__password-div lp_input-div"
+        >
+          <label
+            htmlFor="Login__password"
+          >
+            Password
+          </label>
+          <input
+            className="lp_input"
+            id="Login__password"
+            name="password"
+            required={true}
+            type="password"
+          />
+        </div>
         <button
           className="Login__submit-button lp_button"
           type="submit"
         >
           Login
         </button>
-        <p
-          className="Login__or"
+        <div
+          className="Login__submit-button-div"
         >
-          or
-        </p>
-        <a
-          className="Login__signup-link lp_button"
-          href="/signup"
-          onClick={[Function]}
-        >
-          Sign Up
-        </a>
-      </div>
-    </form>
-  </section>
-</main>
+          <p
+            className="Login__or"
+          >
+            Need an account?
+          </p>
+          <a
+            className="Login__signup-link"
+            href="/signup"
+            onClick={[Function]}
+          >
+            Sign Up
+          </a>
+        </div>
+      </form>
+    </section>
+  </main>,
+]
 `;
