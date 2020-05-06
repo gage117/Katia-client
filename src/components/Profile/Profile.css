@@ -46,7 +46,6 @@
     border: 1px solid lightgrey;
     max-width: 90%;
     margin: 0 auto;
-    /* padding: 5px; */
     border-radius: 43px;
     background-color: white;
 }
@@ -56,7 +55,6 @@
 }
 
 .profile__card-header {
-    /* background-color: lightgray; */
     width: 100%;
     height: 5.5vmax;
     text-align: left;
@@ -119,18 +117,36 @@
 }
 
 .editForm > label {
-    background-color: lightgray;
+    /* background-color: black; */
+    background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
     padding: .7vmax 1.5vmin;
     font-size: 3vmax;
     font-weight: bold;
     height: 4.5vmax;
+    text-align: center;
+    width: 80%;
+    margin: 35px auto;
+    border-radius: 8px;
+    color: white;
 }
 
 #display-name {
-    width: 50%;
+    /* width: 50%;
     height: 4.5vmax;
     font-size: 3vmax;
     padding-left: 1.5vmin;
+    margin: 0 auto;
+    text-align: center;
+    border: 1px solid black */
+
+    font-size: 3vmax;
+    padding: .5vmax 0 0 1.5vmin;
+    height: 7vmax;
+    border: .08rem solid gray;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 8px;
 }
 
 .editForm > textarea {
@@ -142,15 +158,19 @@
     padding: .5vmax 0 0 1.5vmin;
     height: 10vmax;
     border: .08rem solid gray;
+    width: 80%;
+    margin: 0 auto;
+    border-radius: 8px;
 }
 
 #platforms {
-    width: 100%;
     height: 8.8vmax;
     display: flex;
     justify-content: space-around;
     margin: 0;
     padding: 1.4vmax 0;
+    width: 80%;
+    margin: 0 auto;
 }
 
 #genres {
@@ -165,10 +185,14 @@
     padding: .5vmax 0 0 1.5vmin;
     height: 18vmax;
     border: .08rem solid gray;
+    max-width: 80%;
+    margin: 0px auto 10px auto;
+    border-radius: 8px;
 }
 
 .profile__ImgEdit-container {
     padding-top: 1vmax;
+    margin-top: 20px;
 }
 
 .profile__ImgEdit {
@@ -183,14 +207,17 @@
     display: flex;
     align-items: center;
     flex-wrap: wrap;
-    padding: 1vmax .75vmax;
+    justify-content: center;
+    width: 80%;
+    margin: 0 auto;
 }
 
 .editGenre {
     display: inline-flex;
     align-items: center;
     white-space: nowrap;
-    background-color: #e0e0e0;
+    background-color: #330867;
+    color: white;
     border-radius: .5vmax;
     padding: .5vmax 0 .35vmax .5vmax;
     margin: .75vmax;
@@ -223,11 +250,13 @@
 .genreSelect {
     font-size: 2.6vmax;
     font-weight: 600;
-    background-color: #e0e0e0;
+    background-color: rgb(19, 93, 177);
     border-radius: .5vmax;
-    border: 1px solid #e0e0e0;
+    border: 1px solid rgb(19, 93, 177);
     padding: .5vmax 0 .65vmax .35vmax;
-    margin: .75vmax;
+    margin: .75vmax 2px;
+    text-align: center;
+    color: white;
 }
 
 .genreSelectItem {
@@ -279,4 +308,11 @@
 .displayName {
     color: white;
     border-color: white;
+}
+
+.imageEditInput {
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+    margin-top: 20px;
 }
