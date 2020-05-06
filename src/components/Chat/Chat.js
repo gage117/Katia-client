@@ -67,7 +67,7 @@ class Chat extends Component {
           </div>
         </ul>
         <form onSubmit={this.handleSendMessage} className='chat__message-form' style={{backgroundColor: this.context.backgroundColor}}>
-          <textarea className='chat__input' onChange={this.handleMessageChange} value={this.state.message}/>
+          <textarea className='chat__input' onChange={this.handleMessageChange} onKeyDown={event => {if (event.keyCode === 13) return this.handleSendMessage(event)}} value={this.state.message}/>
           <img className='chat__send' onClick={this.handleSendMessage} src={send_icon} alt='send'/>
         </form>
       </main>
