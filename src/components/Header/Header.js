@@ -52,7 +52,7 @@ export default class Header extends Component {
       <nav className='Header'>
         <h1 className='Header__h1'>
           <Link className='Header__main-button' to='/'>
-            Project Manhattan
+            Katia
           </Link>
         </h1>
         {TokenService.hasAuthToken()

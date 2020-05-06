@@ -1,5 +1,6 @@
 import React, { Component } from 'react';
 import TokenService from '../services/token-service';
+import ProfileService from '../services/profile-service';
 
 const nullUser = {
   id: -1,
@@ -11,52 +12,20 @@ const nullUser = {
   platforms: []
 };
 
-const UserContext = React.createContext({
-  user_id: -1,
-  error: null,
-  setUser: () => {},
-  clearUser: () => {},
-  setMatches: () => {},
-  clearMatches: () => {},
-  setError: () => {},
-  clearError: () => {},
-  processLogout: () => {},
-  processLogin: () => {},
-  updateUser: () => {}, // Still works with none of this
-});
+const UserContext = React.createContext();
 
 export default UserContext;
 
 export class UserProvider extends Component {
   constructor(props) {
     super(props)
-    const state = { user_id: -1, error: null }
+    this.state = { user_id: -1, error: null, user: nullUser }
 
-    if(state.user_id === -1 && TokenService.hasAuthToken()) {
-      TokenService.saveAuthToken(TokenService.getAuthToken())
+    if(TokenService.hasAuthToken()) {
       const account = TokenService.getUserFromToken(TokenService.getAuthToken())
-      state.user_id = account.id
+      this.state.user_id = account.id
     }
-
-    this.state = state // "const state" in line 33 can just be "this.state", this line not needed
   }
-
-  // state = {
-  //   user_id: -1,
-  //   error: null
-  // };
-
-  // componentWillMount() {
-  //   if(this.state.user_id === -1 && TokenService.hasAuthToken()) {
-  //     this.processLogin(TokenService.getAuthToken());
-  // }
-  // }
-
-  // componentDidMount() {
-  //   if(this.state.user_id === -1 && TokenService.hasAuthToken()) {
-  //       this.processLogin(TokenService.getAuthToken());
-  //   }
-  // }
 
   setUser = user => {
     this.setState({ user });
@@ -83,10 +52,11 @@ export class UserProvider extends Component {
     this.setUser(nullUser)
   }
 
-  processLogin = (token) => {
+  processLogin = async (token) => {
     TokenService.saveAuthToken(token)
     const account = TokenService.getUserFromToken(TokenService.getAuthToken())
-    this.setState({ user_id: account.id })
+    const profile = await ProfileService.getProfile(account.id);
+    this.setState({ user_id: account.id, user: profile })
   }
 
   generateLfmElements = (games) => {
@@ -130,6 +100,7 @@ export class UserProvider extends Component {
     const value = {
       user_id: this.state.user_id,
       error: this.state.error,
+      user: this.state.user,
       setUser: this.setUser,
       clearUser: this.clearUser,
       setError: this.setError,

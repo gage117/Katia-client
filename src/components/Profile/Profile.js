@@ -112,7 +112,23 @@ export default class Profile extends React.Component {
     }
 
     cancelEdit = () => {
-        this.setState({ isEditing: false })
+        // this.setState({ isEditing: false })
+
+        ProfileService.getAllUserGenres()
+        .then(res => this.setState({ allGenres: res }))
+        .catch(error => this.setState({error: error.message}))
+
+        ProfileService.getProfile(this.context.user_id)
+        .then(user => this.setState({ 
+            avatar: user.avatar,
+            display_name: user.display_name,
+            lfm_in: user.lfm_in,
+            bio: user.bio,
+            platforms: user.platforms,
+            genres: user.genres,
+            isEditing: false,
+         }))
+         .catch(error => this.setState({error: error.message}))
     }
 
     handleLogoutClick = () => {
@@ -219,12 +235,16 @@ export default class Profile extends React.Component {
                     <img className='profile__edit-icon' onClick={this.handleEditButton} src={editIcon} alt='edit-icon' />
                 </section>
                 <section className='profile__section'>
+
+                    <div className='profileEditDiv'>
                     <div className='profile__Img-container'>
                         <img src={avatar} 
                         alt='avatar' className='profile__Img' />
                     </div>
-                    <h4 className='profile__card-header'>Display Name</h4>
-                    <span>{display_name}</span>
+                    {/* <h4 className='profile__card-header displayName'>Display Name</h4> */}
+                    <span className='profileDisplayName'>{display_name}</span>
+                    </div>
+
                     <h4 className='profile__card-header'>Platforms</h4>
                     <div id='platforms'>
                         {platforms && platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
@@ -232,7 +252,7 @@ export default class Profile extends React.Component {
                         {platforms && platforms.includes("Nintendo") ? <img className='main__nintendo' src={nintendoLogo} alt='Nintendo logo' /> : null}
                         {platforms && platforms.includes("PC") ? <img className='main__PC' src={PC_Logo} alt='PC logo' /> : null}
                     </div>
-                    <h4 className='profile__card-header'>LFM In</h4>
+                    <h4 className='profile__card-header'>LFM</h4>
                     {this.context.generateLfmElements(lfm_in)}
                     <h4 className='profile__card-header'>Genres</h4>                    
                     <span className='profile__genres'>{this.context.generateGenreString(genres)}</span>
@@ -262,14 +282,16 @@ export default class Profile extends React.Component {
                 <section className='profile__ImgEdit-container'>
                     <img src={avatar} 
                     alt='avatar' className='profile__ImgEdit' />
+                    <div className='imageEditInput'>
                     <input type='file' onChange={this.avatarChangedHandler} />
                     <button className='profile__ImgEdit-submit' onClick={this.avatarUploadHandler}>Upload</button>
+                    </div>
                 </section>
                 <form className='editForm' name='editForm' onSubmit={this.saveEdit}>
                     <label htmlFor='display-name'>Display Name</label>
                     <input type='text' name='display-name' onChange={this.handleDisplayNameChange}
                     id='display-name' defaultValue={display_name} />
-                    <label htmlFor='lfm'>LFM In (Max 3, Separated by ",")</label>
+                    <label htmlFor='lfm'>LFM</label>
                     <textarea rows='7' cols='40' name='lfm' onChange={this.handleLookingForChange}
                     id='lfm' defaultValue={lfm_in} />
                     <label htmlFor='platforms'> Platforms</label>
@@ -282,7 +304,7 @@ export default class Profile extends React.Component {
                             {userGenres.map((item, index) => 
                                 <span key={index} className='editGenre' id={item} onClick={(item) => this.genreToDelete(item)}>
                                     <label className='editGenreLabel'>{item}</label>
-                                    <svg className='editGenreButton' xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <svg className='editGenreButton' xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#f00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                         <line x1="20" y1="2" x2="2" y2="20"/>
                                         <line x1="2" y1="2" x2="20" y2="20"/>
                                     </svg>

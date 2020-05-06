@@ -1,7 +1,6 @@
 import React, { Component } from 'react'
 import Login from '../../components/Login/Login'
 import UserContext from '../../Contexts/UserContext'
-
 export default class LoginPage extends Component {
   static defaultProps = {
     location: {},
