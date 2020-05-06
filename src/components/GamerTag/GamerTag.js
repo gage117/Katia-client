@@ -4,7 +4,7 @@ import './GamerTag.css'
 export default function GamerTag(props) {
     return(
       <>
-        <label htmlFor={props.name}>Platform {props.name}</label>
+        <label htmlFor={props.name}>{props.name}</label>
         <input 
             type='text'
             name={props.name}
