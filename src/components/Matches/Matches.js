@@ -35,6 +35,8 @@ export default class Matches extends React.Component {
 
     render() {
         let users = this.state.users || []
+
+        console.log(this.state)
         return (
             <>
             <div className='matches__icons-container'>
