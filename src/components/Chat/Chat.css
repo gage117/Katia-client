@@ -20,6 +20,7 @@
   display: flex;
   justify-content: center;
   align-items: center;
+  background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
 }
 
 .chat__back {
@@ -37,6 +38,7 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  color: white;
 }
 
 .chat__message-container {

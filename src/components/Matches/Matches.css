@@ -19,10 +19,11 @@
 .matches__header {
     text-align: center;
     font-size: 4vmax;
-    border: .25vmax solid black;
     border-radius: 1vmax;
     width: 20vmax;
     padding: .5vmax;
+    background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+    color: white;
 }
 
 .matches__mail-icon {
@@ -70,7 +71,7 @@
     transition-timing-function: ease-in-out;
 }
 
-.match__info > p {
+.match__info > p, .match__gamer-tags > p {
     font-size: 2.3vmax;
     transition: font-size .3s;
     transition-delay: .2s;

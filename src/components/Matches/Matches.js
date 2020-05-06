@@ -68,14 +68,12 @@ export default class Matches extends React.Component {
                     <h4 className='match__card-header'>Genres</h4>
                     <p className='match__genres'>{this.context.generateGenreString(user.genres)}</p>
                     <h4 className='match__card-header'>Gamer Tags</h4>
-                    <div className='match__gamer-tags'>
-                        {user.xbox !== '' ? <p>Xbox: {user.xbox}</p> : null}
-                        {user.psn !== '' ? <p>PSN: {user.psn}</p> : null}
-                        {user.nintendo !== '' ? <p>Nintendo: {user.nintendo}</p> : null}
-                        {user.steam !== '' ? <p>Steam: {user.steam}</p> : null}
-                        {user.discord !== '' ? <p>Discord: {user.discord}</p> : null}
-                        {user.other !== '' ? <p>Other: {user.other}</p> : null}
-                    </div>
+                    {user.xbox !== '' ? <p>Xbox: {user.xbox}</p> : null}
+                    {user.psn !== '' ? <p>PSN: {user.psn}</p> : null}
+                    {user.nintendo !== '' ? <p>Nintendo: {user.nintendo}</p> : null}
+                    {user.steam !== '' ? <p>Steam: {user.steam}</p> : null}
+                    {user.discord !== '' ? <p>Discord: {user.discord}</p> : null}
+                    {user.other !== '' ? <p>Other: {user.other}</p> : null}
                     <h4 className='match__card-header'>Bio</h4>
                     <p className='match__bio'>{user.bio}</p>
                 </section>
