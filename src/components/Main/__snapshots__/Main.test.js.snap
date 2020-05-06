@@ -1,3 +1,9 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Main /> renders the UI as expected 1`] = `null`;
+exports[`<Main /> renders the UI as expected 1`] = `
+<div
+  className="loading"
+>
+  loading
+</div>
+`;

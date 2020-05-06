@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 import { MemoryRouter } from 'react-router-dom'
 import MainPage from './MainPage'
+import { UserProvider } from '../../Contexts/UserContext'
 
 describe('<MainPage />', () => {
   // Smoke test
@@ -10,7 +11,9 @@ describe('<MainPage />', () => {
     const div = document.createElement('div')
     ReactDOM.render(
       <MemoryRouter>
-        {/* <MainPage /> */}
+        <UserProvider>
+          <MainPage />
+        </UserProvider>
       </MemoryRouter>, div)
     ReactDOM.unmountComponentAtNode(div)
   })
@@ -19,7 +22,9 @@ describe('<MainPage />', () => {
     const tree = renderer
       .create(
         <MemoryRouter>
-          {/* <MainPage /> */}
+          <UserProvider>
+            <MainPage />
+          </UserProvider>
         </MemoryRouter>
       )
       .toJSON()

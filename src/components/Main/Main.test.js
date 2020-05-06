@@ -3,6 +3,7 @@ import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 import { MemoryRouter } from 'react-router-dom'
 import Main from './Main'
+import { UserProvider } from '../../Contexts/UserContext'
 
 describe('<Main />', () => {
   // Smoke test
@@ -10,7 +11,9 @@ describe('<Main />', () => {
     const div = document.createElement('div')
     ReactDOM.render(
       <MemoryRouter>
-        {/* <Main /> */}
+        <UserProvider>
+          <Main />
+        </UserProvider>
       </MemoryRouter>, div)
     ReactDOM.unmountComponentAtNode(div)
   })
@@ -19,7 +22,9 @@ describe('<Main />', () => {
     const tree = renderer
       .create(
         <MemoryRouter>
-          {/* <Main /> */}
+          <UserProvider>
+            <Main />
+          </UserProvider>
         </MemoryRouter>
       )
       .toJSON()
