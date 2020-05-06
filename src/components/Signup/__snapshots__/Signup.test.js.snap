@@ -1,124 +1,126 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Signup /> renders the UI as expected 1`] = `
-Array [
+<main
+  id="lp__main-flex"
+>
   <div
-    className="logoContainer"
+    className="lp__logoContainer"
   >
     <a
-      className="lp_lp-link signUpKatia"
+      className="lp__lp-link"
       href="/"
       onClick={[Function]}
     >
       Katia
     </a>
-  </div>,
-  <main
-    id="lp_main-flex"
+  </div>
+  <section
+    className="Signup__container"
   >
-    <section
-      className="Signup__container"
+    <h2
+      className="Signup__header"
     >
-      <h2
-        className="Signup__header"
+      Signup
+    </h2>
+    <form
+      className="Signup__form"
+      onSubmit={[Function]}
+    >
+      <div
+        role="alert"
+      />
+      <div
+        className="Signup__email-div lp__input-div"
       >
-        Signup
-      </h2>
-      <form
-        className="Signup__form"
-        onSubmit={[Function]}
-      >
-        <div
-          role="alert"
+        <label
+          className="lp__label"
+          htmlFor="Signup__email"
+        >
+          Email
+        </label>
+        <input
+          className="lp__input"
+          id="Signup__email"
+          name="email"
+          required={true}
+          type="email"
         />
-        <div
-          className="Signup__email-div lp_input-div"
+      </div>
+      <div
+        className="Signup__display_name-div lp__input-div"
+      >
+        <label
+          className="lp__label"
+          htmlFor="Signup__display_name"
         >
-          <label
-            htmlFor="Signup__email"
-          >
-            Email
-          </label>
-          <input
-            className="lp_input"
-            id="Signup__email"
-            name="email"
-            required={true}
-            type="email"
-          />
-        </div>
-        <div
-          className="Signup__display_name-div lp_input-div"
+          Display Name
+        </label>
+        <input
+          className="lp__input"
+          id="Signup__display_name"
+          name="display_name"
+          required={true}
+          type="text"
+        />
+      </div>
+      <div
+        className="Signup__password-div lp__input-div"
+      >
+        <label
+          className="lp__label"
+          htmlFor="Signup__password"
         >
-          <label
-            htmlFor="Signup__display_name"
-          >
-            Display Name
-          </label>
-          <input
-            className="lp_input"
-            id="Signup__display_name"
-            name="display_name"
-            required={true}
-            type="text"
-          />
-        </div>
-        <div
-          className="Signup__password-div lp_input-div"
+          Password
+        </label>
+        <input
+          className="lp__input"
+          id="Signup__password"
+          name="password"
+          required={true}
+          type="password"
+        />
+      </div>
+      <div
+        className="Signup__confirm_password-div lp__input-div"
+      >
+        <label
+          className="lp__label"
+          htmlFor="Signup__confirm_password"
         >
-          <label
-            htmlFor="Signup__password"
-          >
-            Password
-          </label>
-          <input
-            className="lp_input"
-            id="Signup__password"
-            name="password"
-            required={true}
-            type="password"
-          />
-        </div>
-        <div
-          className="Signup__confirm_password-div lp_input-div"
+          Confirm Password
+        </label>
+        <input
+          className="lp__input"
+          id="Signup__confirm_password"
+          name="confirm_password"
+          required={true}
+          type="password"
+        />
+      </div>
+      <button
+        className="lp__button lp__button-margin"
+        type="submit"
+      >
+        Submit
+      </button>
+      <div
+        className="Signup__submit-button-div"
+      >
+        <p
+          className="Signup__or"
         >
-          <label
-            htmlFor="Signup__confirm_password"
-          >
-            Confirm Password
-          </label>
-          <input
-            className="lp_input"
-            id="Signup__confirm_password"
-            name="confirm_password"
-            required={true}
-            type="password"
-          />
-        </div>
-        <button
-          className="Signup__submit-button lp_button"
-          type="submit"
+          Already have an account? 
+        </p>
+        <a
+          className="Signup__login-link"
+          href="/login"
+          onClick={[Function]}
         >
-          Submit
-        </button>
-        <div
-          className="Signup__submit-button-div"
-        >
-          <p
-            className="Signup__or"
-          >
-            Already have an account? 
-          </p>
-          <a
-            className="Signup__login-link"
-            href="/login"
-            onClick={[Function]}
-          >
-            Login
-          </a>
-        </div>
-      </form>
-    </section>
-  </main>,
-]
+          Login
+        </a>
+      </div>
+    </form>
+  </section>
+</main>
 `;

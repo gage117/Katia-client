@@ -55,7 +55,7 @@ Array [
     <h4
       className="profile__card-header"
     >
-      LFM In
+      LFM
     </h4>
     <p
       className="lfm-in"
