@@ -55,7 +55,7 @@ Array [
     <h4
       className="profile__card-header"
     >
-      LFM In
+      LFM
     </h4>
     <p
       className="lfm-in"
@@ -72,6 +72,14 @@ Array [
     >
       No Genres Chosen
     </span>
+    <h4
+      className="profile__card-header"
+    >
+      Gamer Tags
+    </h4>
+    <div
+      className="profile__gamer_tags-container"
+    />
     <h4
       className="profile__card-header"
     >
