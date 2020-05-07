@@ -30,6 +30,14 @@
     height: 5vh;
 }
 
+.matches__unmatch-icon {
+    height: 5vh;
+}
+
+.matches__unmatch-icon:hover {
+    cursor: pointer;
+}
+
 .matches__ul {
     display: flex;
     flex-direction: column;

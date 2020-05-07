@@ -8,6 +8,7 @@ import playstationLogo from '../../images/playstation_color_png.png'
 import PC_Logo from '../../images/PC_Keyboard_Mouse_Icon.png'
 import xboxLogo from '../../images/xbox_logo_png.png'
 import mail_icon from '../../images/mail.svg'
+import unmatch_icon from '../../images/x-circle.svg';
 import MatchesService from '../../services/matches-service'
 
 export default class Matches extends React.Component {
@@ -18,19 +19,25 @@ export default class Matches extends React.Component {
 
     static contextType = UserContext;
 
-    state = {
-      users: []
-    }
-
     componentDidMount(){
-
         MatchesService.getMatchedUsers(this.context.user_id)
-        .then(res => this.setState({ users: res}))
-        .catch(error => this.setState({error: error.message}))
+            .then(res => this.setState({ users: res}))
+            .catch(error => this.setState({error: error.message}))
     }
 
     toggleExpanded = (event) => {
         return event.currentTarget.getElementsByClassName('matches__info')[0].classList.toggle('hidden')
+    }
+
+    handleMatchDelete = (id) => {
+        MatchesService.removeMatch(this.context.user_id, id)
+            .then(() => {
+                const { users } = this.state;
+                users = users.filter(user => {
+                    return user.user_id !== id;
+                });
+                this.setState({ users });
+            });
     }
 
     render() {
@@ -54,6 +61,7 @@ export default class Matches extends React.Component {
                 <Link to={`/chat/${user.user_id}`} className='matches__Link'>
                     <img className='matches__mail-icon' src={mail_icon} alt='chat-icon' />
                 </Link>
+                <img className='matches__unmatch-icon' src={unmatch_icon} alt='unmatch-icon' onClick={() => this.handleMatchDelete(user.user_id)} />
                 <section className='matches__info hidden'>
 
                     <h4 className='matches__card-header hidden1'>Platforms</h4>
