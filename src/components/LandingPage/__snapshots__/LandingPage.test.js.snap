@@ -2,23 +2,23 @@
 
 exports[`<LandingPage /> renders the UI as expected 1`] = `
 <main
-  id="lp_main-flex"
+  id="lp__main-flex"
 >
   <a
-    className="lp_login lp_button"
+    className="lp__login lp__button"
     href="/login"
     onClick={[Function]}
   >
     Login
   </a>
   <div
-    id="Landing_Page__container"
+    id="lp__container"
   >
     <h1
-      className="logoContainer"
+      className="lp__logoContainer"
     >
       <a
-        className="lp_lp-link signUpKatia landKatia"
+        className="lp__lp-link"
         href="/"
         onClick={[Function]}
       >
@@ -27,29 +27,22 @@ exports[`<LandingPage /> renders the UI as expected 1`] = `
     </h1>
     <hr />
     <h2
-      className="lp_header"
+      className="lp__header"
     >
       Find new teammates. Squad up.
     </h2>
+    <p
+      className="lp__about-para"
+    >
+      Katia is a social media application made for gamers by gamers. Quickly and easily find others who share the same games and platforms as you.
+    </p>
     <a
-      className="lp_signup lp_button"
+      className="lp__button lp__button-margin"
       href="/signup"
       onClick={[Function]}
     >
       Signup
     </a>
-    <h3
-      className="katiaAbout"
-    >
-       About 
-    </h3>
-    <p
-      className="aboutPara"
-    >
-      Katia is a social media application made for gamers by gamers. 
-      <br />
-       
-    </p>
   </div>
 </main>
 `;

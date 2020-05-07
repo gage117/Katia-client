@@ -19,10 +19,11 @@
 .matches__header {
     text-align: center;
     font-size: 4vmax;
-    border: .25vmax solid black;
     border-radius: 1vmax;
     width: 20vmax;
     padding: .5vmax;
+    background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+    color: white;
 }
 
 .matches__mail-icon {
@@ -36,7 +37,7 @@
     align-items: center;
 }
 
-.match__li {
+.matches__li {
     cursor: pointer;
     display: flex;
     flex-direction: column;
@@ -51,7 +52,7 @@
     width: 90%;
 }
 
-.match__avatar {
+.matches__avatar {
     height: 15.5vmax;
     width: auto;
     max-width: 80%;
@@ -59,12 +60,12 @@
     margin-bottom: 2vmax;
 }
 
-.match__display-name {
+.matches__display-name {
     font-size: 3vmax;
     margin-bottom: 2vmax;
 }
 
-.match__info {
+.matches__info {
     height: 100%;
     padding: 2vmax 0 0;
     width: 100%;
@@ -72,14 +73,14 @@
     transition-timing-function: ease-in-out;
 }
 
-.match__info > p {
+.matches__info > p, .matches__gamer-tags > p {
     font-size: 2.3vmax;
     transition: font-size .3s;
     transition-delay: .2s;
     transition-timing-function: ease-in-out;
 }
 
-.match__card-header {
+.matches__card-header {
     width: 100%;
     font-size: 2.5vmax;
     font-weight: bold;
@@ -96,25 +97,25 @@
     margin: 0 auto;
 }
 
-.match__platforms {
+.matches__platforms {
     width: 100%;
     display: flex;
     justify-content: space-around;
     padding: 1vmax 0;
 }
 
-.match__platforms > * {
+.matches__platforms > * {
     height: 6vmax;
     transition: height .5s;
     transition-delay: .1s;
 }
 
-.match__genres {
+.matches__genres, .matches__gamer-tags {
     font-size: 2.3vmax;
     text-align: center;
 }
 
-.match__bio {
+.matches__bio {
     font-size: 2.3vmax;
     text-align: center;
     padding: 0 1.5vmin;
@@ -124,13 +125,13 @@
     padding: 0;
 }
 
-.match__li > .hidden > div {
+.matches__li > .hidden > div {
     padding: 0;
     transition-delay: 0.2s;
     border: none;
 }
 
-.match__li > .hidden > h4 {
+.matches__li > .hidden > h4 {
     font-size: 0;
     background-color: white;
     padding: 0;
@@ -139,14 +140,14 @@
     border: none;
 }
 
-.match__li > .hidden > p {
+.matches__li > .hidden > p {
     font-size: 0;
     padding: 0;
     margin: 0;
     transition-delay: 0s;
 }
 
-.hidden > .match__platforms > * {
+.hidden > .matches__platforms > * {
     height: 0;
     transition-delay: 0s;
 }
