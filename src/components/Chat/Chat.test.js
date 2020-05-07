@@ -5,7 +5,7 @@ import { MemoryRouter } from 'react-router-dom'
 import Chat from './Chat'
 import { UserProvider } from '../../Contexts/UserContext'
 
-describe.only('<Chat />', () => {
+describe('<Chat />', () => {
   const testData = {
     messages: [
       {

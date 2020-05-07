@@ -6,12 +6,6 @@ import back_icon from '../../images/back-arrow.svg';
 import './Chat.css';
 
 class Chat extends Component {
-
-  constructor(props) {
-    super(props);
-    this.messagesEnd = React.createRef();
-  }
-
   state = {
     message: ''
   }
@@ -27,7 +21,7 @@ class Chat extends Component {
   }
 
   scrollToBottom = () => {
-    this.messagesEnd.current.scrollIntoView({ behavior: "smooth" });
+    this.messagesEnd.scrollIntoView({ behavior: "smooth" });
   }
 
   handleSendMessage = (event) => {
@@ -69,7 +63,7 @@ class Chat extends Component {
             return message.sender_id === user_id ? this.generateUserMessage(user, message) : this.generatePartnerMessage(partner, message)
           })}
           <div style={{ float:"left", clear: "both" }}
-               ref={this.messagesEnd}>
+               ref={(el) => { this.messagesEnd = el; }}>
           </div>
         </ul>
         <form onSubmit={this.handleSendMessage} className='chat__message-form' style={{backgroundColor: this.context.backgroundColor}}>
