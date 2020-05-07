@@ -16,11 +16,13 @@ class MessagePage extends Component {
   componentDidMount() {
     const { socket, user_id } = this.context;
     const { chatPartner } = this.props.match.params;
-    socket.emit('newUser', user_id);
-    socket.emit('chatOpen', { 
-      userId: user_id,
-      receiverId: chatPartner
-    });
+    if (socket) {
+      socket.emit('newUser', user_id);
+      socket.emit('chatOpen', { 
+        userId: user_id,
+        receiverId: chatPartner
+      })
+    };
     this.handleSocketListeners(this.context.user_id, chatPartner);
     this.setUsers()
   }
@@ -37,20 +39,22 @@ class MessagePage extends Component {
 
   handleSocketListeners = () => {
     const { socket } = this.context;
-    socket
-      .on('conversationId', conversation_id => {
-        this.setState({ conversation_id });
-      })
-      .on('priorMessages', messages => {
-        this.setState({ messages })
-      })
-      .on('incomingMessage', message => {
-        if(message.conversation_id === this.state.conversation_id) {
-          let { messages } = this.state
-          messages.push(message)
+    if (socket) {
+      socket
+        .on('conversationId', conversation_id => {
+          this.setState({ conversation_id });
+        })
+        .on('priorMessages', messages => {
           this.setState({ messages })
-        }
-      });
+        })
+        .on('incomingMessage', message => {
+          if(message.conversation_id === this.state.conversation_id) {
+            let { messages } = this.state
+            messages.push(message)
+            this.setState({ messages })
+          }
+        });
+    }
   }
 
   setUsers = async () => {

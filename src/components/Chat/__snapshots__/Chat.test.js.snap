@@ -14,7 +14,7 @@ exports[`<Chat /> renders the UI as expected 1`] = `
       <img
         alt="back-arrow"
         className="chat__back"
-        src="back-arrow.svg"
+        src="left-arrow-svgrepo-com.svg"
       />
     </a>
     <span
@@ -23,6 +23,9 @@ exports[`<Chat /> renders the UI as expected 1`] = `
       Test User 2
     </span>
   </nav>
+  <div
+    className="chatNavBorder"
+  />
   <ul
     className="chat__message-container"
   >
