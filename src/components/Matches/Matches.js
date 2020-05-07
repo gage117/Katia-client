@@ -55,6 +55,7 @@ export default class Matches extends React.Component {
                     <img className='matches__mail-icon' src={mail_icon} alt='chat-icon' />
                 </Link>
                 <section className='match__info hidden'>
+
                     <h4 className='match__card-header hidden1'>Platforms</h4>
                     <div className='match__platforms'>
                         {user.platforms.includes("Xbox") ? <img className='match__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
@@ -71,12 +72,12 @@ export default class Matches extends React.Component {
 
                     <h4 className='match__card-header'>Gamer Tags</h4>
                     {gamerTagPlatforms.map(platform => {
-                        // If the user has a gamer tag for that platform display it (e.g. if user.psn exists)
+                        // If the user has a gamer tag for that platform display it
                         if(user[platform.toLowerCase()] !== '') {
-                            return <p className='matches__gamer-tags'>{platform + ': ' + user[platform]}</p>
+                            return <p className='matches__gamer-tags'>{platform + ': ' + user[platform.toLowerCase()]}</p>
                         }
                     })}
-
+                    
                     <h4 className='match__card-header'>Bio</h4>
                     <p className='match__bio'>{user.bio}</p>
                 </section>
