@@ -256,12 +256,12 @@ export default class Profile extends React.Component {
                     <span className='profile__genres'>{this.context.generateGenreString(genres)}</span>
                     <h4 className='profile__card-header'>Gamer Tags</h4>
                     <div className='profile__gamer_tags-container'>
-                        {gamer_tags.xbox !== '' ? <p>Xbox: {gamer_tags.xbox}</p> : null}
-                        {gamer_tags.psn !== '' ? <p>PSN: {gamer_tags.psn}</p> : null}
-                        {gamer_tags.nintendo !== '' ? <p>Nintendo: {gamer_tags.nintendo}</p> : null}
-                        {gamer_tags.steam !== '' ? <p>Steam: {gamer_tags.steam}</p> : null}
-                        {gamer_tags.discord !== '' ? <p>Discord: {gamer_tags.discord}</p> : null}
-                        {gamer_tags.other !== '' ? <p>Other: {gamer_tags.other}</p> : null}
+                        {gamer_tags.xbox !== '' ? <p className='profile__gamer-tags'>Xbox: {gamer_tags.xbox}</p> : null}
+                        {gamer_tags.psn !== '' ? <p className='profile__gamer-tags'>PSN: {gamer_tags.psn}</p> : null}
+                        {gamer_tags.nintendo !== '' ? <p className='profile__gamer-tags'>Nintendo: {gamer_tags.nintendo}</p> : null}
+                        {gamer_tags.steam !== '' ? <p className='profile__gamer-tags'>Steam: {gamer_tags.steam}</p> : null}
+                        {gamer_tags.discord !== '' ? <p className='profile__gamer-tags'>Discord: {gamer_tags.discord}</p> : null}
+                        {gamer_tags.other !== '' ? <p className='profile__gamer-tags'>Other: {gamer_tags.other}</p> : null}
                     </div>
                     <h4 className='profile__card-header'>Bio</h4>
                     <span className='profile__bio'>{bio}</span>

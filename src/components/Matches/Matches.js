@@ -35,6 +35,7 @@ export default class Matches extends React.Component {
 
     render() {
         let users = this.state.users || []
+        const gamerTagPlatforms = ['Xbox', 'PSN', 'Nintendo', 'Steam', 'Discord', 'Other']
 
         return (
             <>
@@ -61,19 +62,21 @@ export default class Matches extends React.Component {
                         {user.platforms.includes("Nintendo") ? <img className='match__nintendo' src={nintendoLogo} alt='Nintendo logo' /> : null}
                         {user.platforms.includes("PC") ? <img className='match__PC' src={PC_Logo} alt='PC logo' /> : null}
                     </div>
-                    <h4 className='match__card-header'>LFM In</h4>
 
+                    <h4 className='match__card-header'>LFM In</h4>
                     {this.context.generateLfmElements(user.lfm_in)}
 
                     <h4 className='match__card-header'>Genres</h4>
                     <p className='match__genres'>{this.context.generateGenreString(user.genres)}</p>
+
                     <h4 className='match__card-header'>Gamer Tags</h4>
-                    {user.xbox !== '' ? <p>Xbox: {user.xbox}</p> : null}
-                    {user.psn !== '' ? <p>PSN: {user.psn}</p> : null}
-                    {user.nintendo !== '' ? <p>Nintendo: {user.nintendo}</p> : null}
-                    {user.steam !== '' ? <p>Steam: {user.steam}</p> : null}
-                    {user.discord !== '' ? <p>Discord: {user.discord}</p> : null}
-                    {user.other !== '' ? <p>Other: {user.other}</p> : null}
+                    {gamerTagPlatforms.map(platform => {
+                        // If the user has a gamer tag for that platform display it (e.g. if user.psn exists)
+                        if(user[platform.toLowerCase()] !== '') {
+                            return <p className='matches__gamer-tags'>{platform + ': ' + user[platform]}</p>
+                        }
+                    })}
+
                     <h4 className='match__card-header'>Bio</h4>
                     <p className='match__bio'>{user.bio}</p>
                 </section>

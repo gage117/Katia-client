@@ -69,7 +69,7 @@
     width: 60%;
 }
 
-.profile__genres {
+.profile__genres, .profile__gamer-tags {
     text-align: center;
 }
 
