@@ -32,7 +32,7 @@ export default class Matches extends React.Component {
     handleMatchDelete = (id) => {
         MatchesService.removeMatch(this.context.user_id, id)
             .then(() => {
-                const { users } = this.state;
+                let { users } = this.state;
                 users = users.filter(user => {
                     return user.user_id !== id;
                 });
@@ -81,9 +81,7 @@ export default class Matches extends React.Component {
                     <h4 className='matches__card-header'>Gamer Tags</h4>
                     {gamerTagPlatforms.map(platform => {
                         // If the user has a gamer tag for that platform display it
-                        if(user[platform.toLowerCase()] !== '') {
-                            return <p className='matches__gamer-tags'>{platform + ': ' + user[platform.toLowerCase()]}</p>
-                        }
+                        return user[platform.toLowerCase()] !== '' && <p className='matches__gamer-tags'>{platform + ': ' + user[platform.toLowerCase()]}</p>
                     })}
                     
                     <h4 className='matches__card-header'>Bio</h4>
