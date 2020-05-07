@@ -1,0 +1,89 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Chat /> renders the UI as expected 1`] = `
+<main
+  className="chat__main"
+>
+  <nav
+    className="chat__nav"
+  >
+    <a
+      href="/matches"
+      onClick={[Function]}
+    >
+      <img
+        alt="back-arrow"
+        className="chat__back"
+        src="back-arrow.svg"
+      />
+    </a>
+    <span
+      className="chat__chatting-with"
+    >
+      Test User 2
+    </span>
+  </nav>
+  <ul
+    className="chat__message-container"
+  >
+    <li
+      className="chat__message chat__user-message"
+    >
+      <span
+        className="chat__message-text chat__user-message-text"
+      >
+        hi
+      </span>
+      <img
+        alt="user-avatar"
+        className="chat__avatar chat__user-avatar"
+        src="https://katia-app.s3-us-west-1.amazonaws.com/default_avatar.png"
+      />
+    </li>
+    <li
+      className="chat__message chat__partner-message"
+    >
+      <img
+        alt="partner-avatar"
+        className="chat__avatar chat__partner-avatar"
+        src="https://katia-app.s3-us-west-1.amazonaws.com/default_avatar.png"
+      />
+      <span
+        className="chat__message-text chat__partner-message-text"
+      >
+        sup
+      </span>
+    </li>
+    <div
+      style={
+        Object {
+          "clear": "both",
+          "float": "left",
+        }
+      }
+    />
+  </ul>
+  <form
+    className="chat__message-form"
+    onSubmit={[Function]}
+    style={
+      Object {
+        "backgroundColor": undefined,
+      }
+    }
+  >
+    <textarea
+      className="chat__input"
+      onChange={[Function]}
+      onKeyDown={[Function]}
+      value=""
+    />
+    <img
+      alt="send"
+      className="chat__send"
+      onClick={[Function]}
+      src="send-icon.svg"
+    />
+  </form>
+</main>
+`;
