@@ -102,7 +102,7 @@
     transition-delay: .1s;
 }
 
-.matches__genres {
+.matches__genres, .matches__gamer-tags {
     font-size: 2.3vmax;
     text-align: center;
 }
