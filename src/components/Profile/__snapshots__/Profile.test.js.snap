@@ -13,7 +13,7 @@ Array [
       <img
         alt="swipe-cards-icon"
         className="profile__cards-icon"
-        src="cards.png"
+        src="right-arrow.svg"
       />
     </a>
     <img

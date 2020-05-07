@@ -3,6 +3,7 @@ import { Link } from 'react-router-dom'
 import UserContext from '../../Contexts/UserContext';
 import send_icon from '../../images/send-icon.svg';
 import back_icon from '../../images/back-arrow.svg';
+import backArrow from '../../images/left-arrow-svgrepo-com.svg'
 import './Chat.css';
 
 class Chat extends Component {
@@ -54,10 +55,11 @@ class Chat extends Component {
       <main className='chat__main'>
         <nav className='chat__nav'>
           <Link to='/matches'>
-            <img className='chat__back' src={back_icon} alt='back-arrow' />
+            <img className='chat__back' src={backArrow} alt='back-arrow' />
           </Link>
           <span className='chat__chatting-with'>{partner.display_name}</span>
         </nav>
+        <div className='chatNavBorder'></div>
         <ul className='chat__message-container'>
           {messages.map(message => {
             return message.sender_id === user_id ? this.generateUserMessage(user, message) : this.generatePartnerMessage(partner, message)
