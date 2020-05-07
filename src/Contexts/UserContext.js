@@ -1,11 +1,8 @@
 import React, { Component } from 'react';
 import TokenService from '../services/token-service';
-<<<<<<< HEAD
 import io from 'socket.io-client';
-import config from './config';
-=======
+import config from '../config';
 import ProfileService from '../services/profile-service';
->>>>>>> 9416de6b1738e97ccc944e8c6d803ac8963e3597
 
 const nullUser = {
   id: -1,
@@ -17,9 +14,9 @@ const nullUser = {
   platforms: []
 };
 
-<<<<<<< HEAD
 const UserContext = React.createContext({
   user_id: -1,
+  user: null,
   socket: null,
   error: null,
   setUser: () => {},
@@ -32,31 +29,22 @@ const UserContext = React.createContext({
   processLogin: () => {},
   updateUser: () => {}, // Still works with none of this
 });
-=======
-const UserContext = React.createContext();
->>>>>>> 9416de6b1738e97ccc944e8c6d803ac8963e3597
 
 export default UserContext;
 
 export class UserProvider extends Component {
   constructor(props) {
     super(props)
-<<<<<<< HEAD
-    const state = { user_id: -1, socket: null, error: null }
+    const state = { user_id: -1, user: nullUser, socket: null, error: null }
 
     if(TokenService.hasAuthToken()) {
       const account = TokenService.getUserFromToken(TokenService.getAuthToken())
       const socket = io(config.SOCKET_CONNECTION)
       state.user_id = account.id
       state.socket = socket.connect()
-=======
-    this.state = { user_id: -1, error: null, user: nullUser }
-
-    if(TokenService.hasAuthToken()) {
-      const account = TokenService.getUserFromToken(TokenService.getAuthToken())
-      this.state.user_id = account.id
->>>>>>> 9416de6b1738e97ccc944e8c6d803ac8963e3597
     }
+
+    this.state = state;
   }
 
   setUser = user => {
@@ -86,19 +74,12 @@ export class UserProvider extends Component {
     this.setState({ socket: null })
   }
 
-<<<<<<< HEAD
-  processLogin = (token) => {
+  processLogin = async (token) => {
     TokenService.saveAuthToken(token);
     const account = TokenService.getUserFromToken(TokenService.getAuthToken())
-    const socket = io(config.SOCKET_CONNECTION)
-    this.setState({ user_id: account.id, socket: socket.connect() })
-=======
-  processLogin = async (token) => {
-    TokenService.saveAuthToken(token)
-    const account = TokenService.getUserFromToken(TokenService.getAuthToken())
     const profile = await ProfileService.getProfile(account.id);
-    this.setState({ user_id: account.id, user: profile })
->>>>>>> 9416de6b1738e97ccc944e8c6d803ac8963e3597
+    const socket = io(config.SOCKET_CONNECTION)
+    this.setState({ user_id: account.id, user: profile, socket: socket.connect() })
   }
 
   generateLfmElements = (games) => {
@@ -141,6 +122,7 @@ export class UserProvider extends Component {
   render() {
     const value = {
       user_id: this.state.user_id,
+      user: this.state.user,
       socket: this.state.socket,
       error: this.state.error,
       user: this.state.user,
