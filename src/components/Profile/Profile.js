@@ -16,6 +16,8 @@ import x_checkSVG from '../../images/x-circle.svg'
 import UserContext from '../../Contexts/UserContext'
 import ProfileService from '../../services/profile-service'
 import GamerTag from '../GamerTag/GamerTag'
+import leftArrow from '../../images/left-arrow-svgrepo-com.svg'
+import rightArrow from '../../images/right-arrow.svg'
 
 export default class Profile extends React.Component {
     static contextType = UserContext
@@ -229,7 +231,7 @@ export default class Profile extends React.Component {
                 <>
                 <section className='profile__icons-container'>
                     <Link to='/swipe' className='profile__Link'>
-                        <img className='profile__cards-icon' src={cardsIcon} alt='swipe-cards-icon' />
+                        <img className='profile__cards-icon' src={rightArrow} alt='swipe-cards-icon' />
                     </Link>
                     <img className='profile__edit-icon' onClick={this.handleEditButton} src={editIcon} alt='edit-icon' />
                 </section>

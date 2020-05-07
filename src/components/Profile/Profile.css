@@ -4,10 +4,12 @@
     align-items: center;
     padding: 2vmax 0 1vmax;
     height: 10vmax;
+    flex-direction: row-reverse;
 }
 
 .profile__cards-icon {
-    height: 7vmax;
+    height: 4.5vmax;
+    margin-top: 12px;
 }
 
 .profile__edit-icon {

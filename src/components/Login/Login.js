@@ -16,7 +16,7 @@ export default class Login extends Component {
     const { email, password } = ev.target
 
     AuthApiService.postLogin({
-      email: email.value,
+      email: email.value.toLowerCase(),
       password: password.value
     })
       .then(res => {
