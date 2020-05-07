@@ -5,15 +5,16 @@ import './LandingPage.css'
 class LandingPage extends Component {
   render() {
     return (
-      <main id='lp_main-flex'>
-        <Link to='/login' className='lp_login lp_button'>Login</Link>
-        <div id='Landing_Page__container'>
-          <h1 className='lp_header'>Project Manhattan</h1>
+      <main id='lp__main-flex'>
+        <Link to='/login' className='lp__login lp__button'>Login</Link>
+        <div id='lp__container'>
+          <h1 className='lp__logoContainer'>
+          <Link to='/' className='lp__lp-link'>Katia</Link>
+          </h1>
           <hr />
-          <h2 className='lp_header'>Find new teammates</h2>
-          <h4 className='lp_header'>who own the platforms you own</h4>
-          <h4 className='lp_header lp_last-header'>and play the games you play</h4>
-          <Link to='/signup' className='lp_signup lp_button'>Signup</Link>
+          <h2 className='lp__header'>Find new teammates. Squad up.</h2>
+          <p className='lp__about-para'>Katia is a social media application made for gamers by gamers. Quickly and easily find others who share the same games and platforms as you.</p>
+          <Link to='/signup' className='lp__button lp__button-margin'>Signup</Link>
         </div>
       </main>
     )

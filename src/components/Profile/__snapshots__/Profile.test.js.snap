@@ -1,0 +1,106 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<Profile /> renders the UI as expected 1`] = `
+Array [
+  <section
+    className="profile__icons-container"
+  >
+    <a
+      className="profile__Link"
+      href="/swipe"
+      onClick={[Function]}
+    >
+      <img
+        alt="swipe-cards-icon"
+        className="profile__cards-icon"
+        src="cards.png"
+      />
+    </a>
+    <img
+      alt="edit-icon"
+      className="profile__edit-icon"
+      onClick={[Function]}
+      src="edit-icon.png"
+    />
+  </section>,
+  <section
+    className="profile__section"
+  >
+    <div
+      className="profileEditDiv"
+    >
+      <div
+        className="profile__Img-container"
+      >
+        <img
+          alt="avatar"
+          className="profile__Img"
+          src=""
+        />
+      </div>
+      <span
+        className="profileDisplayName"
+      >
+        
+      </span>
+    </div>
+    <h4
+      className="profile__card-header"
+    >
+      Platforms
+    </h4>
+    <div
+      id="platforms"
+    />
+    <h4
+      className="profile__card-header"
+    >
+      LFM
+    </h4>
+    <p
+      className="lfm-in"
+    >
+      
+    </p>
+    <h4
+      className="profile__card-header"
+    >
+      Genres
+    </h4>
+    <span
+      className="profile__genres"
+    >
+      No Genres Chosen
+    </span>
+    <h4
+      className="profile__card-header"
+    >
+      Gamer Tags
+    </h4>
+    <div
+      className="profile__gamer_tags-container"
+    />
+    <h4
+      className="profile__card-header"
+    >
+      Bio
+    </h4>
+    <span
+      className="profile__bio"
+    >
+      
+    </span>
+  </section>,
+  <section
+    className="logoutLink-container"
+  >
+    <a
+      className="logoutLink"
+      href="/login"
+      onClick={[Function]}
+    >
+      Logout
+    </a>
+  </section>,
+]
+`;
