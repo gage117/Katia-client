@@ -13,21 +13,26 @@ Array [
       <img
         alt="swipe-cards-icon"
         className="matches__cards-icon"
-        src="cards.png"
+        src="left-arrow-svgrepo-com.svg"
       />
     </a>
   </div>,
   <header
     className="matches__header-container"
   >
+    <div
+      className="headerBorder"
+    />
     <h3
       className="matches__header"
     >
       Matches
     </h3>
   </header>,
-  <ul
-    className="matches__ul"
-  />,
+  <p
+    className="noMatchesPara"
+  >
+    You have no matches.
+  </p>,
 ]
 `;
