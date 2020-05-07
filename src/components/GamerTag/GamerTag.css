@@ -1,6 +1,6 @@
 .gamer-tag__container {
     width: 80%;
-    margin: auto;
+    margin: 2vmax auto;
 }
 
 label.gamer-tag__label {
@@ -10,8 +10,7 @@ label.gamer-tag__label {
     font-weight: normal;
     height: 4.5vmax;
     text-align: left;
-    width: 40%;
-    margin: 35px auto;
+    width: 35%;
     border-radius: none;
     color: #000;
     display: inline-block;
@@ -22,8 +21,8 @@ label.gamer-tag__label {
     padding: .5vmax 0 0 1.5vmin;
     height: 4.5vmax;
     border: .08rem solid gray;
-    width: 60%;
+    width: 65%;
     margin: 0 auto;
-    text-align: center;
+    text-align: left;
     border-radius: 8px;
 }
