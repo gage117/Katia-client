@@ -1,8 +1,6 @@
 import React, { Component } from 'react';
 import UserContext from '../../Contexts/UserContext';
 import ProfileService from '../../services/profile-service';
-import socket from '../../socket';
-
 import Chat from '../../components/Chat/Chat';
 
 class MessagePage extends Component {
@@ -15,11 +13,12 @@ class MessagePage extends Component {
 
   static contextType = UserContext;
 
-  componentDidMount = () => {
+  componentDidMount() {
+    const { socket, user_id } = this.context;
     const { chatPartner } = this.props.match.params;
-    socket.emit('newUser', this.context.user_id);
+    socket.emit('newUser', user_id);
     socket.emit('chatOpen', { 
-      userId: this.context.user_id,
+      userId: user_id,
       receiverId: chatPartner
     });
     this.handleSocketListeners(this.context.user_id, chatPartner);
@@ -27,14 +26,17 @@ class MessagePage extends Component {
   }
 
   handleSubmitMessage = (text) => {
+    const { socket, user_id } = this.context;
+    const { chatPartner } = this.props.match.params;
     socket.emit('message', { 
       text, 
-      sender_id: this.context.user_id, 
-      receiver_id:  this.props.match.params.chatPartner
+      sender_id: user_id, 
+      receiver_id:  chatPartner
     });
   }
 
   handleSocketListeners = () => {
+    const { socket } = this.context;
     socket
       .on('conversationId', conversation_id => {
         this.setState({ conversation_id });

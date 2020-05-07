@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
 import TokenService from '../services/token-service';
+import io from 'socket.io-client';
+import config from '../config';
 import ProfileService from '../services/profile-service';
 
 const nullUser = {
@@ -12,19 +14,37 @@ const nullUser = {
   platforms: []
 };
 
-const UserContext = React.createContext();
+const UserContext = React.createContext({
+  user_id: -1,
+  user: null,
+  socket: null,
+  error: null,
+  setUser: () => {},
+  clearUser: () => {},
+  setMatches: () => {},
+  clearMatches: () => {},
+  setError: () => {},
+  clearError: () => {},
+  processLogout: () => {},
+  processLogin: () => {},
+  updateUser: () => {}, // Still works with none of this
+});
 
 export default UserContext;
 
 export class UserProvider extends Component {
   constructor(props) {
     super(props)
-    this.state = { user_id: -1, error: null, user: nullUser }
+    const state = { user_id: -1, user: nullUser, socket: null, error: null }
 
     if(TokenService.hasAuthToken()) {
       const account = TokenService.getUserFromToken(TokenService.getAuthToken())
-      this.state.user_id = account.id
+      const socket = io(config.SOCKET_CONNECTION)
+      state.user_id = account.id
+      state.socket = socket.connect()
     }
+
+    this.state = state;
   }
 
   setUser = user => {
@@ -50,13 +70,16 @@ export class UserProvider extends Component {
   processLogout = () => {
     TokenService.clearAuthToken()
     this.setUser(nullUser)
+    this.state.socket.disconnect()
+    this.setState({ socket: null })
   }
 
   processLogin = async (token) => {
-    TokenService.saveAuthToken(token)
+    TokenService.saveAuthToken(token);
     const account = TokenService.getUserFromToken(TokenService.getAuthToken())
     const profile = await ProfileService.getProfile(account.id);
-    this.setState({ user_id: account.id, user: profile })
+    const socket = io(config.SOCKET_CONNECTION)
+    this.setState({ user_id: account.id, user: profile, socket: socket.connect() })
   }
 
   generateLfmElements = (games) => {
@@ -99,6 +122,8 @@ export class UserProvider extends Component {
   render() {
     const value = {
       user_id: this.state.user_id,
+      user: this.state.user,
+      socket: this.state.socket,
       error: this.state.error,
       user: this.state.user,
       setUser: this.setUser,
