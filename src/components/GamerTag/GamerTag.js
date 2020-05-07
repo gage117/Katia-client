@@ -5,7 +5,7 @@ export default function GamerTag(props) {
 
     let formattedInput = props.name.charAt(0).toUpperCase() + props.name.slice(1);
     return(
-      <>
+      <div className='gamer-tag__container'>
         <label 
           htmlFor={props.name}
           className='gamer-tag__label'>
@@ -18,6 +18,6 @@ export default function GamerTag(props) {
             id={props.name}
             defaultValue={props.defaultVal}
         />
-      </>
+      </div>
     )
 }

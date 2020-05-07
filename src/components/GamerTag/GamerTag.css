@@ -1,7 +1,29 @@
-.gamer-tag__label {
+.gamer-tag__container {
+    width: 80%;
+    margin: auto;
+}
 
+label.gamer-tag__label {
+    background: white;
+    padding: .7vmax 1.5vmin;
+    font-size: 3vmax;
+    font-weight: normal;
+    height: 4.5vmax;
+    text-align: left;
+    width: 40%;
+    margin: 35px auto;
+    border-radius: none;
+    color: #000;
+    display: inline-block;
 }
 
 .gamer-tag__input {
-    
+    font-size: 3vmax;
+    padding: .5vmax 0 0 1.5vmin;
+    height: 4.5vmax;
+    border: .08rem solid gray;
+    width: 60%;
+    margin: 0 auto;
+    text-align: center;
+    border-radius: 8px;
 }
