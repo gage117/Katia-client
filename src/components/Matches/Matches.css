@@ -7,22 +7,31 @@
 }
 
 .matches__cards-icon {
-    height: 6vmax;
-    margin: .5vmax 0;
+    height: 4vmax;
+    /* margin: .5vmax 0; */
+    margin: 80px auto 55px auto;
 }
 
 .matches__header-container {
     display: flex;
     justify-content: center;
+    flex-direction: column;
+    align-items: center;
 }
 
 .matches__header {
     text-align: center;
-    font-size: 4vmax;
-    border: .25vmax solid black;
-    border-radius: 1vmax;
+    font-size: 2.8vmax;
     width: 20vmax;
     padding: .5vmax;
+    color: black;
+    border: none;
+}
+
+.headerBorder {
+    border: 1px solid black;
+    width: 12%;
+    margin-top: 30px;
 }
 
 .matches__mail-icon {
@@ -36,20 +45,25 @@
     align-items: center;
 }
 
-.match__li {
+.matches__li {
     cursor: pointer;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    padding: 2vmax 0 1vmax;
+    /* padding: 2vmax 0 1vmax; */
     margin: 1vmax 0;
-    border: .25vmax solid black;
-    border-radius: 1vmax;
+    /* border: .25vmax solid black; */
+    /* border-radius: 1vmax; */
+    background: white;
+    border-radius: 6.4vh;
     width: 90%;
+    border: 3px solid white;
+    box-shadow: 5px 10px 8px #888888;
+
 }
 
-.match__avatar {
+.matches__avatar {
     height: 15.5vmax;
     width: auto;
     max-width: 80%;
@@ -57,12 +71,12 @@
     margin-bottom: 2vmax;
 }
 
-.match__display-name {
+.matches__display-name {
     font-size: 3vmax;
     margin-bottom: 2vmax;
 }
 
-.match__info {
+.matches__info {
     height: 100%;
     padding: 2vmax 0 0;
     width: 100%;
@@ -70,43 +84,49 @@
     transition-timing-function: ease-in-out;
 }
 
-.match__info > p {
+.matches__info > p, .matches__gamer-tags > p {
     font-size: 2.3vmax;
     transition: font-size .3s;
     transition-delay: .2s;
     transition-timing-function: ease-in-out;
 }
 
-.match__card-header {
+.matches__card-header {
     width: 100%;
     font-size: 2.5vmax;
     font-weight: bold;
-    background-color: lightgray;
+    /* background-color: lightgray; */
     padding: .5vh 2vw;
     margin: .7vmax 0;
     transition: font-size .2s, background-color .2s, padding .2s, margin .2s;
     transition-timing-function: ease-in-out;
+    text-align: center;
+    color: black;
+    border: none;
+    border-bottom: 3px solid lightgray;
+    width: 60%;
+    margin: 0 auto;
 }
 
-.match__platforms {
+.matches__platforms {
     width: 100%;
     display: flex;
     justify-content: space-around;
     padding: 1vmax 0;
 }
 
-.match__platforms > * {
+.matches__platforms > * {
     height: 6vmax;
     transition: height .5s;
     transition-delay: .1s;
 }
 
-.match__genres {
+.matches__genres, .matches__gamer-tags {
     font-size: 2.3vmax;
     text-align: center;
 }
 
-.match__bio {
+.matches__bio {
     font-size: 2.3vmax;
     text-align: center;
     padding: 0 1.5vmin;
@@ -116,27 +136,48 @@
     padding: 0;
 }
 
-.match__li > .hidden > div {
+.matches__li > .hidden > div {
     padding: 0;
     transition-delay: 0.2s;
+    border: none;
 }
 
-.match__li > .hidden > h4 {
+.matches__li > .hidden > h4 {
     font-size: 0;
     background-color: white;
     padding: 0;
     margin: 0;
     transition-delay: 0.1s;
+    border: none;
 }
 
-.match__li > .hidden > p {
+.matches__li > .hidden > p {
     font-size: 0;
     padding: 0;
     margin: 0;
     transition-delay: 0s;
 }
 
-.hidden > .match__platforms > * {
+.hidden > .matches__platforms > * {
     height: 0;
     transition-delay: 0s;
+}
+
+.matchesStyleDiv {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border: 3px solid white;
+    width: 100%;
+    border-radius: 40px;
+    background-color: white;
+    padding: 10px;
+    box-shadow: 5px 10px 8px #888888;
+}
+
+.noMatchesPara {
+    text-align: center;
+    margin-top: 180px;
+    font-weight: bold;
+    font-size: 16px;
 }

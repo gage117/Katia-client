@@ -16,18 +16,26 @@
 
 .chat__nav {
   height: 13vmin;
-  background-color: gray;
+  background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
+  /* background: linear-gradient(to right, #30CFD0 0%, #330867 100%); */
+  border: none;
+}
+
+.chatNavBorder {
+  /* border: 1px solid black; */
+  width: 50%;
+  margin: 0 auto;
 }
 
 .chat__back {
   position: fixed;
-  top: .5vmin;
-  left: 1vmin;
+  top: 3vmin;
+  left: 1.8vmin;
   width: auto;
-  height: 11vmin;
+  height: 7vmin;
 }
 
 .chat__chatting-with {
@@ -37,6 +45,8 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
+  /* color: white; */
+  color: black;
 }
 
 .chat__message-container {

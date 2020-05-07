@@ -2,17 +2,17 @@ import React from 'react'
 import ReactDOM from 'react-dom'
 import renderer from 'react-test-renderer'
 import { MemoryRouter } from 'react-router-dom'
-import Main from './Main'
+import Profile from './Profile'
 import { UserProvider } from '../../Contexts/UserContext'
 
-describe('<Main />', () => {
+describe('<Profile />', () => {
   // Smoke test
   it('renders without crashing', () => {
     const div = document.createElement('div')
     ReactDOM.render(
       <MemoryRouter>
         <UserProvider>
-          <Main />
+          <Profile />
         </UserProvider>
       </MemoryRouter>, div)
     ReactDOM.unmountComponentAtNode(div)
@@ -23,7 +23,7 @@ describe('<Main />', () => {
       .create(
         <MemoryRouter>
           <UserProvider>
-            <Main />
+            <Profile />
           </UserProvider>
         </MemoryRouter>
       )

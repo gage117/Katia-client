@@ -2,15 +2,19 @@
 
 exports[`<LoginPage /> renders the UI as expected 1`] = `
 <main
-  id="lp_main-flex"
+  id="lp__main-flex"
 >
-  <a
-    className="lp_lp-link"
-    href="/"
-    onClick={[Function]}
+  <div
+    className="lp__logoContainer"
   >
-    Project Manhattan
-  </a>
+    <a
+      className="lp__lp-link"
+      href="/"
+      onClick={[Function]}
+    >
+      Katia
+    </a>
+  </div>
   <section
     className="Login__container"
   >
@@ -27,52 +31,54 @@ exports[`<LoginPage /> renders the UI as expected 1`] = `
         role="alert"
       />
       <div
-        className="Login__email-div lp_input-div"
+        className="Login__email-div lp__input-div"
       >
         <label
+          className="lp__label"
           htmlFor="Login__email"
         >
           Email
         </label>
         <input
-          className="lp_input"
+          className="lp__input"
           id="Login__email"
           name="email"
           required={true}
         />
       </div>
       <div
-        className="Login__password-div lp_input-div"
+        className="Login__password-div lp__input-div"
       >
         <label
+          className="lp__label"
           htmlFor="Login__password"
         >
           Password
         </label>
         <input
-          className="lp_input"
+          className="lp__input"
           id="Login__password"
           name="password"
           required={true}
           type="password"
         />
       </div>
+      <button
+        className="lp__button lp__button-margin"
+        type="submit"
+      >
+        Login
+      </button>
       <div
         className="Login__submit-button-div"
       >
-        <button
-          className="Login__submit-button lp_button"
-          type="submit"
-        >
-          Login
-        </button>
         <p
           className="Login__or"
         >
-          or
+          Need an account?
         </p>
         <a
-          className="Login__signup-link lp_button"
+          className="Login__signup-link"
           href="/signup"
           onClick={[Function]}
         >

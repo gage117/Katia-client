@@ -1,3 +1,18 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<MainPage /> renders the UI as expected 1`] = `null`;
+exports[`<MainPage /> renders the UI as expected 1`] = `
+<main>
+  <div
+    className="lds-roller"
+  >
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+    <div />
+  </div>
+</main>
+`;

@@ -15,6 +15,9 @@ import checkmarkSVG from '../../images/checkmark-circle-2.svg'
 import x_checkSVG from '../../images/x-circle.svg'
 import UserContext from '../../Contexts/UserContext'
 import ProfileService from '../../services/profile-service'
+import GamerTag from '../GamerTag/GamerTag'
+import leftArrow from '../../images/left-arrow-svgrepo-com.svg'
+import rightArrow from '../../images/right-arrow.svg'
 
 export default class Profile extends React.Component {
     static contextType = UserContext
@@ -30,6 +33,14 @@ export default class Profile extends React.Component {
         genres: [],
         allGenres: [],
         currGenre: '',
+        gamer_tags: {
+            xbox: '',
+            psn: '',
+            nintendo: '',
+            steam: '',
+            discord: '',
+            other: ''
+        },
         error: null
     }
 
@@ -45,7 +56,15 @@ export default class Profile extends React.Component {
             lfm_in: user.lfm_in,
             bio: user.bio,
             platforms: user.platforms,
-            genres: user.genres
+            genres: user.genres,
+            gamer_tags: {
+              xbox: user.xbox,
+              psn: user.psn,
+              nintendo: user.nintendo,
+              steam: user.steam,
+              discord: user.discord,
+              other: user.other
+            }
          }))
          .catch(error => this.setState({error: error.message}))
     }
@@ -63,7 +82,13 @@ export default class Profile extends React.Component {
             lfm_in: this.state.lfm_in,
             bio: this.state.bio,
             platforms: this.state.platforms,
-            genres: this.state.genres
+            genres: this.state.genres,
+            xbox: this.state.gamer_tags.xbox,
+            psn: this.state.gamer_tags.psn,
+            nintendo: this.state.gamer_tags.nintendo,
+            steam: this.state.gamer_tags.steam,
+            discord: this.state.gamer_tags.discord,
+            other: this.state.gamer_tags.other
         }
         
         ProfileService.updateProfile(user_id, userInfo)
@@ -74,14 +99,38 @@ export default class Profile extends React.Component {
                 lfm_in: user.lfm_in,
                 bio: user.bio,
                 platforms: user.platforms,
-                genres: user.genres
+                genres: user.genres,
+                gamer_tags: {
+                    xbox: user.xbox,
+                    psn: user.psn,
+                    nintendo: user.nintendo,
+                    steam: user.steam,
+                    discord: user.discord,
+                    other: user.other
+                  }
             })
         })
         .catch(error => this.setState({error: error.message}))
     }
 
     cancelEdit = () => {
-        this.setState({ isEditing: false })
+        // this.setState({ isEditing: false })
+
+        ProfileService.getAllUserGenres()
+        .then(res => this.setState({ allGenres: res }))
+        .catch(error => this.setState({error: error.message}))
+
+        ProfileService.getProfile(this.context.user_id)
+        .then(user => this.setState({ 
+            avatar: user.avatar,
+            display_name: user.display_name,
+            lfm_in: user.lfm_in,
+            bio: user.bio,
+            platforms: user.platforms,
+            genres: user.genres,
+            isEditing: false,
+         }))
+         .catch(error => this.setState({error: error.message}))
     }
 
     handleLogoutClick = () => {
@@ -98,6 +147,24 @@ export default class Profile extends React.Component {
 
     handleBioChange = event => {
         this.setState({ bio: event.target.value })
+    }
+
+    handleGamerTagsChange = event => {
+        const platform = event.target.name
+        const text = event.target.value
+        // initialize the value of our state
+        const newValue = {
+            xbox: this.state.gamer_tags.xbox,
+            psn: this.state.gamer_tags.psn,
+            nintendo: this.state.gamer_tags.nintendo,
+            steam: this.state.gamer_tags.steam,
+            discord: this.state.gamer_tags.discord,
+            other: this.state.gamer_tags.other
+        }
+        newValue[platform] = text
+        this.setState({ gamer_tags: 
+            newValue
+        })
     }
 
     handleGenresChange = event => {
@@ -158,24 +225,26 @@ export default class Profile extends React.Component {
     render() {
         let allGenres = this.state.allGenres || []
         let userGenres = this.state.genres || []
-        const { avatar, display_name, bio, lfm_in, genres, platforms } = this.state;
-
+        const { avatar, display_name, bio, lfm_in, genres, platforms, gamer_tags } = this.state
         if(!this.state.isEditing) {
             return (
                 <>
                 <section className='profile__icons-container'>
                     <Link to='/swipe' className='profile__Link'>
-                        <img className='profile__cards-icon' src={cardsIcon} alt='swipe-cards-icon' />
+                        <img className='profile__cards-icon' src={rightArrow} alt='swipe-cards-icon' />
                     </Link>
                     <img className='profile__edit-icon' onClick={this.handleEditButton} src={editIcon} alt='edit-icon' />
                 </section>
                 <section className='profile__section'>
+
+                    <div className='profileEditDiv'>
                     <div className='profile__Img-container'>
                         <img src={avatar} 
                         alt='avatar' className='profile__Img' />
                     </div>
-                    <h4 className='profile__card-header'>Display Name</h4>
-                    <span>{display_name}</span>
+                    <span className='profileDisplayName'>{display_name}</span>
+                    </div>
+
                     <h4 className='profile__card-header'>Platforms</h4>
                     <div id='platforms'>
                         {platforms && platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
@@ -183,10 +252,19 @@ export default class Profile extends React.Component {
                         {platforms && platforms.includes("Nintendo") ? <img className='main__nintendo' src={nintendoLogo} alt='Nintendo logo' /> : null}
                         {platforms && platforms.includes("PC") ? <img className='main__PC' src={PC_Logo} alt='PC logo' /> : null}
                     </div>
-                    <h4 className='profile__card-header'>LFM In</h4>
+                    <h4 className='profile__card-header'>LFM</h4>
                     {this.context.generateLfmElements(lfm_in)}
                     <h4 className='profile__card-header'>Genres</h4>                    
                     <span className='profile__genres'>{this.context.generateGenreString(genres)}</span>
+                    <h4 className='profile__card-header'>Gamer Tags</h4>
+                    <div className='profile__gamer_tags-container'>
+                        {gamer_tags.xbox !== '' ? <p className='profile__gamer-tags'>Xbox: {gamer_tags.xbox}</p> : null}
+                        {gamer_tags.psn !== '' ? <p className='profile__gamer-tags'>PSN: {gamer_tags.psn}</p> : null}
+                        {gamer_tags.nintendo !== '' ? <p className='profile__gamer-tags'>Nintendo: {gamer_tags.nintendo}</p> : null}
+                        {gamer_tags.steam !== '' ? <p className='profile__gamer-tags'>Steam: {gamer_tags.steam}</p> : null}
+                        {gamer_tags.discord !== '' ? <p className='profile__gamer-tags'>Discord: {gamer_tags.discord}</p> : null}
+                        {gamer_tags.other !== '' ? <p className='profile__gamer-tags'>Other: {gamer_tags.other}</p> : null}
+                    </div>
                     <h4 className='profile__card-header'>Bio</h4>
                     <span className='profile__bio'>{bio}</span>
                 </section>
@@ -204,14 +282,16 @@ export default class Profile extends React.Component {
                 <section className='profile__ImgEdit-container'>
                     <img src={avatar} 
                     alt='avatar' className='profile__ImgEdit' />
+                    <div className='imageEditInput'>
                     <input type='file' onChange={this.avatarChangedHandler} />
                     <button className='profile__ImgEdit-submit' onClick={this.avatarUploadHandler}>Upload</button>
+                    </div>
                 </section>
                 <form className='editForm' name='editForm' onSubmit={this.saveEdit}>
                     <label htmlFor='display-name'>Display Name</label>
                     <input type='text' name='display-name' onChange={this.handleDisplayNameChange}
                     id='display-name' defaultValue={display_name} />
-                    <label htmlFor='lfm'>LFM In (Max 3, Separated by ",")</label>
+                    <label htmlFor='lfm'>LFM</label>
                     <textarea rows='7' cols='40' name='lfm' onChange={this.handleLookingForChange}
                     id='lfm' defaultValue={lfm_in} />
                     <label htmlFor='platforms'> Platforms</label>
@@ -224,7 +304,7 @@ export default class Profile extends React.Component {
                             {userGenres.map((item, index) => 
                                 <span key={index} className='editGenre' id={item} onClick={(item) => this.genreToDelete(item)}>
                                     <label className='editGenreLabel'>{item}</label>
-                                    <svg className='editGenreButton' xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#666" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                    <svg className='editGenreButton' xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#f00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                         <line x1="20" y1="2" x2="2" y2="20"/>
                                         <line x1="2" y1="2" x2="20" y2="20"/>
                                     </svg>
@@ -238,6 +318,16 @@ export default class Profile extends React.Component {
                                 : <option className='genreSelectItem' key={index} value={item.genre}>{item.genre}</option>)}
                             </select>
                         </div>
+                        
+                    <h4 className='profile__gamer-tags-header'>Gamer Tags</h4>
+                    {Object.entries(gamer_tags).map((item, idx) => {
+                        return <GamerTag 
+                            key={idx}
+                            name={item[0]}
+                            defaultVal={item[1]}
+                            handleChange={this.handleGamerTagsChange}
+                            />
+                    })}
                     <label htmlFor='bio'>Bio (Max 250 chars.)</label>
                     <textarea rows='7' cols='40' name='bio' onChange={this.handleBioChange}
                     id='bio' defaultValue={bio} />

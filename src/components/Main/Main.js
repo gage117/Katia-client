@@ -12,9 +12,10 @@ import xboxLogo from '../../images/xbox_logo_png.png'
 import checkmarkSVG from '../../images/checkmark-circle-2.svg'
 import x_markSVG from '../../images/x-circle.svg'
 import down_caretSVG from '../../images/solid_caret-down.svg'
-import Queue from '../../Utils/Queue';
+import Queue from '../../Utils/Queue'
 import { Swipeable } from 'react-swipeable'
 import { MyComponent } from './mainAnimate'
+import chatBlack from '../../images/chatblack.svg'
 
 
 export default class MainPage extends React.Component {
@@ -79,7 +80,7 @@ export default class MainPage extends React.Component {
             <>
             <Swipeable {...handlers}>
                 <MyComponent>
-                <li className='main__Swipe-User' onClick={this.toggleExpanded}>
+                <div className='main__Swipe-User' onClick={this.toggleExpanded}>
                     <div className='minViewInfo'>
                     {this.state.expanded ? (<img src={user.avatar} alt='avatar' 
                     className='main__Image main__hidden-img' />) : 
@@ -111,7 +112,7 @@ export default class MainPage extends React.Component {
                     <div className='main__caret-container'>
                         <input className={`main__down-caret${this.state.expanded ? ' reverse' : ''}`} type="image" src={down_caretSVG} alt='down-caret' />
                     </div>
-                </li>
+                </div>
                 </MyComponent>
             </Swipeable>
             <div className='main__Second-Nav'>
@@ -124,9 +125,9 @@ export default class MainPage extends React.Component {
 
     generateNullCard = () => {
         return (
-            <li className='main__Swipe-User-null'>
+            <div className='main__Swipe-User-null'>
                 <h4 className='main__card-null'>You've reached the end of the user queue! While you're waiting for potential matches, you may find use in this <a href='https://store.steampowered.com/tags/en/Singleplayer/'>list of games.</a></h4>
-            </li>
+            </div>
         )
     }
 
@@ -135,7 +136,9 @@ export default class MainPage extends React.Component {
 
         if(queue == null) {
             return (
-                <div className='loading'>loading</div>
+                <div className="lds-roller"><div></div><div></div>
+                <div></div><div></div><div></div><div>
+                </div><div></div><div></div></div>
             )
         }
 
@@ -148,7 +151,7 @@ export default class MainPage extends React.Component {
                         <img className='main__profile-button' src={userSVG} alt='profile' />
                     </Link>
                     <Link to='/matches'>
-                        <img className='main__contacts-button' src={contactsSVG} alt='contacts' />
+                        <img className='main__contacts-button' src={chatBlack} alt='contacts' />
                     </Link>
                 </div>
                 {userOne ? this.generateUserCard(userOne) : this.generateNullCard()}
