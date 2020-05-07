@@ -125,7 +125,6 @@ export class UserProvider extends Component {
       user: this.state.user,
       socket: this.state.socket,
       error: this.state.error,
-      user: this.state.user,
       setUser: this.setUser,
       clearUser: this.clearUser,
       setError: this.setError,

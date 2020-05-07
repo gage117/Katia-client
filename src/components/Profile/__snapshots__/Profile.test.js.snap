@@ -6,14 +6,13 @@ Array [
     className="profile__icons-container"
   >
     <a
-      className="profile__Link"
       href="/swipe"
       onClick={[Function]}
     >
       <img
         alt="swipe-cards-icon"
         className="profile__cards-icon"
-        src="right-arrow.svg"
+        src="cards.png"
       />
     </a>
     <img
@@ -27,19 +26,19 @@ Array [
     className="profile__section"
   >
     <div
-      className="profileEditDiv"
+      className="profile__img-name-div"
     >
       <div
-        className="profile__Img-container"
+        className="profile__img-container"
       >
         <img
           alt="avatar"
-          className="profile__Img"
+          className="profile__img"
           src=""
         />
       </div>
       <span
-        className="profileDisplayName"
+        className="profile__displayName"
       >
         
       </span>
@@ -95,7 +94,7 @@ Array [
     className="logoutLink-container"
   >
     <a
-      className="logoutLink"
+      className="lp__button"
       href="/login"
       onClick={[Function]}
     >
