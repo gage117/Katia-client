@@ -30,13 +30,13 @@ export default class Matches extends React.Component {
     }
 
     toggleExpanded = (event) => {
-        return event.currentTarget.getElementsByClassName('match__info')[0].classList.toggle('hidden')
+        return event.currentTarget.getElementsByClassName('matches__info')[0].classList.toggle('hidden')
     }
 
     render() {
         let users = this.state.users || []
+        const gamerTagPlatforms = ['Xbox', 'PSN', 'Nintendo', 'Steam', 'Discord', 'Other']
 
-        console.log(this.state)
         return (
             <>
             <div className='matches__icons-container'>
@@ -64,14 +64,23 @@ export default class Matches extends React.Component {
                         {user.platforms.includes("Nintendo") ? <img className='match__nintendo' src={nintendoLogo} alt='Nintendo logo' /> : null}
                         {user.platforms.includes("PC") ? <img className='match__PC' src={PC_Logo} alt='PC logo' /> : null}
                     </div>
-                    <h4 className='match__card-header'>LFM In</h4>
 
+                    <h4 className='matches__card-header'>LFM In</h4>
                     {this.context.generateLfmElements(user.lfm_in)}
 
-                    <h4 className='match__card-header'>Genres</h4>
-                    <p className='match__genres'>{this.context.generateGenreString(user.genres)}</p>
-                    <h4 className='match__card-header'>Bio</h4>
-                    <p className='match__bio'>{user.bio}</p>
+                    <h4 className='matches__card-header'>Genres</h4>
+                    <p className='matches__genres'>{this.context.generateGenreString(user.genres)}</p>
+
+                    <h4 className='matches__card-header'>Gamer Tags</h4>
+                    {gamerTagPlatforms.map(platform => {
+                        // If the user has a gamer tag for that platform display it
+                        if(user[platform.toLowerCase()] !== '') {
+                            return <p className='matches__gamer-tags'>{platform + ': ' + user[platform.toLowerCase()]}</p>
+                        }
+                    })}
+                    
+                    <h4 className='matches__card-header'>Bio</h4>
+                    <p className='matches__bio'>{user.bio}</p>
                 </section>
                 </li>)}
             </ul>
