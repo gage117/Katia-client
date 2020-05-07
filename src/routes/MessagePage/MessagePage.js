@@ -8,6 +8,7 @@ import Chat from '../../components/Chat/Chat';
 class MessagePage extends Component {
   state = { 
     messages: [],
+    conversation_id: -1,
     user: null,
     partner: null
   }
@@ -35,13 +36,18 @@ class MessagePage extends Component {
 
   handleSocketListeners = () => {
     socket
+      .on('conversationId', conversation_id => {
+        this.setState({ conversation_id });
+      })
       .on('priorMessages', messages => {
         this.setState({ messages })
       })
       .on('incomingMessage', message => {
-        let { messages } = this.state
-        messages.push(message)
-        this.setState({ messages })
+        if(message.conversation_id === this.state.conversation_id) {
+          let { messages } = this.state
+          messages.push(message)
+          this.setState({ messages })
+        }
       });
   }
 
