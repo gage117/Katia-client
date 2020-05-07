@@ -2,58 +2,65 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 2vmax 0 1vmax;
-    height: 10vmax;
-    flex-direction: row-reverse;
+    padding: 2vh 0 2vh;
+    height: 12vh;
+    max-height: 12.6rem; 
+    width: 85%;
+    margin: 0 auto;
 }
 
 .profile__cards-icon {
-    height: 4.5vmax;
-    margin-top: 12px;
+    height: 8vh;
+    max-height: 8rem;
 }
 
 .profile__edit-icon {
-    height: 7vmax;
+    height: 8vh;
+    max-height: 8rem;
 }
 
 .profile__edit-icon:hover {
     cursor: pointer;
 }
 
-.profile__Img-container {
-    height: 30vmax;
-    /* background-color: lightgray; */
-    border-radius: 1vmax;
-    margin: 1vmax 0 2vmax;
-    padding: 0 2vmax;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-}
-
-.profile__Img {
-    display: block;
-    width: auto;
-    height: 26vmax;
-    border-radius: 3.5vh;
-}
-
-/* fix this */
 .profile__section {
+    position: relative;
     display: flex;
     flex-direction: column;
     justify-content: center;
     align-items: center;
-
-    border: 1px solid lightgrey;
-    max-width: 90%;
+    border: .5vmax solid lightgrey;
+    max-width: 85%;
     margin: 0 auto;
-    border-radius: 43px;
+    border-radius: 2.5vmax;
     background-color: white;
 }
 
 .profile__section > * {
     font-size: 3.5vmax;
+}
+
+.profile__img-name-div {
+    width: calc(100% + 1vmax);
+    margin-top: -.5vmax;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    border-radius: 2.5vmax;
+    background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+}
+
+.profile__img-container {
+    max-width: 90%;
+}
+
+.profile__img {
+    display: block;
+    width: auto;
+    height: 26vmax;
+    max-height: 28rem;
+    border-radius: 2.5vmax;
+    margin: 1.5vmax 0 0;
 }
 
 .profile__card-header {
@@ -64,10 +71,9 @@
     font-size: 3.5vmax;
     font-weight: bold;
     margin: 1vmax 0;
-
     text-align: center;
     border: none;
-    border-bottom: 3px solid black;
+    border-bottom: .3rem solid black;
     width: 60%;
 }
 
@@ -78,79 +84,78 @@
 .profile__bio {
     width: 90%;
     text-align: center;
-    margin-bottom: 5px;
+    margin-bottom: 1vmax;
 }
 
 .logoutLink-container {
-    width: 100%;
+    display: flex;
+    justify-content: center;
     padding: 1.5vmax 0;
 }
 
-.logoutLink {
-    display: block;
-    width: 15vmax;
-    font-size: 3.5vmax;
-    border: .25vmax solid black;
-    color: black;
-    border-radius: 6px;
-    padding: .5vmax 0;
-    margin: auto;
-    text-align: center;
-
-    background-color: red;
-    color: white;
-    border-color: red;
-    transition-duration: 0.4s;
-}
-
-.editButton {
-    display: block;
+.logoutLink-container > * {
+    font-size: 3vmax;
     margin: 0 auto;
-    padding: 1vmax;
 }
 
-.editForm {
+.profile__editForm {
     display: flex;
     flex-direction: column;
     justify-content: center;
-    width: 100%;
+    width: 80%;
     margin: 0 auto;
     padding-top: 1.7vmax;
 }
 
-.editForm > label, .profile__gamer-tags-header {
+.profile__editCancelSubmit-div {
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: .5vh 0;
+    height: 11vh;
+}
+
+.profile__editCancel {
+    height: 10vh;
+}
+
+.profile__editCancel:hover {
+    cursor: pointer;
+}
+
+.profile__editSubmit {
+    height: 10vh;
+}
+
+.profile__editSubmit:hover {
+    cursor: pointer;
+}
+
+.profile__editForm > label, .profile__gamer-tags-header {
     background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
     padding: .7vmax 1.5vmin;
     font-size: 3vmax;
     font-weight: bold;
     height: 4.5vmax;
     text-align: center;
-    width: 80%;
-    margin: 35px auto;
-    border-radius: 8px;
+    width: 100%;
+    margin: 3.5rem auto;
+    border-radius: .8vmax;
     color: white;
 }
 
 #display-name {
-    /* width: 50%;
-    height: 4.5vmax;
-    font-size: 3vmax;
-    padding-left: 1.5vmin;
-    margin: 0 auto;
-    text-align: center;
-    border: 1px solid black */
-
     font-size: 3vmax;
     padding: .5vmax 0 0 1.5vmin;
     height: 7vmax;
     border: .08rem solid gray;
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
     text-align: center;
-    border-radius: 8px;
+    border-radius: .8vmax;
 }
 
-.editForm > textarea {
+.profile__editForm > textarea {
     resize: none;
 }
 
@@ -159,18 +164,17 @@
     padding: .5vmax 0 0 1.5vmin;
     height: 10vmax;
     border: .08rem solid gray;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
     border-radius: 8px;
 }
 
 #platforms {
-    height: 8.8vmax;
     display: flex;
     justify-content: space-around;
     margin: 0;
     padding: 1.4vmax 0;
-    width: 80%;
+    width: 100%;
     margin: 0 auto;
 }
 
@@ -186,14 +190,17 @@
     padding: .5vmax 0 0 1.5vmin;
     height: 18vmax;
     border: .08rem solid gray;
-    max-width: 80%;
+    max-width: 100%;
     margin: 0px auto 10px auto;
     border-radius: 8px;
 }
 
 .profile__ImgEdit-container {
-    padding-top: 1vmax;
-    margin-top: 20px;
+    background-color: gray;
+
+    padding: 1vmax;
+    margin: 2rem auto;
+    width: 100%;
 }
 
 .profile__ImgEdit {
@@ -204,7 +211,7 @@
     border-radius: .5rem;
 }
 
-.editGenreList {
+.profile__editGenreList {
     display: flex;
     align-items: center;
     flex-wrap: wrap;
@@ -213,7 +220,7 @@
     margin: 0 auto;
 }
 
-.editGenre {
+.profile__editGenre {
     display: inline-flex;
     align-items: center;
     white-space: nowrap;
@@ -224,12 +231,12 @@
     margin: .75vmax;
 }
 
-.editGenreLabel {
+.profile__editGenreLabel {
     font-size: 2.6vmax;
     font-weight: 600;
 }
 
-.editGenreButton {
+.profile__editGenreButton {
     display: inline-block;
     margin: 0 .75vmax 0 .6vmax;
     padding-bottom: .2vmax;
@@ -237,18 +244,18 @@
     width: 1.8vmax;
 }
 
-.editGenre:hover {
+.profile__editGenre:hover {
     background-color: #d0d0d0;
 }
 
-.editGenre:hover > .editGenreButton {
+.profile__editGenre:hover > .profile__editGenreButton {
     stroke: rgb(224, 0, 0);
     width: 2.1vmax;
     margin: 0 .6vmax 0 .45vmax;
     stroke-width: 2.5;
 }
 
-.genreSelect {
+.profile__genreSelect {
     font-size: 2.6vmax;
     font-weight: 600;
     background-color: rgb(19, 93, 177);
@@ -260,60 +267,66 @@
     color: white;
 }
 
-.genreSelectItem {
+.profile__genreSelectItem {
     border: 1px solid #e0e0e0;
     font-size: 2.6vmax;
     font-weight: 600;
 }
 
-.editCancelSubmit-div {
-    display: flex;
-    justify-content: space-around;
-    align-items: center;
-    padding: .5vmax 0;
-    height: 11vmax;
-}
-
-.editCancel {
-    height: 10vmax;
-}
-
-.editCancel:hover {
-    cursor: pointer;
-}
-
-.editSubmit {
-    height: 10vmax;
-}
-
-.editSubmit:hover {
-    cursor: pointer;
-}
-
-.profileEditDiv {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    width: 100%;
-    border: 1px solid lightgrey;
-    border-radius: 40px;
-    /* background: ; */
-    background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
-}
-
-.profileDisplayName {
+.profile__displayName {
     color: white;
     padding: 10px;
 }
 
-.displayName {
+.profile__displayName {
     color: white;
     border-color: white;
 }
 
-.imageEditInput {
+.profile__imageEditInput {
     display: flex;
     align-items: center;
     justify-content: space-evenly;
-    margin-top: 20px;
+    width: 80%;
+    margin: 2rem auto 0;
+}
+
+@media screen and (min-width: 600px) {
+    .profile__icons-container {
+        max-width: 70%;
+    }
+
+    .profile__section {
+        max-width: 70%;
+    }
+
+    .profile__section > * {
+        font-size: 3vmax;
+    }
+}
+
+@media screen and (min-width: 800px) {
+    .profile__editForm {
+        width: 60%;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .profile__icons-container {
+        max-width: 55%;
+    }
+
+    .profile__section {
+        max-width: 55%;
+    }
+
+    .profile__section > * {
+        font-size: 2.5vmax;
+    }
+}
+
+@media screen and (min-width: 950px) {
+    .profile__editForm {
+        width: 50%
+    }
 }

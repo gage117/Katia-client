@@ -17,32 +17,15 @@
   margin-top: 1.5rem;
 }
 
-.Login__submit-button {
-  width: 7.5rem;
-  margin: 20px auto;
-  border-radius: 4px;
-  background-color: rgb(0,204,0);
-  color: white;
-  border-color: rgb(0,204,0);
-  transition-duration: 0.4s;
-}
-
-.Login__submit-button:hover {
-  background-color: rgb(0,204,0);
-}
-
 .Login__signup-link {
-  width: 7.5rem;
-  border: none;
-  background: none;
   font-weight: bolder;
-  color: rgb(0,204,0);
+  color: rgb(48, 100, 153);
   cursor: pointer;
-  font-size: 1.8rem;
-  transition-duration: 0.5ms;
+  font-size: 2.25rem;
   margin: 0 auto;
 }
 
 .Login__or {
+  font-size: 2rem;
   margin: .75rem 0;
 }

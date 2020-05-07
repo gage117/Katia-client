@@ -33,16 +33,16 @@
 }
 
 .lp__button {
-  display: block;
-  font-size: 1.8rem;
-  padding: .8rem;
+  display: inline-block;
+  font-size: 2rem;
+  font-weight: bold;
+  padding: .8rem 2rem;
   text-decoration: none;
   text-align: center;
-  width: 7.5rem;
   border-radius: .5rem;
-  background-color: rgb(0,204,0);
+  background-color: rgb(48, 100, 153); /* Green: rgb(0,204,0) */
   color: white;
-  border-color: rgb(0,204,0);
+  border-color: rgb(48, 100, 153);
   border-width: 0;
   transition-duration: 0.2s;
 }
@@ -60,7 +60,7 @@
   font-size: 4rem;
   font-weight: bold;
   text-decoration: none;
-  background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
+  background: linear-gradient(to right, rgb(48, 207, 208) 0%, rgb(51, 8, 103) 100%);
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;

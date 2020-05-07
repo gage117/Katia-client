@@ -8,7 +8,7 @@ import './Chat.css';
 
 class Chat extends Component {
   state = {
-    message: ''
+    message: '',
   }
   
   static contextType = UserContext;
