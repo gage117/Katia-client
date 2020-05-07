@@ -2,41 +2,42 @@
 
 exports[`<LandingPage /> renders the UI as expected 1`] = `
 <main
-  id="lp_main-flex"
+  id="lp__main-flex"
 >
   <a
-    className="lp_login lp_button"
+    className="lp__login lp__button"
     href="/login"
     onClick={[Function]}
   >
     Login
   </a>
   <div
-    id="Landing_Page__container"
+    id="lp__container"
   >
     <h1
-      className="lp_header"
+      className="lp__logoContainer"
     >
-      Project Manhattan
+      <a
+        className="lp__lp-link"
+        href="/"
+        onClick={[Function]}
+      >
+        Katia
+      </a>
     </h1>
     <hr />
     <h2
-      className="lp_header"
+      className="lp__header"
     >
-      Find new teammates
+      Find new teammates. Squad up.
     </h2>
-    <h4
-      className="lp_header"
+    <p
+      className="lp__about-para"
     >
-      who own the platforms you own
-    </h4>
-    <h4
-      className="lp_header lp_last-header"
-    >
-      and play the games you play
-    </h4>
+      Katia is a social media application made for gamers by gamers. Quickly and easily find others who share the same games and platforms as you.
+    </p>
     <a
-      className="lp_signup lp_button"
+      className="lp__button lp__button-margin"
       href="/signup"
       onClick={[Function]}
     >
