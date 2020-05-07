@@ -4,8 +4,6 @@ exports[`<MainPage /> renders the UI as expected 1`] = `
 <main>
   <div
     className="loading"
-  >
-    loading
-  </div>
+  />
 </main>
 `;

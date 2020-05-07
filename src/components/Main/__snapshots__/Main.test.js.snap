@@ -3,7 +3,5 @@
 exports[`<Main /> renders the UI as expected 1`] = `
 <div
   className="loading"
->
-  loading
-</div>
+/>
 `;
