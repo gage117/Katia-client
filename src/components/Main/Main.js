@@ -37,6 +37,24 @@ export default class MainPage extends React.Component {
                 this.setState({ queue });
             })
             .catch(error => this.setState({error: error.message}));
+
+        document.addEventListener('keydown', (e) => {
+            if(e.keyCode === 37) {
+                this.swipeLeft();
+            } else if(e.keyCode === 39) {
+                this.swipeRight();
+            }
+        }, false);
+    }
+
+    componentWillUnmount() {
+        document.removeEventListener('keydown', (e) => {
+            if(e.keyCode === 37) {
+                this.swipeLeft();
+            } else if(e.keyCode === 39) {
+                this.swipeRight();
+            }
+        }, false);
     }
 
     toggleExpanded = () => {
@@ -46,13 +64,15 @@ export default class MainPage extends React.Component {
     swipeLeft = () => {
         const { queue } = this.state;
         
-        const rejection = queue.dequeue()
+        const rejection = queue.dequeue();
 
-        SwipeService.addRejection(this.context.user_id, rejection.id)
-        .then(() => {
-            this.setState({ queue, expanded: false })
-        })
-        .catch(error => this.setState({ error }))
+        if(rejection.id) {
+            SwipeService.addRejection(this.context.user_id, rejection.id)
+                .then(() => {
+                    this.setState({ queue, expanded: false })
+                })
+                .catch(error => this.setState({ error }))
+        }
     }
 
     swipeRight = () => {
@@ -60,11 +80,13 @@ export default class MainPage extends React.Component {
 
         const match = queue.dequeue();
 
-        SwipeService.addMatch(this.context.user_id, match.id)
-            .then(() => {
-                this.setState({ queue, expanded: false });
-            })
-            .catch(error => this.setState({error}));
+        if(match.id) {
+            SwipeService.addMatch(this.context.user_id, match.id)
+                .then(() => {
+                    this.setState({ queue, expanded: false });
+                })
+                .catch(error => this.setState({error}));
+        }
     }
 
     generateUserCard = (user) => {
