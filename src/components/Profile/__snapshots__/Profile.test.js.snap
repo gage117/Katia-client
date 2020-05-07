@@ -75,6 +75,14 @@ Array [
     <h4
       className="profile__card-header"
     >
+      Gamer Tags
+    </h4>
+    <div
+      className="profile__gamer_tags-container"
+    />
+    <h4
+      className="profile__card-header"
+    >
       Bio
     </h4>
     <span

@@ -30,13 +30,13 @@ export default class Matches extends React.Component {
     }
 
     toggleExpanded = (event) => {
-        return event.currentTarget.getElementsByClassName('match__info')[0].classList.toggle('hidden')
+        return event.currentTarget.getElementsByClassName('matches__info')[0].classList.toggle('hidden')
     }
 
     render() {
         let users = this.state.users || []
+        const gamerTagPlatforms = ['Xbox', 'PSN', 'Nintendo', 'Steam', 'Discord', 'Other']
 
-        console.log(this.state)
         return (
             <>
             <div className='matches__icons-container'>
@@ -48,28 +48,38 @@ export default class Matches extends React.Component {
                 <h3 className='matches__header'>Matches</h3>
             </header>
             <ul className='matches__ul'>
-                {users.map(user => <li key={user.user_id} className='match__li' onClick={this.toggleExpanded}>
-                <h4 className='match__display-name'>{user.display_name}</h4>
-                <img src={user.avatar} alt='avatar' className='match__avatar'></img>
+                {users.map(user => <li key={user.user_id} className='matches__li' onClick={this.toggleExpanded}>
+                <h4 className='matches__display-name'>{user.display_name}</h4>
+                <img src={user.avatar} alt='avatar' className='matches__avatar'></img>
                 <Link to={`/chat/${user.user_id}`} className='matches__Link'>
                     <img className='matches__mail-icon' src={mail_icon} alt='chat-icon' />
                 </Link>
-                <section className='match__info hidden'>
-                    <h4 className='match__card-header hidden1'>Platforms</h4>
-                    <div className='match__platforms'>
-                        {user.platforms.includes("Xbox") ? <img className='match__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
-                        {user.platforms.includes("PlayStation") ? <img className='match__playstation' src={playstationLogo} alt='Playstation logo' /> : null}
-                        {user.platforms.includes("Nintendo") ? <img className='match__nintendo' src={nintendoLogo} alt='Nintendo logo' /> : null}
-                        {user.platforms.includes("PC") ? <img className='match__PC' src={PC_Logo} alt='PC logo' /> : null}
-                    </div>
-                    <h4 className='match__card-header'>LFM In</h4>
+                <section className='matches__info hidden'>
 
+                    <h4 className='matches__card-header hidden1'>Platforms</h4>
+                    <div className='matches__platforms'>
+                        {user.platforms.includes("Xbox") ? <img className='matches__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
+                        {user.platforms.includes("PlayStation") ? <img className='matches__playstation' src={playstationLogo} alt='Playstation logo' /> : null}
+                        {user.platforms.includes("Nintendo") ? <img className='matches__nintendo' src={nintendoLogo} alt='Nintendo logo' /> : null}
+                        {user.platforms.includes("PC") ? <img className='matches__PC' src={PC_Logo} alt='PC logo' /> : null}
+                    </div>
+
+                    <h4 className='matches__card-header'>LFM In</h4>
                     {this.context.generateLfmElements(user.lfm_in)}
 
-                    <h4 className='match__card-header'>Genres</h4>
-                    <p className='match__genres'>{this.context.generateGenreString(user.genres)}</p>
-                    <h4 className='match__card-header'>Bio</h4>
-                    <p className='match__bio'>{user.bio}</p>
+                    <h4 className='matches__card-header'>Genres</h4>
+                    <p className='matches__genres'>{this.context.generateGenreString(user.genres)}</p>
+
+                    <h4 className='matches__card-header'>Gamer Tags</h4>
+                    {gamerTagPlatforms.map(platform => {
+                        // If the user has a gamer tag for that platform display it
+                        if(user[platform.toLowerCase()] !== '') {
+                            return <p className='matches__gamer-tags'>{platform + ': ' + user[platform.toLowerCase()]}</p>
+                        }
+                    })}
+                    
+                    <h4 className='matches__card-header'>Bio</h4>
+                    <p className='matches__bio'>{user.bio}</p>
                 </section>
                 </li>)}
             </ul>

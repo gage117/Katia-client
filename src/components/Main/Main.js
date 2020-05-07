@@ -12,7 +12,7 @@ import xboxLogo from '../../images/xbox_logo_png.png'
 import checkmarkSVG from '../../images/checkmark-circle-2.svg'
 import x_markSVG from '../../images/x-circle.svg'
 import down_caretSVG from '../../images/solid_caret-down.svg'
-import Queue from '../../Utils/Queue';
+import Queue from '../../Utils/Queue'
 import { Swipeable } from 'react-swipeable'
 import { MyComponent } from './mainAnimate'
 
