@@ -2,15 +2,19 @@
 
 exports[`<SignupPage /> renders the UI as expected 1`] = `
 <main
-  id="lp_main-flex"
+  id="lp__main-flex"
 >
-  <a
-    className="lp_lp-link"
-    href="/"
-    onClick={[Function]}
+  <div
+    className="lp__logoContainer"
   >
-    Project Manhattan
-  </a>
+    <a
+      className="lp__lp-link"
+      href="/"
+      onClick={[Function]}
+    >
+      Katia
+    </a>
+  </div>
   <section
     className="Signup__container"
   >
@@ -27,15 +31,16 @@ exports[`<SignupPage /> renders the UI as expected 1`] = `
         role="alert"
       />
       <div
-        className="Signup__email-div lp_input-div"
+        className="Signup__email-div lp__input-div"
       >
         <label
+          className="lp__label"
           htmlFor="Signup__email"
         >
           Email
         </label>
         <input
-          className="lp_input"
+          className="lp__input"
           id="Signup__email"
           name="email"
           required={true}
@@ -43,15 +48,16 @@ exports[`<SignupPage /> renders the UI as expected 1`] = `
         />
       </div>
       <div
-        className="Signup__display_name-div lp_input-div"
+        className="Signup__display_name-div lp__input-div"
       >
         <label
+          className="lp__label"
           htmlFor="Signup__display_name"
         >
           Display Name
         </label>
         <input
-          className="lp_input"
+          className="lp__input"
           id="Signup__display_name"
           name="display_name"
           required={true}
@@ -59,15 +65,16 @@ exports[`<SignupPage /> renders the UI as expected 1`] = `
         />
       </div>
       <div
-        className="Signup__password-div lp_input-div"
+        className="Signup__password-div lp__input-div"
       >
         <label
+          className="lp__label"
           htmlFor="Signup__password"
         >
           Password
         </label>
         <input
-          className="lp_input"
+          className="lp__input"
           id="Signup__password"
           name="password"
           required={true}
@@ -75,37 +82,38 @@ exports[`<SignupPage /> renders the UI as expected 1`] = `
         />
       </div>
       <div
-        className="Signup__confirm_password-div lp_input-div"
+        className="Signup__confirm_password-div lp__input-div"
       >
         <label
+          className="lp__label"
           htmlFor="Signup__confirm_password"
         >
           Confirm Password
         </label>
         <input
-          className="lp_input"
+          className="lp__input"
           id="Signup__confirm_password"
           name="confirm_password"
           required={true}
           type="password"
         />
       </div>
+      <button
+        className="lp__button lp__button-margin"
+        type="submit"
+      >
+        Submit
+      </button>
       <div
         className="Signup__submit-button-div"
       >
-        <button
-          className="Signup__submit-button lp_button"
-          type="submit"
-        >
-          Sign Up
-        </button>
         <p
           className="Signup__or"
         >
-          or
+          Already have an account? 
         </p>
         <a
-          className="Signup__login-link lp_button"
+          className="Signup__login-link"
           href="/login"
           onClick={[Function]}
         >
