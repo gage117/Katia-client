@@ -36,7 +36,7 @@
 
     - Messaging: Socket.io
 
-    - other: AWS S3 Buckets
+    - Image uploads: AWS S3 Buckets
 
 - Front-end:
 
