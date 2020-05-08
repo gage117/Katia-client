@@ -58,22 +58,20 @@ class Chat extends Component {
           </Link>
           <span className='chat__chatting-with'>{partner.display_name}</span>
         </nav>
-        <section className='chat__chat-container'>  
-          <ul className='chat__message-container'>
-            {messages.length === 0 ? <li className='chat__none'><p className='chat__none-message'>Start the conversation by sending the first message</p></li>
-                : 
-              messages.map(message => {
-                return message.sender_id === user_id ? this.generateUserMessage(user, message) : this.generatePartnerMessage(partner, message)
-            })}
-            <div style={{ float:"left", clear: "both" }}
-                ref={(el) => { this.messagesEnd = el; }}>
-            </div>
-          </ul>
-          <form onSubmit={this.handleSendMessage} className='chat__message-form' style={{backgroundColor: this.context.backgroundColor}}>
-            <textarea className='chat__input' onChange={this.handleMessageChange} onKeyDown={event => {if (event.keyCode === 13) return this.handleSendMessage(event)}} value={this.state.message}/>
-            <img className='chat__send' onClick={this.handleSendMessage} src={send_icon} alt='send'/>
-          </form>
-        </section>
+        <ul className='chat__message-container'>
+          {messages.length === 0 ? <li className='chat__none'><p className='chat__none-message'>Start the conversation by sending the first message</p></li>
+              : 
+            messages.map(message => {
+              return message.sender_id === user_id ? this.generateUserMessage(user, message) : this.generatePartnerMessage(partner, message)
+          })}
+          <div style={{ float:"left", clear: "both" }}
+               ref={(el) => { this.messagesEnd = el; }}>
+          </div>
+        </ul>
+        <form onSubmit={this.handleSendMessage} className='chat__message-form' style={{backgroundColor: this.context.backgroundColor}}>
+          <textarea className='chat__input' onChange={this.handleMessageChange} onKeyDown={event => {if (event.keyCode === 13) return this.handleSendMessage(event)}} value={this.state.message}/>
+          <img className='chat__send' onClick={this.handleSendMessage} src={send_icon} alt='send'/>
+        </form>
       </main>
     );
   }
