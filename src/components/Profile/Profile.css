@@ -100,10 +100,11 @@
     display: flex;
     justify-content: center;
     padding: 1.5vmax 0;
+    margin: 1vmax;
 }
 
 .logoutLink-container > * {
-    font-size: 3vmax;
+    font-size: 3.5vmax;
     margin: 0 auto;
 }
 
