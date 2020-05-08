@@ -21,12 +21,13 @@ export default class MainPage extends React.Component {
     state = {
         queue: null,
         expanded: false,
-        error: null
+        error: null,
+        loading: false,
     }
 
     static contextType = UserContext;
 
-    componentDidMount() {
+    UNSAFE_componentWillMount() {
         SwipeService.getPotentialMatches(this.context.user_id)
             .then(potentialMatches => {
                 const queue = new Queue();
@@ -75,8 +76,8 @@ export default class MainPage extends React.Component {
     }
 
     swipeRight = () => {
+        // this.setState({ loading: true })
         const { queue } = this.state;
-
         const match = queue.dequeue();
 
         if(match.id) {
@@ -87,6 +88,10 @@ export default class MainPage extends React.Component {
                 .catch(error => this.setState({error}));
         }
     }
+
+    // componentWillUnmount() {
+    //     this.setState({loading: false })
+    // }
 
     generateUserCard = (user) => {
         const handlers = {
@@ -118,9 +123,6 @@ export default class MainPage extends React.Component {
                     <h4 className='main__card-header'>LFM</h4>
 
                     {this.context.generateLfmElements(user.lfm_in)}
-
-                    {/* <h4 className='main__card-header'>Genres</h4>
-                    <span className='main__genres'>{this.context.generateGenreString(user.genres)}</span> */}
 
                     {this.state.expanded ? (<>
                     <h4 className='main__card-header'>Genres</h4>
@@ -155,7 +157,7 @@ export default class MainPage extends React.Component {
     render() {
         const { queue } = this.state;
 
-        if(queue == null) {
+        if(queue == null || this.state.loading === true) {
             return (
                 <div className="lds-roller"><div></div><div></div>
                 <div></div><div></div><div></div><div>

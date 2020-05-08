@@ -2,17 +2,13 @@ import React from 'react'
 import './Matches.css'
 import UserContext from '../../Contexts/UserContext'
 import { Link } from 'react-router-dom'
-// import cards_icon from '../../images/cards.png'
 import nintendoLogo from '../../images/nintendo_logo.png'
 import playstationLogo from '../../images/playstation_color_png.png'
 import PC_Logo from '../../images/PC_Keyboard_Mouse_Icon.png'
 import xboxLogo from '../../images/xbox_logo_png.png'
-// import mail_icon from '../../images/mail.svg'
 import MatchesService from '../../services/matches-service'
 import backArrow from '../../images/left-arrow-svgrepo-com.svg'
 import chatBlack from '../../images/chatblack.svg'
-// import singleChat from '../../images/singleChat.svg'
-// import singleChatTwo from '../../images/singleChatTwo.svg'
 
 export default class Matches extends React.Component {
     state = {
@@ -85,9 +81,11 @@ export default class Matches extends React.Component {
                     <p className='matches__genres'>{this.context.generateGenreString(user.genres)}</p>
 
                     <h4 className='matches__card-header'>Gamer Tags</h4>
-                    {gamerTagPlatforms.map(platform => {
+                    {gamerTagPlatforms.map((platform, index) => {
                         // If the user has a gamer tag for that platform display it
-                        return user[platform.toLowerCase()] !== '' && <p className='matches__gamer-tags'>{platform + ': ' + user[platform.toLowerCase()]}</p>
+                        if(user[platform.toLowerCase()] !== '') {
+                            return <p className='matches__gamer-tags' key={index}>{platform + ': ' + user[platform.toLowerCase()]}</p>
+                        }
                     })}
                     
                     <h4 className='matches__card-header'>Bio</h4>

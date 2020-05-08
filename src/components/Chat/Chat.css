@@ -11,6 +11,7 @@
   align-items: center;
   /* background: linear-gradient(to right, #30CFD0 0%, #330867 100%); */
   border: none;
+  box-shadow: 0px 8px 8px #888888;
 }
 
 .chatNavBorder {
