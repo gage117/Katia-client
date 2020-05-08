@@ -182,7 +182,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    border: 1px solid black;
+    border: .1rem solid gray;
+    box-shadow: .5rem 1rem .8rem #888888;
     max-width: 80%;
     margin: 0 auto;
     border-radius: 2.5vmax;

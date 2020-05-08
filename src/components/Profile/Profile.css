@@ -4,14 +4,14 @@
     align-items: center;
     padding: 1vmax 0;
     height: 9vmax;
-    max-height: 12.6rem; 
+    max-height: 7rem; 
     width: 85%;
     margin: 0 auto;
 }
 
 .profile__edit-icon {
     height: 7vmax;
-    max-height: 8rem;
+    max-height: 5rem;
 }
 
 .profile__edit-icon:hover {
@@ -20,7 +20,7 @@
 
 .profile__back-icon {
     height: 7vmax;
-    max-height: 8rem;
+    max-height: 5rem;
 }
 
 .profile__section {
@@ -82,7 +82,7 @@
     margin: 1vmax 0;
     text-align: center;
     border: none;
-    border-bottom: .3rem solid black;
+    border-bottom: .3rem solid lightgray;
     width: 60%;
 }
 
@@ -179,7 +179,6 @@
 }
 
 .profile__editForm > label, .profile__gamer-tags-header {
-    /* background: linear-gradient(to right, #30CFD0 0%, #330867 100%); */
     padding: .2vmax 1.5vmin;
     font-size: 3vmax;
     font-weight: bold;
@@ -187,7 +186,6 @@
     text-align: center;
     width: 70%;
     margin: 3.5rem auto;
-    /* border-radius: .8vmax; */
     color: black;
     border: none;
     border-bottom: 2px solid lightgrey;
