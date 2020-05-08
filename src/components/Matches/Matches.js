@@ -49,7 +49,7 @@ export default class Matches extends React.Component {
                 <Link to='/swipe' className='matches__Link'>
                     <img className='matches__back-icon' src={backArrow} alt='swipe-back-icon' />
                 </Link>
-                <div className='matches__messages'></div>
+                {/* **Uncomment when adding messages icon when messages component is added** <div className='matches__messages'></div> */}
             </div>
             <header className='matches__header-container'>
                 <div className='headerBorder'></div>
