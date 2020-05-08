@@ -47,8 +47,9 @@ export default class Matches extends React.Component {
             <>
             <div className='matches__icons-container'>
                 <Link to='/swipe' className='matches__Link'>
-                    <img className='matches__cards-icon' src={backArrow} alt='swipe-cards-icon' />
+                    <img className='matches__back-icon' src={backArrow} alt='swipe-back-icon' />
                 </Link>
+                <div className='matches__messages'></div>
             </div>
             <header className='matches__header-container'>
                 <div className='headerBorder'></div>
