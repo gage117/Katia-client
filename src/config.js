@@ -1,6 +1,6 @@
 export default {
-  API_ENDPOINT: 'https://project-manhattan.herokuapp.com/api',
-  TOKEN_KEY: process.env.REACT_APP_TOKEN_KEY,
+  API_ENDPOINT: 'http://localhost:8000/api',
+  TOKEN_KEY: process.env.REACT_APP_TOKEN_KEY || 'im-bad-with-secrets-lol',
   SOCKET_CONNECTION: 'https://project-manhattan.herokuapp.com'
 }
 

@@ -2,17 +2,13 @@ import React from 'react'
 import './Matches.css'
 import UserContext from '../../Contexts/UserContext'
 import { Link } from 'react-router-dom'
-// import cards_icon from '../../images/cards.png'
 import nintendoLogo from '../../images/nintendo_logo.png'
 import playstationLogo from '../../images/playstation_color_png.png'
 import PC_Logo from '../../images/PC_Keyboard_Mouse_Icon.png'
 import xboxLogo from '../../images/xbox_logo_png.png'
-// import mail_icon from '../../images/mail.svg'
 import MatchesService from '../../services/matches-service'
 import backArrow from '../../images/left-arrow-svgrepo-com.svg'
 import chatBlack from '../../images/chatblack.svg'
-// import singleChat from '../../images/singleChat.svg'
-// import singleChatTwo from '../../images/singleChatTwo.svg'
 
 export default class Matches extends React.Component {
     state = {

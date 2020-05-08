@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import UserContext from '../../Contexts/UserContext';
 import send_icon from '../../images/send-icon.svg';
-import back_icon from '../../images/back-arrow.svg';
 import backArrow from '../../images/left-arrow-svgrepo-com.svg'
 import './Chat.css';
 

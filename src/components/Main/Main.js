@@ -4,7 +4,6 @@ import UserContext from '../../Contexts/UserContext'
 import SwipeService from '../../services/swipe-service'
 import { Link } from 'react-router-dom'
 import userSVG from '../../images/user.svg'
-import contactsSVG from '../../images/contacts.svg'
 import nintendoLogo from '../../images/nintendo_logo.png'
 import playstationLogo from '../../images/playstation_color_png.png'
 import PC_Logo from '../../images/PC_Keyboard_Mouse_Icon.png'
@@ -22,12 +21,13 @@ export default class MainPage extends React.Component {
     state = {
         queue: null,
         expanded: false,
-        error: null
+        error: null,
+        loading: false,
     }
 
     static contextType = UserContext;
 
-    componentDidMount() {
+    componentWillMount() {
         SwipeService.getPotentialMatches(this.context.user_id)
             .then(potentialMatches => {
                 const queue = new Queue();
@@ -56,8 +56,8 @@ export default class MainPage extends React.Component {
     }
 
     swipeRight = () => {
+        // this.setState({ loading: true })
         const { queue } = this.state;
-
         const match = queue.dequeue();
 
         SwipeService.addMatch(this.context.user_id, match.id)
@@ -66,6 +66,10 @@ export default class MainPage extends React.Component {
             })
             .catch(error => this.setState({error}));
     }
+
+    // componentWillUnmount() {
+    //     this.setState({loading: false })
+    // }
 
     generateUserCard = (user) => {
         const handlers = {
@@ -97,9 +101,6 @@ export default class MainPage extends React.Component {
                     <h4 className='main__card-header'>LFM</h4>
 
                     {this.context.generateLfmElements(user.lfm_in)}
-
-                    {/* <h4 className='main__card-header'>Genres</h4>
-                    <span className='main__genres'>{this.context.generateGenreString(user.genres)}</span> */}
 
                     {this.state.expanded ? (<>
                     <h4 className='main__card-header'>Genres</h4>
@@ -134,7 +135,7 @@ export default class MainPage extends React.Component {
     render() {
         const { queue } = this.state;
 
-        if(queue == null) {
+        if(queue == null || this.state.loading === true) {
             return (
                 <div className="lds-roller"><div></div><div></div>
                 <div></div><div></div><div></div><div>

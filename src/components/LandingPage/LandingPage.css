@@ -86,3 +86,9 @@
   font-weight: bold;
   text-align: center;
 }
+
+.separator {
+  border: 1px solid lightgrey;
+  width: 60%;
+  margin: 0 auto;
+}

@@ -1,7 +1,6 @@
 import React from 'react'
 import './Profile.css'
 import { Link } from 'react-router-dom'
-import cardsIcon from '../../images/cards.png'
 import editIcon from '../../images/edit-icon.png'
 import nintendoLogo from '../../images/nintendo_logo.png'
 import nintendoLogoGray from '../../images/nintendo_logo_b&w.png'
@@ -16,7 +15,6 @@ import x_checkSVG from '../../images/x-circle.svg'
 import UserContext from '../../Contexts/UserContext'
 import ProfileService from '../../services/profile-service'
 import GamerTag from '../GamerTag/GamerTag'
-import leftArrow from '../../images/left-arrow-svgrepo-com.svg'
 import rightArrow from '../../images/right-arrow.svg'
 
 export default class Profile extends React.Component {
