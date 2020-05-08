@@ -2,8 +2,15 @@
 
 exports[`<Main /> renders the UI as expected 1`] = `
 <div
-  className="loading"
+  className="lds-roller"
 >
-  loading
+  <div />
+  <div />
+  <div />
+  <div />
+  <div />
+  <div />
+  <div />
+  <div />
 </div>
 `;

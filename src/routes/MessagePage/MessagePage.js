@@ -6,6 +6,7 @@ import Chat from '../../components/Chat/Chat';
 class MessagePage extends Component {
   state = { 
     messages: [],
+    conversation_id: -1,
     user: null,
     partner: null
   }
@@ -15,11 +16,13 @@ class MessagePage extends Component {
   componentDidMount() {
     const { socket, user_id } = this.context;
     const { chatPartner } = this.props.match.params;
-    socket.emit('newUser', user_id);
-    socket.emit('chatOpen', { 
-      userId: user_id,
-      receiverId: chatPartner
-    });
+    if (socket) {
+      socket.emit('newUser', user_id);
+      socket.emit('chatOpen', { 
+        userId: user_id,
+        receiverId: chatPartner
+      })
+    };
     this.handleSocketListeners(this.context.user_id, chatPartner);
     this.setUsers()
   }
@@ -36,15 +39,22 @@ class MessagePage extends Component {
 
   handleSocketListeners = () => {
     const { socket } = this.context;
-    socket
-      .on('priorMessages', messages => {
-        this.setState({ messages })
-      })
-      .on('incomingMessage', message => {
-        let { messages } = this.state
-        messages.push(message)
-        this.setState({ messages })
-      });
+    if (socket) {
+      socket
+        .on('conversationId', conversation_id => {
+          this.setState({ conversation_id });
+        })
+        .on('priorMessages', messages => {
+          this.setState({ messages })
+        })
+        .on('incomingMessage', message => {
+          if(message.conversation_id === this.state.conversation_id) {
+            let { messages } = this.state
+            messages.push(message)
+            this.setState({ messages })
+          }
+        });
+    }
   }
 
   setUsers = async () => {
@@ -60,9 +70,9 @@ class MessagePage extends Component {
       );
     } else {
       return (
-        <main className='chat__loading-container'>
-          <p className='chat__loading'>Chat Loading...</p>
-        </main>
+        <div className="lds-roller"><div></div><div></div>
+        <div></div><div></div><div></div><div>
+        </div><div></div><div></div></div>
       )
     }
   }

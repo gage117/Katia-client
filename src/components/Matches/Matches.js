@@ -2,14 +2,22 @@ import React from 'react'
 import './Matches.css'
 import UserContext from '../../Contexts/UserContext'
 import { Link } from 'react-router-dom'
-import cards_icon from '../../images/cards.png'
+// import cards_icon from '../../images/cards.png'
 import nintendoLogo from '../../images/nintendo_logo.png'
 import playstationLogo from '../../images/playstation_color_png.png'
 import PC_Logo from '../../images/PC_Keyboard_Mouse_Icon.png'
 import xboxLogo from '../../images/xbox_logo_png.png'
+<<<<<<< HEAD
 import mail_icon from '../../images/mail.svg'
 import unmatch_icon from '../../images/x-circle.svg';
+=======
+// import mail_icon from '../../images/mail.svg'
+>>>>>>> 1fd0e6ae2c845ff46ee9c057aea9526562d3724b
 import MatchesService from '../../services/matches-service'
+import backArrow from '../../images/left-arrow-svgrepo-com.svg'
+import chatBlack from '../../images/chatblack.svg'
+// import singleChat from '../../images/singleChat.svg'
+// import singleChatTwo from '../../images/singleChatTwo.svg'
 
 export default class Matches extends React.Component {
     state = {
@@ -45,26 +53,41 @@ export default class Matches extends React.Component {
     render() {
         let users = this.state.users || []
         const gamerTagPlatforms = ['Xbox', 'PSN', 'Nintendo', 'Steam', 'Discord', 'Other']
-
+        if (users.length === 0) {
+            return (
+                <div className="lds-roller"><div></div><div></div>
+                <div></div><div></div><div></div><div>
+                </div><div></div><div></div></div>
+            )
+        }
         return (
             <>
             <div className='matches__icons-container'>
                 <Link to='/swipe' className='matches__Link'>
-                    <img className='matches__cards-icon' src={cards_icon} alt='swipe-cards-icon' />
+                    <img className='matches__cards-icon' src={backArrow} alt='swipe-cards-icon' />
                 </Link>
             </div>
             <header className='matches__header-container'>
+                <div className='headerBorder'></div>
                 <h3 className='matches__header'>Matches</h3>
             </header>
+            {this.state.users[0] === 'none' ? <p className='noMatchesPara'>You have no matches.</p> : 
             <ul className='matches__ul'>
                 {users.map(user => <li key={user.user_id} className='matches__li' onClick={this.toggleExpanded}>
+                <div className='matchesStyleDiv'>
                 <h4 className='matches__display-name'>{user.display_name}</h4>
                 <img src={user.avatar} alt='avatar' className='matches__avatar'></img>
+<<<<<<< HEAD
                 <div className='matches__controls'>
                     <Link to={`/chat/${user.user_id}`} className='matches__Link'>
                         <img className='matches__mail-icon' src={mail_icon} alt='chat-icon' />
                     </Link>
                     <img className='matches__unmatch-icon' src={unmatch_icon} alt='unmatch-icon' onClick={(e) => this.handleMatchDelete(e, user.user_id)} />
+=======
+                <Link to={`/chat/${user.user_id}`} className='matches__Link'>
+                    <img className='matches__mail-icon' src={chatBlack} alt='chat-icon' />
+                </Link>
+>>>>>>> 1fd0e6ae2c845ff46ee9c057aea9526562d3724b
                 </div>
                 <section className='matches__info hidden'>
 
@@ -92,7 +115,7 @@ export default class Matches extends React.Component {
                     <p className='matches__bio'>{user.bio}</p>
                 </section>
                 </li>)}
-            </ul>
+            </ul>}
             </>
         )
     }

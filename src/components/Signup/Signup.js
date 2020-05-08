@@ -15,7 +15,7 @@ export default class Signup extends Component {
     ev.preventDefault()
     const { email, display_name, password, confirm_password } = ev.target
     const user = {
-      email: email.value,
+      email: email.value.toLowerCase(),
       display_name: display_name.value,
       password: password.value
     }
@@ -24,7 +24,7 @@ export default class Signup extends Component {
     AuthService.registerUser(user)
       .then(() => {
         AuthService.postLogin({
-          email: email.value,
+          email: email.value.toLowerCase(),
           password: password.value
         })
           .then(res => {
@@ -109,7 +109,7 @@ export default class Signup extends Component {
                 className='lp__input'>
               </input>
             </div>
-            <button className='lp__button lp__button-margin' type='submit'>
+            <button className='blue-button blue-button-margin' type='submit'>
               Submit
             </button>
             <div className='Signup__submit-button-div'>

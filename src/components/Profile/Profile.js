@@ -1,8 +1,7 @@
 import React from 'react'
 import './Profile.css'
 import { Link } from 'react-router-dom'
-import cardsIcon from '../../images/cards.png'
-import editIcon from '../../images/edit-icon.png'
+import editIcon from '../../images/edit-icon.svg'
 import nintendoLogo from '../../images/nintendo_logo.png'
 import nintendoLogoGray from '../../images/nintendo_logo_b&w.png'
 import playstationLogo from '../../images/playstation_color_png.png'
@@ -11,11 +10,12 @@ import PC_Logo from '../../images/PC_Keyboard_Mouse_Icon.png'
 import PC_LogoGray from '../../images/PC_Keyboard_Mouse_Icon_b&w.png'
 import xboxLogo from '../../images/xbox_logo_png.png'
 import xboxLogoGray from '../../images/xbox_logo_b&w_png.png'
-import checkmarkSVG from '../../images/checkmark-circle-2.svg'
-import x_checkSVG from '../../images/x-circle.svg'
+import checkmarkSVG from '../../images/checkmark.svg'
+import xSVG from '../../images/x.svg'
 import UserContext from '../../Contexts/UserContext'
 import ProfileService from '../../services/profile-service'
 import GamerTag from '../GamerTag/GamerTag'
+import rightArrow from '../../images/right-arrow.svg'
 
 export default class Profile extends React.Component {
     static contextType = UserContext
@@ -112,8 +112,6 @@ export default class Profile extends React.Component {
     }
 
     cancelEdit = () => {
-        // this.setState({ isEditing: false })
-
         ProfileService.getAllUserGenres()
         .then(res => this.setState({ allGenres: res }))
         .catch(error => this.setState({error: error.message}))
@@ -224,25 +222,29 @@ export default class Profile extends React.Component {
         let allGenres = this.state.allGenres || []
         let userGenres = this.state.genres || []
         const { avatar, display_name, bio, lfm_in, genres, platforms, gamer_tags } = this.state
-        if(!this.state.isEditing) {
+        if (display_name === '') {
+            return (
+                <div className="lds-roller"><div></div><div></div>
+                <div></div><div></div><div></div><div>
+                </div><div></div><div></div></div>
+            )
+        } else if(!this.state.isEditing) { // Checks isEditing value to conditionally render normal or editing page
             return (
                 <>
                 <section className='profile__icons-container'>
-                    <Link to='/swipe' className='profile__Link'>
-                        <img className='profile__cards-icon' src={cardsIcon} alt='swipe-cards-icon' />
-                    </Link>
                     <img className='profile__edit-icon' onClick={this.handleEditButton} src={editIcon} alt='edit-icon' />
+                    <Link to='/swipe'>
+                        <img className='profile__back-icon' src={rightArrow} alt='swipe-back-icon' />
+                    </Link>
                 </section>
                 <section className='profile__section'>
-
-                    <div className='profileEditDiv'>
-                    <div className='profile__Img-container'>
-                        <img src={avatar} 
-                        alt='avatar' className='profile__Img' />
+                    <div className='profile__img-name-div'>
+                        <div className='profile__img-container'>
+                            <img src={avatar} 
+                            alt='avatar' className='profile__img' />
+                        </div>
+                        <span className='profile__displayName'>{display_name}</span>
                     </div>
-                    <span className='profileDisplayName'>{display_name}</span>
-                    </div>
-
                     <h4 className='profile__card-header'>Platforms</h4>
                     <div id='platforms'>
                         {platforms && platforms.includes("Xbox") ? <img className='main__xbox' src={xboxLogo} alt='Xbox logo' /> : null}
@@ -268,7 +270,7 @@ export default class Profile extends React.Component {
                 </section>
                 <section className='logoutLink-container'>
                     <Link onClick={this.handleLogoutClick} 
-                    to='/login' className='logoutLink'>
+                    to='/login' className='blue-button'>
                     Logout
                     </Link>
                 </section>
@@ -277,15 +279,19 @@ export default class Profile extends React.Component {
         } else if(this.state.isEditing) {
             return (
                 <>
-                <section className='profile__ImgEdit-container'>
-                    <img src={avatar} 
-                    alt='avatar' className='profile__ImgEdit' />
-                    <div className='imageEditInput'>
-                    <input type='file' onChange={this.avatarChangedHandler} />
-                    <button className='profile__ImgEdit-submit' onClick={this.avatarUploadHandler}>Upload</button>
+                <form className='profile__editForm' name='editForm' onSubmit={this.saveEdit}>
+                    <div className='profile__editCancelSubmit-div'>
+                        <img className='profile__editCancel' src={xSVG} alt='cancel-button' onClick={this.cancelEdit} />
+                        <img className='profile__editSubmit' src={checkmarkSVG} alt='submit-button' onClick={this.saveEdit}/>
                     </div>
-                </section>
-                <form className='editForm' name='editForm' onSubmit={this.saveEdit}>
+                    <section className='profile__ImgEdit-container'>
+                        <img src={avatar} 
+                        alt='avatar' className='profile__ImgEdit' />
+                        <div className='profile__imageEditInput'>
+                        <input type='file' className='profile__file-upload' onChange={this.avatarChangedHandler} />
+                        <button className='blue-button profile__ImgEdit-submit' onClick={this.avatarUploadHandler}>Upload</button>
+                        </div>
+                    </section>
                     <label htmlFor='display-name'>Display Name</label>
                     <input type='text' name='display-name' onChange={this.handleDisplayNameChange}
                     id='display-name' defaultValue={display_name} />
@@ -298,22 +304,22 @@ export default class Profile extends React.Component {
                         {this.generateEditPlatforms()}
                     </div>
                     <label htmlFor='genres'>Genres</label>
-                        <div className='editGenreList'>
+                        <div className='profile__editGenreList'>
                             {userGenres.map((item, index) => 
-                                <span key={index} className='editGenre' id={item} onClick={(item) => this.genreToDelete(item)}>
-                                    <label className='editGenreLabel'>{item}</label>
-                                    <svg className='editGenreButton' xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#f00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
+                                <span key={index} className='profile__editGenre' id={item} onClick={(item) => this.genreToDelete(item)}>
+                                    <label className='profile__editGenreLabel'>{item}</label>
+                                    <svg className='profile__editGenreButton' xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#f00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                         <line x1="20" y1="2" x2="2" y2="20"/>
                                         <line x1="2" y1="2" x2="20" y2="20"/>
                                     </svg>
                                 </span>
                             )}
-                            <select className='genreSelect' onChange={this.handleSelectGenre}>
+                            <select className='profile__genreSelect' onChange={this.handleSelectGenre}>
                                 <option value='' style={{display: "none"}}>Choose Genre</option>
                                 {allGenres.map((item, index) => 
                                 userGenres.includes(item.genre) ? 
                                 null 
-                                : <option className='genreSelectItem' key={index} value={item.genre}>{item.genre}</option>)}
+                                : <option className='profile__genreSelectItem' key={index} value={item.genre}>{item.genre}</option>)}
                             </select>
                         </div>
                         
@@ -329,10 +335,6 @@ export default class Profile extends React.Component {
                     <label htmlFor='bio'>Bio (Max 250 chars.)</label>
                     <textarea rows='7' cols='40' name='bio' onChange={this.handleBioChange}
                     id='bio' defaultValue={bio} />
-                    <div className='editCancelSubmit-div'>
-                        <img className='editCancel' src={x_checkSVG} alt='cancel-button' onClick={this.cancelEdit} />
-                        <img className='editSubmit' src={checkmarkSVG} alt='submit-button' onClick={this.saveEdit}/>
-                    </div>
                 </form>
                 </>
             )

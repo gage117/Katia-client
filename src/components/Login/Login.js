@@ -16,7 +16,7 @@ export default class Login extends Component {
     const { email, password } = ev.target
 
     AuthApiService.postLogin({
-      email: email.value,
+      email: email.value.toLowerCase(),
       password: password.value
     })
       .then(res => {
@@ -68,7 +68,7 @@ export default class Login extends Component {
                 className='lp__input'>
               </input>
             </div>
-            <button className='lp__button lp__button-margin' type='submit'>
+            <button className='blue-button blue-button-margin' type='submit'>
                 Login
               </button>
             <div className='Login__submit-button-div'>
