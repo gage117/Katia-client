@@ -1,5 +1,11 @@
 # Katia
 
+# Authors
+- Gage Eide
+- Ron Martin
+- Matthew Wagaman
+- Jose Lopez
+
 # Summary
 - As a user:
 
