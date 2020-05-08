@@ -21,8 +21,8 @@
     margin: 0 auto;
     border-radius: 6.4vh;
     background: white;
-    box-shadow: 5px 10px 8px #888888;
-    border: 2px solid lightgrey;
+    box-shadow: .5rem 1rem .8rem #888888;
+    border: .2rem solid lightgrey;
 }
 
 .main__Nav {
@@ -39,7 +39,7 @@
 }
 
 .main__contacts-button {
-    margin-top: 5px;
+    margin-top: .5rem;
     height: 6vmax;
 }
 
@@ -197,9 +197,9 @@
     /* border: 3px solid white; */
     width: calc(100% + 4px);
     border-radius: 6.4vh;
-    padding: 5px;
+    padding: .5rem;
     background-color: white;
-    box-shadow: 0px 8px 8px #888888;
+    box-shadow: 0px .8rem .8rem #888888;
     background: #30CFD0;
 }
 
@@ -236,7 +236,7 @@
     animation-delay: -0.072s;
   }
   .lds-roller div:nth-child(2):after {
-    top: 68px;
+    top: 6.8rem;
     left: 56px;
   }
   .lds-roller div:nth-child(3) {
@@ -244,7 +244,7 @@
   }
   .lds-roller div:nth-child(3):after {
     top: 71px;
-    left: 48px;
+    left: 4.8rem;
   }
   .lds-roller div:nth-child(4) {
     animation-delay: -0.144s;
@@ -264,7 +264,7 @@
     animation-delay: -0.216s;
   }
   .lds-roller div:nth-child(6):after {
-    top: 68px;
+    top: 6.8rem;
     left: 24px;
   }
   .lds-roller div:nth-child(7) {

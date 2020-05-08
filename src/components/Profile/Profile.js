@@ -1,8 +1,7 @@
 import React from 'react'
 import './Profile.css'
 import { Link } from 'react-router-dom'
-import cardsIcon from '../../images/cards.png'
-import editIcon from '../../images/edit-icon.png'
+import editIcon from '../../images/edit-icon.svg'
 import nintendoLogo from '../../images/nintendo_logo.png'
 import nintendoLogoGray from '../../images/nintendo_logo_b&w.png'
 import playstationLogo from '../../images/playstation_color_png.png'
@@ -16,7 +15,6 @@ import xSVG from '../../images/x.svg'
 import UserContext from '../../Contexts/UserContext'
 import ProfileService from '../../services/profile-service'
 import GamerTag from '../GamerTag/GamerTag'
-import leftArrow from '../../images/left-arrow-svgrepo-com.svg'
 import rightArrow from '../../images/right-arrow.svg'
 
 export default class Profile extends React.Component {
@@ -228,10 +226,10 @@ export default class Profile extends React.Component {
             return (
                 <>
                 <section className='profile__icons-container'>
-                    <Link to='/swipe'>
-                        <img className='profile__cards-icon' src={cardsIcon} alt='swipe-cards-icon' />
-                    </Link>
                     <img className='profile__edit-icon' onClick={this.handleEditButton} src={editIcon} alt='edit-icon' />
+                    <Link to='/swipe'>
+                        <img className='profile__back-icon' src={rightArrow} alt='swipe-back-icon' />
+                    </Link>
                 </section>
                 <section className='profile__section'>
                     <div className='profile__img-name-div'>
@@ -284,8 +282,8 @@ export default class Profile extends React.Component {
                         <img src={avatar} 
                         alt='avatar' className='profile__ImgEdit' />
                         <div className='profile__imageEditInput'>
-                        <input type='file' onChange={this.avatarChangedHandler} />
-                        <button className='profile__ImgEdit-submit' onClick={this.avatarUploadHandler}>Upload</button>
+                        <input type='file' className='profile__file-upload' onChange={this.avatarChangedHandler} />
+                        <button className='lp__button profile__ImgEdit-submit' onClick={this.avatarUploadHandler}>Upload</button>
                         </div>
                     </section>
                     <label htmlFor='display-name'>Display Name</label>
