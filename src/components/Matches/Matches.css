@@ -4,12 +4,14 @@
     align-items: center;
     padding: 1vmax 0;
     height: 8vmax;
+    max-height: 7rem; 
     width: 80%;
     margin: auto;
 }
 
 .matches__back-icon {
     height: 4vmax;
+    max-height: 5rem;
     margin: .5vmax 0;
 }
 
@@ -100,7 +102,7 @@
     transition-timing-function: ease-in-out;
     text-align: center;
     color: black;
-    border-bottom: .2rem solid lightgray;
+    border-bottom: .3rem solid lightgray;
     width: 60%;
     margin: 0 auto;
 }
