@@ -68,6 +68,14 @@
     margin-bottom: 2vmax;
 }
 
+.matches__controls {
+    width: 100%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    padding: 1rem;
+}
+
 .matches__display-name {
     font-size: 3vmax;
     margin-bottom: 2vmax;

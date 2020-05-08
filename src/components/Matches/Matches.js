@@ -29,7 +29,9 @@ export default class Matches extends React.Component {
         return event.currentTarget.getElementsByClassName('matches__info')[0].classList.toggle('hidden')
     }
 
-    handleMatchDelete = (id) => {
+    handleMatchDelete = (e, id) => {
+        // TODO: Add Confirmation Pop-up
+        console.log('Delete Match');
         MatchesService.removeMatch(this.context.user_id, id)
             .then(() => {
                 let { users } = this.state;
@@ -58,10 +60,12 @@ export default class Matches extends React.Component {
                 {users.map(user => <li key={user.user_id} className='matches__li' onClick={this.toggleExpanded}>
                 <h4 className='matches__display-name'>{user.display_name}</h4>
                 <img src={user.avatar} alt='avatar' className='matches__avatar'></img>
-                <Link to={`/chat/${user.user_id}`} className='matches__Link'>
-                    <img className='matches__mail-icon' src={mail_icon} alt='chat-icon' />
-                </Link>
-                <img className='matches__unmatch-icon' src={unmatch_icon} alt='unmatch-icon' onClick={() => this.handleMatchDelete(user.user_id)} />
+                <div className='matches__controls'>
+                    <Link to={`/chat/${user.user_id}`} className='matches__Link'>
+                        <img className='matches__mail-icon' src={mail_icon} alt='chat-icon' />
+                    </Link>
+                    <img className='matches__unmatch-icon' src={unmatch_icon} alt='unmatch-icon' onClick={(e) => this.handleMatchDelete(e, user.user_id)} />
+                </div>
                 <section className='matches__info hidden'>
 
                     <h4 className='matches__card-header hidden1'>Platforms</h4>
