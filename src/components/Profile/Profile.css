@@ -34,6 +34,7 @@
     margin: 0 auto;
     border-radius: 2.5vmax;
     background-color: white;
+    box-shadow: .5rem 1rem .8rem #888888;
 }
 
 .profile__section > * {
@@ -48,6 +49,7 @@
     align-items: center;
     border-radius: 2.5vmax;
     background: #30CFD0;
+    box-shadow: .2rem 1rem .8rem #888888;
 }
 
 .profile__img-container {
