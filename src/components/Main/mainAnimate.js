@@ -23,7 +23,7 @@ import {
           dragConstraints={{ left: 0, right: 0 }}
           style={{ x, border: `.5vmax solid`, 
           borderColor: background, 
-          borderRadius: '7.2vmax', }}
+          borderRadius: '1.8vmax', }}
           transition={{ duration: 0.5 }}
         >
         
