@@ -175,16 +175,18 @@
 }
 
 .profile__editForm > label, .profile__gamer-tags-header {
-    background: linear-gradient(to right, #30CFD0 0%, #330867 100%);
-    padding: .7vmax 1.5vmin;
+    /* background: linear-gradient(to right, #30CFD0 0%, #330867 100%); */
+    padding: .2vmax 1.5vmin;
     font-size: 3vmax;
     font-weight: bold;
     height: 4.5vmax;
     text-align: center;
-    width: 100%;
+    width: 70%;
     margin: 3.5rem auto;
-    border-radius: .8vmax;
-    color: white;
+    /* border-radius: .8vmax; */
+    color: black;
+    border: none;
+    border-bottom: 2px solid lightgrey;
 }
 
 #display-name {
