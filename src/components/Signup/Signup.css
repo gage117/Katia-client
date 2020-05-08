@@ -26,6 +26,7 @@
 }
 
 .Signup__or {
+  font-size: 2rem;
   margin: .75rem 0;
 }
 
@@ -34,7 +35,7 @@
   border: none;
   background: none;
   font-weight: bolder;
-  color: rgb(0,204,0);
+  color: rgb(48, 100, 153);
   cursor: pointer;
   font-size: 1.8rem;
   transition-duration: 0.5ms;

@@ -1,48 +1,60 @@
 import React, { Component } from 'react';
 import UserContext from '../../Contexts/UserContext';
 import ProfileService from '../../services/profile-service';
-import socket from '../../socket';
-
 import Chat from '../../components/Chat/Chat';
 
 class MessagePage extends Component {
   state = { 
     messages: [],
+    conversation_id: -1,
     user: null,
     partner: null
   }
 
   static contextType = UserContext;
 
-  componentDidMount = () => {
+  componentDidMount() {
+    const { socket, user_id } = this.context;
     const { chatPartner } = this.props.match.params;
-    socket.emit('newUser', this.context.user_id);
-    socket.emit('chatOpen', { 
-      userId: this.context.user_id,
-      receiverId: chatPartner
-    });
+    if (socket) {
+      socket.emit('newUser', user_id);
+      socket.emit('chatOpen', { 
+        userId: user_id,
+        receiverId: chatPartner
+      })
+    };
     this.handleSocketListeners(this.context.user_id, chatPartner);
     this.setUsers()
   }
 
   handleSubmitMessage = (text) => {
+    const { socket, user_id } = this.context;
+    const { chatPartner } = this.props.match.params;
     socket.emit('message', { 
       text, 
-      sender_id: this.context.user_id, 
-      receiver_id:  this.props.match.params.chatPartner
+      sender_id: user_id, 
+      receiver_id:  chatPartner
     });
   }
 
   handleSocketListeners = () => {
-    socket
-      .on('priorMessages', messages => {
-        this.setState({ messages })
-      })
-      .on('incomingMessage', message => {
-        let { messages } = this.state
-        messages.push(message)
-        this.setState({ messages })
-      });
+    const { socket } = this.context;
+    if (socket) {
+      socket
+        .on('conversationId', conversation_id => {
+          this.setState({ conversation_id });
+        })
+        .on('priorMessages', messages => {
+          this.setState({ messages })
+        })
+        .on('incomingMessage', message => {
+          if(message.conversation_id === this.state.conversation_id) {
+            let { messages } = this.state
+            messages.push(message)
+            this.setState({ messages })
+          }
+        });
+    }
   }
 
   setUsers = async () => {
@@ -58,9 +70,9 @@ class MessagePage extends Component {
       );
     } else {
       return (
-        <main className='chat__loading-container'>
-          <p className='chat__loading'>Chat Loading...</p>
-        </main>
+        <div className="lds-roller"><div></div><div></div>
+        <div></div><div></div><div></div><div>
+        </div><div></div><div></div></div>
       )
     }
   }

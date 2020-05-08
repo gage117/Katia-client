@@ -1,6 +1,6 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
-exports[`<Profile /> renders the UI as expected 1`] = `
+exports[`<MessagePage /> renders the UI as expected 1`] = `
 <div
   className="lds-roller"
 >

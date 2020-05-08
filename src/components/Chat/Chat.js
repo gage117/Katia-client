@@ -7,7 +7,7 @@ import './Chat.css';
 
 class Chat extends Component {
   state = {
-    message: ''
+    message: '',
   }
   
   static contextType = UserContext;
@@ -60,7 +60,7 @@ class Chat extends Component {
         </nav>
         <div className='chatNavBorder'></div>
         <ul className='chat__message-container'>
-          {messages.map(message => {
+          {messages.length === 0 ? <li><p>Start the conversation by sending the first message</p></li> : messages.map(message => {
             return message.sender_id === user_id ? this.generateUserMessage(user, message) : this.generatePartnerMessage(partner, message)
           })}
           <div style={{ float:"left", clear: "both" }}

@@ -5,7 +5,7 @@ exports[`<LandingRoute /> renders the UI as expected 1`] = `
   id="lp__main-flex"
 >
   <a
-    className="lp__login lp__button"
+    className="lp__login blue-button"
     href="/login"
     onClick={[Function]}
   >
@@ -37,7 +37,7 @@ exports[`<LandingRoute /> renders the UI as expected 1`] = `
       Katia is a social media application made for gamers by gamers. Quickly and easily find others who share the same games and platforms as you.
     </p>
     <a
-      className="lp__button lp__button-margin"
+      className="blue-button blue-button-margin"
       href="/signup"
       onClick={[Function]}
     >
