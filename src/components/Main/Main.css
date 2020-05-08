@@ -111,7 +111,7 @@
 
 .main__bio {
     font-size: 3vmax;
-    padding: 0 .3vh;
+    padding: 0 .3vmax;
     max-height: 14vmax;
     transition: font-size .5s, height .5s, background-color .5s;
     transition-timing-function: ease-in-out;
@@ -211,12 +211,18 @@
 }
 
 @media screen and (min-width: 600px) {
+    .main__Swipe-User {
+        height: 58vmax;
+    }
     .main__Animate-div, .main__Nav, .main__Second-Nav {
         max-width: 70%;
     }
 }
 
 @media screen and (min-width: 900px) {
+    .main__Swipe-User {
+        height: 55vmax;
+    }
     .main__Animate-div, .main__Nav, .main__Second-Nav {
         max-width: 55%;
     }
@@ -252,5 +258,11 @@
 
     .main__hidden-text {
         font-size: 0;
+    }
+}
+
+@media screen and (min-width: 1080px) {
+    .main__Swipe-User {
+        height: 52vmax;
     }
 }
