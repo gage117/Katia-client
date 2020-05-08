@@ -2,11 +2,11 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 1vmax 0;
+    padding: 1rem 0;
     height: 9vmax;
     max-height: 7rem; 
     width: 85%;
-    margin: 0 auto;
+    margin: 0 auto .75rem;
 }
 
 .profile__edit-icon {
