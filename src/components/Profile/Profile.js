@@ -222,7 +222,13 @@ export default class Profile extends React.Component {
         let allGenres = this.state.allGenres || []
         let userGenres = this.state.genres || []
         const { avatar, display_name, bio, lfm_in, genres, platforms, gamer_tags } = this.state
-        if(!this.state.isEditing) { // Checks isEditing value to conditionally render normal or editing page
+        if (display_name === '') {
+            return (
+                <div className="lds-roller"><div></div><div></div>
+                <div></div><div></div><div></div><div>
+                </div><div></div><div></div></div>
+            )
+        } else if(!this.state.isEditing) { // Checks isEditing value to conditionally render normal or editing page
             return (
                 <>
                 <section className='profile__icons-container'>
@@ -264,7 +270,7 @@ export default class Profile extends React.Component {
                 </section>
                 <section className='logoutLink-container'>
                     <Link onClick={this.handleLogoutClick} 
-                    to='/login' className='lp__button'>
+                    to='/login' className='blue-button'>
                     Logout
                     </Link>
                 </section>
@@ -283,7 +289,7 @@ export default class Profile extends React.Component {
                         alt='avatar' className='profile__ImgEdit' />
                         <div className='profile__imageEditInput'>
                         <input type='file' className='profile__file-upload' onChange={this.avatarChangedHandler} />
-                        <button className='lp__button profile__ImgEdit-submit' onClick={this.avatarUploadHandler}>Upload</button>
+                        <button className='blue-button profile__ImgEdit-submit' onClick={this.avatarUploadHandler}>Upload</button>
                         </div>
                     </section>
                     <label htmlFor='display-name'>Display Name</label>

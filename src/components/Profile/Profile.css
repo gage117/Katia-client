@@ -59,7 +59,7 @@
 .profile__img {
     display: block;
     width: auto;
-    height: 26vmax;
+    height: 35vmin;
     max-height: 28rem;
     border-radius: 2.5vmax;
     margin: 1.5vmax 0 0;
@@ -68,7 +68,7 @@
 .profile__displayName {
     padding: 1vmax;
     color: black;
-    font-size: 3.5vmax;
+    font-size: 3vmax;
     font-weight: bold;
 }
 
