@@ -100,7 +100,7 @@
     transition-timing-function: ease-in-out;
     text-align: center;
     color: black;
-    border-bottom: .3rem solid lightgray;
+    border-bottom: .2rem solid lightgray;
     width: 60%;
     margin: 0 auto;
 }
