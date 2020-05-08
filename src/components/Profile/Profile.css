@@ -2,15 +2,15 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 2vh 0 2vh;
-    height: 12vh;
+    padding: 1vmax 0;
+    height: 9vmax;
     max-height: 12.6rem; 
     width: 85%;
     margin: 0 auto;
 }
 
 .profile__edit-icon {
-    height: 7vh;
+    height: 7vmax;
     max-height: 8rem;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .profile__back-icon {
-    height: 7vh;
+    height: 7vmax;
     max-height: 8rem;
 }
 
@@ -114,19 +114,20 @@
     justify-content: center;
     width: 80%;
     margin: 0 auto;
-    padding-top: 1.7vmax;
 }
 
 .profile__editCancelSubmit-div {
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: .5vh 0;
-    height: 11vh;
+    padding: 1vmax 0;
+    height: 9vmax;
+    max-height: 12.6rem; 
 }
 
 .profile__editCancel {
-    height: 10vh;
+    height: 7vmax;
+    max-height: 8rem;
 }
 
 .profile__editCancel:hover {
@@ -134,7 +135,8 @@
 }
 
 .profile__editSubmit {
-    height: 10vh;
+    height: 7vmax;
+    max-height: 8rem;
 }
 
 .profile__editSubmit:hover {
@@ -145,7 +147,7 @@
     background-color: gray;
     border-radius: .8vmax;
     padding: 2vmax .5vmax;
-    margin: 2rem auto;
+    margin: 0 auto 2rem;
     width: 100%;
 }
 
@@ -159,6 +161,7 @@
 
 .profile__imageEditInput {
     display: flex;
+    flex-direction: column;
     align-items: center;
     justify-content: space-evenly;
     width: 80%;
@@ -170,8 +173,9 @@
     font-size: 2.5vh;
 }
 
-.profile__ImgEdit-submit {
-    font-size: 2.5vh;
+.profile__imageEditInput > .profile__ImgEdit-submit {
+    font-size: 2.5vmax;
+    padding: .6rem 1.5rem;
 }
 
 .profile__editForm > label, .profile__gamer-tags-header {

@@ -7,7 +7,7 @@ import {
     AnimatePresence
   } from "framer-motion"
   
-  export const MyComponent = (props) => {
+  export const Animate = (props) => {
     const x = useMotionValue(0)
     const background = useTransform(
       x,
@@ -16,7 +16,7 @@ import {
     )
   
     return (
-      <motion.div style={{ maxWidth: '80%', margin: 'auto' }}>
+      <motion.div className='main__Animate-div'>
         <AnimatePresence>
         <motion.div
           drag="x"

@@ -58,10 +58,11 @@ class Chat extends Component {
           </Link>
           <span className='chat__chatting-with'>{partner.display_name}</span>
         </nav>
-        <div className='chatNavBorder'></div>
         <ul className='chat__message-container'>
-          {messages.length === 0 ? <li><p>Start the conversation by sending the first message</p></li> : messages.map(message => {
-            return message.sender_id === user_id ? this.generateUserMessage(user, message) : this.generatePartnerMessage(partner, message)
+          {messages.length === 0 ? <li className='chat__none'><p className='chat__none-message'>Start the conversation by sending the first message</p></li>
+              : 
+            messages.map(message => {
+              return message.sender_id === user_id ? this.generateUserMessage(user, message) : this.generatePartnerMessage(partner, message)
           })}
           <div style={{ float:"left", clear: "both" }}
                ref={(el) => { this.messagesEnd = el; }}>
