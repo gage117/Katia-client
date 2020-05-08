@@ -23,9 +23,6 @@ exports[`<Chat /> renders the UI as expected 1`] = `
       Test User 2
     </span>
   </nav>
-  <div
-    className="chatNavBorder"
-  />
   <ul
     className="chat__message-container"
   >
