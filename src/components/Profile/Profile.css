@@ -142,7 +142,7 @@
 }
 
 .profile__ImgEdit-container {
-    background-color: gray;
+    /* background-color: gray; */
     border-radius: .8vmax;
     padding: 2vmax .5vmax;
     margin: 2rem auto;
