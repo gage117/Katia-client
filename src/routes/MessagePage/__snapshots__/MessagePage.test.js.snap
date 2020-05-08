@@ -1,13 +1,16 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<MessagePage /> renders the UI as expected 1`] = `
-<main
-  className="chat__loading-container"
+<div
+  className="lds-roller"
 >
-  <p
-    className="chat__loading"
-  >
-    Chat Loading...
-  </p>
-</main>
+  <div />
+  <div />
+  <div />
+  <div />
+  <div />
+  <div />
+  <div />
+  <div />
+</div>
 `;
