@@ -22,7 +22,7 @@ export default class MainPage extends React.Component {
         queue: null,
         expanded: false,
         error: null,
-        loading: false,
+        loading: false, // will be implemented when we add loading after swipe
     }
 
     static contextType = UserContext;
@@ -76,7 +76,6 @@ export default class MainPage extends React.Component {
     }
 
     swipeRight = () => {
-        // this.setState({ loading: true })
         const { queue } = this.state;
         const match = queue.dequeue();
 
@@ -88,10 +87,6 @@ export default class MainPage extends React.Component {
                 .catch(error => this.setState({error}));
         }
     }
-
-    // componentWillUnmount() {
-    //     this.setState({loading: false })
-    // }
 
     generateUserCard = (user) => {
         const handlers = {
