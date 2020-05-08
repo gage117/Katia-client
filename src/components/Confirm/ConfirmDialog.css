@@ -1,0 +1,53 @@
+.back-drop {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.8);
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ConfirmDialog {
+  background: #fff;
+  border-radius: .8vmax;
+  padding: .7vmax 10vmin;
+  margin: auto;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.ConfirmDialog__text {
+  padding: 1rem;
+}
+
+.ConfirmDialog__controls {
+  margin: 1rem;
+}
+
+.ConfirmDialog__controls > * {
+  margin: 0 1rem;
+}
+
+.fade-in {
+	opacity: 1;
+	animation-name: fadeInOpacity;
+	animation-iteration-count: 1;
+	animation-timing-function: ease-in;
+	animation-duration: .25s;
+}
+
+@keyframes fadeInOpacity {
+	0% {
+		opacity: 0;
+	}
+	100% {
+		opacity: 1;
+	}
+}
