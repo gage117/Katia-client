@@ -2,7 +2,6 @@ import React, { Component } from 'react';
 import { Link } from 'react-router-dom'
 import UserContext from '../../Contexts/UserContext';
 import send_icon from '../../images/send-icon.svg';
-import back_icon from '../../images/back-arrow.svg';
 import backArrow from '../../images/left-arrow-svgrepo-com.svg'
 import './Chat.css';
 
@@ -61,7 +60,7 @@ class Chat extends Component {
         </nav>
         <div className='chatNavBorder'></div>
         <ul className='chat__message-container'>
-          {messages.map(message => {
+          {messages.length === 0 ? <li><p>Start the conversation by sending the first message</p></li> : messages.map(message => {
             return message.sender_id === user_id ? this.generateUserMessage(user, message) : this.generatePartnerMessage(partner, message)
           })}
           <div style={{ float:"left", clear: "both" }}
