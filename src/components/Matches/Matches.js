@@ -81,10 +81,10 @@ export default class Matches extends React.Component {
                     <p className='matches__genres'>{this.context.generateGenreString(user.genres)}</p>
 
                     <h4 className='matches__card-header'>Gamer Tags</h4>
-                    {gamerTagPlatforms.map(platform => {
+                    {gamerTagPlatforms.map((platform, index) => {
                         // If the user has a gamer tag for that platform display it
                         if(user[platform.toLowerCase()] !== '') {
-                            return <p className='matches__gamer-tags'>{platform + ': ' + user[platform.toLowerCase()]}</p>
+                            return <p className='matches__gamer-tags' key={index}>{platform + ': ' + user[platform.toLowerCase()]}</p>
                         }
                     })}
                     

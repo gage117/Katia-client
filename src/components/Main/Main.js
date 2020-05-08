@@ -27,7 +27,7 @@ export default class MainPage extends React.Component {
 
     static contextType = UserContext;
 
-    componentWillMount() {
+    UNSAFE_componentWillMount() {
         SwipeService.getPotentialMatches(this.context.user_id)
             .then(potentialMatches => {
                 const queue = new Queue();

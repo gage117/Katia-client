@@ -1,11 +1,7 @@
 import React from 'react'
 import './Profile.css'
 import { Link } from 'react-router-dom'
-<<<<<<< HEAD
-import editIcon from '../../images/edit-icon.png'
-=======
 import editIcon from '../../images/edit-icon.svg'
->>>>>>> 1fd0e6ae2c845ff46ee9c057aea9526562d3724b
 import nintendoLogo from '../../images/nintendo_logo.png'
 import nintendoLogoGray from '../../images/nintendo_logo_b&w.png'
 import playstationLogo from '../../images/playstation_color_png.png'
