@@ -109,7 +109,7 @@ export default class Signup extends Component {
                 className='lp__input'>
               </input>
             </div>
-            <button className='lp__button lp__button-margin' type='submit'>
+            <button className='blue-button blue-button-margin' type='submit'>
               Submit
             </button>
             <div className='Signup__submit-button-div'>

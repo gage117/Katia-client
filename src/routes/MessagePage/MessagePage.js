@@ -70,9 +70,9 @@ class MessagePage extends Component {
       );
     } else {
       return (
-        <main className='chat__loading-container'>
-          <p className='chat__loading'>Chat Loading...</p>
-        </main>
+        <div className="lds-roller"><div></div><div></div>
+        <div></div><div></div><div></div><div>
+        </div><div></div><div></div></div>
       )
     }
   }

@@ -68,7 +68,7 @@ export default class Login extends Component {
                 className='lp__input'>
               </input>
             </div>
-            <button className='lp__button lp__button-margin' type='submit'>
+            <button className='blue-button blue-button-margin' type='submit'>
                 Login
               </button>
             <div className='Login__submit-button-div'>
