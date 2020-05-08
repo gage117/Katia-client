@@ -16,6 +16,8 @@ import UserContext from '../../Contexts/UserContext'
 import ProfileService from '../../services/profile-service'
 import GamerTag from '../GamerTag/GamerTag'
 import rightArrow from '../../images/right-arrow.svg'
+import ConfirmDialog from '../Confirm/ConfirmDialog';
+import customConfirm from '../Confirm/CustomConfirm';
 
 export default class Profile extends React.Component {
     static contextType = UserContext
@@ -89,44 +91,52 @@ export default class Profile extends React.Component {
             other: this.state.gamer_tags.other
         }
         
-        ProfileService.updateProfile(user_id, userInfo)
-        .then(user => {
-            this.setState({ 
-                isEditing: false,
-                display_name: user.display_name,
-                lfm_in: user.lfm_in,
-                bio: user.bio,
-                platforms: user.platforms,
-                genres: user.genres,
-                gamer_tags: {
-                    xbox: user.xbox,
-                    psn: user.psn,
-                    nintendo: user.nintendo,
-                    steam: user.steam,
-                    discord: user.discord,
-                    other: user.other
-                  }
-            })
+        customConfirm(ConfirmDialog).then(answer => {
+            if(answer) {
+                ProfileService.updateProfile(user_id, userInfo)
+                .then(user => {
+                    this.setState({ 
+                        isEditing: false,
+                        display_name: user.display_name,
+                        lfm_in: user.lfm_in,
+                        bio: user.bio,
+                        platforms: user.platforms,
+                        genres: user.genres,
+                        gamer_tags: {
+                            xbox: user.xbox,
+                            psn: user.psn,
+                            nintendo: user.nintendo,
+                            steam: user.steam,
+                            discord: user.discord,
+                            other: user.other
+                          }
+                    })
+                })
+                .catch(error => this.setState({error: error.message}))
+            }
         })
-        .catch(error => this.setState({error: error.message}))
     }
 
-    cancelEdit = () => {
-        ProfileService.getAllUserGenres()
-        .then(res => this.setState({ allGenres: res }))
-        .catch(error => this.setState({error: error.message}))
+    cancelEdit = async () => {
+       customConfirm(ConfirmDialog).then(answer => {
+           if(answer) {
+                ProfileService.getAllUserGenres()
+                .then(res => this.setState({ allGenres: res }))
+                .catch(error => this.setState({error: error.message}))
 
-        ProfileService.getProfile(this.context.user_id)
-        .then(user => this.setState({ 
-            avatar: user.avatar,
-            display_name: user.display_name,
-            lfm_in: user.lfm_in,
-            bio: user.bio,
-            platforms: user.platforms,
-            genres: user.genres,
-            isEditing: false,
-         }))
-         .catch(error => this.setState({error: error.message}))
+                ProfileService.getProfile(this.context.user_id)
+                .then(user => this.setState({ 
+                    avatar: user.avatar,
+                    display_name: user.display_name,
+                    lfm_in: user.lfm_in,
+                    bio: user.bio,
+                    platforms: user.platforms,
+                    genres: user.genres,
+                    isEditing: false,
+                }))
+                .catch(error => this.setState({error: error.message}))
+            }
+       })
     }
 
     handleLogoutClick = () => {
