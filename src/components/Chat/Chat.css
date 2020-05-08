@@ -4,15 +4,18 @@
 }
 
 .chat__nav {
+  position: fixed;
+  top: 0;
+  width: 100%;
   height: 13vmin;
-  max-height: 6rem;
+  max-height: 11rem;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
   box-shadow: 0 1rem .8rem #888888;
   border: none;
-  box-shadow: 0px 8px 8px #888888;
+  box-shadow: 0px .8rem .8rem #888888;
 }
 
 .chat__back {
@@ -32,6 +35,13 @@
   overflow: hidden;
   text-overflow: ellipsis;
   color: black;
+}
+
+.chat__chat-container {
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
 }
 
 .chat__message-container {
@@ -94,8 +104,6 @@
 }
 
 .chat__message-form {
-  position: fixed;
-  bottom: 0;
   background-color: white;
   height: 15vmin;
   width: 100vw;

@@ -23,67 +23,71 @@ exports[`<Chat /> renders the UI as expected 1`] = `
       Test User 2
     </span>
   </nav>
-  <ul
-    className="chat__message-container"
+  <section
+    className="chat__chat-container"
   >
-    <li
-      className="chat__message chat__user-message"
+    <ul
+      className="chat__message-container"
     >
-      <span
-        className="chat__message-text chat__user-message-text"
+      <li
+        className="chat__message chat__user-message"
       >
-        hi
-      </span>
-      <img
-        alt="user-avatar"
-        className="chat__avatar chat__user-avatar"
-        src="https://katia-app.s3-us-west-1.amazonaws.com/default_avatar.png"
-      />
-    </li>
-    <li
-      className="chat__message chat__partner-message"
-    >
-      <img
-        alt="partner-avatar"
-        className="chat__avatar chat__partner-avatar"
-        src="https://katia-app.s3-us-west-1.amazonaws.com/default_avatar.png"
-      />
-      <span
-        className="chat__message-text chat__partner-message-text"
+        <span
+          className="chat__message-text chat__user-message-text"
+        >
+          hi
+        </span>
+        <img
+          alt="user-avatar"
+          className="chat__avatar chat__user-avatar"
+          src="https://katia-app.s3-us-west-1.amazonaws.com/default_avatar.png"
+        />
+      </li>
+      <li
+        className="chat__message chat__partner-message"
       >
-        sup
-      </span>
-    </li>
-    <div
+        <img
+          alt="partner-avatar"
+          className="chat__avatar chat__partner-avatar"
+          src="https://katia-app.s3-us-west-1.amazonaws.com/default_avatar.png"
+        />
+        <span
+          className="chat__message-text chat__partner-message-text"
+        >
+          sup
+        </span>
+      </li>
+      <div
+        style={
+          Object {
+            "clear": "both",
+            "float": "left",
+          }
+        }
+      />
+    </ul>
+    <form
+      className="chat__message-form"
+      onSubmit={[Function]}
       style={
         Object {
-          "clear": "both",
-          "float": "left",
+          "backgroundColor": undefined,
         }
       }
-    />
-  </ul>
-  <form
-    className="chat__message-form"
-    onSubmit={[Function]}
-    style={
-      Object {
-        "backgroundColor": undefined,
-      }
-    }
-  >
-    <textarea
-      className="chat__input"
-      onChange={[Function]}
-      onKeyDown={[Function]}
-      value=""
-    />
-    <img
-      alt="send"
-      className="chat__send"
-      onClick={[Function]}
-      src="send-icon.svg"
-    />
-  </form>
+    >
+      <textarea
+        className="chat__input"
+        onChange={[Function]}
+        onKeyDown={[Function]}
+        value=""
+      />
+      <img
+        alt="send"
+        className="chat__send"
+        onClick={[Function]}
+        src="send-icon.svg"
+      />
+    </form>
+  </section>
 </main>
 `;
