@@ -1,12 +1,12 @@
 .chat__main {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
 }
 
 .chat__nav {
-  position: fixed;
-  top: 0;
-  width: 100%;
   height: 13vmin;
   max-height: 11rem;
   background-color: white;
@@ -37,18 +37,11 @@
   color: black;
 }
 
-.chat__chat-container {
-  height: 100%;
-  display: flex;
-  flex-direction: column;
-  justify-content: flex-end;
-}
-
 .chat__message-container {
   display: flex;
   flex-direction: column;
   justify-content: flex-end;
-  height: calc(100vh - 30vmin);
+  height: calc(100vh - 28vmin);
   overflow-y: auto;
   padding: 0 3vw;
 }
