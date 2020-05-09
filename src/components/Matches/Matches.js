@@ -7,12 +7,8 @@ import nintendoLogo from '../../images/nintendo_logo.png'
 import playstationLogo from '../../images/playstation_color_png.png'
 import PC_Logo from '../../images/PC_Keyboard_Mouse_Icon.png'
 import xboxLogo from '../../images/xbox_logo_png.png'
-<<<<<<< HEAD
 import mail_icon from '../../images/mail.svg'
 import unmatch_icon from '../../images/x-circle.svg';
-=======
-// import mail_icon from '../../images/mail.svg'
->>>>>>> 1fd0e6ae2c845ff46ee9c057aea9526562d3724b
 import MatchesService from '../../services/matches-service'
 import backArrow from '../../images/left-arrow-svgrepo-com.svg'
 import chatBlack from '../../images/chatblack.svg'
@@ -75,19 +71,14 @@ export default class Matches extends React.Component {
             <ul className='matches__ul'>
                 {users.map(user => <li key={user.user_id} className='matches__li' onClick={this.toggleExpanded}>
                 <div className='matchesStyleDiv'>
-                <h4 className='matches__display-name'>{user.display_name}</h4>
-                <img src={user.avatar} alt='avatar' className='matches__avatar'></img>
-<<<<<<< HEAD
-                <div className='matches__controls'>
-                    <Link to={`/chat/${user.user_id}`} className='matches__Link'>
-                        <img className='matches__mail-icon' src={mail_icon} alt='chat-icon' />
-                    </Link>
-                    <img className='matches__unmatch-icon' src={unmatch_icon} alt='unmatch-icon' onClick={(e) => this.handleMatchDelete(e, user.user_id)} />
-=======
-                <Link to={`/chat/${user.user_id}`} className='matches__Link'>
-                    <img className='matches__mail-icon' src={chatBlack} alt='chat-icon' />
-                </Link>
->>>>>>> 1fd0e6ae2c845ff46ee9c057aea9526562d3724b
+                    <h4 className='matches__display-name'>{user.display_name}</h4>
+                    <img src={user.avatar} alt='avatar' className='matches__avatar'></img>
+                    <div className='matches__controls'>
+                        <Link to={`/chat/${user.user_id}`} className='matches__Link'>
+                            <img className='matches__mail-icon' src={mail_icon} alt='chat-icon' />
+                        </Link>
+                        <img className='matches__unmatch-icon' src={unmatch_icon} alt='unmatch-icon' onClick={(e) => this.handleMatchDelete(e, user.user_id)} />
+                    </div>
                 </div>
                 <section className='matches__info hidden'>
 
