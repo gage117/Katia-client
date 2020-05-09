@@ -1,11 +1,12 @@
 import React from 'react';
 import './ConfirmDialog.css';
 
-function ConfirmDialog({ giveAnswer }) {
+function ConfirmDialog({ prompt, giveAnswer }) {
   return (
     <div className='back-drop fade-in'>
       <div className='ConfirmDialog fade-in'>
-        <h1 className='ConfirmDialog__text'>Are you sure?</h1>
+        {prompt ? <h1 className='ConfirmDialog__prompt'>{prompt}</h1> : null}
+        <h2 className='ConfirmDialog__question'>Are you sure?</h2>
         <div className='ConfirmDialog__controls'>
           <button className='blue-button' onClick={() => giveAnswer(true)}>Yes</button>
           <button className='blue-button' onClick={() => giveAnswer(false)}>No</button>

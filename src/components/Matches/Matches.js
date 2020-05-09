@@ -11,6 +11,9 @@ import unmatch_icon from '../../images/x-circle.svg';
 import MatchesService from '../../services/matches-service'
 import backArrow from '../../images/left-arrow-svgrepo-com.svg'
 
+import ConfirmDialog from '../Confirm/ConfirmDialog'
+import customConfirm from '../Confirm/CustomConfirm'
+
 export default class Matches extends React.Component {
     state = {
         users: [],
@@ -26,20 +29,23 @@ export default class Matches extends React.Component {
     }
 
     toggleExpanded = (event) => {
-        return event.currentTarget.getElementsByClassName('matches__info')[0].classList.toggle('hidden')
+        event.currentTarget.getElementsByClassName('matches__info')[0].classList.toggle('hidden')
     }
 
     handleMatchDelete = (e, id) => {
-        // TODO: Add Confirmation Pop-up
-        console.log('Delete Match');
-        MatchesService.removeMatch(this.context.user_id, id)
-            .then(() => {
-                let { users } = this.state;
-                users = users.filter(user => {
-                    return user.user_id !== id;
-                });
+        e.stopPropagation();
+        customConfirm(ConfirmDialog, 'Remove Match').then(answer => {
+            if(answer) {
+                MatchesService.removeMatch(this.context.user_id, id)
+                    .then(() => {
+                    let { users } = this.state;
+                    users = users.filter(user => {
+                        return user.user_id !== id;
+                    });
                 this.setState({ users });
             });
+            }
+        })
     }
 
     render() {
@@ -66,7 +72,7 @@ export default class Matches extends React.Component {
             </header>
             {this.state.users[0] === 'none' ? <p className='noMatchesPara'>You have no matches.</p> : 
             <ul className='matches__ul'>
-                {users.map(user => <li key={user.user_id} className='matches__li' onClick={this.toggleExpanded}>
+                {users.map(user => <li key={user.user_id} className='matches__li' onClick={this.toggleExpanded} >
                 <div className='matchesStyleDiv'>
                     <h4 className='matches__display-name'>{user.display_name}</h4>
                     <img src={user.avatar} alt='avatar' className='matches__avatar'></img>

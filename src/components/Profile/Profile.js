@@ -91,7 +91,7 @@ export default class Profile extends React.Component {
             other: this.state.gamer_tags.other
         }
         
-        customConfirm(ConfirmDialog).then(answer => {
+        customConfirm(ConfirmDialog, 'Save Profile').then(answer => {
             if(answer) {
                 ProfileService.updateProfile(user_id, userInfo)
                 .then(user => {
@@ -118,7 +118,7 @@ export default class Profile extends React.Component {
     }
 
     cancelEdit = async () => {
-       customConfirm(ConfirmDialog).then(answer => {
+       customConfirm(ConfirmDialog, 'Cancel Edit').then(answer => {
            if(answer) {
                 ProfileService.getAllUserGenres()
                 .then(res => this.setState({ allGenres: res }))
