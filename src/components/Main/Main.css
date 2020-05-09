@@ -12,9 +12,29 @@
     justify-content: space-around;
 }
 
+.main__Nav {
+    width: 80%;
+    height: 7vmax;
+    max-height: 7rem;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    padding: 1vmax 0;
+    margin: 0 auto;
+}
+
+.main__profile-button {
+    height: 5vmax;
+    max-height: 5rem;
+}
+
+.main__contacts-button {
+    height: 5vmax;
+    max-height: 5rem;
+}
+
 .main__Image {
-    height: 21vmax;
-    max-height: 20rem;
+    height: 15vmax;
     width: auto;
     max-width: 80%;
     margin: 1.5vmax 0;
@@ -31,7 +51,7 @@
 .main__Swipe-User {
     position: relative;
     min-height: 75vmin;
-    height: 75vmax;
+    height: 83vmax;
     max-height: 78vmax;
     display: flex;
     flex-direction: column;
@@ -43,27 +63,6 @@
     border: .1rem solid lightgrey;
 }
 
-.main__Nav {
-    width: 80%;
-    height: 9vmax;
-    max-height: 7rem;
-    display: flex;
-    flex-direction: row;
-    justify-content: space-around;
-    padding: 1vmax 0;
-    margin: 0 auto;
-}
-
-.main__profile-button {
-    height: 7vmax;
-    max-height: 5rem;
-}
-
-.main__contacts-button {
-    height: 7vmax;
-    max-height: 5rem;
-}
-
 .main__Swipe-User:hover {
     cursor: pointer;
 }
@@ -73,6 +72,9 @@
     margin: 1vmin 0;
     max-width: 100%;
     text-align: center;
+    white-space: nowrap;
+    overflow: hidden;
+    text-overflow: ellipsis;
 }
 
 .main__bottom-card {
@@ -175,7 +177,7 @@
 
 .main__Second-Nav {
     width: 80%;
-    height: 12vmax;
+    height: 10vmax;
     max-height: 12rem;
     display: flex;
     flex-direction: row;
@@ -185,7 +187,7 @@
 }
 
 .main__x {
-    height: 10vmax;
+    height: 8vmax;
     max-height: 10rem;
 }
 
@@ -194,7 +196,7 @@
 }
 
 .main__check {
-    height: 10vmax;
+    height: 8vmax;
     max-height: 10rem;
 }
 
