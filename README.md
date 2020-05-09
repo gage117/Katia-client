@@ -1,68 +1,59 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Katia
 
-## Available Scripts
+# Authors
+- Gage Eide
+- Ron Martin
+- Matthew Wagaman
+- Jose Lopez
 
-In the project directory, you can run:
+# Summary
+- As a user:
 
-### `yarn start`
+    - As a New User, I should be able to Register ![Alt text](./README-images/signup.png?raw=true "Registration")
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+    - As a Returning User, I should be able to Login
+    ![Alt text](./README-images/login.png?raw=true "login")
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+    - As a Logged In User, I should be able to edit my profile details ![Alt text](./README-images/editProfile.png?raw=true "edit")
 
-### `yarn test`
+    - As a Logged In User, I should be able to see my profile details ![Alt text](./README-images/profile.png?raw=true "profile")
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    - As a Logged In User, I should be able to see the next user to decide yes/no on. ![Alt text](./README-images/mainSwipe.png?raw=true "swipe")
 
-### `yarn build`
+    - As a Logged In User, I should be able to see my matches. ![Alt text](./README-images/matches.png?raw=true "matches")
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    - As a Logged In User, I should be able to message my matches.
+    ![Alt text](./README-images/message.png?raw=true "messaging")
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+# Tech used
+- Back-end:
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    - Database: Postgres
 
-### `yarn eject`
+    - Database language: SQL
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    - Server: Node.js
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    - server framework: Express.js
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    - Query Builder: Knex.js
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    - testing: Mocha, Chai, Supertest
 
-## Learn More
+    - Messaging: Socket.io
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    - Image uploads: AWS S3 Buckets
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+- Front-end:
 
-### Code Splitting
+    - Framework: React.js
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+    - HTML5, CSS3, Socket.io, AWS S3 Buckets
 
-### Analyzing the Bundle Size
+    - testing: Jest, Enzyme
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+- deployment:
 
-### Making a Progressive Web App
+    - Heroku & Vercel
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
-
-### Advanced Configuration
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+# Site:  https://katia.now.sh/
