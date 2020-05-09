@@ -35,14 +35,14 @@ class Chat extends Component {
   }
 
   generateUserMessage = (user, message) => {
-    return (<li key={message.id} className='chat__message chat__user-message'>
+    return (<li key={message.id} className='chat__message chat__user-message' aria-live='polite'>
       <span className='chat__message-text chat__user-message-text'>{message.message}</span>
       <img className='chat__avatar chat__user-avatar' src={user.avatar} alt='user-avatar' />
     </li>)
   }
 
   generatePartnerMessage = (partner, message) => {
-    return (<li key={message.id} className='chat__message chat__partner-message'>
+    return (<li key={message.id} className='chat__message chat__partner-message' aria-live='polite'>
       <img className='chat__avatar chat__partner-avatar' src={partner.avatar} alt='partner-avatar' />
       <span className='chat__message-text chat__partner-message-text'>{message.message}</span>
     </li>)

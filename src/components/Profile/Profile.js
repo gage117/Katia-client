@@ -316,7 +316,7 @@ export default class Profile extends React.Component {
                     <label htmlFor='genres'>Genres</label>
                         <div className='profile__editGenreList'>
                             {userGenres.map((item, index) => 
-                                <span key={index} className='profile__editGenre' id={item} onClick={(item) => this.genreToDelete(item)}>
+                                <span key={index} className='profile__editGenre' id={item} onClick={(item) => this.genreToDelete(item)} aria-live='polite'>
                                     <label className='profile__editGenreLabel'>{item}</label>
                                     <svg className='profile__editGenreButton' xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#f00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                         <line x1="20" y1="2" x2="2" y2="20"/>
@@ -324,7 +324,7 @@ export default class Profile extends React.Component {
                                     </svg>
                                 </span>
                             )}
-                            <select className='profile__genreSelect' onChange={this.handleSelectGenre}>
+                            <select className='profile__genreSelect' onChange={this.handleSelectGenre} aria-live='polite'>
                                 <option value='' style={{display: "none"}}>Choose Genre</option>
                                 {allGenres.map((item, index) => 
                                 userGenres.includes(item.genre) ? 
