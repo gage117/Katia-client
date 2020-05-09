@@ -23,7 +23,11 @@
   justify-content: center;
 }
 
-.ConfirmDialog__text {
+.ConfirmDialog__prompt {
+  padding-top: 1rem;
+}
+
+.ConfirmDialog__question {
   padding: 1rem;
 }
 

@@ -6,7 +6,7 @@ const body = document.querySelector('body');
 body.appendChild(confirmRoot);
 
 const customConfirm = (
-  DialogContent
+  DialogContent, prompt
 ) => {
   return new Promise(res => {
     const giveAnswer = (answer) => {
@@ -14,7 +14,7 @@ const customConfirm = (
       res(answer);
     }
 
-    ReactDOM.render(<DialogContent giveAnswer={giveAnswer} />, confirmRoot);
+    ReactDOM.render(<DialogContent prompt={prompt} giveAnswer={giveAnswer} />, confirmRoot);
   })
 }
 
