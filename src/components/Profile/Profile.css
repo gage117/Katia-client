@@ -188,7 +188,7 @@
     margin: 3.5rem auto;
     color: black;
     border: none;
-    border-bottom: 2px solid lightgrey;
+    border-bottom: .2rem solid lightgrey;
 }
 
 #display-name {
@@ -291,9 +291,9 @@
     font-weight: 600;
     background-color: rgb(19, 93, 177);
     border-radius: .5vmax;
-    border: 1px solid rgb(19, 93, 177);
+    border: .1rem solid rgb(19, 93, 177);
     padding: .5vmax 0 .65vmax .35vmax;
-    margin: .75vmax 2px;
+    margin: .75vmax .2rem;
     text-align: center;
     color: white;
 }

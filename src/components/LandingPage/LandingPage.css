@@ -57,14 +57,14 @@
 .lp__input {
   width: 17rem;
   border: none;
-  border-bottom: 2px solid black;
-  font-size: 16px;
+  border-bottom: .2rem solid black;
+  font-size: 1.6rem;
   font-weight: bold;
   text-align: center;
 }
 
 .separator {
-  border: 1px solid lightgrey;
+  border: .1rem solid lightgrey;
   width: 60%;
   margin: 0 auto;
 }
