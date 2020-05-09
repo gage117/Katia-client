@@ -9,20 +9,32 @@
 # Summary
 - As a user:
 
-    - As a New User, I should be able to Register ![Alt text](./README-images/signup.png?raw=true "Registration")
+    - As a New User, I should be able to Register 
+    
+    ![Alt text](./README-images/signup.png?raw=true "Registration")
 
     - As a Returning User, I should be able to Login
+    
     ![Alt text](./README-images/login.png?raw=true "login")
 
-    - As a Logged In User, I should be able to edit my profile details ![Alt text](./README-images/editProfile.png?raw=true "edit")
+    - As a Logged In User, I should be able to edit my profile details 
+    
+    ![Alt text](./README-images/editProfile.png?raw=true "edit")
 
-    - As a Logged In User, I should be able to see my profile details ![Alt text](./README-images/profile.png?raw=true "profile")
+    - As a Logged In User, I should be able to see my profile details 
+    
+    ![Alt text](./README-images/profile.png?raw=true "profile")
 
-    - As a Logged In User, I should be able to see the next user to decide yes/no on. ![Alt text](./README-images/mainSwipe.png?raw=true "swipe")
+    - As a Logged In User, I should be able to see the next user to decide yes/no on. 
+    
+    ![Alt text](./README-images/mainSwipe.png?raw=true "swipe")
 
-    - As a Logged In User, I should be able to see my matches. ![Alt text](./README-images/matches.png?raw=true "matches")
+    - As a Logged In User, I should be able to see my matches. 
+    
+    ![Alt text](./README-images/matches.png?raw=true "matches")
 
     - As a Logged In User, I should be able to message my matches.
+    
     ![Alt text](./README-images/message.png?raw=true "messaging")
 
 # Tech used
