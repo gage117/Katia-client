@@ -3,13 +3,16 @@
     justify-content: space-around;
     align-items: center;
     padding: 1vmax 0;
-    height: 9vmax;
+    height: 8vmax;
+    max-height: 7rem; 
+    width: 80%;
+    margin: auto;
 }
 
-.matches__cards-icon {
+.matches__back-icon {
     height: 4vmax;
-    /* margin: .5vmax 0; */
-    margin: 80px auto 55px auto;
+    max-height: 5rem;
+    margin: .5vmax 0;
 }
 
 .matches__header-container {
@@ -29,9 +32,9 @@
 }
 
 .headerBorder {
-    border: 1px solid black;
+    border: .1rem solid black;
     width: 12%;
-    margin-top: 30px;
+    margin-top: 2rem;
 }
 
 .matches__mail-icon {
@@ -51,6 +54,8 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
+    width: 80%;
+    margin: auto;
 }
 
 .matches__li {
@@ -59,15 +64,11 @@
     flex-direction: column;
     justify-content: center;
     align-items: center;
-    /* padding: 2vmax 0 1vmax; */
     margin: 1vmax 0;
-    /* border: .25vmax solid black; */
-    /* border-radius: 1vmax; */
     background: white;
-    border-radius: 6.4vh;
-    width: 90%;
-    border: 3px solid white;
-    box-shadow: 5px 10px 8px #888888;
+    border-radius: .8vmax;
+    width: 100%;
+    box-shadow: .5rem 1rem .8rem #888888;
 
 }
 
@@ -75,7 +76,7 @@
     height: 15.5vmax;
     width: auto;
     max-width: 80%;
-    border-radius: 1vmax;
+    border-radius: .8vmax;
     margin-bottom: 2vmax;
 }
 
@@ -111,15 +112,13 @@
     width: 100%;
     font-size: 2.5vmax;
     font-weight: bold;
-    /* background-color: lightgray; */
     padding: .5vh 2vw;
     margin: .7vmax 0;
     transition: font-size .2s, background-color .2s, padding .2s, margin .2s;
     transition-timing-function: ease-in-out;
     text-align: center;
     color: black;
-    border: none;
-    border-bottom: 3px solid lightgray;
+    border-bottom: .3rem solid lightgray;
     width: 60%;
     margin: 0 auto;
 }
@@ -146,6 +145,7 @@
     font-size: 2.3vmax;
     text-align: center;
     padding: 0 1.5vmin;
+    margin-bottom: 2vmax;
 }
 
 .hidden {
@@ -183,17 +183,27 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    border: 3px solid white;
     width: 100%;
-    border-radius: 40px;
-    background-color: white;
+    border-radius: .8vmax;
     padding: 10px;
-    box-shadow: 5px 10px 8px #888888;
+    box-shadow: .5rem 1rem .8rem #888888;
 }
 
 .noMatchesPara {
     text-align: center;
-    margin-top: 180px;
+    margin-top: 18rem;
     font-weight: bold;
-    font-size: 16px;
+    font-size: 1.6rem;
+}
+
+@media screen and (min-width: 600px) {
+    .matches__icons-container, .matches__ul {
+        max-width: 70%;
+    }
+}
+
+@media screen and (min-width: 900px) {
+    .matches__icons-container, .matches__ul {
+        max-width: 55%;
+    }
 }

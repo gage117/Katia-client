@@ -7,7 +7,7 @@ import {
     AnimatePresence
   } from "framer-motion"
   
-  export const MyComponent = (props) => {
+  export const Animate = (props) => {
     const x = useMotionValue(0)
     const background = useTransform(
       x,
@@ -16,14 +16,14 @@ import {
     )
   
     return (
-      <motion.div style={{ maxWidth: '80%', margin: 'auto' }}>
+      <motion.div className='main__Animate-div'>
         <AnimatePresence>
         <motion.div
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
           style={{ x, border: `.5vmax solid`, 
           borderColor: background, 
-          borderRadius: '7.2vmax', }}
+          borderRadius: '2.7vmax', }}
           transition={{ duration: 0.5 }}
         >
         

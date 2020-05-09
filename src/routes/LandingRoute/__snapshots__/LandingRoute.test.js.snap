@@ -25,7 +25,9 @@ exports[`<LandingRoute /> renders the UI as expected 1`] = `
         Katia
       </a>
     </h1>
-    <hr />
+    <div
+      className="separator"
+    />
     <h2
       className="lp__header"
     >

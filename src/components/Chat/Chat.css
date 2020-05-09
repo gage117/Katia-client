@@ -1,30 +1,30 @@
 .chat__main {
   height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
   position: relative;
 }
 
 .chat__nav {
   height: 13vmin;
+  max-height: 11rem;
   background-color: white;
   display: flex;
   justify-content: center;
   align-items: center;
-  /* background: linear-gradient(to right, #30CFD0 0%, #330867 100%); */
+  box-shadow: 0 1rem .8rem #888888;
   border: none;
-}
-
-.chatNavBorder {
-  /* border: 1px solid black; */
-  width: 50%;
-  margin: 0 auto;
+  box-shadow: 0px .8rem .8rem #888888;
 }
 
 .chat__back {
   position: fixed;
-  top: 3vmin;
-  left: 1.8vmin;
+  top: 1.8vh;
+  left: 1.8vw;
   width: auto;
   height: 7vmin;
+  max-height: 6rem;
 }
 
 .chat__chatting-with {
@@ -34,20 +34,37 @@
   white-space: nowrap;
   overflow: hidden;
   text-overflow: ellipsis;
-  /* color: white; */
   color: black;
 }
 
 .chat__message-container {
-  height: calc(100vh - 30vmin);
-  overflow-y: scroll;
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-end;
+  height: calc(100vh - 28vmin);
+  overflow-y: auto;
+  padding: 0 3vw;
+}
+
+.chat__none {
+  height: 100%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.chat__none-message {
+  width: 75%;
+  font-size: 3vmax;
+  text-align: center;
 }
 
 .chat__message {
   display: flex;
   align-items: flex-end;
-  min-height: 10vw;
-  margin: 1vw;
+  min-height: 8vmin;
+  margin: 1vmin;
+  width: 100%;
 }
 
 .chat__user-message {
@@ -55,10 +72,12 @@
 }
 
 .chat__message-text {
-  font-size: 2.5vmax;
-  padding: 2vw 1vw;
-  border-radius: 1vw;
-  margin: 0 1vw;
+  position: relative;
+  z-index: -1;
+  font-size: 3.5vmin;
+  padding: 2vmin 1vmin;
+  border-radius: 1vmin;
+  margin: 0 1vmin;
   max-width: 87vw;
 }
 
@@ -71,13 +90,13 @@
 }
 
 .chat__avatar {
+  position: relative;
+  z-index: -1;
   width: auto;
-  height: 10vw;
+  height: 8vmin;
 }
 
 .chat__message-form {
-  position: fixed;
-  bottom: 0;
   background-color: white;
   height: 15vmin;
   width: 100vw;
