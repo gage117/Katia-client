@@ -104,7 +104,7 @@ export default class MainPage extends React.Component {
             <>
             <Swipeable {...handlers} className='Swipeable__div'>
                 <Animate>
-                <div className='main__Swipe-User' onClick={this.toggleExpanded}>
+                <div className='main__Swipe-User' onClick={this.toggleExpanded} aria-live='polite'>
                     <section className='minViewInfo'>
                     {this.state.expanded ? (<img src={user.avatar} alt='avatar' 
                     className='main__Image main__hidden-img' />) : 

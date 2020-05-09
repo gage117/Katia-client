@@ -27,6 +27,7 @@ exports[`<Chat /> renders the UI as expected 1`] = `
     className="chat__message-container"
   >
     <li
+      aria-live="polite"
       className="chat__message chat__user-message"
     >
       <span
@@ -41,6 +42,7 @@ exports[`<Chat /> renders the UI as expected 1`] = `
       />
     </li>
     <li
+      aria-live="polite"
       className="chat__message chat__partner-message"
     >
       <img
