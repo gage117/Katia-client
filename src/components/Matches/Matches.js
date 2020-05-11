@@ -51,13 +51,7 @@ export default class Matches extends React.Component {
     render() {
         let users = this.state.users || []
         const gamerTagPlatforms = ['Xbox', 'PSN', 'Nintendo', 'Steam', 'Discord', 'Other']
-        if (users.length === 0) {
-            return (
-                <div className="lds-roller"><div></div><div></div>
-                <div></div><div></div><div></div><div>
-                </div><div></div><div></div></div>
-            )
-        }
+
         return (
             <>
             <div className='matches__icons-container'>
@@ -72,7 +66,7 @@ export default class Matches extends React.Component {
             </header>
             {this.state.users[0] === 'none' ? <p className='noMatchesPara'>You have no matches.</p> : 
             <ul className='matches__ul'>
-                {users.map(user => <li key={user.user_id} className='matches__li' onClick={this.toggleExpanded} >
+                {users.map((user, index) => <li key={index} className='matches__li' onClick={this.toggleExpanded} >
                 <div className='matchesStyleDiv'>
                     <h4 className='matches__display-name'>{user.display_name}</h4>
                     <img src={user.avatar} alt='avatar' className='matches__avatar'></img>
