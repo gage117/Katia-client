@@ -1,16 +1,36 @@
 // Jest Snapshot v1, https://goo.gl/fbAQLP
 
 exports[`<Matches /> renders the UI as expected 1`] = `
-<div
-  className="lds-roller"
->
-  <div />
-  <div />
-  <div />
-  <div />
-  <div />
-  <div />
-  <div />
-  <div />
-</div>
+Array [
+  <div
+    className="matches__icons-container"
+  >
+    <a
+      className="matches__Link"
+      href="/swipe"
+      onClick={[Function]}
+    >
+      <img
+        alt="swipe-back-icon"
+        className="matches__back-icon"
+        src="left-arrow-svgrepo-com.svg"
+      />
+    </a>
+  </div>,
+  <header
+    className="matches__header-container"
+  >
+    <div
+      className="headerBorder"
+    />
+    <h3
+      className="matches__header"
+    >
+      Matches
+    </h3>
+  </header>,
+  <ul
+    className="matches__ul"
+  />,
+]
 `;
