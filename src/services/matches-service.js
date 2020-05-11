@@ -12,11 +12,12 @@ const MatchesService = {
           );
     },
     // removes a specified match for a user
-    removeMatch(userId, match_user_id) {
+    removeMatch(userId, match_user_id) { 
       return fetch(`${config.API_ENDPOINT}/matched/${userId}`, {
-        method: 'DELETE',
+        method: 'PUT',
         headers: {
-          'Authorization': `Bearer ${TokenService.getAuthToken()}`
+          'Authorization': `Bearer ${TokenService.getAuthToken()}`,
+          'content-type': 'application/json'
         },
         body: JSON.stringify({ match_user_id })
       })
