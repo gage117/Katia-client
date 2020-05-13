@@ -41,7 +41,8 @@ export default class Profile extends React.Component {
             discord: '',
             other: ''
         },
-        error: null
+        error: null,
+        loading: true,
     }
 
     componentDidMount() {
@@ -64,7 +65,8 @@ export default class Profile extends React.Component {
               steam: user.steam,
               discord: user.discord,
               other: user.other
-            }
+            },
+            loading: false
          }))
          .catch(error => this.setState({error: error.message}))
     }
@@ -231,8 +233,8 @@ export default class Profile extends React.Component {
     render() {
         let allGenres = this.state.allGenres || []
         let userGenres = this.state.genres || []
-        const { avatar, display_name, bio, lfm_in, genres, platforms, gamer_tags } = this.state
-        if (display_name === '') {
+        const { avatar, display_name, bio, lfm_in, genres, platforms, gamer_tags, loading } = this.state
+        if (loading) {
             return (
                 <div className="lds-roller"><div></div><div></div>
                 <div></div><div></div><div></div><div>
