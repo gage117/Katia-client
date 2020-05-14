@@ -24,7 +24,7 @@ export default class Signup extends Component {
     AuthService.registerUser(user)
       .then(() => {
         AuthService.postLogin({
-          email: email.value.toLowerCase(),
+          email: email.value.toLowerCase().trim(),
           password: password.value
         })
           .then(res => {
