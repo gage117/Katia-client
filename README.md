@@ -1,5 +1,8 @@
 # Katia
 
+# Summary
+- Katia is a social media application made for gamers by gamers. Quickly and easily find others who share the same games and platforms as you.
+
 # Authors
 - [Gage Eide](https://github.com/gage117 "Gage's Github")
 - [Ron Martin](https://github.com/Izzle "Ron's Github")
@@ -7,7 +10,7 @@
 - [Jose Lopez](https://github.com/JozyL27 "Jose's Github")
 
 
-# Summary
+# Overview
 - As a user:
 
     - As a New User, I should be able to Register 
