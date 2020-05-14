@@ -1,7 +1,13 @@
 {
-  "name": "client",
-  "version": "0.1.0",
+  "name": "katia-client",
+  "version": "1.0.0",
   "private": true,
+  "contributors": [
+    "Gage Eide <email> (https://github.com/gage117)",
+    "Ron Martin <ronmartin89@gmail.com> (https://github.com/Izzle)",
+    "Matthew Wagaman <email> (https://github.com/AveraqeDev)",
+    "Jose Lopez <email> (https://github.com/JozyL27)"
+  ],
   "dependencies": {
     "@testing-library/jest-dom": "^4.2.4",
     "@testing-library/react": "^9.3.2",

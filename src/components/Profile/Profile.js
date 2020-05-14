@@ -41,7 +41,8 @@ export default class Profile extends React.Component {
             discord: '',
             other: ''
         },
-        error: null
+        error: null,
+        loading: true,
     }
 
     componentDidMount() {
@@ -64,7 +65,8 @@ export default class Profile extends React.Component {
               steam: user.steam,
               discord: user.discord,
               other: user.other
-            }
+            },
+            loading: false
          }))
          .catch(error => this.setState({error: error.message}))
     }
@@ -91,7 +93,7 @@ export default class Profile extends React.Component {
             other: this.state.gamer_tags.other
         }
         
-        customConfirm(ConfirmDialog).then(answer => {
+        customConfirm(ConfirmDialog, 'Save Profile').then(answer => {
             if(answer) {
                 ProfileService.updateProfile(user_id, userInfo)
                 .then(user => {
@@ -118,7 +120,7 @@ export default class Profile extends React.Component {
     }
 
     cancelEdit = async () => {
-       customConfirm(ConfirmDialog).then(answer => {
+       customConfirm(ConfirmDialog, 'Cancel Edit').then(answer => {
            if(answer) {
                 ProfileService.getAllUserGenres()
                 .then(res => this.setState({ allGenres: res }))
@@ -231,8 +233,8 @@ export default class Profile extends React.Component {
     render() {
         let allGenres = this.state.allGenres || []
         let userGenres = this.state.genres || []
-        const { avatar, display_name, bio, lfm_in, genres, platforms, gamer_tags } = this.state
-        if (display_name === '') {
+        const { avatar, display_name, bio, lfm_in, genres, platforms, gamer_tags, loading } = this.state
+        if (loading) {
             return (
                 <div className="lds-roller"><div></div><div></div>
                 <div></div><div></div><div></div><div>
@@ -316,7 +318,7 @@ export default class Profile extends React.Component {
                     <label htmlFor='genres'>Genres</label>
                         <div className='profile__editGenreList'>
                             {userGenres.map((item, index) => 
-                                <span key={index} className='profile__editGenre' id={item} onClick={(item) => this.genreToDelete(item)}>
+                                <span key={index} className='profile__editGenre' id={item} onClick={(item) => this.genreToDelete(item)} aria-live='polite'>
                                     <label className='profile__editGenreLabel'>{item}</label>
                                     <svg className='profile__editGenreButton' xmlns="http://www.w3.org/2000/svg" width="22" height="22" viewBox="0 0 22 22" fill="none" stroke="#f00" strokeWidth="2" strokeLinecap="round" strokeLinejoin="round">
                                         <line x1="20" y1="2" x2="2" y2="20"/>
@@ -324,7 +326,7 @@ export default class Profile extends React.Component {
                                     </svg>
                                 </span>
                             )}
-                            <select className='profile__genreSelect' onChange={this.handleSelectGenre}>
+                            <select className='profile__genreSelect' onChange={this.handleSelectGenre} aria-live='polite'>
                                 <option value='' style={{display: "none"}}>Choose Genre</option>
                                 {allGenres.map((item, index) => 
                                 userGenres.includes(item.genre) ? 

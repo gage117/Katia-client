@@ -1,68 +1,75 @@
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+# Katia
 
-## Available Scripts
+# Summary
+- Katia is a social media application made for gamers by gamers. Quickly and easily find others who share the same games and platforms as you.
 
-In the project directory, you can run:
+# Authors
+- [Gage Eide](https://github.com/gage117 "Gage's Github")
+- [Ron Martin](https://github.com/Izzle "Ron's Github")
+- [Matthew Wagaman](https://github.com/AveraqeDev "Matthew's Github")
+- [Jose Lopez](https://github.com/JozyL27 "Jose's Github")
 
-### `yarn start`
 
-Runs the app in the development mode.<br />
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+# Overview
+- As a user:
 
-The page will reload if you make edits.<br />
-You will also see any lint errors in the console.
+    - As a New User, I should be able to Register 
+    
+    ![Alt text](./README-images/signup.png?raw=true "Registration")
 
-### `yarn test`
+    - As a Returning User, I should be able to Login
+    
+    ![Alt text](./README-images/login.png?raw=true "login")
 
-Launches the test runner in the interactive watch mode.<br />
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+    - As a Logged In User, I should be able to edit my profile details 
+    
+    ![Alt text](./README-images/editProfile.png?raw=true "edit")
 
-### `yarn build`
+    - As a Logged In User, I should be able to see my profile details 
+    
+    ![Alt text](./README-images/profile.png?raw=true "profile")
 
-Builds the app for production to the `build` folder.<br />
-It correctly bundles React in production mode and optimizes the build for the best performance.
+    - As a Logged In User, I should be able to see the next user to decide yes/no on. 
+    
+    ![Alt text](./README-images/mainSwipe.png?raw=true "swipe")
 
-The build is minified and the filenames include the hashes.<br />
-Your app is ready to be deployed!
+    - As a Logged In User, I should be able to see my matches. 
+    
+    ![Alt text](./README-images/matches.png?raw=true "matches")
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+    - As a Logged In User, I should be able to message my matches.
+    
+    ![Alt text](./README-images/message.png?raw=true "messaging")
 
-### `yarn eject`
+# Tech used
+- Back-end:
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+    - Database: Postgres
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+    - Database language: SQL
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+    - Server: Node.js
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+    - server framework: Express.js
 
-## Learn More
+    - Query Builder: Knex.js
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+    - testing: Mocha, Chai, Supertest
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+    - Messaging: Socket.io
 
-### Code Splitting
+    - Image uploads: AWS S3 Buckets
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/code-splitting
+- Front-end:
 
-### Analyzing the Bundle Size
+    - Framework: React.js
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/analyzing-the-bundle-size
+    - HTML5, CSS3, Socket.io, AWS S3 Buckets
 
-### Making a Progressive Web App
+    - testing: Jest, Enzyme
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/making-a-progressive-web-app
+- deployment:
 
-### Advanced Configuration
+    - Heroku & Vercel
 
-This section has moved here: https://facebook.github.io/create-react-app/docs/advanced-configuration
-
-### Deployment
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/deployment
-
-### `yarn build` fails to minify
-
-This section has moved here: https://facebook.github.io/create-react-app/docs/troubleshooting#npm-run-build-fails-to-minify
+# Site:  https://katia.now.sh/
