@@ -12,7 +12,7 @@ import MatchesService from '../../services/matches-service'
 import backArrow from '../../images/left-arrow-svgrepo-com.svg'
 
 import ConfirmDialog from '../Confirm/ConfirmDialog'
-import customConfirm from '../Confirm/CustomConfirm'
+import customConfirm from '../../Utils/CustomConfirm'
 
 export default class Matches extends React.Component {
     state = {

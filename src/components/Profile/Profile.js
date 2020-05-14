@@ -17,7 +17,7 @@ import ProfileService from '../../services/profile-service'
 import GamerTag from '../GamerTag/GamerTag'
 import rightArrow from '../../images/right-arrow.svg'
 import ConfirmDialog from '../Confirm/ConfirmDialog';
-import customConfirm from '../Confirm/CustomConfirm';
+import customConfirm from '../../Utils/CustomConfirm';
 
 export default class Profile extends React.Component {
     static contextType = UserContext

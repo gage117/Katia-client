@@ -1,0 +1,22 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<GamerTag /> renders the UI as expected 1`] = `
+<div
+  className="gamer-tag__container"
+>
+  <label
+    className="gamer-tag__label"
+    htmlFor="TestTag"
+  >
+    TestTag
+    : 
+  </label>
+  <input
+    className="gamer-tag__input"
+    id="TestTag"
+    name="TestTag"
+    onChange={[Function]}
+    type="text"
+  />
+</div>
+`;

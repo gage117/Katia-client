@@ -1,0 +1,33 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`<ConfirmDialog /> renders the UI as expected 1`] = `
+<div
+  className="back-drop fade-in"
+>
+  <div
+    className="ConfirmDialog fade-in"
+  >
+    <h2
+      className="ConfirmDialog__question"
+    >
+      Are you sure?
+    </h2>
+    <div
+      className="ConfirmDialog__controls"
+    >
+      <button
+        className="blue-button"
+        onClick={[Function]}
+      >
+        Yes
+      </button>
+      <button
+        className="blue-button"
+        onClick={[Function]}
+      >
+        No
+      </button>
+    </div>
+  </div>
+</div>
+`;
