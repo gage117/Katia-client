@@ -29,3 +29,10 @@
   font-size: 2rem;
   margin: .75rem 0;
 }
+
+.demoContainer {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  margin-top: 30px;
+}
