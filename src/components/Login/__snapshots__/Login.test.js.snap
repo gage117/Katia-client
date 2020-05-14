@@ -86,6 +86,19 @@ exports[`<Login /> renders the UI as expected 1`] = `
         </a>
       </div>
     </form>
+    <div
+      className="demoContainer"
+    >
+      <h3>
+        Demo account
+      </h3>
+      <span>
+        Email: user@demo.com
+      </span>
+      <span>
+        Password: #Password60
+      </span>
+    </div>
   </section>
 </main>
 `;
