@@ -220,7 +220,7 @@ export default class Profile extends React.Component {
             .then(res => {
                 this.setState({ avatar: res.location });
             })
-            .catch(error => this.setState({ error }));
+            .catch(error => this.setState({ error: error.error }));
     }
 
     genreToDelete = event => {
@@ -302,6 +302,7 @@ export default class Profile extends React.Component {
                         <div className='profile__imageEditInput'>
                         <input type='file' className='profile__file-upload' onChange={this.avatarChangedHandler} />
                         <button className='blue-button profile__ImgEdit-submit' onClick={this.avatarUploadHandler}>Upload</button>
+                        {this.state.error && <p className='imageError'> Error: {this.state.error}</p>}
                         </div>
                     </section>
                     <label htmlFor='display-name'>Display Name</label>
