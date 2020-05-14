@@ -7,11 +7,11 @@ exports[`<ConfirmDialog /> renders the UI as expected 1`] = `
   <div
     className="ConfirmDialog fade-in"
   >
-    <h1
-      className="ConfirmDialog__text"
+    <h2
+      className="ConfirmDialog__question"
     >
       Are you sure?
-    </h1>
+    </h2>
     <div
       className="ConfirmDialog__controls"
     >
