@@ -1,7 +1,8 @@
 .gamer-tag__container {
     display: flex;
+    flex-direction: column;
     justify-content: space-between;
-    width: 90%;
+    width: 100%;
     margin: 2vmax auto;
 }
 
@@ -11,8 +12,8 @@ label.gamer-tag__label {
     font-size: 3vmax;
     font-weight: normal;
     height: 4.5vmax;
-    text-align: left;
-    width: 35%;
+    text-align: center;
+    width: 100%;
     border-radius: none;
     color: #000;
     display: inline-block;
@@ -23,8 +24,47 @@ label.gamer-tag__label {
     padding: .5vmax 0 0 1.5vmin;
     height: 4.5vmax;
     border: .08rem solid gray;
-    width: 60%;
+    width: 80%;
     margin: 0 auto;
     text-align: left;
     border-radius: 1vmax;
 }
+
+@media only screen and (min-width: 420px) {
+    .gamer-tag__container {
+        flex-direction: row;
+        width: 90%;
+    }
+
+    label.gamer-tag__label {
+        width: 40%;
+        text-align: left;
+    }
+
+    .gamer_tag__input {
+        width: 60%;
+    }
+}
+
+/* ----- iPad Pro ------ */
+/* Portrait */
+@media screen 
+and (device-width: 1024px)
+and (device-height: 1366px)
+and (orientation: portrait) {
+    .gamer-tag__container {
+        flex-direction: column;
+        width: 100%;
+    }
+
+    label.gamer-tag__label {
+        text-align: center;
+        width: 100%;
+    }
+
+    .gamer_tag__input {
+        width: 80%;
+    }
+}
+
+@media screen and (min-width: 1200px) {}
