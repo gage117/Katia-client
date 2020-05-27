@@ -244,13 +244,14 @@
         height: 70vmax;
     }
     .main__Animate-div, .main__Nav, .main__Second-Nav, .main__Swipe-User-null {
-        max-width: 70%;
+        max-width: 65%;
     }
 }
 
 @media screen and (min-width: 900px) {
     .main__Swipe-User {
         height: 55vmax;
+        max-width: 65%;
     }
     .main__Animate-div, .main__Nav, .main__Second-Nav, .main__Swipe-User-null {
         max-width: 55%;
@@ -292,11 +293,13 @@
 @media screen and (min-width: 1080px) {
     .main__Swipe-User {
         height: 52vmax;
+        max-width: 65%;
     }
 }
 
 @media screen and (min-width: 1440px) {
     .main__Swipe-User {
         height: 52vmax;
+        max-width: 65%;
     }
 }

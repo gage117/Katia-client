@@ -1,3 +1,31 @@
+/* @keyframes shadow-pulse
+{
+     0% {
+          background: rgb(48, 207, 208);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+     }
+     50% {
+      background: rgb(37, 91, 192);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+ }
+     75% {
+          background: rgb(51, 8, 103);
+          background-clip: text;
+          -webkit-background-clip: text;
+          -webkit-text-fill-color: transparent;
+     }
+     100% {
+      background: rgb(161, 39, 110);
+      background-clip: text;
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+ }
+} */
+
 #lp__main-flex {
   height: 100vh;
   display: flex;
@@ -40,6 +68,8 @@
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
+  /* animation: shadow-pulse 5s infinite linear;
+  transition-duration: 1s; */
 }
 
 .lp__label {
@@ -68,4 +98,14 @@
   border: .1rem solid lightgrey;
   width: 60%;
   margin: 0 auto;
+}
+
+@media screen and (min-width: 720px) {
+  .lp__about-para {
+    width: 60%;
+  }
+
+  .separator {
+    width: 40%;
+  }
 }

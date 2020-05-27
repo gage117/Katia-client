@@ -35,7 +35,36 @@ export default UserContext;
 export class UserProvider extends Component {
   constructor(props) {
     super(props)
-    const state = { user_id: -1, user: nullUser, socket: null, error: null }
+    const state = { user_id: -1, user: nullUser, socket: null, error: null, vh: 0, vw: 0 }
+
+    function getView() {
+    let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+    state.vw = vw
+    state.vh = vh
+    // return {vw: vw, vh: vh}
+    }
+
+    getView();
+
+    const debounce = (func, wait, immediate) => {
+      let timeout;
+      return () => {
+          const context = this, args = arguments;
+          const later = function() {
+              timeout = null;
+              if (!immediate) func.apply(context, args);
+          };
+          const callNow = immediate && !timeout;
+          clearTimeout(timeout);
+          timeout = setTimeout(later, wait);
+          if (callNow) func.apply(context, args);
+      };
+  };
+  window.addEventListener('resize', debounce(() => getView(),
+  200, false), false);
+  
+  
 
     if(TokenService.hasAuthToken()) {
       const account = TokenService.getUserFromToken(TokenService.getAuthToken())
@@ -120,6 +149,7 @@ export class UserProvider extends Component {
   }
 
   render() {
+    console.log(this.state)
     const value = {
       user_id: this.state.user_id,
       user: this.state.user,

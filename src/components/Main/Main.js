@@ -28,6 +28,11 @@ export default class MainPage extends React.Component {
     static contextType = UserContext;
 
     componentDidMount() {
+        // const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+        // const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+        // this.setState({ vh, vw })
+        // window.addEventListener('resize', () => { this.setState({ vh, vw }) });
+
         SwipeService.getPotentialMatches(this.context.user_id)
             .then(potentialMatches => {
                 const queue = new Queue();
