@@ -27,11 +27,15 @@ export default class MainPage extends React.Component {
 
     static contextType = UserContext;
 
+    getView = () => {
+    let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
+    let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
+    
+    this.context.setView(vh, vw)
+    }
+
     componentDidMount() {
-        // const vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
-        // const vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
-        // this.setState({ vh, vw })
-        // window.addEventListener('resize', () => { this.setState({ vh, vw }) });
+        window.addEventListener('resize', this.getView);
 
         SwipeService.getPotentialMatches(this.context.user_id)
             .then(potentialMatches => {
@@ -53,6 +57,7 @@ export default class MainPage extends React.Component {
     }
 
     componentWillUnmount() {
+        window.removeEventListener('resize', this.updateDimensions);
         document.removeEventListener('keydown', (e) => {
             if(e.keyCode === 37) {
                 this.swipeLeft();
@@ -160,6 +165,14 @@ export default class MainPage extends React.Component {
 
     render() {
         const { queue } = this.state;
+
+        if(this.context.vw >= 768) {
+            return (
+                <>
+                <p>hello</p>
+                </>
+            )
+        }
 
         if(queue == null || this.state.loading === true) {
             return (

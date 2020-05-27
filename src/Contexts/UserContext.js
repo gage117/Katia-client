@@ -19,6 +19,8 @@ const UserContext = React.createContext({
   user: null,
   socket: null,
   error: null,
+  vh: 0,
+  vw: 0,
   setUser: () => {},
   clearUser: () => {},
   setMatches: () => {},
@@ -28,6 +30,7 @@ const UserContext = React.createContext({
   processLogout: () => {},
   processLogin: () => {},
   updateUser: () => {}, // Still works with none of this
+  setView: () => {},
 });
 
 export default UserContext;
@@ -37,35 +40,35 @@ export class UserProvider extends Component {
     super(props)
     const state = { user_id: -1, user: nullUser, socket: null, error: null, vh: 0, vw: 0 }
 
+
+    // Start: getView & debounce tracks resizing of window and adds vh & vw to state
     function getView() {
     let vw = Math.max(document.documentElement.clientWidth || 0, window.innerWidth || 0);
     let vh = Math.max(document.documentElement.clientHeight || 0, window.innerHeight || 0);
     state.vw = vw
     state.vh = vh
-    // return {vw: vw, vh: vh}
     }
 
     getView();
 
-    const debounce = (func, wait, immediate) => {
-      let timeout;
-      return () => {
-          const context = this, args = arguments;
-          const later = function() {
-              timeout = null;
-              if (!immediate) func.apply(context, args);
-          };
-          const callNow = immediate && !timeout;
-          clearTimeout(timeout);
-          timeout = setTimeout(later, wait);
-          if (callNow) func.apply(context, args);
-      };
-  };
-  window.addEventListener('resize', debounce(() => getView(),
-  200, false), false);
+  //   const debounce = (func, wait, immediate) => {
+  //     let timeout;
+  //     return () => {
+  //         const context = this, args = arguments;
+  //         const later = function() {
+  //             timeout = null;
+  //             if (!immediate) func.apply(context, args);
+  //         };
+  //         const callNow = immediate && !timeout;
+  //         clearTimeout(timeout);
+  //         timeout = setTimeout(later, wait);
+  //         if (callNow) func.apply(context, args);
+  //     };
+  // };
+  // window.addEventListener('resize', debounce(() => getView(),
+  // 200, true), false);
+  // end
   
-  
-
     if(TokenService.hasAuthToken()) {
       const account = TokenService.getUserFromToken(TokenService.getAuthToken())
       const socket = io(config.SOCKET_CONNECTION)
@@ -74,6 +77,10 @@ export class UserProvider extends Component {
     }
 
     this.state = state;
+  }
+
+  setView = (vh, vw) => {
+    this.setState({ vh: vh, vw: vw })
   }
 
   setUser = user => {
@@ -149,7 +156,6 @@ export class UserProvider extends Component {
   }
 
   render() {
-    console.log(this.state)
     const value = {
       user_id: this.state.user_id,
       user: this.state.user,
@@ -164,6 +170,9 @@ export class UserProvider extends Component {
       updateUser: this.updateUser,
       generateLfmElements: this.generateLfmElements,
       generateGenreString: this.generateGenreString,
+      vh: this.state.vh,
+      vw: this.state.vw,
+      setView: this.setView
     };
 
     return (
