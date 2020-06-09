@@ -148,7 +148,7 @@ export default class MainPage extends React.Component {
     generateNullCard = () => {
         return (
             <div className='main__Swipe-User-null'>
-                <h4 className='main__card-null'>You've reached the end of the user queue! While you're waiting for potential matches, you may find use in this <a href='https://store.steampowered.com/tags/en/Singleplayer/'>list of games.</a></h4>
+                <h4 className='main__card-null'>You've reached the end of the user queue! While you're waiting for potential matches, you may find use in this <a href='https://store.steampowered.com/tags/en/Singleplayer/' rel='noopener noreferrer' target='_blank'>list of games.</a></h4>
             </div>
         )
     }

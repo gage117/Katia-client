@@ -18,7 +18,7 @@
     max-height: 7rem;
     display: flex;
     flex-direction: row;
-    justify-content: space-around;
+    justify-content: space-evenly;
     padding: 1vmax 0;
     margin: 0 auto;
 }
@@ -292,11 +292,12 @@
 @media screen and (min-width: 1080px) {
     .main__Swipe-User {
         height: 52vmax;
+        width: 565px;
     }
 }
 
-@media screen and (min-width: 1440px) {
+@media screen and (min-width: 1385px) {
     .main__Swipe-User {
-        height: 52vmax;
+        height: 715px;
     }
 }

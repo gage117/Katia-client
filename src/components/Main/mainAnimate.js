@@ -21,8 +21,8 @@ import {
         <motion.div
           drag="x"
           dragConstraints={{ left: 0, right: 0 }}
-          style={{ x, border: `.5vmax solid`, 
-          borderColor: background, 
+          style={{ x, padding: '15px',
+          backgroundColor: background, 
           borderRadius: '2.7vmax', }}
           transition={{ duration: 0.5 }}
         >
