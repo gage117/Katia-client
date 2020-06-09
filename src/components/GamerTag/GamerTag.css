@@ -2,15 +2,15 @@
     display: flex;
     justify-content: space-between;
     width: 90%;
-    margin: 2vmax auto;
+    margin: 2vh auto;
 }
 
 label.gamer-tag__label {
     background: white;
-    padding: .7vmax 1.5vmin;
-    font-size: 3vmax;
+    padding: .7vh 1.5vh;
+    font-size: 3vh;
     font-weight: normal;
-    height: 4.5vmax;
+    height: 4.5vh;
     text-align: left;
     width: 35%;
     border-radius: none;
@@ -19,12 +19,12 @@ label.gamer-tag__label {
 }
 
 .gamer-tag__input {
-    font-size: 3vmax;
-    padding: .5vmax 0 0 1.5vmin;
-    height: 4.5vmax;
+    font-size: 3vh;
+    padding: .5vh 0 0 1.5vh;
+    height: 4.5vh;
     border: .08rem solid gray;
     width: 60%;
     margin: 0 auto;
     text-align: left;
-    border-radius: 1vmax;
+    border-radius: 1vh;
 }
