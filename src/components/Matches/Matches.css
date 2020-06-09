@@ -205,4 +205,57 @@
     .matches__icons-container, .matches__ul {
         max-width: 55%;
     }
+
+    .matchesStyleDiv {
+        height: 250px;
+    }
+
+    .matches__info {
+        width: 80%;
+    }
+
+    .matches__li {
+        width: 70%;
+    }
+
+    .matches__header {
+        font-size: 2rem;
+    }
+
+    .matches__back-icon {
+        height: 3rem;
+    }
+
+    .headerBorder {
+        width: 10%;
+        margin-top: 0;
+    }
+
+    .matches__avatar {
+        height: 100px;
+        margin-bottom: 20px;
+    }
+
+    .matches__display-name {
+        font-size: 25px;
+        margin-bottom: 20px;
+    }
+
+    .matches__card-header.hidden1 {
+        font-size: 22px;
+    }
+
+    .matches__card-header {
+        font-size: 22px;
+    }
+
+    .matches__platforms > * {
+        height: 4vmax;
+    }
+
+    .matches__info > p {
+        font-size: 20px;
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
 }

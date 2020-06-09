@@ -119,7 +119,7 @@ export default class Profile extends React.Component {
         })
     }
 
-    cancelEdit = async () => {
+    cancelEdit = () => {
        customConfirm(ConfirmDialog, 'Cancel Edit').then(answer => {
            if(answer) {
                 ProfileService.getAllUserGenres()
@@ -135,6 +135,7 @@ export default class Profile extends React.Component {
                     platforms: user.platforms,
                     genres: user.genres,
                     isEditing: false,
+                    selectedFile: null,
                 }))
                 .catch(error => this.setState({error: error.message}))
             }
@@ -301,7 +302,8 @@ export default class Profile extends React.Component {
                         alt='avatar' className='profile__ImgEdit' />
                         <div className='profile__imageEditInput'>
                         <input type='file' className='profile__file-upload' onChange={this.avatarChangedHandler} />
-                        <button className='blue-button profile__ImgEdit-submit' onClick={this.avatarUploadHandler}>Upload</button>
+                        {this.state.selectedFile && <button className='blue-button profile__ImgEdit-submit' 
+                        onClick={this.avatarUploadHandler}>Upload</button>}
                         {this.state.error && <p className='imageError'> Error: {this.state.error}</p>}
                         </div>
                     </section>

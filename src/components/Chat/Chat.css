@@ -127,3 +127,22 @@
   width: 9vmin;
   height: auto;
 }
+
+.chat__send:hover {
+  cursor: pointer;
+}
+
+@media screen and (min-width: 900px) {
+  .chat__chatting-with {
+    font-size: 30px;
+  }
+
+  .chat__none-message {
+    font-size: 20px;
+  }
+
+  .chat__back {
+    height: 40px;
+    margin-top: 5px;
+  }
+}
