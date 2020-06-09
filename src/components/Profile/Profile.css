@@ -3,14 +3,14 @@
     justify-content: space-around;
     align-items: center;
     padding: 1rem 0;
-    height: 9vmax;
+    height: 9vh;
     max-height: 7rem; 
     width: 85%;
     margin: 0 auto .75rem;
 }
 
 .profile__edit-icon {
-    height: 7vmax;
+    height: 7vh;
     max-height: 5rem;
 }
 
@@ -19,7 +19,7 @@
 }
 
 .profile__back-icon {
-    height: 7vmax;
+    height: 7vh;
     max-height: 5rem;
 }
 
@@ -32,22 +32,22 @@
     border: .1rem solid lightgrey;
     max-width: 85%;
     margin: 0 auto;
-    border-radius: 2.5vmax;
+    border-radius: 2.5vh;
     background-color: white;
     box-shadow: .5rem 1rem .8rem #888888;
 }
 
 .profile__section > * {
-    font-size: 3.5vmax;
+    font-size: 3.5vh;
 }
 
 .profile__img-name-div {
     width: calc(100% + .4rem);
-    margin-top: -.5vmax;
+    margin-top: -.5vh;
     display: flex;
     flex-direction: column;
     align-items: center;
-    border-radius: 2.5vmax;
+    border-radius: 2.5vh;
     background: #30CFD0;
     box-shadow: .2rem 1rem .8rem #888888;
 }
@@ -59,27 +59,27 @@
 .profile__img {
     display: block;
     width: auto;
-    height: 35vmin;
+    height: 35vh;
     max-height: 28rem;
-    border-radius: 2.5vmax;
-    margin: 1.5vmax 0 0;
+    border-radius: 2.5vh;
+    margin: 1.5vh 0 0;
 }
 
 .profile__displayName {
-    padding: 1vmax;
+    padding: 1vh;
     color: black;
-    font-size: 3vmax;
+    font-size: 3vh;
     font-weight: bold;
 }
 
 .profile__card-header {
     width: 100%;
-    height: 5.5vmax;
+    height: 5.5vh;
     text-align: left;
-    padding: .7vmax 2vmin;
-    font-size: 3.5vmax;
+    padding: .7vh 2vh;
+    font-size: 3.5vh;
     font-weight: bold;
-    margin: 1vmax 0;
+    margin: 1vh 0;
     text-align: center;
     border: none;
     border-bottom: .3rem solid lightgray;
@@ -93,18 +93,18 @@
 .profile__bio {
     width: 90%;
     text-align: center;
-    margin-bottom: 1vmax;
+    margin-bottom: 1vh;
 }
 
 .logoutLink-container {
     display: flex;
     justify-content: center;
-    padding: 1.5vmax 0;
-    margin: 1vmax;
+    padding: 1.5vh 0;
+    margin: 1vh;
 }
 
 .logoutLink-container > * {
-    font-size: 3.5vmax;
+    font-size: 3.5vh;
     margin: 0 auto;
 }
 
@@ -120,13 +120,13 @@
     display: flex;
     justify-content: space-around;
     align-items: center;
-    padding: 1vmax 0;
-    height: 9vmax;
+    padding: 1vh 0;
+    height: 9vh;
     max-height: 12.6rem; 
 }
 
 .profile__editCancel {
-    height: 7vmax;
+    height: 7vh;
     max-height: 8rem;
 }
 
@@ -135,7 +135,7 @@
 }
 
 .profile__editSubmit {
-    height: 7vmax;
+    height: 7vh;
     max-height: 8rem;
 }
 
@@ -144,18 +144,18 @@
 }
 
 .profile__ImgEdit-container {
-    border-radius: .8vmax;
-    padding: 2vmax .5vmax;
+    border-radius: .8vh;
+    padding: 2vh .5vh;
     margin: 0 auto 2rem;
     width: 100%;
 }
 
 .profile__ImgEdit {
-    height: 25vmax;
+    height: 25vh;
     width: auto;
     display: block;
     margin: 0 auto;
-    border-radius: .8vmax;
+    border-radius: .8vh;
 }
 
 .profile__imageEditInput {
@@ -168,20 +168,20 @@
 }
 
 .profile__file-upload {
-    width: 60vw;
     font-size: 2.5vh;
+    margin: 1rem 0 2rem;
 }
 
 .profile__imageEditInput > .profile__ImgEdit-submit {
-    font-size: 2.5vmax;
+    font-size: 2vh;
     padding: .6rem 1.5rem;
 }
 
 .profile__editForm > label, .profile__gamer-tags-header {
-    padding: .2vmax 1.5vmin;
-    font-size: 3vmax;
+    padding: .2vh 1.5vh;
+    font-size: 3vh;
     font-weight: bold;
-    height: 4.5vmax;
+    height: 4.5vh;
     text-align: center;
     width: 70%;
     margin: 3.5rem auto;
@@ -191,14 +191,14 @@
 }
 
 #display-name {
-    font-size: 3vmax;
-    padding: .5vmax 0 0 1.5vmin;
-    height: 5.5vmax;
+    font-size: 3vh;
+    padding: .5vh 0 0 1.5vh;
+    height: 5.5vh;
     border: .08rem solid gray;
     width: 80%;
     margin: 0 auto;
     text-align: center;
-    border-radius: .8vmax;
+    border-radius: .8vh;
 }
 
 .profile__editForm > textarea {
@@ -206,39 +206,39 @@
 }
 
 #lfm {
-    font-size: 3vmax;
-    padding: .5vmax 0 0 1.5vmin;
-    height: 12vmax;
+    font-size: 3vh;
+    padding: .5vh 0 0 1.5vh;
+    height: 12vh;
     border: .08rem solid gray;
     width: 100%;
     margin: 0 auto;
-    border-radius: .8vmax;
+    border-radius: .8vh;
 }
 
 #platforms {
     display: flex;
     justify-content: space-around;
     margin: 0;
-    padding: 1.4vmax 0;
+    padding: 1.4vh 0;
     width: 100%;
     margin: 0 auto;
 }
 
 #genres {
     text-align: center;
-    height: 4.5vmax;
-    font-size: 3vmax;
-    padding-left: 1.5vmin;
+    height: 4.5vh;
+    font-size: 3vh;
+    padding-left: 1.5vh;
 }
 
 #bio {
-    font-size: 3vmax;
-    padding: .5vmax 0 0 1.5vmin;
-    height: 20vmax;
+    font-size: 3vh;
+    padding: .5vh 0 0 1.5vh;
+    height: 20vh;
     border: .08rem solid gray;
     max-width: 100%;
-    margin: 0rem auto 4vmax auto;
-    border-radius: .8vmax;
+    margin: 0rem auto 4vh auto;
+    border-radius: .8vh;
 }
 
 .profile__editGenreList {
@@ -256,22 +256,22 @@
     white-space: nowrap;
     background-color: #330867;
     color: white;
-    border-radius: .5vmax;
-    padding: .5vmax 0 .35vmax .5vmax;
-    margin: .75vmax;
+    border-radius: .5vh;
+    padding: .5vh 0 .35vh .5vh;
+    margin: .75vh;
 }
 
 .profile__editGenreLabel {
-    font-size: 2.6vmax;
+    font-size: 2.6vh;
     font-weight: 600;
 }
 
 .profile__editGenreButton {
     display: inline-block;
-    margin: 0 .75vmax 0 .6vmax;
-    padding-bottom: .2vmax;
+    margin: 0 .75vh 0 .6vh;
+    padding-bottom: .2vh;
     height: auto;
-    width: 1.8vmax;
+    width: 1.8vh;
 }
 
 .profile__editGenre:hover {
@@ -280,26 +280,26 @@
 
 .profile__editGenre:hover > .profile__editGenreButton {
     stroke: rgb(224, 0, 0);
-    width: 2.1vmax;
-    margin: 0 .6vmax 0 .45vmax;
+    width: 2.1vh;
+    margin: 0 .6vh 0 .45vh;
     stroke-width: 2.5;
 }
 
 .profile__genreSelect {
-    font-size: 2.6vmax;
+    font-size: 2.6vh;
     font-weight: 600;
     background-color: rgb(19, 93, 177);
-    border-radius: .5vmax;
+    border-radius: .5vh;
     border: .1rem solid rgb(19, 93, 177);
-    padding: .5vmax 0 .65vmax .35vmax;
-    margin: .75vmax .2rem;
+    padding: .5vh 0 .65vh .35vh;
+    margin: .75vh .2rem;
     text-align: center;
     color: white;
 }
 
 .profile__genreSelectItem {
     border: .1rem solid #e0e0e0;
-    font-size: 2.6vmax;
+    font-size: 2.6vh;
     font-weight: 600;
 }
 
@@ -313,7 +313,7 @@
     }
 
     .profile__section > * {
-        font-size: 3vmax;
+        font-size: 3vh;
     }
 }
 
@@ -333,7 +333,7 @@
     }
 
     .profile__section > * {
-        font-size: 2.5vmax;
+        font-size: 2.5vh;
     }
 }
 
