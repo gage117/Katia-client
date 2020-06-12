@@ -1,9 +1,8 @@
-import React, {Component} from 'react'
+import React from 'react'
 import {Link} from 'react-router-dom'
 import './LandingPage.css'
 
-class LandingPage extends Component {
-  render() {
+function LandingPage() {
     return (
       <main id='lp__main-flex'>
         <Link to='/login' className='lp__login blue-button'>Login</Link>
@@ -18,7 +17,6 @@ class LandingPage extends Component {
         </div>
       </main>
     )
-  }
 }
 
 export default LandingPage

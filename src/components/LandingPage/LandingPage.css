@@ -4,6 +4,11 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  /* color: #fff;
+  background: linear-gradient(-45deg, #EE7752, #E73C7E, rgb(48, 207, 208), rgb(51, 8, 103));
+  background-size: 400% 400%;
+  position: relative;
+  animation: change 10s ease-in-out infinite; */
 }
 
 .lp__login {
@@ -13,7 +18,7 @@
 }
 
 .lp__header {
-  font-size: 2.6rem;
+  font-size: 2rem;
   margin: 1vmax 0;
 }
 
@@ -28,15 +33,23 @@
 
 .lp__about-para {
   width: 80%;
-  font-size: 2rem;
+  font-size: 1.5rem;
   margin: 0 auto;
 }
 
 .lp__lp-link {
-  font-size: 4rem;
+  font-size: 10rem;
   font-weight: bold;
   text-decoration: none;
   background: linear-gradient(to right, rgb(48, 207, 208) 0%, rgb(51, 8, 103) 100%);
+  /* background-clip: text;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent; */
+  color: #fff;
+  background: linear-gradient(-45deg, #EE7752, #E73C7E, rgb(48, 207, 208), rgb(51, 8, 103));
+  background-size: 400% 400%;
+  position: relative;
+  animation: change 10s ease-in-out infinite;
   background-clip: text;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
@@ -68,4 +81,31 @@
   border: .1rem solid lightgrey;
   width: 60%;
   margin: 0 auto;
+}
+
+@keyframes change {
+  0%{
+    background-position: 0 50%;
+  }
+  50%{
+    background-position: 100% 50%;
+  }
+  100%{
+    background-position: 0 50%;
+  }
+}
+
+@media screen and (min-width: 720px) {
+  .lp__header {
+    font-size: 2.2rem;
+  }
+
+  .lp__about-para {
+    font-size: 1.7rem;
+    width: 60%;
+  }
+
+  .separator {
+    width: 50%;
+  }
 }
