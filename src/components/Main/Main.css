@@ -50,9 +50,9 @@
 
 .main__Swipe-User {
     position: relative;
-    min-height: 75vh;
-    height: 83vh;
-    max-height: 78vh;
+    min-height: 70vh;
+    /* height: 83vh; */
+    /* max-height: 78vh; */
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -137,7 +137,7 @@
 }
 
 .main__bio {
-    font-size: 3.5vh;
+    font-size: 3vh;
     text-align: center;
     padding: 0 1vw;
     max-height: 17vh;
@@ -243,6 +243,7 @@
 @media screen and (min-width: 600px) {
     .main__Swipe-User {
         height: 70vh;
+        max-width: 65%;
     }
     .main__Animate-div, .main__Nav, .main__Second-Nav, .main__Swipe-User-null {
         max-width: 70%;
@@ -302,6 +303,7 @@
 
 @media screen and (min-width: 1385px) {
     .main__Swipe-User {
-        height: 715px;
+        max-height: 715px;
+        max-width: 55%;
     }
 }
