@@ -6,11 +6,15 @@
   list-style: none;
   text-decoration: none;
   text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
   -webkit-font-feature-settings: "kern" 1;
 }
 
 html {
   font-size: 62.5%;
+  text-rendering: optimizeLegibility;
+  font-feature-settings: "kern" 1;
+  -webkit-font-feature-settings: "kern" 1;
 }
 
 body {

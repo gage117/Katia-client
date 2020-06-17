@@ -40,3 +40,8 @@
   font-size: 1.8rem;
   transition-duration: 0.5ms;
 }
+
+.Signup__form > input {
+  border-radius: 0;
+  -webkit-border-radius:0px;
+}
