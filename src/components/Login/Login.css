@@ -36,3 +36,8 @@
   align-items: center;
   margin-top: 30px;
 }
+
+#Login__email, #Login__password {
+  border-radius: 0;
+  -webkit-border-radius:0px;
+}

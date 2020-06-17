@@ -4,11 +4,6 @@
   flex-direction: column;
   justify-content: center;
   align-items: center;
-  /* color: #fff;
-  background: linear-gradient(-45deg, #EE7752, #E73C7E, rgb(48, 207, 208), rgb(51, 8, 103));
-  background-size: 400% 400%;
-  position: relative;
-  animation: change 10s ease-in-out infinite; */
 }
 
 .lp__login {
@@ -42,9 +37,6 @@
   font-weight: bold;
   text-decoration: none;
   background: linear-gradient(to right, rgb(48, 207, 208) 0%, rgb(51, 8, 103) 100%);
-  /* background-clip: text;
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent; */
   color: #fff;
   background: linear-gradient(-45deg, #EE7752, #E73C7E, rgb(48, 207, 208), rgb(51, 8, 103));
   background-size: 400% 400%;
