@@ -41,7 +41,8 @@
   transition-duration: 0.5ms;
 }
 
-.Signup__form > input {
+#Signup__email, #Signup__display_name, 
+#Signup__password, #Signup__confirm_password {
   border-radius: 0;
   -webkit-border-radius:0px;
 }
