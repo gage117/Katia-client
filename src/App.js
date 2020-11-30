@@ -8,6 +8,7 @@ import LoginPage from './routes/LoginPage/LoginPage'
 import Profile from './components/Profile/Profile';
 import Matches from './components/Matches/Matches';
 import MessagePage from './routes/MessagePage/MessagePage';
+import ProfileService from './services/profile-service';
 import './App.css'
 
 class App extends Component {
@@ -19,6 +20,10 @@ class App extends Component {
     }
   }
   
+  componentDidMount() {
+    ProfileService.getAllUserGenres();
+  }
+
   render() {
     return (
       <div className="App">
